@@ -1,3 +1,8 @@
+.magazine-image {
+  max-width: 30%;
+  height: auto;
+}
+
 .App {
   text-align: center;
 }
