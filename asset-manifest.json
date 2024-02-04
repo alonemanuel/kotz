@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/kotz/static/css/main.f855e6bc.css",
-    "main.js": "/kotz/static/js/main.80c7d3ad.js",
+    "main.js": "/kotz/static/js/main.3c103b48.js",
     "static/js/592.2fb42a94.chunk.js": "/kotz/static/js/592.2fb42a94.chunk.js",
-    "static/media/logo.svg": "/kotz/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/Notobasis_syriaca.jpg": "/kotz/static/media/Notobasis_syriaca.b517ae057fe7dfdd65a9.jpg",
     "index.html": "/kotz/index.html",
     "main.f855e6bc.css.map": "/kotz/static/css/main.f855e6bc.css.map",
-    "main.80c7d3ad.js.map": "/kotz/static/js/main.80c7d3ad.js.map",
+    "main.3c103b48.js.map": "/kotz/static/js/main.3c103b48.js.map",
     "592.2fb42a94.chunk.js.map": "/kotz/static/js/592.2fb42a94.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.80c7d3ad.js"
+    "static/js/main.3c103b48.js"
   ]
 }
