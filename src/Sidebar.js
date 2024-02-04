@@ -5,9 +5,9 @@ function Sidebar() {
         <aside>
             <nav>
                 <ul>
+                    <li><Link to="/censorship">צנזורה</Link></li>
                     <li><Link to="/fake">פייק</Link></li>
                     <li>פרובוקציה</li>
-                    <li>צנזורה</li>
                 </ul>
             </nav>
         </aside>
