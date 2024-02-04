@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/kotz/static/css/main.f855e6bc.css",
-    "main.js": "/kotz/static/js/main.3c103b48.js",
+    "main.css": "/kotz/static/css/main.6b205e15.css",
+    "main.js": "/kotz/static/js/main.94422760.js",
     "static/js/592.2fb42a94.chunk.js": "/kotz/static/js/592.2fb42a94.chunk.js",
     "static/media/Notobasis_syriaca.jpg": "/kotz/static/media/Notobasis_syriaca.b517ae057fe7dfdd65a9.jpg",
+    "static/media/kabar.jpg": "/kotz/static/media/kabar.16109d08ad7a2706ea94.jpg",
     "index.html": "/kotz/index.html",
-    "main.f855e6bc.css.map": "/kotz/static/css/main.f855e6bc.css.map",
-    "main.3c103b48.js.map": "/kotz/static/js/main.3c103b48.js.map",
+    "main.6b205e15.css.map": "/kotz/static/css/main.6b205e15.css.map",
+    "main.94422760.js.map": "/kotz/static/js/main.94422760.js.map",
     "592.2fb42a94.chunk.js.map": "/kotz/static/js/592.2fb42a94.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.3c103b48.js"
+    "static/css/main.6b205e15.css",
+    "static/js/main.94422760.js"
   ]
 }
