@@ -3,6 +3,10 @@
   height: auto;
 }
 
+article img {
+  max-width: 10%;
+}
+
 .App {
   text-align: center;
 }
