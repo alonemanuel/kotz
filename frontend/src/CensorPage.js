@@ -36,7 +36,7 @@ function CensorPage() {
 
     useEffect(() => {
         // Replace with real url
-        fetch('http://localhost:1337/api/articles?populate=cover')
+        fetch(`${process.env.REACT_APP_STRAPI_API_URL}/api/articles?populate=cover`)
             .then((Response) => Response.json())
             .then((data) => {
                 setArticles(data.data.map(article => article.attributes));
@@ -84,7 +84,7 @@ function CensorPage() {
                         <p>
                             {renderRichText(article.body)}
                         </p>
-                        <img src={`http://localhost:1337${article.cover?.data?.attributes.url}`} alt="" />
+                        <img src={`${process.env.REACT_APP_STRAPI_API_URL}${article.cover?.data?.attributes.url}`} alt="" />
                         <hr />
                     </article>
                 )
