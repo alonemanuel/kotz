@@ -21,7 +21,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://alonemanuel.github.io/kotz",
+  "homepage": ".",
   "eslintConfig": {
     "extends": [
       "react-app",
