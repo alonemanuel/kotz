@@ -17,7 +17,12 @@ const FakePage: React.FC = () => {
   };
 
   const handleImageClick = (index: number): void => {
-    setSelectedImageIndex(index);
+    if (index === selectedImageIndex) {
+      setSelectedImageIndex(null);
+    } else {
+      setSelectedImageIndex(index);
+    }
+
     scrollToTop(index);
     // Additional logic to scroll the clicked item to the top can be implemented here
   };
@@ -28,19 +33,19 @@ const FakePage: React.FC = () => {
         <div
           data-index={index}
           key={index}
-          className={styles.imageBar}
+          className={`${styles.imageBar} ${
+            selectedImageIndex === index ? styles.show : ""
+          }`}
           onClick={() => handleImageClick(index)}
         >
-          <img
-            className={styles.imageImg}
-            src={imgSrc}
-            alt={`Item ${index + 1}`}
-          />
-          <div
-            className={`${styles.articleContainer} ${
-              selectedImageIndex === index ? styles.show : ""
-            }`}
-          >
+          <div className={styles.imgCont}>
+            <img
+              className={styles.imageImg}
+              src={imgSrc}
+              alt={`Item ${index + 1}`}
+            />
+          </div>
+          <div className={`${styles.articleContainer}`}>
             <div className={styles.headerImage}>
               hello image!!! very much very much
             </div>
