@@ -1,0 +1,14 @@
+.kotzFab {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    height: 5%;
+    display: flex;
+    cursor: pointer;
+    transition: scale 0.1s ease-out;
+
+    :hover {
+        scale: 1.05;
+    }
+}
+

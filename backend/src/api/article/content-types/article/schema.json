@@ -4,7 +4,7 @@
   "info": {
     "singularName": "article",
     "pluralName": "articles",
-    "displayName": "Articles",
+    "displayName": "Katavot",
     "description": ""
   },
   "options": {
@@ -31,6 +31,32 @@
     },
     "author": {
       "type": "string"
+    },
+    "author_about": {
+      "type": "text"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "body_media": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "author_photo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

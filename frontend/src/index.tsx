@@ -1,13 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import './index.css'; // Global styles
+import App from './App'; // The root component of your application
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom'; // If you're using react-router for navigation
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// Ensure you're using ReactDOM.createRoot for React 18+
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 

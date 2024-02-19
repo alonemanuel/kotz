@@ -1,0 +1,24 @@
+.container {
+    margin: 100px;
+    display: grid;
+    gap: 20px;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.gridItem {
+    cursor: pointer;
+
+}
+
+.gridItem img {
+    width: 100%;
+}
+
+.header {
+    text-align: center;
+}
