@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./KotzFab.module.css";
+import styles from "./styles/KotzFab.module.css";
 import kotzImage from './images/kotz.svg'
 
 const KotzFab = () => {

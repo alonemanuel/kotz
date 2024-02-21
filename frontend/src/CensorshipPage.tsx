@@ -1,6 +1,6 @@
 // CensorshipPage.tsx
 import React, { useState } from "react";
-import styles from "./CensorshipPage.module.css";
+import styles from "./styles/CensorshipPage.module.css";
 import KotzFab from "./KotzFab";
 import kabarImg from "./images/kabar.jpg";
 import Accordion, { Article } from "./Accordion";

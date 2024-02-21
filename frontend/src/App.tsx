@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import KotzPage from './KotzPage';
 import FakePage from './FakePage';
 import CensorshipPage from './CensorshipPage';
-import './App.css';
+import './styles/App.css';
 
 const App: React.FC = () => {
   return (

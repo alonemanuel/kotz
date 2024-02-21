@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "../src/KotzPage.module.css";
+import styles from "../src/styles/KotzPage.module.css";
 import kabarImg from "./images/kabar.jpg";
 import kotzImg from "./images/kotz.svg";
 import KotzFab from "./KotzFab";

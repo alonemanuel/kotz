@@ -4,6 +4,7 @@ import './index.css'; // Global styles
 import App from './App'; // The root component of your application
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom'; // If you're using react-router for navigation
+import './fonts/fonts.css';
 
 // Ensure you're using ReactDOM.createRoot for React 18+
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
