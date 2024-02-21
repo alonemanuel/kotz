@@ -1,3 +1,9 @@
+:root {
+  --typeface-serif: 'DavidVC';
+  --typeface-sans: 'NarkisYair';
+  --font-running: 18px/25px var(--typeface-serif);
+}
+
 html {
   color: black;
   font-size: 16px;
@@ -16,8 +22,19 @@ body {
 }
 
 p {
-  font-family: 'DavidVC';
-  font-size: 20px;
+  font: var(--font-running);
+}
+
+h1 {
+  font-family: 'DavidVc';
+}
+
+.author {
+  font-family: 'NarkisYair';
+}
+
+.caption {
+  font-family: 'NarkisYair';
 }
 
 html {
