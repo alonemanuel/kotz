@@ -369,7 +369,7 @@ const CensorshipPage: React.FC = () => {
   ];
 
   return (
-    <div>
+    <div className={styles.censorshipPage}>
       <h2> Articles accordion</h2>
       <Accordion articles={articles} />
     </div>

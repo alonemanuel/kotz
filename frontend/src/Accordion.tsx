@@ -19,7 +19,7 @@ const Accordion: React.FC<AccordionProps> = ({ articles }) => {
   };
 
   return (
-    <div>
+    <div className={styles.accordionContainer}>
       {articles.map((article, index) => (
         <React.Fragment key={article.id}>
           <button
