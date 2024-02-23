@@ -23,15 +23,14 @@ const Accordion: React.FC<AccordionProps> = ({ articles }) => {
       {articles.map((article, index) => (
         <React.Fragment key={article.id}>
           <button
-            className={styles.accordion}
+            className={`${styles.accordion}  ${activeIndex === index ? styles.active : ""}`}
             onClick={() => toggleAccordion(index)}
           >
-            {article.title}
+            <h1>{article.title}</h1>
           </button>
           <div
-            className={`${styles.panel} ${
-              activeIndex === index ? styles.active : ""
-            }`}
+            className={`${styles.panel} 
+            ${activeIndex === index ? styles.active : ""}`}
           >
             {article.content}
           </div>

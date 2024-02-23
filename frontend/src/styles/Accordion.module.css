@@ -1,6 +1,6 @@
 .accordion {
     background-color: #eee;
-    color: #444;
+    color: #fff;
     cursor: pointer;
     padding: 18px;
     width: 100%;
@@ -11,7 +11,7 @@
     transition: 0.4s;
 
     flex-grow: 1;
-    /* flex-shrink: ; */
+    background-image: url(../images/tiger0.png);
   }
   
   .accordion:hover, .accordion.active {
