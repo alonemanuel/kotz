@@ -9,6 +9,14 @@
     grid-template-columns: repeat(6, 1fr); */
 }
 
+@media (min-aspect-ratio: 1) {
+  .censorshipPage {
+    width: 100vw;
+    height: 100vh;
+  }
+  
+}
+
 .imageBar {
   display: flex;
   flex-flow: column nowrap;

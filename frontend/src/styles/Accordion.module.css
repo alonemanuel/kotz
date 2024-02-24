@@ -1,45 +1,81 @@
 .accordion {
-    background-color: #eee;
-    color: #fff;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: right;
-    outline: none;
-    font-size: 18px;
-    transition: 0.4s;
+  background-color: #eee;
+  color: #fff;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: right;
+  outline: none;
+  font-size: 18px;
+  transition: 0.4s;
 
-    flex-grow: 1;
-    background-image: url(../images/tiger0.png);
-  }
-  
-  .accordion:hover, .accordion.active {
-    background-color: #ccc;
-  }
-  
-  .panel {
-    padding: 0 18px;
-    background-color: black;
-    color: white;
-    font-size: 20px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-  }
-  
-  .panel.active {
-    max-height: 80vh; /* Adjust as needed for your content */
-    overflow-y: scroll;
-  }
-  
-  p {
-    margin-block: 10px;
-  }
+  flex-grow: 1;
+  background-image: url(../images/tiger0.png);
+}
 
+.accordion:hover,
+.accordion.active {
+  background-color: #ccc;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  transition-property: max-height, max-width;
+}
+
+.panel.active {
+  max-height: 80vh; /* Adjust as needed for your content */
+  overflow-y: scroll;
+}
+
+p {
+  margin-block: 10px;
+}
+
+.accordionContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  flex-grow: 1;
+  /* height: 90vh; */
+}
+
+@media (min-aspect-ratio: 1) {
   .accordionContainer {
+    flex-direction: row;
     display: flex;
-    flex-flow: column nowrap;
-    flex-grow: 1;
-    /* height: 90vh; */
+    width: 100%;
+    height: 100%;
   }
+
+  .accordion {
+    flex-grow: 1;
+    overflow: hidden;
+    height: 100%;
+    width: auto;
+    writing-mode: sideways-lr;
+    /* color: transparent; */
+  }
+
+  .accordion h1 {
+    display: none;
+  }
+
+  .panel {
+    height: 100%;
+    max-width: 0;
+    padding-inline: 0;
+  }
+
+  .panel.active {
+    max-width: 60vh; /* Adjust as needed for your content */
+    overflow-y: scroll;
+    max-height: 100%;
+  }
+}
