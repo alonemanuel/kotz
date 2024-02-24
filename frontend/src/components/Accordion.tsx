@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./styles/Accordion.module.css";
+import styles from "../styles/Accordion.module.css";
 
 export interface Article {
   id: number;
