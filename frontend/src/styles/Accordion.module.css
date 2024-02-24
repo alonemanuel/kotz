@@ -27,7 +27,7 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
-  transition-property: max-height, max-width;
+  transition-property: max-height, max-width, padding;
 }
 
 .panel.active {
@@ -37,6 +37,32 @@
 
 p {
   margin-block: 10px;
+}
+
+.panel {
+  background-color: #eee;
+  color: #222;
+  text-wrap: balance;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2em;
+
+  header {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1em;
+    h1 {
+      font: bold 4em/1em var(--typeface-serif);
+    }
+
+    h2 {
+      font: normal 1.5em/1em var(--typeface-serif);
+    }
+
+    h3 {
+      font: normal 0.8em/1em var(--typeface-sans);
+    }
+  }
 }
 
 .accordionContainer {
@@ -77,5 +103,6 @@ p {
     max-width: 60vh; /* Adjust as needed for your content */
     overflow-y: scroll;
     max-height: 100%;
+    padding-inline: 16px;
   }
 }

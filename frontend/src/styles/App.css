@@ -2,6 +2,7 @@
   --typeface-serif: 'DavidVC';
   --typeface-sans: 'NarkisYair';
   --font-running: 18px/25px var(--typeface-serif);
+  /* --font-item-h1: 18px/25px var(--typeface-serif); */
 }
 
 html {

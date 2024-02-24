@@ -6,6 +6,13 @@
 }
 
 @font-face {
+  font-family: "DavidVC";
+  src: url("./david_bezalel/VC_david-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "NarkisYair";
   src: url("./narkis_yair_fontef/NarkissYair-Regular-TRIAL.woff") format("woff");
   font-weight: normal;

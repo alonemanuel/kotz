@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import styles from "../styles/Accordion.module.css";
+import { Item } from "./ItemInterface";
 
-export interface Article {
-  id: number;
-  title: string;
-  content: JSX.Element;
-}
 
 interface AccordionProps {
-  articles: Article[];
+  articles: Item[];
 }
 
 const Accordion: React.FC<AccordionProps> = ({ articles }) => {
