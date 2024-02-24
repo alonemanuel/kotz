@@ -40,7 +40,7 @@ p {
 }
 
 .panel {
-  background-color: #eee;
+  background-color: #fff;
   color: #222;
   text-wrap: balance;
   display: flex;
@@ -52,7 +52,7 @@ p {
     flex-flow: column nowrap;
     gap: 1em;
     h1 {
-      font: bold 4em/1em var(--typeface-serif);
+      font: bold 4em/0.8em var(--typeface-serif);
     }
 
     h2 {
@@ -61,6 +61,45 @@ p {
 
     h3 {
       font: normal 0.8em/1em var(--typeface-sans);
+    }
+  }
+
+  aside {
+    background-color: #4b875c;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1em;
+    padding: 2em;
+    line-height: 1em;
+    margin-inline: -18px;
+
+    h1 {
+      font: bold 1em/1em "Hadassa";
+    }
+    main {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 1em;
+      padding-inline-start: 1em;
+      article {
+        h1 {
+          font: bold 1em/1em "Hadassa";
+          display: inline-block;
+          margin-inline-end: 1em;
+        }
+
+        p {
+          display: inline;
+          font: normal 0.8em "DavidVC";
+
+          a {
+            font: unset;
+            color: unset;
+            text-decoration: underline 2px;
+            text-underline-offset: 3px;
+          }
+        }
+      }
     }
   }
 }
