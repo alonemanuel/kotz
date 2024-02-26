@@ -1,3 +1,8 @@
+svg {
+  /* width: 30px;
+  height: 30px; */
+}
+
 .accordion {
   background-color: #eee;
   color: #fff;
@@ -8,7 +13,7 @@
   text-align: right;
   outline: none;
   font-size: 18px;
-  transition: 0.4s;
+  /* transition: 0.4s; */
 
   flex-grow: 1;
   background-image: url(../images/tiger0.png);
@@ -21,7 +26,7 @@
 
 .panel {
   padding: 0 18px;
-  background-color: black;
+  /* background-color: black; */
   color: white;
   font-size: 20px;
   max-height: 0;
@@ -40,63 +45,71 @@ p {
 }
 
 .panel {
-  background-color: #fff;
   color: #222;
   text-wrap: balance;
   display: flex;
   flex-flow: column nowrap;
-  gap: 2em;
+  align-items: center;
+  /* gap: 2em; */
 
-  header {
+  section.articleWrapper {
+    max-width: 600px;
     display: flex;
     flex-flow: column nowrap;
-    gap: 1em;
-    h1 {
-      font: bold 4em/0.8em var(--typeface-serif);
-    }
+    align-items: start;
+    justify-content: center;
 
-    h2 {
-      font: normal 1.5em/1em var(--typeface-serif);
-    }
-
-    h3 {
-      font: normal 0.8em/1em var(--typeface-sans);
-    }
-  }
-
-  aside {
-    background-color: #4b875c;
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 1em;
-    padding: 2em;
-    line-height: 1em;
-    margin-inline: -18px;
-
-    h1 {
-      font: bold 1em/1em "Hadassa";
-    }
-    main {
+    header {
       display: flex;
       flex-flow: column nowrap;
       gap: 1em;
-      padding-inline-start: 1em;
-      article {
-        h1 {
-          font: bold 1em/1em "Hadassa";
-          display: inline-block;
-          margin-inline-end: 1em;
-        }
+      h1 {
+        font: bold 4em/0.8em var(--typeface-serif);
+      }
 
-        p {
-          display: inline;
-          font: normal 0.8em "DavidVC";
+      h2 {
+        font: normal 1.5em/1em var(--typeface-serif);
+      }
 
-          a {
-            font: unset;
-            color: unset;
-            text-decoration: underline 2px;
-            text-underline-offset: 3px;
+      h3 {
+        font: normal 0.8em/1em var(--typeface-sans);
+      }
+    }
+
+    aside {
+      background-color: #4b875c;
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 1em;
+      padding: 2em;
+      line-height: 1em;
+      margin-inline: -18px;
+
+      h1 {
+        font: bold 1em/1em "Hadassa";
+      }
+      main {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 1em;
+        padding-inline-start: 1em;
+        article {
+          h1 {
+            font: bold 1em/1em "Hadassa";
+            display: inline-block;
+            margin-inline-end: 1em;
+          }
+
+          p {
+            display: inline;
+            font: normal 0.8em "DavidVC";
+
+            a {
+              font: unset;
+              color: unset;
+              text-decoration: underline 2px;
+              text-underline-offset: 3px;
+            }
           }
         }
       }
@@ -109,6 +122,7 @@ p {
   flex-flow: column nowrap;
   flex-grow: 1;
   /* height: 90vh; */
+  background-color: #fff;
 }
 
 @media (min-aspect-ratio: 1) {

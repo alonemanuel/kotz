@@ -37,7 +37,7 @@
   max-height: 1px;
   /* top: 0; */
   overflow: hidden;
-  transition: all 2s ease-out;
+  /* transition: all 2s ease-out; */
 }
 
 .show .articleContainer {
