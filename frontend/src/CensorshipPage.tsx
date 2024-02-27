@@ -6,6 +6,7 @@ import kabarImg from "./images/kabar.jpg";
 import Accordion from "./components/Accordion";
 import { Item } from "./components/ItemInterface";
 import Layout from "./Layout";
+import Questionnaire from "./questionnaire";
 
 const Article0Content: React.FC = () => (
   <>
@@ -1533,6 +1534,12 @@ const Article9Content: React.FC = () => (
   </>
 );
 
+const Article10Content: React.FC = () => (
+  <>
+    <Questionnaire />
+  </>
+);
+
 const images = [kabarImg, kabarImg, kabarImg, kabarImg, kabarImg, kabarImg];
 
 const CensorshipPage: React.FC = () => {
@@ -1586,6 +1593,11 @@ const CensorshipPage: React.FC = () => {
       id: 9,
       title: `הצנזורה על כתפיו`,
       content: <Article9Content />,
+    },
+    {
+      id: 10,
+      title: `שאלון`,
+      content: <Article10Content />,
     },
   ];
 
