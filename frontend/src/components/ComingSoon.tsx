@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/ComingSoon.module.css";
+import { interpolate } from "flubber";
 
 // Example SVG paths or components for shapes
 const shapes = [
@@ -11,28 +12,59 @@ const shapes = [
 
 const ComingSoon: React.FC = () => {
   const [currShapeIndex, setCurrShapeIndex] = useState(0);
+  const svgPathRef = useRef<SVGPathElement>(null);
 
   // Function to get the next shape index
-  const getNextShapeIndex = (currIndex: number) =>
-    (currIndex + 1) % shapes.length;
-
-  // Function to animate to the next shape
-  const animateToNextShape = () => {
-    setCurrShapeIndex(getNextShapeIndex(currShapeIndex));
-  };
+  const getNextShapeIndex = () => (currShapeIndex + 1) % shapes.length;
 
   // Effect to change the shape every few seconds
   useEffect(() => {
-    const intervalId = setInterval(animateToNextShape, 2000);
+    const nextShapeIndex = getNextShapeIndex();
+    const interpolator = interpolate(
+      shapes[currShapeIndex],
+      shapes[nextShapeIndex],
+      { maxSegmentLength: 0.1 }
+    );
 
-    return () => clearInterval(intervalId); // Cleanup interval on component unmount
+    // Animate the transition
+    const animate = (progress: number) => {
+      if (svgPathRef.current) {
+        svgPathRef.current.setAttribute("d", interpolator(progress));
+      }
+    };
+
+    let start: number | null = null;
+    const duration = 1000; // Animation duration in ms
+
+    const step = (timestamp: number) => {
+      if (!start) start = timestamp;
+      const progress = (timestamp - start) / duration;
+
+      animate(progress);
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        setCurrShapeIndex(nextShapeIndex); // Update the current shape to the next shape
+      }
+    };
+
+    let id = requestAnimationFrame(step);
+
+    // Cleanup function to possible stop the animation if the component unmounts
+    return () => cancelAnimationFrame(id);
   }, [currShapeIndex]);
 
   return (
     <div className={styles.comingSoon}>
       <h1>בקרוב</h1>
       <svg width="200" height="200" viewBox="0 0 200 200">
-        <path d={shapes[currShapeIndex]} fill="none" stroke="black" />
+        <path
+          ref={svgPathRef}
+          d={shapes[currShapeIndex]}
+          fill="none"
+          stroke="black"
+        />
       </svg>
     </div>
   );
