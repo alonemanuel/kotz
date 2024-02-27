@@ -13,6 +13,13 @@
 }
 
 @font-face {
+  font-family: "DavidVC";
+  src: url("./david_bezalel/VC_david-Cursive.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
   font-family: "NarkisYair";
   src: url("./narkis_yair_fontef/NarkissYair-Regular-TRIAL.woff") format("woff");
   font-weight: normal;
@@ -21,14 +28,16 @@
 
 @font-face {
   font-family: "Hadassa";
-  src: url("./hadassah_friedlaender_fontef/HadassahFriedlaender-Regular.woff2") format("woff2");
+  src: url("./hadassah_friedlaender_fontef/HadassahFriedlaender-Regular.woff2")
+    format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Hadassa";
-  src: url("./hadassah_friedlaender_fontef/HadassahFriedlaender-Bold.woff2") format("woff2");
+  src: url("./hadassah_friedlaender_fontef/HadassahFriedlaender-Bold.woff2")
+    format("woff2");
   font-weight: bold;
   font-style: normal;
 }
