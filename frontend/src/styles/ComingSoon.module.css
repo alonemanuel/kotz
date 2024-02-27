@@ -17,6 +17,13 @@
   }
 }
 
+.comingSoon h1 {
+  font-family: "DavidVC";
+  /* font-weight: normal; */
+  font-style: italic;
+  font-size: 28px;
+}
+
 #morphingPath {
   stroke: none;
   fill: #444;
