@@ -71,7 +71,7 @@ const ComingSoon: React.FC = () => {
         </path>
       </svg>
 
-      <h1>(בקרוב)</h1>
+      <h1><span className={styles.asterix}>*</span>בקרוב</h1>
     </div>
   );
 };

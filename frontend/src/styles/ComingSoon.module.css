@@ -28,3 +28,8 @@
   stroke: none;
   fill: #444;
 }
+
+.asterix {
+    font-size: 1.2em;
+    font-family: "Hadassa";
+}
