@@ -1604,7 +1604,6 @@ const CensorshipPage: React.FC = () => {
   return (
     <Layout>
       <div className={styles.censorshipPage}>
-        <h2> Articles accordion</h2>
         <Accordion articles={articles} />
       </div>
     </Layout>

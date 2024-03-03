@@ -156,6 +156,6 @@ p {
     max-width: 60vh; /* Adjust as needed for your content */
     overflow-y: scroll;
     max-height: 100%;
-    padding-inline: 16px;
+    /* padding-inline: 16px; */
   }
 }

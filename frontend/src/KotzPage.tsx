@@ -31,7 +31,7 @@ const KotzPage: React.FC = () => {
   };
 
   return (
-    <section>
+    <div className={styles.kotzPage}>
       <div className={styles.sideInfo}>
         <main>
           <header>
@@ -77,7 +77,7 @@ const KotzPage: React.FC = () => {
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 
