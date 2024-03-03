@@ -60,19 +60,19 @@ p {
     justify-content: center;
 
     header {
-      display: flex;
+      /* display: flex;
       flex-flow: column nowrap;
-      gap: 1em;
+      gap: 1em; */
       h1 {
-        font: bold 4em/0.8em var(--typeface-serif);
+        /* font: bold 4em/0.8em var(--typeface-serif); */
       }
 
       h2 {
-        font: normal 1.5em/1em var(--typeface-serif);
+        /* font: normal 1.5em/1em var(--typeface-serif); */
       }
 
       h3 {
-        font: normal 0.8em/1em var(--typeface-sans);
+        /* font: normal 0.8em/1em var(--typeface-sans); */
       }
     }
 
@@ -159,3 +159,4 @@ p {
     /* padding-inline: 16px; */
   }
 }
+

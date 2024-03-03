@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import styles from "./styles/CensorshipPage.module.css";
 import KotzFab from "./KotzFab";
 import kabarImg from "./images/kabar.jpg";
+import kav300Img from "./images/kav_300_0.png";
 import Accordion from "./components/Accordion";
 import { Item } from "./components/ItemInterface";
 import Layout from "./Layout";
@@ -783,14 +784,23 @@ const Article5Content: React.FC = () => (
   </>
 );
 const Article6Content: React.FC = () => (
-  <>
-    <p>הצנזורה הצבאית ופרשת קו 300/ יצחק זמיר</p>
-    <p>כותרת משנה:</p>
+  <article>
+    <header>
+      <hgroup>
+        <h1>הצנזורה הצבאית ופרשת קו 300</h1>
+        <h2>יצחק זמיר</h2>
+        <h3>עוד אין כותרת משנה אבל היא תהיה פה</h3>
+      </hgroup>
+      <figure>
+        <img src={kav300Img} alt="פרשת קו 300" />
+        <figcaption>צילום: אלכס ליבק</figcaption>
+      </figure>
+    </header>
     <p>ליד:</p>
     <p>
       הצנזורה הצבאית פועלת בישראל מאז הקמת המדינה מכוח תקנות ההגנה (שעת חירום),
       1945, שנקלטו כחלק מן המשפט שהיה קיים בארץ-ישראל לפני הקמת המדינה, ונעשו
-      חלק ממשפט ישראל.{" "}
+      חלק ממשפט ישראל.
     </p>
     <p>
       התקנות, שנועדו לשמש את השלטון הבריטי לדיכוי תנועות המחתרת היהודית, שנלחמו
@@ -931,7 +941,7 @@ const Article6Content: React.FC = () => (
       מאפשרות מעצרים מנהליים, אך בתנאים הנדרשים וכפוף לאישור של נשיא בית-משפט
       מחוזי. אכן, די לחרפה ולסכנה שתקנות ההגנה ממיטות עלינו, אזרחי ישראל.
     </p>
-  </>
+  </article>
 );
 const Article7Content: React.FC = () => (
   <>
