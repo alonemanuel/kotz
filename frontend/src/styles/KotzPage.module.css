@@ -11,6 +11,7 @@
   font: var(--fs-400) var(--ff-david-vc);
   align-content: stretch;
   align-items: start;
+  overflow: auto;
 }
 
 .sideInfo {
