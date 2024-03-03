@@ -131,3 +131,15 @@
   font-weight: 500;
   line-height: 1.6em;
 }
+
+.censorshipPage main p b {
+  color: #26BD6B;
+}
+
+.censorshipPage main p i {
+  font-family: var(--ff-narkis-yair);
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-underline-offset: 0.4em;
+  text-decoration-thickness: 0.1em;
+}
