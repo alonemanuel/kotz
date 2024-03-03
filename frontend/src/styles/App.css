@@ -1,45 +1,16 @@
-:root {
-  --typeface-serif: 'DavidVC';
-  --typeface-sans: 'NarkisYair';
-  --font-running: 18px/25px var(--typeface-serif);
-  /* --font-item-h1: 18px/25px var(--typeface-serif); */
-}
-
-html {
-  color: black;
-  font-size: 16px;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scrollbar-width: thin;
-}
-
 body {
-  background-color: black;
-  color: white;
-  direction: rtl;
-}
-
-p {
-  font: var(--font-running);
 }
 
 h1 {
-  font-family: 'DavidVc';
+  font-family: "DavidVc";
 }
 
 .author {
-  font-family: 'NarkisYair';
+  font-family: "NarkisYair";
 }
 
 .caption {
-  font-family: 'NarkisYair';
-}
-
-html {
+  font-family: "NarkisYair";
 }
 
 .magazine-image {
@@ -89,4 +60,3 @@ article img {
     transform: rotate(360deg);
   }
 }
-

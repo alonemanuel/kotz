@@ -1,24 +1,37 @@
-.container {
-    margin: 100px;
-    display: grid;
-    gap: 20px;
+main {
+  min-height: 100vh;
+  width: 100%;
+  padding: 7em;
+  display: grid;
+  background: var(--color-white);
+  grid-template-columns: 1fr 3fr;
+}
+
+.sideInfo {
 }
 
 .gridContainer {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%/3, max(64px, 100%/5)), 1fr)
+  );
+  gap: 3em;
+  align-content: center;
 }
 
 .gridItem {
-    cursor: pointer;
-
+  cursor: pointer;
+  color: var(--color-black);
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }
 
 .gridItem img {
-    width: 100%;
+  /* width: 100%; */
 }
 
 .header {
-    text-align: center;
+  text-align: center;
 }

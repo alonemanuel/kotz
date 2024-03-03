@@ -29,9 +29,8 @@ const KotzPage: React.FC = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.header}>כל הקוצים</div>
-
+    <main>
+      <div className={styles.sideInfo}></div>
       <div className={styles.gridContainer}>
         {boxes.map((box) => (
           <div
@@ -44,7 +43,7 @@ const KotzPage: React.FC = () => {
           </div>
         ))}
       </div>
-    </div>
+    </main>
   );
 };
 
