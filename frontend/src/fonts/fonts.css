@@ -1,21 +1,28 @@
 @font-face {
   font-family: "DavidVC";
   src: url("./david_bezalel/VC_david-Regular.woff") format("woff");
-  font-weight: normal;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DavidVC";
+  src: url("./david_bezalel/VC_david-Medium.woff") format("woff");
+  font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "DavidVC";
   src: url("./david_bezalel/VC_david-Bold.woff") format("woff");
-  font-weight: bold;
+  font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: "DavidVC";
   src: url("./david_bezalel/VC_david-Cursive.woff") format("woff");
-  font-weight: normal;
+  font-weight: 400;
   font-style: italic;
 }
 

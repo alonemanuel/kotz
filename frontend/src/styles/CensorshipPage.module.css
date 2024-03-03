@@ -124,3 +124,10 @@
   font-family: var(--ff-narkis-yair);
   font-size: var(--fs-300);
 }
+
+.censorshipPage main p {
+  font-family: var(--ff-david-vc);
+  font-size: var(--fs-400);
+  font-weight: 500;
+  line-height: 1.6em;
+}
