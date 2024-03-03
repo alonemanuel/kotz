@@ -4,10 +4,14 @@
   --font-running: 18px/25px var(--typeface-serif);
   /* --font-item-h1: 18px/25px var(--typeface-serif); */
 
+  --ff-david-vc: "DavidVC";
+  --ff-narkis-yair: "NarkisYair";
+
   --fs-xl: clamp(3.5rem, 12vw + 1rem, 12rem);
   --fs-600: 1.5rem;
   --fs-500: 1.25rem;
   --fs-400: 1rem;
+  --fs-300: 0.9rem;
 
   --color-white: whitesmoke;
   --color-black: #333;
@@ -31,6 +35,8 @@
   margin: 0;
   padding: 0;
   font: inherit;
+  color: inherit;
+  text-decoration: inherit;
 }
 
 img,
@@ -74,9 +80,6 @@ p {
     scroll-padding-top: 3rem;
   }
 }
-
-
-
 
 .title {
   font-size: 5rem;

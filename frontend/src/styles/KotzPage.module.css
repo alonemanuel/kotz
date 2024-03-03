@@ -1,13 +1,56 @@
-main {
+section {
   min-height: 100vh;
   width: 100%;
   padding: 7em;
   display: grid;
   background: var(--color-white);
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 26ch 1fr;
+  align-content: center;
+  align-items: start;
+  gap: 3em;
+  font: var(--fs-400) var(--ff-david-vc);
+  align-content: stretch;
+  align-items: start;
 }
 
 .sideInfo {
+  height: 100%;
+  justify-content: space-between;
+  color: var(--color-black);
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2em;
+}
+
+.sideInfo main {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1em;
+}
+
+.sideInfo main p {
+  font-size: var(--fs-300);
+  line-height: 1.3em;
+}
+
+.sideInfo main header {
+  font-weight: 800;
+}
+
+.sideInfo main nav {
+  display: flex;
+  flex-flow: column nowrap;
+
+  font-family: var(--ff-narkis-yair);
+  font-size: var(--fs-300);
+  color: var(--color-black);
+}
+
+.sideInfo footer {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 2em;
+  padding: 0 1em;
 }
 
 .gridContainer {
