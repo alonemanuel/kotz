@@ -24,6 +24,12 @@ svg {
   background-color: #ccc;
 }
 
+.accordion.active {
+  /* color: red; */
+  top: 0;
+  position: sticky;
+}
+
 .panel {
   padding: 0 18px;
   /* background-color: black; */
@@ -157,6 +163,7 @@ p {
     overflow-y: scroll;
     max-height: 100%;
     /* padding-inline: 16px; */
+
   }
 }
 
