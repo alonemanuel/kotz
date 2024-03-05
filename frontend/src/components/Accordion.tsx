@@ -16,12 +16,10 @@ const Accordion: React.FC<AccordionProps> = ({ articles }) => {
 
     // If the accordion is being opened, scroll it into view
     if (activeIndex !== index) {
-      setTimeout(() => {
-        accordionRefs.current[index]?.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }, 300);
+      accordionRefs.current[index]?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
   };
 
