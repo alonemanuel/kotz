@@ -10,16 +10,21 @@ const Accordion: React.FC<AccordionProps> = ({ articles }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   // Create a ref array for each accordion item
   const accordionRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const panelRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const toggleAccordion = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
 
     // If the accordion is being opened, scroll it into view
     if (activeIndex !== index) {
-      accordionRefs.current[index]?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      setTimeout(() => {
+      // panelRefs.current[index]?.addEventListener("transitionend", () => {
+        accordionRefs.current[index]?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+        }, 200);
+      // });
     }
   };
 
@@ -37,6 +42,7 @@ const Accordion: React.FC<AccordionProps> = ({ articles }) => {
             <h1>{article.title}</h1>
           </button>
           <div
+            ref={(el) => (panelRefs.current[index] = el)} // Assign refs to panels
             className={`${styles.panel} 
             ${activeIndex === index ? styles.active : ""}`}
           >
