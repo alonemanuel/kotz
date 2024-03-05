@@ -1618,7 +1618,9 @@ const CensorshipPage: React.FC = () => {
   ];
 
   const [articlesStrapi, setArticlesStrapi] = useState([]);
-  const baseUrl = process.env.REACT_APP_STRPI_API_URL;
+  const baseUrl = process.env.REACT_APP_STRAPI_API_URL;
+  console.log("dodo");
+  console.log(baseUrl);
 
   useEffect(() => {
     fetch(`${baseUrl}/item-articles`)
