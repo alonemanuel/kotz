@@ -1,18 +1,10 @@
 import React, { useRef, useState } from "react";
 import styles from "../styles/Accordion.module.css";
 import { Item } from "./ItemInterface";
+import { Article } from "../interfaces";
 
 import ArticleContent from "../ArticleContent";
-
-interface ArticleAttributes {
-  title: string;
-  body: any[];
-}
-
-interface Article {
-  id: number;
-  attributes: ArticleAttributes;
-}
+import ArticleComponent from "../ArticleComponent";
 
 interface AccordionProps {
   // articles: Item[];
@@ -40,7 +32,7 @@ const Accordion: React.FC<AccordionProps> = ({ articles }) => {
       // });
     }
   };
-  console.log('articles');
+  console.log("articles");
   console.log(articles);
   console.log(articles[0]);
 
@@ -71,7 +63,7 @@ const Accordion: React.FC<AccordionProps> = ({ articles }) => {
             ${activeIndex === index ? styles.active : ""}`}
           >
             <section className={styles.articleWrapper}>
-              <ArticleContent content={article.attributes.body}/>
+              <ArticleComponent key={article.id} article={article} />
               {/* {article.content} */}
             </section>
           </div>

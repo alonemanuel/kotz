@@ -1,22 +1,10 @@
 import React from "react";
 import Paragraph from "./Paragraph";
 import BoldText from "./BoldText";
+import ItalicText from "./ItalicText";
 
-interface TextNode {
-  text: string;
-  bold?: boolean;
-}
 
-interface ContentBlock {
-  type: string;
-  children: TextNode[];
-}
-
-interface ArticleContentProps {
-  content: ContentBlock[];
-}
-
-const ArticleContent: React.FC<ArticleContentProps> = ({ content }) => {
+const ArticleContent: React.FC<{ content: ContentBlock[] }> = ({ content }) => {
   const renderContentBlock = (block: ContentBlock, index: number) => {
     switch (block.type) {
       case "paragraph":
@@ -34,15 +22,17 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ content }) => {
     }
   };
 
-  const renderTextNode = (node: TextNode, index: number) => {
+  const renderTextNode = (node: ContentBlockChild, index: number) => {
     if (node.bold) {
       return <BoldText key={index}>{node.text}</BoldText>;
+    } else if (node.italic) {
+      return <ItalicText key={index}>{node.text}</ItalicText>;
+    } else {
+      return <span key={index}>{node.text}</span>;
     }
-    return <span key={index}>{node.text}</span>;
   };
 
   return <>{content.map(renderContentBlock)}</>;
-  
 };
 
 export default ArticleContent;
