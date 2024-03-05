@@ -2,8 +2,21 @@ import React, { useRef, useState } from "react";
 import styles from "../styles/Accordion.module.css";
 import { Item } from "./ItemInterface";
 
+import ArticleContent from "../ArticleContent";
+
+interface ArticleAttributes {
+  title: string;
+  body: any[];
+}
+
+interface Article {
+  id: number;
+  attributes: ArticleAttributes;
+}
+
 interface AccordionProps {
-  articles: Item[];
+  // articles: Item[];
+  articles: Article[];
 }
 
 const Accordion: React.FC<AccordionProps> = ({ articles }) => {
@@ -18,15 +31,26 @@ const Accordion: React.FC<AccordionProps> = ({ articles }) => {
     // If the accordion is being opened, scroll it into view
     if (activeIndex !== index) {
       setTimeout(() => {
-      // panelRefs.current[index]?.addEventListener("transitionend", () => {
+        // panelRefs.current[index]?.addEventListener("transitionend", () => {
         accordionRefs.current[index]?.scrollIntoView({
           behavior: "smooth",
           block: "start",
         });
-        }, 200);
+      }, 200);
       // });
     }
   };
+  console.log('articles');
+  console.log(articles);
+  console.log(articles[0]);
+
+  // return (
+  //   <div className={styles.accordionContainer}>
+  //     {articles.map((article, index) => (
+  //       <div>hi</div>
+  //     ))}
+  //   </div>
+  // );
 
   return (
     <div className={styles.accordionContainer}>
@@ -39,7 +63,7 @@ const Accordion: React.FC<AccordionProps> = ({ articles }) => {
             }`}
             onClick={() => toggleAccordion(index)}
           >
-            <h1>{article.title}</h1>
+            <h1>{article.attributes.title}</h1>
           </button>
           <div
             ref={(el) => (panelRefs.current[index] = el)} // Assign refs to panels
@@ -47,7 +71,8 @@ const Accordion: React.FC<AccordionProps> = ({ articles }) => {
             ${activeIndex === index ? styles.active : ""}`}
           >
             <section className={styles.articleWrapper}>
-              {article.content}
+              <ArticleContent content={article.attributes.body}/>
+              {/* {article.content} */}
             </section>
           </div>
         </React.Fragment>

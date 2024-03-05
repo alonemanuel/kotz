@@ -1,5 +1,5 @@
 // CensorshipPage.tsx
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./styles/CensorshipPage.module.css";
 import KotzFab from "./KotzFab";
 import kabarImg from "./images/kabar.jpg";
@@ -1617,10 +1617,31 @@ const CensorshipPage: React.FC = () => {
     },
   ];
 
+  const [articlesStrapi, setArticlesStrapi] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:1337/api/item-articles`)
+      .then((response: any) => {
+        console.log(response);
+        return response.json();
+      })
+
+      .then((data: any) => {
+        console.log('hi');
+        console.log(data);
+        setArticlesStrapi(data.data);
+      })
+      .catch((error) => console.error("error fetching data", error));
+  }, []);
+
+  if (!articlesStrapi) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <Layout>
       <div className={styles.censorshipPage}>
-        <Accordion articles={articles} />
+        <Accordion articles={articlesStrapi} />
       </div>
     </Layout>
   );
