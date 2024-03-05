@@ -430,6 +430,41 @@ export interface ApiArticleArticle extends Schema.CollectionType {
   };
 }
 
+export interface ApiItemArticleItemArticle extends Schema.CollectionType {
+  collectionName: 'item_articles';
+  info: {
+    singularName: 'item-article';
+    pluralName: 'item-articles';
+    displayName: 'Item Article';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    subtitle: Attribute.String;
+    author: Attribute.String;
+    cover: Attribute.Media;
+    cover_caption: Attribute.String;
+    body: Attribute.Blocks;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::item-article.item-article',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::item-article.item-article',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -861,6 +896,7 @@ declare module '@strapi/types' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::article.article': ApiArticleArticle;
+      'api::item-article.item-article': ApiItemArticleItemArticle;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
