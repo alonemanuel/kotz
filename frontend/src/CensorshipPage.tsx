@@ -1618,16 +1618,16 @@ const CensorshipPage: React.FC = () => {
   ];
 
   const [articlesStrapi, setArticlesStrapi] = useState([]);
+  const baseUrl = process.env.REACT_APP_STRPI_API_URL;
 
   useEffect(() => {
-    fetch(`http://localhost:1337/api/item-articles`)
+    fetch(`${baseUrl}/item-articles`)
       .then((response: any) => {
         console.log(response);
         return response.json();
       })
 
       .then((data: any) => {
-        console.log('hi');
         console.log(data);
         setArticlesStrapi(data.data);
       })

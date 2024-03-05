@@ -2,7 +2,7 @@ import React from "react";
 import Paragraph from "./Paragraph";
 import BoldText from "./BoldText";
 import ItalicText from "./ItalicText";
-
+import { ContentBlock, ContentBlockChild } from "./interfaces";
 
 const ArticleContent: React.FC<{ content: ContentBlock[] }> = ({ content }) => {
   const renderContentBlock = (block: ContentBlock, index: number) => {
