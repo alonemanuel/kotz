@@ -428,6 +428,41 @@ export interface ApiItemArticleItemArticle extends Schema.CollectionType {
   };
 }
 
+export interface ApiQuestionQuestion extends Schema.CollectionType {
+  collectionName: 'questions';
+  info: {
+    singularName: 'question';
+    pluralName: 'questions';
+    displayName: 'question';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    wrong_answer: Attribute.String;
+    correct_answer: Attribute.String;
+    is_opinion: Attribute.Boolean;
+    wrong_percentage: Attribute.Integer;
+    correct_percentage: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::question.question',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::question.question',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTermTerm extends Schema.CollectionType {
   collectionName: 'terms';
   info: {
@@ -882,6 +917,7 @@ declare module '@strapi/types' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::item-article.item-article': ApiItemArticleItemArticle;
+      'api::question.question': ApiQuestionQuestion;
       'api::term.term': ApiTermTerm;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
