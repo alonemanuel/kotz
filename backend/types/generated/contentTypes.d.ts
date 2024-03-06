@@ -397,7 +397,8 @@ export interface ApiItemArticleItemArticle extends Schema.CollectionType {
   info: {
     singularName: 'item-article';
     pluralName: 'item-articles';
-    displayName: 'Item Article';
+    displayName: 'Article';
+    description: '';
   };
   options: {
     draftAndPublish: true;

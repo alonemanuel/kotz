@@ -4,7 +4,8 @@
   "info": {
     "singularName": "item-article",
     "pluralName": "item-articles",
-    "displayName": "Item Article"
+    "displayName": "Article",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,14 +22,15 @@
       "type": "string"
     },
     "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "cover_caption": {
       "type": "string"
