@@ -1,24 +1,93 @@
-.container {
-    margin: 100px;
-    display: grid;
-    gap: 20px;
+.kotzPage {
+  min-height: 100vh;
+  width: 100%;
+  padding: 7em;
+  display: flex;
+  flex-flow: row wrap;
+  background: var(--color-white);
+  /* grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr)); */
+
+  /* grid-template-columns: minmax(auto, 26ch) 1fr; */
+  align-content: center;
+  align-items: start;
+  gap: 3em;
+  font: var(--fs-400) var(--ff-david-vc);
+  align-content: stretch;
+  align-items: start;
+  overflow: auto;
+}
+
+.sideInfo {
+  height: 100%;
+  justify-content: space-between;
+  color: var(--color-black);
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2em;
+  flex: 1 1 auto;
+  max-width: 26ch;
+}
+
+.sideInfo main {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1em;
+}
+
+.sideInfo main p {
+  font-size: var(--fs-300);
+  line-height: 1.3em;
+}
+
+.sideInfo main header {
+  font-weight: 800;
+}
+
+.sideInfo main nav {
+  display: flex;
+  flex-flow: column nowrap;
+
+  font-family: var(--ff-narkis-yair);
+  font-size: var(--fs-300);
+  color: var(--color-black);
+}
+
+.sideInfo footer {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 2em;
+  padding: 0 1em;
 }
 
 .gridContainer {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%/3, max(64px, 100%/5)), 1fr)
+  );
+  gap: 3em;
+  align-content: center;
+  flex: 1 3 auto;
 }
 
 .gridItem {
-    cursor: pointer;
-
+  cursor: pointer;
+  color: var(--color-black);
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }
 
 .gridItem img {
-    width: 100%;
+  /* width: 100%; */
 }
 
 .header {
-    text-align: center;
+  text-align: center;
 }
+
+@media (max-aspect-ratio: 1) {
+    .kotzPage {
+        padding: 4em 3em;
+    }
+  }

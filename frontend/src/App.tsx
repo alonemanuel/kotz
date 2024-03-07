@@ -10,10 +10,10 @@ import ComingSoon from "./components/ComingSoon";
 const App: React.FC = () => {
   return (
     <Routes>
-      {/* <Route path="/" element={<KotzPage />} />
+      <Route path="/" element={<KotzPage />} />
         <Route path="/censorship" element={<CensorshipPage />} />
-      <Route path="/fake" element={<FakePage />} /> */}
-      <Route path="/" element={<ComingSoon />} />
+      <Route path="/fake" element={<FakePage />} />
+      {/* <Route path="/" element={<ComingSoon />} /> */}
     </Routes>
   );
 };

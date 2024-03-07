@@ -24,6 +24,12 @@ svg {
   background-color: #ccc;
 }
 
+.accordion.active {
+  /* color: red; */
+  top: 0;
+  position: sticky;
+}
+
 .panel {
   padding: 0 18px;
   /* background-color: black; */
@@ -60,19 +66,19 @@ p {
     justify-content: center;
 
     header {
-      display: flex;
+      /* display: flex;
       flex-flow: column nowrap;
-      gap: 1em;
+      gap: 1em; */
       h1 {
-        font: bold 4em/0.8em var(--typeface-serif);
+        /* font: bold 4em/0.8em var(--typeface-serif); */
       }
 
       h2 {
-        font: normal 1.5em/1em var(--typeface-serif);
+        /* font: normal 1.5em/1em var(--typeface-serif); */
       }
 
       h3 {
-        font: normal 0.8em/1em var(--typeface-sans);
+        /* font: normal 0.8em/1em var(--typeface-sans); */
       }
     }
 
@@ -156,6 +162,8 @@ p {
     max-width: 60vh; /* Adjust as needed for your content */
     overflow-y: scroll;
     max-height: 100%;
-    padding-inline: 16px;
+    /* padding-inline: 16px; */
+
   }
 }
+

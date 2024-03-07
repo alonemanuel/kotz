@@ -14,7 +14,6 @@
     width: 100vw;
     height: 100vh;
   }
-  
 }
 
 .imageBar {
@@ -26,7 +25,6 @@
   width: 100%;
   position: relative;
   /* transition: all 2s ease-out; */
-
 }
 
 .imageColumn {
@@ -59,11 +57,6 @@
   height: 120px;
   /* Additional styles */
   flex-shrink: 0;
-  
-}
-
-* {
-  /* transition: all 2s; */
 }
 
 .imageImg {
@@ -79,9 +72,74 @@
 }
 
 .show .imgCont {
-height: 80px;
+  height: 80px;
 }
 
 .show.imageBar {
   flex-shrink: 0;
+}
+
+.censorshipPage article {
+  padding: 2em;
+}
+
+.censorshipPage header {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 4em;
+}
+
+.censorshipPage header h1 {
+  font-family: var(--ff-david-vc);
+  font-style: italic;
+  font-size: var(--fs-700);
+  line-height: 1em;
+}
+
+.censorshipPage header h2 {
+  font-family: var(--ff-narkis-yair);
+  font-size: var(--fs-400);
+}
+
+.censorshipPage header h2::after {
+  content: ">>";
+  margin-inline-start: 1em;
+}
+
+.censorshipPage header h3 {
+  font-family: var(--ff-narkis-yair);
+  font-size: var(--fs-400);
+}
+
+.censorshipPage figure {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.censorshipPage figure img {
+  /* height: 17em; */
+  /* width: auto; */
+}
+
+.censorshipPage figure figcaption {
+  font-family: var(--ff-narkis-yair);
+  font-size: var(--fs-300);
+}
+
+.censorshipPage main p {
+  font-family: var(--ff-david-vc);
+  font-size: var(--fs-400);
+  font-weight: 500;
+  line-height: 1.6em;
+}
+
+.censorshipPage main p b {
+  color: #26BD6B;
+}
+
+.censorshipPage main p i {
+  font-family: var(--ff-narkis-yair);
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-underline-offset: 0.4em;
+  text-decoration-thickness: 0.1em;
 }
