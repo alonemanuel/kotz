@@ -5,19 +5,19 @@ import KotzFab from "./KotzFab";
 import kabarImg from "./images/kabar.jpg";
 import kav300Img from "./images/kav_300_0.png";
 import Accordion from "./components/Accordion";
-import { Item } from "./components/ItemInterface";
+import { ItemArticle } from "./types/itemArticle";
 import Layout from "./Layout";
 import Questionnaire from "./questionnaire";
+import * as C from "./constants";
 
 const images = [kabarImg, kabarImg, kabarImg, kabarImg, kabarImg, kabarImg];
 
 const CensorshipPage: React.FC = () => {
-
   const [articlesStrapi, setArticlesStrapi] = useState([]);
-  const baseUrl = process.env.REACT_APP_STRAPI_API_URL;
+  const baseUrl = C.API_BASE_URL;
 
   useEffect(() => {
-    fetch(`${baseUrl}/item-articles`)
+    fetch(`${C.API_BASE_URL}${C.ITEM_ARTICLES_ENDPOINT}`)
       .then((response: any) => {
         console.log(response);
         return response.json();

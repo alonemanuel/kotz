@@ -1,4 +1,4 @@
-export interface Item {
+export interface ItemArticle {
   id: number;
   title: string;
   content: JSX.Element;

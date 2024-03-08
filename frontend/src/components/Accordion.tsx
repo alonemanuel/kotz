@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import styles from "../styles/Accordion.module.css";
-import { Item } from "./ItemInterface";
+import { ItemArticle } from "../types/itemArticle";
 import { Article } from "../interfaces";
 
 import ArticleContent from "../ArticleContent";

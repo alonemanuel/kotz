@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../src/styles/KotzPage.module.css";
 import kabarImg from "./images/kabar.jpg";
@@ -6,6 +6,8 @@ import kotzImg from "./images/kotz.svg";
 import bezalelImg from "./images/bezalel_logo_0.png";
 import runiImg from "./images/runi_logo_0.png";
 import KotzFab from "./KotzFab";
+import * as C from "./constants";
+import AboutComponent from "./components/AboutComponent";
 
 interface Box {
   id: number;
@@ -30,32 +32,39 @@ const KotzPage: React.FC = () => {
     if (path) navigate(path);
   };
 
+  const [issues, setIssues] = useState([]);
+  const [about, setAbout] = useState([]);
+
+  useEffect(() => {
+    fetch(`${C.API_BASE_URL}${C.ISSUES_ENDPOINT}`)
+      .then((response: any) => {
+        console.log(response);
+        return response.json();
+      })
+
+      .then((data: any) => {
+        console.log(data);
+        setIssues(data.data);
+      })
+      .catch((error) => console.error("error fetching data", error));
+  }, []);
+
+  if (!issues) {
+    return <div>Loading...</div>;
+  }
+
+  // return (
+  //   <Layout>
+  //     <div className={styles.censorshipPage}>
+  //       <Accordion articles={articlesStrapi} />
+  //     </div>
+  //   </Layout>
+  // );
+
   return (
     <div className={styles.kotzPage}>
       <div className={styles.sideInfo}>
-        <main>
-          <header>
-            <h1>קוץ</h1>
-            <h2>מגזין אינטרנטי לענייני השעה</h2>
-          </header>
-          <div>
-            <p>
-              צמחים קוצניים ועשבים רעים ממינים שונים נכללו בשם 'קוצים'. אחדים
-              מהם הם שמות כלליים: 'קוץ', 'חוח', 'צנינים' ו'ברקנים', וחלק מהם
-              נראה שימשו כשמות קיבוציים וגם כשמות ספציפיים. העובדה שישנם כל כך
-              הרבה שמות של קוצים קשורה לתופעת שמות הצמחים הנרדפים שהיו נהוגים
-              בארץ ישראל בתקופת המקרא.
-            </p>
-          </div>
-          <nav>
-            <a href="">
-              <div>צוות המגזין</div>
-            </a>
-            <a href="">
-              <div>מהו קוץ?</div>
-            </a>
-          </nav>
-        </main>
+          <AboutComponent />
         <footer>
           <a href="">
             <img src={bezalelImg} alt="האקדמיה בצלאל" />
