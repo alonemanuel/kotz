@@ -820,6 +820,7 @@ export interface ApiIssueIssue extends Schema.CollectionType {
     singularName: 'issue';
     pluralName: 'issues';
     displayName: 'Issue';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -828,6 +829,7 @@ export interface ApiIssueIssue extends Schema.CollectionType {
     name: Attribute.String;
     number: Attribute.Integer;
     guests: Attribute.Blocks;
+    path: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
