@@ -392,44 +392,6 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
   };
 }
 
-export interface ApiArticleArticle extends Schema.CollectionType {
-  collectionName: 'articles';
-  info: {
-    singularName: 'article';
-    pluralName: 'articles';
-    displayName: 'Katavot';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    body: Attribute.Blocks;
-    title: Attribute.String;
-    cover: Attribute.Media;
-    author: Attribute.String;
-    author_about: Attribute.Text;
-    subtitle: Attribute.Text;
-    body_media: Attribute.Media;
-    author_photo: Attribute.Media;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::article.article',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::article.article',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiItemArticleItemArticle extends Schema.CollectionType {
   collectionName: 'item_articles';
   info: {
@@ -895,7 +857,6 @@ declare module '@strapi/types' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'api::about-us.about-us': ApiAboutUsAboutUs;
-      'api::article.article': ApiArticleArticle;
       'api::item-article.item-article': ApiItemArticleItemArticle;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
