@@ -830,6 +830,7 @@ export interface ApiIssueIssue extends Schema.CollectionType {
     number: Attribute.Integer;
     guests: Attribute.Blocks;
     path: Attribute.String;
+    is_published: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
