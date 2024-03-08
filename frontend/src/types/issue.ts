@@ -5,4 +5,5 @@ export interface Issue {
   number: number;
   guests: ContentBlock[];
   path: string;
+  is_published: boolean;
 }

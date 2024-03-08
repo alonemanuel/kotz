@@ -32,9 +32,6 @@ const IssuesComponent = () => {
   if (issues.length === 0) {
     return <LoadingComponent />;
   }
-  console.log("issues");
-  console.log(issues);
-  console.log("after");
 
   return (
     <>
@@ -45,15 +42,19 @@ const IssuesComponent = () => {
           onClick={() => handleBoxClick(issue.path)}
         >
           <img src={kotzImg} alt={issue.name} />
-          <hgroup>
-            <h1>
-              <span>{issue.number}</span>
-              {issue.name}
-            </h1>
-          </hgroup>
-          <div>
-            <JsonBlocks content={issue.guests} />
-          </div>
+          {issue.is_published && (
+            <>
+              <hgroup>
+                <h1>
+                  <span>{issue.number}</span>
+                  {issue.name}
+                </h1>
+              </hgroup>
+              <div>
+                <JsonBlocks content={issue.guests} />
+              </div>
+            </>
+          )}
         </div>
       ))}
     </>
