@@ -9,7 +9,7 @@ import KotzFab from "./KotzFab";
 
 interface Box {
   id: number;
-  title: string;
+  title?: string;
   image: string;
   path?: string; // optional, only needed for boxes that currently have navigation
 }
@@ -19,11 +19,11 @@ const KotzPage: React.FC = () => {
 
   const boxes: Box[] = [
     { id: 0, title: "צנזורה", image: kotzImg, path: "/censorship" },
-    { id: 1, title: "פייק", image: kotzImg, path: "/fake" },
-    { id: 2, title: "בקרוב", image: kotzImg },
-    { id: 3, title: "בקרוב", image: kotzImg },
-    { id: 4, title: "בקרוב", image: kotzImg },
-    { id: 5, title: "בקרוב", image: kotzImg },
+    { id: 1, image: kotzImg },
+    { id: 2, image: kotzImg },
+    { id: 3, image: kotzImg },
+    { id: 4, image: kotzImg },
+    { id: 5, image: kotzImg },
   ];
 
   const handleBoxClick = (path?: string) => {
