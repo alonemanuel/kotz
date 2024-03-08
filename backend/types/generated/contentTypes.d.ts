@@ -899,10 +899,10 @@ export interface ApiQuestionQuestion extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
-    wrong_answer: Attribute.String;
-    correct_answer: Attribute.String;
-    is_opinion: Attribute.Boolean;
+    title: Attribute.String & Attribute.Required;
+    wrong_answer: Attribute.String & Attribute.Required;
+    correct_answer: Attribute.String & Attribute.Required;
+    is_opinion: Attribute.Boolean & Attribute.DefaultTo<false>;
     wrong_percentage: Attribute.Integer;
     correct_percentage: Attribute.Integer;
     img: Attribute.Media;
