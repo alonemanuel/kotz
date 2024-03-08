@@ -48,6 +48,17 @@
       "type": "text"
     },
     "outside_img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "author_img": {
       "allowedTypes": [
         "images",
         "files",
