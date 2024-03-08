@@ -4,7 +4,8 @@
   "info": {
     "singularName": "term",
     "pluralName": "terms",
-    "displayName": "Term"
+    "displayName": "Term",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,6 +17,16 @@
     },
     "definition": {
       "type": "text"
+    },
+    "img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

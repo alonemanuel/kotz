@@ -37,6 +37,15 @@
     },
     "body": {
       "type": "blocks"
+    },
+    "short_title": {
+      "type": "string"
+    },
+    "lead": {
+      "type": "text"
+    },
+    "author_about": {
+      "type": "text"
     }
   }
 }

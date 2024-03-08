@@ -413,6 +413,9 @@ export interface ApiItemArticleItemArticle extends Schema.CollectionType {
     cover: Attribute.Media;
     cover_caption: Attribute.String;
     body: Attribute.Blocks;
+    short_title: Attribute.String;
+    lead: Attribute.Text;
+    author_about: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -449,6 +452,8 @@ export interface ApiQuestionQuestion extends Schema.CollectionType {
     is_opinion: Attribute.Boolean;
     wrong_percentage: Attribute.Integer;
     correct_percentage: Attribute.Integer;
+    img: Attribute.Media;
+    video: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -473,6 +478,7 @@ export interface ApiTermTerm extends Schema.CollectionType {
     singularName: 'term';
     pluralName: 'terms';
     displayName: 'Term';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -480,6 +486,7 @@ export interface ApiTermTerm extends Schema.CollectionType {
   attributes: {
     title: Attribute.String;
     definition: Attribute.Text;
+    img: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
