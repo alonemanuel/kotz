@@ -4,6 +4,8 @@ import LoadingComponent from "./LoadingComponent";
 import { AboutUs } from "../types/aboutUs";
 import ArticleContent from "../ArticleContent";
 import JsonBlocks from "./json_block/JsonBlocks";
+import bezalelImg from "../images/bezalel_logo_0.png";
+import runiImg from "../images/runi_logo_0.png";
 
 const AboutComponent = () => {
   const [about, setAbout] = useState<AboutUs | null>(null);
@@ -19,7 +21,6 @@ const AboutComponent = () => {
     return <LoadingComponent />;
   }
 
-  console.log(about.body);
   return (
     <main>
       <header>
@@ -37,6 +38,15 @@ const AboutComponent = () => {
           <div>מהו קוץ?</div>
         </a>
       </nav>
+
+      <footer>
+        <a href="">
+          <img src={bezalelImg} alt="האקדמיה בצלאל" />
+        </a>
+        <a href="">
+          <img src={runiImg} alt="אוניברסיטת רייכמן" />
+        </a>
+      </footer>
     </main>
   );
 };

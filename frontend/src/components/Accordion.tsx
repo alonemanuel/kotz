@@ -32,17 +32,6 @@ const Accordion: React.FC<AccordionProps> = ({ articles }) => {
       // });
     }
   };
-  console.log("articles");
-  console.log(articles);
-  console.log(articles[0]);
-
-  // return (
-  //   <div className={styles.accordionContainer}>
-  //     {articles.map((article, index) => (
-  //       <div>hi</div>
-  //     ))}
-  //   </div>
-  // );
 
   return (
     <div className={styles.accordionContainer}>

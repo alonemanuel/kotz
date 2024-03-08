@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import styles from "../src/styles/KotzPage.module.css";
 import kabarImg from "./images/kabar.jpg";
 import kotzImg from "./images/kotz.svg";
-import bezalelImg from "./images/bezalel_logo_0.png";
-import runiImg from "./images/runi_logo_0.png";
+
 import KotzFab from "./KotzFab";
 import * as C from "./constants";
 import AboutComponent from "./components/AboutComponent";
+import IssuesComponent from "./components/IssuesComponent";
 
 interface Box {
   id: number;
@@ -35,47 +35,18 @@ const KotzPage: React.FC = () => {
   const [issues, setIssues] = useState([]);
   const [about, setAbout] = useState([]);
 
-  useEffect(() => {
-    fetch(`${C.API_BASE_URL}${C.ISSUES_ENDPOINT}`)
-      .then((response: any) => {
-        console.log(response);
-        return response.json();
-      })
-
-      .then((data: any) => {
-        console.log(data);
-        setIssues(data.data);
-      })
-      .catch((error) => console.error("error fetching data", error));
-  }, []);
-
   if (!issues) {
     return <div>Loading...</div>;
   }
 
-  // return (
-  //   <Layout>
-  //     <div className={styles.censorshipPage}>
-  //       <Accordion articles={articlesStrapi} />
-  //     </div>
-  //   </Layout>
-  // );
-
   return (
     <div className={styles.kotzPage}>
       <div className={styles.sideInfo}>
-          <AboutComponent />
-        <footer>
-          <a href="">
-            <img src={bezalelImg} alt="האקדמיה בצלאל" />
-          </a>
-          <a href="">
-            <img src={runiImg} alt="אוניברסיטת רייכמן" />
-          </a>
-        </footer>
+        <AboutComponent />
       </div>
       <div className={styles.gridContainer}>
-        {boxes.map((box) => (
+        <IssuesComponent />
+        {/* {boxes.map((box) => (
           <div
             key={box.id}
             className={styles.gridItem}
@@ -84,7 +55,7 @@ const KotzPage: React.FC = () => {
             <img src={box.image} alt={box.title} />
             <p>{box.title}</p>
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   );
