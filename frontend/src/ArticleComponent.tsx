@@ -3,7 +3,7 @@ import ArticleContent from "./ArticleContent";
 import { Article } from "./interfaces";
 
 const ArticleComponent: React.FC<{ article: Article }> = ({ article }) => {
-  const { title, subtitle, author, cover_caption, body } = article.attributes;
+  const { title, subtitle, author, cover_caption, body, outside_image } = article.attributes;
 
   return (
     <article>
