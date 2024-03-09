@@ -76,24 +76,28 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-}
 
-.gridItem:hover img {
-  scale: 1.1;
-}
+  &:hover {
+    & img {
+      scale: 1.1;
+    }
+  }
 
-.gridItem:active img {
-  scale: 1.15;
-}
+  &:active {
+    & img {
+      scale: 1.15;
+    }
+  }
 
-.gridItem img {
-  /* width: 100%; */
-  transition: scale 0.1s ease-out;
+  &.unpublished {
+    cursor: auto;
 
-}
+  }
+  
+  & img {
+    transition: scale 0.1s ease-out;
 
-.gridItem.unpublished {
-  cursor: auto;
+  }
 }
 
 .header {
@@ -101,7 +105,7 @@
 }
 
 @media (max-aspect-ratio: 1) {
-    .kotzPage {
-        padding: 4em 3em;
-    }
+  .kotzPage {
+    padding: 4em 3em;
   }
+}
