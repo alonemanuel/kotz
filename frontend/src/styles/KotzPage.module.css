@@ -78,8 +78,22 @@
   align-items: center;
 }
 
+.gridItem:hover img {
+  scale: 1.1;
+}
+
+.gridItem:active img {
+  scale: 1.15;
+}
+
 .gridItem img {
   /* width: 100%; */
+  transition: scale 0.1s ease-out;
+
+}
+
+.gridItem.unpublished {
+  cursor: auto;
 }
 
 .header {

@@ -22,8 +22,6 @@ const IssuesComponent = () => {
     fetch(`${C.API_BASE_URL}${C.ISSUES_ENDPOINT}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log("dat.sta.attr");
-        console.log(data.data);
         setIssues(data.data.map((issue: any) => issue.attributes));
       })
       .catch((error) => console.error(`Error fetching data: ${error}`));
@@ -38,8 +36,10 @@ const IssuesComponent = () => {
       {issues.map((issue, index) => (
         <div
           key={index}
-          className={styles.gridItem}
-          onClick={() => handleBoxClick(issue.path)}
+          className={`${styles.gridItem}${
+            !issue.is_published ? styles.unpublished : ``
+          }`}
+          onClick={() => issue.is_published && handleBoxClick(issue.path)}
         >
           <img src={kotzImg} alt={issue.name} />
           {issue.is_published && (
