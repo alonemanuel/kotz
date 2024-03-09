@@ -872,6 +872,7 @@ export interface ApiItemArticleItemArticle extends Schema.CollectionType {
     author_about: Attribute.Text;
     outside_img: Attribute.Media;
     author_img: Attribute.Media;
+    order: Attribute.Integer & Attribute.DefaultTo<0>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
