@@ -19,7 +19,7 @@ const IssuesComponent = () => {
   };
 
   useEffect(() => {
-    fetch(`${C.API_BASE_URL}${C.ISSUES_ENDPOINT}`)
+    fetch(`${C.API_BASE_URL}${C.ISSUES_ENDPOINT}?sort[0]=number:asc`)
       .then((response) => response.json())
       .then((data) => {
         setIssues(data.data.map((issue: any) => issue.attributes));
