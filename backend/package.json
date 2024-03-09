@@ -7,9 +7,11 @@
     "develop": "cross-env NODE_ENV=development strapi develop --debug",
     "start": "cross-env NODE_ENV=production strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "export-prod": "cross-env NODE_ENV=production strapi export --no-encrypt"
   },
   "dependencies": {
+    "@retikolo/drag-drop-content-types": "^1.5.2",
     "@strapi/plugin-cloud": "4.19.1",
     "@strapi/plugin-color-picker": "^4.19.1",
     "@strapi/plugin-documentation": "^4.19.1",
@@ -24,6 +26,7 @@
     "react-dom": "^18.0.0",
     "react-router-dom": "5.3.4",
     "strapi-plugin-duplicate-button": "^1.1.14",
+    "strapi-plugin-file-system": "^1.0.8",
     "strapi-plugin-import-export-entries": "^1.23.1",
     "styled-components": "5.3.3"
   },
