@@ -17,7 +17,7 @@ const CensorshipPage: React.FC = () => {
   const baseUrl = C.API_BASE_URL;
 
   useEffect(() => {
-    fetch(`${C.API_BASE_URL}${C.ITEM_ARTICLES_ENDPOINT}`)
+    fetch(`${C.API_BASE_URL}${C.ITEM_ARTICLES_ENDPOINT}?sort[0]=order:asc`)
       .then((response: any) => {
         console.log(response);
         return response.json();
