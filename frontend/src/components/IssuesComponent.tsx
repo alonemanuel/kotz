@@ -43,17 +43,17 @@ const IssuesComponent = () => {
         >
           <img src={kotzImg} alt={issue.name} />
           {issue.is_published && (
-            <>
+            <div className={styles.details}>
               <hgroup>
                 <h1>
-                  <span>{issue.number}</span>
+                  <span>{issue.number.toString().padStart(2, '0')}</span>
                   {issue.name}
                 </h1>
               </hgroup>
-              <div>
+              <div className={styles.guests}>
                 <JsonBlocks content={issue.guests} />
               </div>
-            </>
+            </div>
           )}
         </div>
       ))}
