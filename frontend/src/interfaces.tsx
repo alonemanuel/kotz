@@ -4,7 +4,7 @@ export interface ArticleAttribute {
   author: string;
   cover_caption: string;
   body: ContentBlock[];
-  // outside_image: { id: number; url: string ,};
+  outside_img: any;
 }
 
 export interface Article {
