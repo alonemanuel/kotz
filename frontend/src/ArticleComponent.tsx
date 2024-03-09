@@ -18,13 +18,11 @@ const ArticleComponent: React.FC<{ article: Article }> = ({ article }) => {
       </header>
       <main>
         <div>
-          {/* {typeof outside_img} */}
           <div
             style={{
               backgroundImage: `url(${C.STRAPI_BASEURL}${outside_img?.data?.attributes.url})`,
             }}
           ></div>
-          {outside_img?.data?.attributes.url}
         </div>
         <ArticleContent content={body} />
       </main>
