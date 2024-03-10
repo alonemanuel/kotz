@@ -45,7 +45,7 @@ const Accordion: React.FC<AccordionProps> = ({ articles }) => {
               activeIndex === index ? styles.active : ""
             }`}
             onClick={() => toggleAccordion(index)}
-            style={article.attributes.outside_img.data && {backgroundImage: `url(${article.attributes.outside_img?.data?.attributes.url}`}}
+            style={article.attributes.outside_img_vertical.data && {backgroundImage: `url(${article.attributes.outside_img_vertical?.data?.attributes.url}`}}
           >
             <h1>{article.attributes.title}</h1>
           </button>

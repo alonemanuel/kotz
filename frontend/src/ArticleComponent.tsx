@@ -4,7 +4,7 @@ import { Article } from "./interfaces";
 import * as C from "./constants";
 
 const ArticleComponent: React.FC<{ article: Article }> = ({ article }) => {
-  const { title, subtitle, author, cover_caption, body, outside_img } =
+  const { title, subtitle, author, cover_caption, body, outside_img_vertical } =
     article.attributes;
 
   return (
@@ -20,7 +20,7 @@ const ArticleComponent: React.FC<{ article: Article }> = ({ article }) => {
         <div>
           <div
             style={{
-              backgroundImage: `url($${outside_img?.data?.attributes.url})`,
+              backgroundImage: `url($${outside_img_vertical?.data?.attributes.url})`,
             }}
           ></div>
         </div>

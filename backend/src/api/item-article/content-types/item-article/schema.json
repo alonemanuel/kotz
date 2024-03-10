@@ -47,7 +47,7 @@
     "author_about": {
       "type": "text"
     },
-    "outside_img": {
+    "outside_img_vertical": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -72,6 +72,16 @@
     "order": {
       "type": "integer",
       "default": 0
+    },
+    "outside_img_horizontal": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
