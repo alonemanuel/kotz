@@ -20,7 +20,7 @@ const ArticleComponent: React.FC<{ article: Article }> = ({ article }) => {
         <div>
           <div
             style={{
-              backgroundImage: `url(${C.STRAPI_BASEURL}${outside_img?.data?.attributes.url})`,
+              backgroundImage: `url($${outside_img?.data?.attributes.url})`,
             }}
           ></div>
         </div>
