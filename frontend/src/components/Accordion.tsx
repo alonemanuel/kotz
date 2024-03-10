@@ -3,7 +3,7 @@ import styles from "../styles/Accordion.module.css";
 import { ItemArticle } from "../types/itemArticle";
 import { Article } from "../interfaces";
 
-import * as C from '../constants';
+import * as C from "../constants";
 
 import ArticleContent from "../ArticleContent";
 import ArticleComponent from "../ArticleComponent";
@@ -45,7 +45,15 @@ const Accordion: React.FC<AccordionProps> = ({ articles }) => {
               activeIndex === index ? styles.active : ""
             }`}
             onClick={() => toggleAccordion(index)}
-            style={article.attributes.outside_img_vertical.data && {backgroundImage: `url(${article.attributes.outside_img_vertical?.data?.attributes.url}`}}
+            style={
+              article.attributes.outside_img_vertical.data &&
+              article.attributes.outside_img_horizontal.data &&
+              ({
+                "--outside-img-horizontal-url": `url(${article.attributes.outside_img_horizontal?.data?.attributes.url})`,
+                "--outside-img-vertical-url": `url(${article.attributes.outside_img_vertical?.data?.attributes.url})`,
+              } as React.CSSProperties)
+            }
+            // style={article.attributes.outside_img_vertical.data && {backgroundImage: `url(${article.attributes.outside_img_vertical?.data?.attributes.url}`}}
           >
             <h1>{article.attributes.title}</h1>
           </button>

@@ -20,6 +20,11 @@ svg {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  background-image: var(
+    --outside-img-horizontal-url,
+    url(../images/tiger0.png)
+  );
 }
 
 .accordion:hover,
@@ -149,6 +154,11 @@ p {
     width: auto;
     writing-mode: sideways-lr;
     /* color: transparent; */
+
+    background-image: var(
+      --outside-img-vertical-url,
+      url(../images/tiger0.png)
+    );
   }
 
   .accordion h1 {
@@ -166,7 +176,5 @@ p {
     overflow-y: scroll;
     max-height: 100%;
     /* padding-inline: 16px; */
-
   }
 }
-

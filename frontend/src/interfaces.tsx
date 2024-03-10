@@ -5,6 +5,7 @@ export interface ArticleAttribute {
   cover_caption: string;
   body: ContentBlock[];
   outside_img_vertical: any;
+  outside_img_horizontal: any;
 }
 
 export interface Article {
