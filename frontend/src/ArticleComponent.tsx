@@ -12,18 +12,11 @@ const ArticleComponent: React.FC<{ article: Article }> = ({ article }) => {
       <header>
         <hgroup>
           <h1>{title}</h1>
-          {subtitle && <h2>{subtitle}</h2>}
           <h3>{author}</h3>
+          {subtitle && <h2>{subtitle}</h2>}
         </hgroup>
       </header>
       <main>
-        <div>
-          <div
-            style={{
-              backgroundImage: `url($${outside_img_vertical?.data?.attributes.url})`,
-            }}
-          ></div>
-        </div>
         <ArticleContent content={body} />
       </main>
     </article>

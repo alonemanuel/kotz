@@ -5,14 +5,17 @@ svg {
 
 .accordion {
   background-color: #eee;
-  color: #fff;
+  color: var(--color-white);
+  text-shadow: 0 0 12px black;
   cursor: pointer;
   padding: 18px;
   width: 100%;
   border: none;
   text-align: right;
   outline: none;
-  font-size: 18px;
+  font-size: var(--fs-600);
+  font-family: var(--ff-david-vc);
+  font-weight: 500;
   /* transition: 0.4s; */
 
   flex-grow: 1;
@@ -67,11 +70,13 @@ p {
   /* gap: 2em; */
 
   section.articleWrapper {
-    max-width: 600px;
+    /* max-width: 600px; */
+    /* max-width: 100%; */
     display: flex;
     flex-flow: column nowrap;
     align-items: start;
     justify-content: center;
+    flex-shrink: 0;
 
     header {
       /* display: flex;
@@ -136,7 +141,7 @@ p {
   flex-flow: column nowrap;
   flex-grow: 1;
   /* height: 90vh; */
-  background-color: #fff;
+  background-color:var(--color-black);
 }
 
 @media (min-aspect-ratio: 1) {
@@ -172,7 +177,7 @@ p {
   }
 
   .panel.active {
-    max-width: 60vh; /* Adjust as needed for your content */
+    max-width: 50vw; /* Adjust as needed for your content */
     overflow-y: scroll;
     max-height: 100%;
     /* padding-inline: 16px; */
