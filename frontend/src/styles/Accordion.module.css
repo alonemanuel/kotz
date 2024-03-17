@@ -157,9 +157,9 @@ p {
       width: 100%;
       flex-grow: 1;
 
-      opacity: 0.3;
+      z-index: 1;
 
-      transition: all 0.2s ease-out;
+      transition: all 0.25s ease-out;
 
       &:hover {
         /* scale: 1.1; */
