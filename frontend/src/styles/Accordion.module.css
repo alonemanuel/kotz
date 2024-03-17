@@ -188,6 +188,12 @@ p {
         font-size: var(--fs-400);
         line-height: 1;
         font-family: var(--ff-narkis-yair);
+
+        &::before {
+          content: ">";
+          margin-inline-end: 0.5em;
+        }
+        
       }
     }
   }
