@@ -54,6 +54,11 @@ const Accordion: React.FC<AccordionProps> = ({ articles }) => {
               activeIndex === index ? styles.active : ""
             }`}
             onClick={() => toggleAccordion(index)}
+            style={
+              {
+                "--outside-img-margin-top": `-${textContentHeights.current[index]}px`,
+              } as React.CSSProperties
+            }
           >
             <div
               className={styles.bgContent}
@@ -63,12 +68,12 @@ const Accordion: React.FC<AccordionProps> = ({ articles }) => {
                 ({
                   "--outside-img-horizontal-url": `url(${article.attributes.outside_img_horizontal?.data?.attributes.url})`,
                   "--outside-img-vertical-url": `url(${article.attributes.outside_img_vertical?.data?.attributes.url})`,
-                  "--outside-img-margin-top": `-${textContentHeights.current[index]}px`,
                 } as React.CSSProperties)
               }
             ></div>
             <div className={styles.textContent}>
               <h1>{article.attributes.title}</h1>
+              <h2>{article.attributes.author}</h2>
             </div>
           </div>
           <div
