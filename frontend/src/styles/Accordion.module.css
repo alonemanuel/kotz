@@ -143,13 +143,12 @@ p {
     &:hover {
       & .bgContent {
         margin-top: var(--outside-img-margin-top, 0);
-
       }
     }
 
     & .bgContent {
       position: absolute;
-      
+
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -178,6 +177,18 @@ p {
       padding: 0.6em;
       /* background-color: var(--color-white); */
       color: var(--color-black);
+      gap: 0.5em;
+      & h1 {
+        font-family: var(--ff-david-vc);
+        font-size: var(--fs-500);
+        font-weight: 700;
+      }
+
+      & h2 {
+        font-size: var(--fs-400);
+        line-height: 1;
+        font-family: var(--ff-narkis-yair);
+      }
     }
   }
 }
