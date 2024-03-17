@@ -3,6 +3,7 @@ import KotzFab from "./KotzFab";
 import KotzIcon from "./components/KotzIcon2";
 import styles from "./styles/Layout.module.css";
 import { useNavigate } from "react-router-dom";
+import { OpenArticleProvider, useOpenArticle } from "./OpenArticleContext";
 
 interface LayoutProps {
   children: ReactNode;
@@ -14,12 +15,26 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     navigate("/");
   };
 
+  const { isOpen, closeArticle } = useOpenArticle();
+
   return (
     <>
       {/* This is where page-specific content will go */}
       {children}
 
       {/* Common element across all pages */}
+      {isOpen && (
+        <nav>
+          <div
+          className={styles.hamburger}
+          onClick={closeArticle}
+          ></div>
+          <hgroup>
+            <h1>01</h1>
+            <h2>צנזורה</h2>
+          </hgroup>
+        </nav>
+      )}
       <KotzIcon className={styles.kotzIcon} onClick={handleKotzClick} />
     </>
   );
