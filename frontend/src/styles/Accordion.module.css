@@ -139,7 +139,13 @@ p {
     display: flex;
     position: relative;
     background-color: var(--color-white);
+    color: var(--color-black);
 
+    .active& {
+      height: 50px;
+      background-color: var(--color-black);
+    }
+    
     &:hover {
       & .bgContent {
         margin-left: var(--outside-img-margin-left, 400px);
@@ -167,6 +173,11 @@ p {
       z-index: 1;
 
       transition: all 0.25s ease-out;
+
+      .active & {
+        margin-left: 100%;
+
+      }
     }
 
     & .textContent {
@@ -181,7 +192,7 @@ p {
       font-size: 1rem;
       padding: 0.6em;
       /* background-color: var(--color-white); */
-      color: var(--color-black);
+      /* color: var(--color-black); */
       gap: 0.5em;
       & h1 {
         font-family: var(--ff-david-vc);
