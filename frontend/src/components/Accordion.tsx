@@ -39,7 +39,7 @@ const Accordion: React.FC<AccordionProps> = ({ articles }) => {
   useEffect(() => {
     const heights = accordionRefs.current.map(
       (accordion) =>
-        accordion?.querySelector(`.${styles.textContent}`)?.clientHeight ?? 0
+        accordion?.querySelector<HTMLElement>(`.${styles.textContent}`)?.offsetHeight ?? 0
     );
     textContentHeights.current = heights;
   }, [articles]); // Rerun effect when articles changes
