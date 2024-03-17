@@ -6,9 +6,9 @@ svg {
 .accordion {
   background-color: #eee;
   color: var(--color-white);
-  text-shadow: 0 0 12px black;
+  /* text-shadow: 0 0 12px black; */
   cursor: pointer;
-  padding: 18px;
+  /* padding: 18px; */
   width: 100%;
   border: none;
   text-align: right;
@@ -19,15 +19,7 @@ svg {
   /* transition: 0.4s; */
 
   flex-grow: 1;
-  background-image: url(../images/tiger0.png);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  background-image: var(
-    --outside-img-horizontal-url,
-    url(../images/tiger0.png)
-  );
+  /* background-image: url(../images/tiger0.png); */
 }
 
 .accordion:hover,
@@ -141,7 +133,51 @@ p {
   flex-flow: column nowrap;
   flex-grow: 1;
   /* height: 90vh; */
-  background-color:var(--color-black);
+  background-color: var(--color-black);
+
+  & .accordion {
+    display: flex;
+    position: relative;
+    background-color: var(--color-white);
+
+
+    & .bgContent {
+      position: absolute;
+      
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      background-image: var(
+        --outside-img-horizontal-url,
+        url(../images/tiger0.png)
+      );
+
+      height: 100%;
+      width: 100%;
+      flex-grow: 1;
+
+      opacity: 0.3;
+
+      transition: all 0.2s ease-out;
+
+      &:hover {
+        /* scale: 1.1; */
+        margin-top: var(--outside-img-margin-top, 0);
+      }
+    }
+
+    & .textContent {
+      width: 100%;
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      font-size: 1rem;
+      padding: 0.6em;
+      /* background-color: var(--color-white); */
+      color: var(--color-black);
+    }
+  }
 }
 
 @media (min-aspect-ratio: 1) {
@@ -150,24 +186,25 @@ p {
     display: flex;
     width: 100%;
     height: 100%;
+
+    .accordion {
+      flex-grow: 1;
+      overflow: hidden;
+      height: 100%;
+      width: auto;
+      writing-mode: sideways-lr;
+      /* color: transparent; */
+
+      & .bgContent {
+        background-image: var(
+          --outside-img-vertical-url,
+          url(../images/tiger0.png)
+        );
+      }
+    }
   }
-
-  .accordion {
-    flex-grow: 1;
-    overflow: hidden;
-    height: 100%;
-    width: auto;
-    writing-mode: sideways-lr;
-    /* color: transparent; */
-
-    background-image: var(
-      --outside-img-vertical-url,
-      url(../images/tiger0.png)
-    );
-  }
-
   .accordion h1 {
-    display: none;
+    /* display: none; */
   }
 
   .panel {
