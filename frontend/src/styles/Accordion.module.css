@@ -142,7 +142,8 @@ p {
 
     &:hover {
       & .bgContent {
-        margin-top: var(--outside-img-margin-top, 0);
+        margin-left: var(--outside-img-margin-left, 400px);
+        margin-top: auto;
       }
     }
 
@@ -161,6 +162,7 @@ p {
       height: 100%;
       width: 100%;
       flex-grow: 1;
+      left: 0;
 
       z-index: 1;
 
@@ -168,11 +170,14 @@ p {
     }
 
     & .textContent {
-      width: 100%;
+      height: 100%;
+      align-items: center;
+      /* width: 100%; */
       display: flex;
-      flex-flow: column nowrap;
+      flex-flow: row nowrap;
       position: absolute;
-      bottom: 0;
+      bottom: auto;
+      left: 0;
       font-size: 1rem;
       padding: 0.6em;
       /* background-color: var(--color-white); */
@@ -193,7 +198,6 @@ p {
           content: ">";
           margin-inline-end: 0.5em;
         }
-        
       }
     }
   }
@@ -213,17 +217,28 @@ p {
       width: auto;
       writing-mode: sideways-lr;
       /* color: transparent; */
-
+      &:hover {
+        & .bgContent {
+          margin-top: var(--outside-img-margin-top, 300px);
+          margin-left: auto;
+        }
+      }
       & .bgContent {
         background-image: var(
           --outside-img-vertical-url,
           url(../images/tiger0.png)
         );
+
+      }
+
+      & .textContent {
+        flex-flow: column nowrap;
+        bottom: 0;
+        left: auto;
+        /* left: 0;
+        bottom: auto; */
       }
     }
-  }
-  .accordion h1 {
-    /* display: none; */
   }
 
   .panel {

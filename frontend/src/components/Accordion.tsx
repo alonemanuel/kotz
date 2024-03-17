@@ -19,6 +19,7 @@ const Accordion: React.FC<AccordionProps> = ({ articles }) => {
   const accordionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const panelRefs = useRef<(HTMLDivElement | null)[]>([]);
   const textContentHeights = useRef<(number | null)[]>([]);
+  const textContentWidths = useRef<(number | null)[]>([]);
 
   const toggleAccordion = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -42,6 +43,15 @@ const Accordion: React.FC<AccordionProps> = ({ articles }) => {
         accordion?.querySelector<HTMLElement>(`.${styles.textContent}`)?.offsetHeight ?? 0
     );
     textContentHeights.current = heights;
+
+    const widths = accordionRefs.current.map(
+      (accordion) =>
+        accordion?.querySelector<HTMLElement>(`.${styles.textContent}`)?.offsetWidth ?? 0
+    );
+    textContentWidths.current = widths;
+
+
+
   }, [articles]); // Rerun effect when articles changes
 
   return (
@@ -57,6 +67,7 @@ const Accordion: React.FC<AccordionProps> = ({ articles }) => {
             style={
               {
                 "--outside-img-margin-top": `-${textContentHeights.current[index]}px`,
+                "--outside-img-margin-left": `${textContentWidths.current[index]}px`,
               } as React.CSSProperties
             }
           >
