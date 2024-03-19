@@ -20,16 +20,21 @@ export interface TextNode {
 
 export interface ContentBlock {
   type: string;
-  children: ContentBlockChild[];
+  children?: ContentBlockChild[];
   text?: string;
-  bold?: boolean;
-  italic?: boolean;
+  image?: ImageBlock;
 }
 
 export interface ContentBlockChild {
   text: string;
   bold?: boolean;
   italic?: boolean;
+}
+
+export interface ImageBlock {
+  url: string;
+  caption?: string;
+  alternativeText?: string;
 }
 
 export interface ArticleContentProps {

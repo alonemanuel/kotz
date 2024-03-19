@@ -4,16 +4,6 @@ import { Article } from "./interfaces";
 import * as C from "./constants";
 
 const ArticleComponent: React.FC<{ article: Article }> = ({ article }) => {
-  const {
-    title,
-    subtitle,
-    author,
-    cover_caption,
-    body,
-    outside_img_vertical,
-    outside_img_horizontal,
-  } = article.attributes;
-
   const attr = article.attributes;
 
   return (

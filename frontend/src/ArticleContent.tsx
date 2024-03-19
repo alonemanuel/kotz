@@ -3,6 +3,7 @@ import Paragraph from "./Paragraph";
 import BoldText from "./BoldText";
 import ItalicText from "./ItalicText";
 import { ContentBlock, ContentBlockChild } from "./interfaces";
+import ArticleBodyImage from "./ArticleBodyImage";
 
 const ArticleContent: React.FC<{ content: ContentBlock[] }> = ({ content }) => {
   const renderContentBlock = (block: ContentBlock, index: number) => {
@@ -10,19 +11,23 @@ const ArticleContent: React.FC<{ content: ContentBlock[] }> = ({ content }) => {
       case "paragraph":
         return (
           <Paragraph key={index}>
-            {block.children.map((child, childIndex) =>
+            {block.children?.map((child, childIndex) =>
               renderTextNode(child, childIndex)
             )}
           </Paragraph>
         );
-
+      case "image":
+        return <ArticleBodyImage key={index}
+        url={block.image?.url}
+        alt={block.image?.alternativeText}
+/>
       // Add more cases for other types
       default:
         return null;
     }
   };
 
-  const renderTextNode = (node: ContentBlockChild, index: number) => {
+    const renderTextNode = (node: ContentBlockChild, index: number) => {
     if (node.bold) {
       return <BoldText key={index}>{node.text}</BoldText>;
     } else if (node.italic) {
