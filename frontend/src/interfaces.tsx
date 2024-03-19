@@ -31,6 +31,7 @@ export interface ContentBlock {
   children?: ContentBlockChild[];
   text?: string;
   image?: ImageBlock;
+  level?:number;
 }
 
 export interface ContentBlockChild {

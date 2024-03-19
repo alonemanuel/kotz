@@ -19,17 +19,6 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
 
   return (
     <article>
-      <div className={styles.terms}>
-        <h1>מילון מושגים</h1>
-        {articleTerms
-          .map((term: any) => term.attributes)
-          .map((term: any) => (
-            <div className={styles.term}>
-              <h2>{term?.title}</h2>
-              <p>{term?.definition}</p>
-            </div>
-          ))}
-      </div>
       <header>
         <hgroup>
           {attr.title && <h1>{attr.title}</h1>}
@@ -37,7 +26,7 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
           {attr.subtitle && <h2>{attr.subtitle}</h2>}
         </hgroup>
       </header>
-      <main>{attr.body && <ArticleContent content={attr.body} />}</main>
+      <main>{attr.body && <ArticleContent content={attr.body} terms={articleTerms} />}</main>
     </article>
   );
 };

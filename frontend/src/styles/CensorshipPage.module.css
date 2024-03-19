@@ -91,18 +91,22 @@
     color: var(--color-black);
     font-family: var(--ff-hadassa);
     padding: 2em;
+    gap: 2em;
 
     & h1 {
       font-family: var(--ff-hadassa);
     }
 
-    & .term {
-      & h2 {
+    & section {
+      & .term {
+        & h2 {
+          font-weight: 700;
+        }
 
-      }
-
-      & p {
-        font-size: var(--fs-300);
+        & p {
+          font-family: var(--ff-hadassa);
+          font-size: var(--fs-300);
+        }
       }
     }
   }
