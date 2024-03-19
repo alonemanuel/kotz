@@ -127,18 +127,18 @@ const Accordion: React.FC<AccordionProps> = ({ articles }) => {
               <div
                 className={styles.bgContent}
                 style={
-                  article.attributes.outside_img_vertical.data &&
-                  article.attributes.outside_img_horizontal.data &&
+                  attr.outside_img_vertical.data &&
+                  attr.outside_img_horizontal.data &&
                   ({
-                    "--outside-img-horizontal-url": `url(${article.attributes.outside_img_horizontal?.data?.attributes.url})`,
-                    "--outside-img-vertical-url": `url(${article.attributes.outside_img_vertical?.data?.attributes.url})`,
+                    "--outside-img-horizontal-url": `url(${attr.outside_img_horizontal?.data?.attributes.url})`,
+                    "--outside-img-vertical-url": `url(${attr.outside_img_vertical?.data?.attributes.url})`,
                   } as React.CSSProperties)
                 }
               ></div>
               {(attr.author || attr.title) && (
                 <div className={styles.textContent}>
-                  {attr.title && <h1>{article.attributes.title}</h1>}
-                  {attr.author && <h2>{article.attributes.author}</h2>}
+                  {attr.title && <h1>{attr.title}</h1>}
+                  {attr.author && <h2>{attr.author}</h2>}
                 </div>
               )}
             </div>
