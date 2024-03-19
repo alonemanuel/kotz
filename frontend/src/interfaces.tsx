@@ -7,6 +7,8 @@ export interface ArticleAttribute {
   outside_img_vertical: any;
   outside_img_horizontal: any;
   terms: any;
+  type: string;
+  debates:any;
 }
 
 export interface Article {

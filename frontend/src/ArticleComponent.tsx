@@ -3,7 +3,7 @@ import ArticleContent from "./ArticleContent";
 import { Article, Term } from "./interfaces";
 import * as C from "./constants";
 import styles from "./styles/CensorshipPage.module.css";
-
+import DebateContent from "./DebateContent";
 
 interface ArticleComponentProps {
   article: Article;
@@ -26,7 +26,20 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
           {attr.subtitle && <h2>{attr.subtitle}</h2>}
         </hgroup>
       </header>
-      <main>{attr.body && <ArticleContent content={attr.body} terms={articleTerms} />}</main>
+      <main>
+        {(() => {
+          if (attr.body) {
+            switch (attr.type) {
+              case "standard":
+                return (
+                  <ArticleContent content={attr?.body} terms={articleTerms} />
+                );
+              case "debate":
+                return <DebateContent content={attr?.debates?.data} />;
+            }
+          }
+        })()}
+      </main>
     </article>
   );
 };
