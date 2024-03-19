@@ -105,9 +105,6 @@
       "relation": "oneToMany",
       "target": "api::question.question"
     },
-    "dialog_answer": {
-      "type": "blocks"
-    },
     "debates": {
       "type": "relation",
       "relation": "oneToMany",

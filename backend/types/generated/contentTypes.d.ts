@@ -922,7 +922,6 @@ export interface ApiItemArticleItemArticle extends Schema.CollectionType {
       'oneToMany',
       'api::question.question'
     >;
-    dialog_answer: Attribute.Blocks;
     debates: Attribute.Relation<
       'api::item-article.item-article',
       'oneToMany',
