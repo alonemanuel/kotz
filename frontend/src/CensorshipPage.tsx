@@ -34,8 +34,8 @@ const CensorshipPage: React.FC = () => {
 
     Promise.all([fetchArticles, fetchTerms])
       .then(([articlesData, termsData]) => {
-        setArticlesStrapi(articlesData.data);
-        setTermsStrapi(termsData.data.data);
+        setArticlesStrapi(articlesData?.data);
+        setTermsStrapi(termsData?.data);
       })
       .catch((error) => console.error("error fetching data", error));
   }, []);
