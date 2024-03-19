@@ -55,3 +55,10 @@ nav {
     }
   }
 }
+
+/* Desktop */
+@media (min-aspect-ratio: 1) {
+  nav {
+    display: none;
+  }
+}
