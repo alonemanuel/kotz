@@ -814,6 +814,40 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
   };
 }
 
+export interface ApiDebateDebate extends Schema.CollectionType {
+  collectionName: 'debates';
+  info: {
+    singularName: 'debate';
+    pluralName: 'debates';
+    displayName: 'Debate';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    author: Attribute.String;
+    lead: Attribute.Text;
+    body: Attribute.Blocks;
+    author_img: Attribute.Media;
+    order: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::debate.debate',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::debate.debate',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiIssueIssue extends Schema.CollectionType {
   collectionName: 'issues';
   info: {
@@ -889,6 +923,11 @@ export interface ApiItemArticleItemArticle extends Schema.CollectionType {
       'api::question.question'
     >;
     dialog_answer: Attribute.Blocks;
+    debates: Attribute.Relation<
+      'api::item-article.item-article',
+      'oneToMany',
+      'api::debate.debate'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1043,6 +1082,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::about-us.about-us': ApiAboutUsAboutUs;
+      'api::debate.debate': ApiDebateDebate;
       'api::issue.issue': ApiIssueIssue;
       'api::item-article.item-article': ApiItemArticleItemArticle;
       'api::question.question': ApiQuestionQuestion;

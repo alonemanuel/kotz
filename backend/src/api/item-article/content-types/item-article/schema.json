@@ -107,6 +107,11 @@
     },
     "dialog_answer": {
       "type": "blocks"
+    },
+    "debates": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::debate.debate"
     }
   }
 }
