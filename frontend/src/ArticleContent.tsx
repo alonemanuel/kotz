@@ -10,45 +10,57 @@ const ArticleContent: React.FC<{ content: ContentBlock[]; terms?: any[] }> = ({
   content,
   terms,
 }) => {
+  const renderParagraph = (block: ContentBlock, index: number) => {
+    return (
+      <Paragraph key={index}>
+        {block.children?.map((child, childIndex) =>
+          renderTextNode(child, childIndex)
+        )}
+      </Paragraph>
+    );
+  };
+
+  const renderImage = (block: ContentBlock, index: number) => {
+    return (
+      <ArticleBodyImage
+        key={index}
+        url={block.image?.url}
+        alt={block.image?.alternativeText}
+      />
+    );
+  };
+
+  const renderTerms = (block: ContentBlock, index: number) => {
+    return (
+      <div className={styles.terms}>
+        <header>
+          <h1>מילון מושגים</h1>
+        </header>
+        <section>
+          {terms
+            ?.map((term: any) => term.attributes)
+            .map((term: any) => (
+              <div className={styles.term}>
+                <h2>{term?.title}</h2>
+                <p>{term?.definition}</p>
+              </div>
+            ))}
+        </section>
+      </div>
+    );
+  };
+
   const renderContentBlock = (block: ContentBlock, index: number) => {
     switch (block.type) {
       case "paragraph":
-        return (
-          <Paragraph key={index}>
-            {block.children?.map((child, childIndex) =>
-              renderTextNode(child, childIndex)
-            )}
-          </Paragraph>
-        );
+        return renderParagraph(block, index);
       case "image":
-        return (
-          <ArticleBodyImage
-            key={index}
-            url={block.image?.url}
-            alt={block.image?.alternativeText}
-          />
-        );
+        return renderImage(block, index);
       case "heading":
         if (block.level === 6) {
-          return (
-            <div className={styles.terms}>
-              <header>
-                <h1>מילון מושגים</h1>
-              </header>
-              <section>
-                {terms
-                  ?.map((term: any) => term.attributes)
-                  .map((term: any) => (
-                    <div className={styles.term}>
-                      <h2>{term?.title}</h2>
-                      <p>{term?.definition}</p>
-                    </div>
-                  ))}
-              </section>
-            </div>
-          );
+          return renderTerms(block, index);
         } else {
-          return <p>sozo</p>;
+          return <h1>sozo</h1>;
         }
       // Add more cases for other types
       default:
