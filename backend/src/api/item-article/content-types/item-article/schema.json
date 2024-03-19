@@ -74,14 +74,38 @@
       "default": 0
     },
     "outside_img_horizontal": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "terms": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::term.term"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "standard",
+        "interview",
+        "dialogue",
+        "questions",
+        "pinned"
+      ]
+    },
+    "questions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::question.question"
+    },
+    "dialog_answer": {
+      "type": "blocks"
     }
   }
 }
