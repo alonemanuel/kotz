@@ -874,6 +874,20 @@ export interface ApiItemArticleItemArticle extends Schema.CollectionType {
     author_img: Attribute.Media;
     order: Attribute.Integer & Attribute.DefaultTo<0>;
     outside_img_horizontal: Attribute.Media;
+    terms: Attribute.Relation<
+      'api::item-article.item-article',
+      'oneToMany',
+      'api::term.term'
+    >;
+    type: Attribute.Enumeration<
+      ['standard', 'interview', 'dialogue', 'questions', 'pinned']
+    >;
+    questions: Attribute.Relation<
+      'api::item-article.item-article',
+      'oneToMany',
+      'api::question.question'
+    >;
+    dialog_answer: Attribute.Blocks;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
