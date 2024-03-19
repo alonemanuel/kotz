@@ -97,7 +97,8 @@
         "dialogue",
         "questions",
         "pinned"
-      ]
+      ],
+      "default": "standard"
     },
     "questions": {
       "type": "relation",

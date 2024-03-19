@@ -881,7 +881,8 @@ export interface ApiItemArticleItemArticle extends Schema.CollectionType {
     >;
     type: Attribute.Enumeration<
       ['standard', 'interview', 'dialogue', 'questions', 'pinned']
-    >;
+    > &
+      Attribute.DefaultTo<'standard'>;
     questions: Attribute.Relation<
       'api::item-article.item-article',
       'oneToMany',
