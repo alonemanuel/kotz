@@ -914,7 +914,7 @@ export interface ApiItemArticleItemArticle extends Schema.CollectionType {
       'api::term.term'
     >;
     type: Attribute.Enumeration<
-      ['standard', 'interview', 'dialogue', 'questions', 'pinned']
+      ['standard', 'interview', 'debate', 'questions', 'pinned']
     > &
       Attribute.DefaultTo<'standard'>;
     questions: Attribute.Relation<
