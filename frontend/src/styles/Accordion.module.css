@@ -173,10 +173,6 @@ p {
       z-index: 1;
 
       transition: all 0.25s ease-out;
-
-      .active & {
-        margin-left: 100%;
-      }
     }
 
     & .textContent {
@@ -232,6 +228,12 @@ p {
       .articleIsOpen:not(.active)& {
         display: none;
         /* background-color: red; */
+      }
+
+      & .bgContent {
+        .active & {
+          margin-left: 100%;
+        }
       }
 
       & .textContent {

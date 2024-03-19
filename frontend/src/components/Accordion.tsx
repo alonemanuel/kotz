@@ -100,6 +100,16 @@ const Accordion: React.FC<AccordionProps> = ({ articles }) => {
       {articles.map((article, index) => (
         <React.Fragment key={article.id}>
           <div
+            ref={(el) => (panelRefs.current[index] = el)} // Assign refs to panels
+            className={`${styles.panel} 
+          ${activeIndex === index ? styles.active : ""}`}
+          >
+            <section className={styles.articleWrapper}>
+              <ArticleComponent key={article.id} article={article} />
+              {/* {article.content} */}
+            </section>
+          </div>
+          <div
             ref={(el) => (accordionRefs.current[index] = el)} // Assign refs to accordion
             className={`${styles.accordion}  ${
               activeIndex === index ? styles.active : ""
@@ -127,16 +137,6 @@ const Accordion: React.FC<AccordionProps> = ({ articles }) => {
               <h1>{article.attributes.title}</h1>
               <h2>{article.attributes.author}</h2>
             </div>
-          </div>
-          <div
-            ref={(el) => (panelRefs.current[index] = el)} // Assign refs to panels
-            className={`${styles.panel} 
-            ${activeIndex === index ? styles.active : ""}`}
-          >
-            <section className={styles.articleWrapper}>
-              <ArticleComponent key={article.id} article={article} />
-              {/* {article.content} */}
-            </section>
           </div>
         </React.Fragment>
       ))}
