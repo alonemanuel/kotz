@@ -97,49 +97,54 @@ const Accordion: React.FC<AccordionProps> = ({ articles }) => {
 
   return (
     <div className={styles.accordionContainer}>
-      {articles.map((article, index) => (
-        <React.Fragment key={article.id}>
-          <div
-            ref={(el) => (panelRefs.current[index] = el)} // Assign refs to panels
-            className={`${styles.panel} 
-          ${activeIndex === index ? styles.active : ""}`}
-          >
-            <section className={styles.articleWrapper}>
-              <ArticleComponent key={article.id} article={article} />
-              {/* {article.content} */}
-            </section>
-          </div>
-          <div
-            ref={(el) => (accordionRefs.current[index] = el)} // Assign refs to accordion
-            className={`${styles.accordion}  ${
-              activeIndex === index ? styles.active : ""
-            } ${isOpen ? styles.articleIsOpen : ""}`}
-            onClick={() => toggleAccordion(index)}
-            style={
-              {
-                "--outside-img-margin-top": `-${textContentHeights.current[index]}px`,
-                "--outside-img-margin-left": `${textContentWidths.current[index]}px`,
-              } as React.CSSProperties
-            }
-          >
+      {articles.map((article, index) => {
+        const attr = article.attributes;
+        return (
+          <React.Fragment key={article.id}>
             <div
-              className={styles.bgContent}
-              style={
-                article.attributes.outside_img_vertical.data &&
-                article.attributes.outside_img_horizontal.data &&
-                ({
-                  "--outside-img-horizontal-url": `url(${article.attributes.outside_img_horizontal?.data?.attributes.url})`,
-                  "--outside-img-vertical-url": `url(${article.attributes.outside_img_vertical?.data?.attributes.url})`,
-                } as React.CSSProperties)
-              }
-            ></div>
-            <div className={styles.textContent}>
-              <h1>{article.attributes.title}</h1>
-              <h2>{article.attributes.author}</h2>
+              ref={(el) => (panelRefs.current[index] = el)} // Assign refs to panels
+              className={`${styles.panel} 
+          ${activeIndex === index ? styles.active : ""}`}
+            >
+              <section className={styles.articleWrapper}>
+                <ArticleComponent key={article.id} article={article} />
+                {/* {article.content} */}
+              </section>
             </div>
-          </div>
-        </React.Fragment>
-      ))}
+            <div
+              ref={(el) => (accordionRefs.current[index] = el)} // Assign refs to accordion
+              className={`${styles.accordion}  ${
+                activeIndex === index ? styles.active : ""
+              } ${isOpen ? styles.articleIsOpen : ""}`}
+              onClick={() => toggleAccordion(index)}
+              style={
+                {
+                  "--outside-img-margin-top": `-${textContentHeights.current[index]}px`,
+                  "--outside-img-margin-left": `${textContentWidths.current[index]}px`,
+                } as React.CSSProperties
+              }
+            >
+              <div
+                className={styles.bgContent}
+                style={
+                  article.attributes.outside_img_vertical.data &&
+                  article.attributes.outside_img_horizontal.data &&
+                  ({
+                    "--outside-img-horizontal-url": `url(${article.attributes.outside_img_horizontal?.data?.attributes.url})`,
+                    "--outside-img-vertical-url": `url(${article.attributes.outside_img_vertical?.data?.attributes.url})`,
+                  } as React.CSSProperties)
+                }
+              ></div>
+              {(attr.author || attr.title) && (
+                <div className={styles.textContent}>
+                  {attr.title && <h1>{article.attributes.title}</h1>}
+                  {attr.author && <h2>{article.attributes.author}</h2>}
+                </div>
+              )}
+            </div>
+          </React.Fragment>
+        );
+      })}
     </div>
   );
 };
