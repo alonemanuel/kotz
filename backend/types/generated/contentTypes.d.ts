@@ -982,6 +982,7 @@ export interface ApiTermTerm extends Schema.CollectionType {
     title: Attribute.String;
     definition: Attribute.Text;
     img: Attribute.Media;
+    order: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

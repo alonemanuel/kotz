@@ -83,6 +83,30 @@
 }
 
 .censorshipPage {
+  & .terms {
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: var(--color-green);
+    border-radius: 8;
+    color: var(--color-black);
+    font-family: var(--ff-hadassa);
+    padding: 2em;
+
+    & h1 {
+      font-family: var(--ff-hadassa);
+    }
+
+    & .term {
+      & h2 {
+
+      }
+
+      & p {
+        font-size: var(--fs-300);
+      }
+    }
+  }
+
   & article {
     padding: 2em;
     color: var(--color-white);
@@ -97,12 +121,10 @@
       gap: 4em;
 
       & hgroup {
-
         display: flex;
         flex-flow: column nowrap;
         /* gap: 0.5em; */
 
-        
         & h1 {
           font-family: var(--ff-david-vc);
           font-style: italic;
@@ -125,7 +147,6 @@
           &::after {
             content: ">>";
             margin-inline-start: 1em;
-
           }
         }
       }

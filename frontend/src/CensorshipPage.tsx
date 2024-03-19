@@ -15,20 +15,27 @@ const images = [kabarImg, kabarImg, kabarImg, kabarImg, kabarImg, kabarImg];
 
 const CensorshipPage: React.FC = () => {
   const [articlesStrapi, setArticlesStrapi] = useState([]);
+  const [termsStrapi, setTermsStrapi] = useState([]);
   const baseUrl = C.API_BASE_URL;
 
   useEffect(() => {
-    fetch(
+    const fetchArticles = fetch(
       `${C.API_BASE_URL}${C.ITEM_ARTICLES_ENDPOINT}?sort[0]=order:asc&populate=*`
-    )
-      .then((response: any) => {
-        console.log(response);
-        return response.json();
-      })
+    ).then((response: any) => {
+      console.log(response);
+      return response.json();
+    });
+    const fetchTerms = fetch(
+      `${C.API_BASE_URL}${C.TERMS_ENDPOINT}?sort[0]=order:asc&populate=*`
+    ).then((response: any) => {
+      console.log(response);
+      return response.json();
+    });
 
-      .then((data: any) => {
-        console.log(data);
-        setArticlesStrapi(data.data);
+    Promise.all([fetchArticles, fetchTerms])
+      .then(([articlesData, termsData]) => {
+        setArticlesStrapi(articlesData.data);
+        setTermsStrapi(termsData.data.data);
       })
       .catch((error) => console.error("error fetching data", error));
   }, []);
@@ -41,7 +48,7 @@ const CensorshipPage: React.FC = () => {
     <OpenArticleProvider>
       <Layout>
         <div className={styles.censorshipPage}>
-          <Accordion articles={articlesStrapi} />
+          <Accordion articles={articlesStrapi} terms={termsStrapi} />
         </div>
       </Layout>
     </OpenArticleProvider>

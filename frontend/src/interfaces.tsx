@@ -6,11 +6,19 @@ export interface ArticleAttribute {
   body: ContentBlock[];
   outside_img_vertical: any;
   outside_img_horizontal: any;
+  terms: any;
 }
 
 export interface Article {
   id: number;
   attributes: ArticleAttribute;
+}
+
+export interface Term {
+  id: number;
+  title: string;
+  definition: string;
+  img: string;
 }
 
 export interface TextNode {

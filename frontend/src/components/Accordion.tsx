@@ -1,7 +1,7 @@
 import React, { RefObject, useEffect, useRef, useState } from "react";
 import styles from "../styles/Accordion.module.css";
 import { ItemArticle } from "../types/itemArticle";
-import { Article } from "../interfaces";
+import { Article, Term } from "../interfaces";
 
 import * as C from "../constants";
 
@@ -13,6 +13,7 @@ import userEvent from "@testing-library/user-event";
 interface AccordionProps {
   // articles: Item[];
   articles: Article[];
+  terms: Term[];
 }
 function useResizeObservers(refs: any) {
   const [dimensions, setDimensions] = useState([]);
@@ -44,7 +45,7 @@ function useResizeObservers(refs: any) {
 
   return dimensions;
 }
-const Accordion: React.FC<AccordionProps> = ({ articles }) => {
+const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   // Create a ref array for each accordion item
   const accordionRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -107,7 +108,11 @@ const Accordion: React.FC<AccordionProps> = ({ articles }) => {
           ${activeIndex === index ? styles.active : ""}`}
             >
               <section className={styles.articleWrapper}>
-                <ArticleComponent key={article.id} article={article} />
+                <ArticleComponent
+                  key={article.id}
+                  article={article}
+                  terms={terms}
+                />
                 {/* {article.content} */}
               </section>
             </div>
