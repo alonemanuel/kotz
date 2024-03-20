@@ -96,7 +96,8 @@
         "interview",
         "debate",
         "questions",
-        "pinned"
+        "pinned",
+        "poll"
       ],
       "default": "standard"
     },
@@ -109,6 +110,17 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::debate.debate"
+    },
+    "debate": {
+      "displayName": "debate",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.debate"
+    },
+    "poll": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::poll.poll"
     }
   }
 }

@@ -914,7 +914,7 @@ export interface ApiItemArticleItemArticle extends Schema.CollectionType {
       'api::term.term'
     >;
     type: Attribute.Enumeration<
-      ['standard', 'interview', 'debate', 'questions', 'pinned']
+      ['standard', 'interview', 'debate', 'questions', 'pinned', 'poll']
     > &
       Attribute.DefaultTo<'standard'>;
     questions: Attribute.Relation<
@@ -926,6 +926,12 @@ export interface ApiItemArticleItemArticle extends Schema.CollectionType {
       'api::item-article.item-article',
       'oneToMany',
       'api::debate.debate'
+    >;
+    debate: Attribute.Component<'shared.debate', true>;
+    poll: Attribute.Relation<
+      'api::item-article.item-article',
+      'oneToOne',
+      'api::poll.poll'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -950,7 +956,8 @@ export interface ApiPollPoll extends Schema.CollectionType {
   info: {
     singularName: 'poll';
     pluralName: 'polls';
-    displayName: 'poll';
+    displayName: 'Poll';
+    description: '';
   };
   options: {
     draftAndPublish: true;

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "poll",
     "pluralName": "polls",
-    "displayName": "poll"
+    "displayName": "Poll",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -26,14 +27,15 @@
       "component": "shared.answer"
     },
     "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }
