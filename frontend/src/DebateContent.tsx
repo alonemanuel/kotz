@@ -10,7 +10,6 @@ import ArticleContent from "./ArticleContent";
 const DebateContent: React.FC<{ content?: any[] }> = ({ content }) => {
   return (
     <div className={styles.debates}>
-      blibli
       {content?.map((content) => (
         <div className={styles.debate}>
           <img src={content?.author_img?.data?.attributes?.url} alt="bla bla" />
