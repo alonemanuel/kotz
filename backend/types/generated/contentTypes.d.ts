@@ -1085,6 +1085,7 @@ export interface ApiTestTest extends Schema.CollectionType {
         }
       >;
     answer1: Attribute.Component<'shared.answer0', true>;
+    bodybody: Attribute.Blocks;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -27,6 +27,9 @@
       "type": "component",
       "repeatable": true,
       "component": "shared.answer0"
+    },
+    "bodybody": {
+      "type": "blocks"
     }
   }
 }
