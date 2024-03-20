@@ -170,6 +170,10 @@
 
           &.active {
             z-index: 1;
+
+            &:active {
+              transform: translate(-4px, -4px);
+            }
           }
 
           &:not(.active) {
