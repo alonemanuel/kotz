@@ -209,6 +209,12 @@ p {
           margin-inline-end: 0.5em;
         }
       }
+
+      & h3 {
+        color: var(--color-green);
+        font-family: var(--ff-narkis-yair);
+        line-height: 1.1;
+      }
     }
   }
 }
