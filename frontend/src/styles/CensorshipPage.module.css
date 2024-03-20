@@ -111,6 +111,8 @@
     & h1 {
       font-family: var(--ff-hadassa);
       font-weight: 900;
+      font-style: normal;
+      color: var(--color-black);
     }
 
     & section {
@@ -307,13 +309,21 @@
 }
 
 .censorshipPage main {
+  & h1 {
+    margin-block: 2em 0.5em;
+    color: var(--color-green);
+    font-family: var(--ff-david-vc);
+    font-style: italic;
+    font-size: var(--fs-600);
+  }
+
   & p {
     font-family: var(--ff-david-vc);
     font-size: var(--fs-400);
     font-weight: 500;
     line-height: 1.4;
 
-    margin: auto;
+    margin: 0;
 
     &:not(:first-child) {
       text-indent: 3em;

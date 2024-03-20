@@ -52,6 +52,16 @@ const ArticleContent: React.FC<{ content: ContentBlock[]; terms?: any[] }> = ({
     );
   };
 
+  const renderHeading = (
+    block: ContentBlock,
+    index: Number,
+    level?: number
+  ) => {
+    const tag = `h${level}`;
+    return React.createElement(tag, null, block?.children?.[0].text);
+    // return <Tag>{block?.children?.[0].text}</Tag>;
+  };
+
   const renderContentBlock = (block: ContentBlock, index: number) => {
     switch (block.type) {
       case "paragraph":
@@ -62,11 +72,8 @@ const ArticleContent: React.FC<{ content: ContentBlock[]; terms?: any[] }> = ({
         switch (block?.level) {
           case 6:
             return renderTerms(block, index);
-          case 1:
-            return <h1>sozo</h1>;
-          // Add more cases for other types
           default:
-            return null;
+            return renderHeading(block, index, block?.level);
         }
     }
   };
