@@ -121,6 +121,7 @@
 
     & main {
       & .debates {
+        position: relative;
         display: flex;
 
         & .debate {
@@ -128,9 +129,26 @@
           background-color: var(--color-white);
           color: var(--color-black);
           border-radius: 8px;
+          display: flex;
+          flex-flow: column nowrap;
+          width: 80%;
+          background-color: var(--color-white);
+          transition: all 0.1s ease-out;
+          top: 0;
+          right: 0;
+          filter: drop-shadow(0 0 3px black);
 
           &.active {
-            color: purple;
+            z-index: 1;
+          }
+
+          &:not(.active) {
+            top: -40px;
+            right: 40px;
+          }
+
+          &:nth-child(odd) {
+            background-color: grey;
           }
 
           & img {
