@@ -277,21 +277,25 @@
   font-size: var(--fs-300);
 }
 
-.censorshipPage main p {
-  font-family: var(--ff-david-vc);
-  font-size: var(--fs-400);
-  font-weight: 500;
-  line-height: 1.6em;
-}
+.censorshipPage main  {
 
-.censorshipPage main p b {
-  color: #26bd6b;
-}
+  & p {
+    font-family: var(--ff-david-vc);
+    font-size: var(--fs-400);
+    font-weight: 500;
+    line-height: 1.6em;
+    & b {
+      color: #26bd6b;
+    }
+  
+    & i {
+      font-family: var(--ff-narkis-yair);
+    /* text-decoration: underline;
+    text-decoration-style: dashed;
+    text-underline-offset: 0.4em;
+    text-decoration-thickness: 0.1em; */
+  }
+  }
+  
 
-.censorshipPage main p i {
-  font-family: var(--ff-narkis-yair);
-  text-decoration: underline;
-  text-decoration-style: dashed;
-  text-underline-offset: 0.4em;
-  text-decoration-thickness: 0.1em;
 }

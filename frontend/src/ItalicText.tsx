@@ -4,6 +4,6 @@ interface ItalicTextProps {
   children: React.ReactNode;
 }
 
-const ItalicText: React.FC<ItalicTextProps> = ({ children }) => <b>{children}</b>;
+const ItalicText: React.FC<ItalicTextProps> = ({ children }) => <i>{children}</i>;
 
 export default ItalicText;
