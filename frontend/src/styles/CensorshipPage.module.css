@@ -96,9 +96,8 @@
     position: relative;
     overflow: auto;
     max-height: 40vh;
+    width: 100%;
 
-
-    
     & .borderContainer {
       display: flex;
       flex-flow: column nowrap;
@@ -109,30 +108,30 @@
       margin-top: 2em;
     }
 
-    &::after {
-      content: "";
-      position: absolute;
-      height: 100%;
-      top: 20px;
-      bottom: 0;
-      left: 50%;
-
-    }
-    
     & h1 {
       font-family: var(--ff-hadassa);
       font-weight: 900;
     }
 
     & section {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 1em;
+      line-height: 1;
       & .term {
         & h2 {
-          font-weight: 700;
+          font-size: var(--fs-400);
+          font-weight: 900;
+          display: inline;
+          line-height: 1;
+          margin-inline-end: 0.5em;
         }
 
         & p {
+          display: inline;
           font-family: var(--ff-hadassa);
           font-size: var(--fs-300);
+          line-height: 1;
         }
       }
     }
@@ -315,7 +314,7 @@
     &:not(:first-child) {
       text-indent: 3em;
     }
-    
+
     & b {
       color: #26bd6b;
     }
