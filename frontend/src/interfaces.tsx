@@ -2,6 +2,7 @@ export interface ArticleAttribute {
   title: string;
   subtitle?: string;
   author: string;
+  lead: string;
   cover_caption: string;
   body: ContentBlock[];
   outside_img_vertical: any;
