@@ -119,6 +119,24 @@
     gap: 2em;
     padding-top: 4em;
 
+    & main {
+      & .debates {
+        display: flex;
+
+        & .debate {
+          background-color: var(--color-white);
+          color: var(--color-black);
+          border-radius: 8px;
+
+          & img {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+
     & header {
       display: flex;
       flex-flow: column nowrap;

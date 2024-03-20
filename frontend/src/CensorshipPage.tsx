@@ -20,7 +20,7 @@ const CensorshipPage: React.FC = () => {
 
   useEffect(() => {
     const fetchArticles = fetch(
-      `${C.API_BASE_URL}${C.ITEM_ARTICLES_ENDPOINT}?sort[0]=order:asc&populate=*`
+      `${C.API_BASE_URL}${C.ITEM_ARTICLES_ENDPOINT}?sort[0]=order:asc&populate=deep`
     ).then((response: any) => {
       console.log(response);
       return response.json();

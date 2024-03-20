@@ -6,6 +6,11 @@ module.exports = ({ env }) => ({
             jwtSecret: env('JWT_SECRET'),
         },
     },
+    'strapi-plugin-populate-deep': {
+        config: {
+            defaultDepth: 3, // Default is 5
+        }
+    },
     upload: {
         config: {
             provider: 'aws-s3',
