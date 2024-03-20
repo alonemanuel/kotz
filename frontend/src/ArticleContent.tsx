@@ -59,14 +59,15 @@ const ArticleContent: React.FC<{ content: ContentBlock[]; terms?: any[] }> = ({
       case "image":
         return renderImage(block, index);
       case "heading":
-        if (block.level === 6) {
-          return renderTerms(block, index);
-        } else {
-          return <h1>sozo</h1>;
+        switch (block?.level) {
+          case 6:
+            return renderTerms(block, index);
+          case 1:
+            return <h1>sozo</h1>;
+          // Add more cases for other types
+          default:
+            return null;
         }
-      // Add more cases for other types
-      default:
-        return null;
     }
   };
 

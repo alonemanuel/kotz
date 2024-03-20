@@ -210,6 +210,11 @@ svg {
         color: var(--color-green);
         font-family: var(--ff-narkis-yair);
         line-height: 1.1;
+        display: none;
+
+        .isOpen & {
+          display: unset;  
+        }
       }
     }
   }
@@ -240,6 +245,10 @@ svg {
 
       & .textContent {
         height: 100%;
+
+        & h3 {
+          display: none;
+        }
       }
     }
   }
