@@ -113,6 +113,7 @@
       font-weight: 900;
       font-style: normal;
       color: var(--color-black);
+      margin: 0;
     }
 
     & section {
@@ -327,6 +328,11 @@
 
     &:not(:first-child) {
       text-indent: 3em;
+    }
+
+    h1 + &,
+    .terms + & {
+      text-indent: 0 !important;
     }
 
     & b {
