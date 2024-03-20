@@ -137,6 +137,38 @@
       }
     }
 
+    & .polls {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 2em;
+
+      & main {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 1em;
+        & section {
+          background-color: var(--color-white);
+          color: var(--color-black);
+          border-radius: 8px;
+          filter: drop-shadow(0 0 3px black);
+          display: flex;
+          flex-flow: column nowrap;
+          max-width: 21ch;
+          padding: 0.5em;
+
+          & h1 {
+            text-align: end;
+            direction: ltr;
+          }
+
+          & p {
+            font-weight: 700;
+            line-height: 1.1;
+          }
+        }
+      }
+    }
+
     & header {
       display: flex;
       flex-flow: column nowrap;

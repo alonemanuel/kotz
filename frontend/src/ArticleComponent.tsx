@@ -4,6 +4,7 @@ import { Article, Term } from "./interfaces";
 import * as C from "./constants";
 import styles from "./styles/CensorshipPage.module.css";
 import DebateContent from "./DebateContent";
+import PollContent from "./PollContent";
 
 interface ArticleComponentProps {
   article: Article;
@@ -25,9 +26,7 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
           {attr.author && <h3>{attr.author}</h3>}
           {attr.subtitle && <h2>{attr.subtitle}</h2>}
         </hgroup>
-        <div>
-          {attr.lead && <p>{attr.lead}</p>}
-        </div>
+        <div>{attr.lead && <p>{attr.lead}</p>}</div>
       </header>
       <main>
         {(() => {
@@ -39,6 +38,8 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
                 );
               case "debate":
                 return <DebateContent content={attr?.debate} />;
+              case "poll":
+                return <PollContent content={attr?.poll?.data?.attributes} />;
             }
           }
         })()}

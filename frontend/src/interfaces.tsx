@@ -9,7 +9,8 @@ export interface ArticleAttribute {
   outside_img_horizontal: any;
   terms: any;
   type: string;
-  debate:any;
+  debate: any;
+  poll: any;
 }
 
 export interface Article {
@@ -34,7 +35,7 @@ export interface ContentBlock {
   children?: ContentBlockChild[];
   text?: string;
   image?: ImageBlock;
-  level?:number;
+  level?: number;
 }
 
 export interface ContentBlockChild {
