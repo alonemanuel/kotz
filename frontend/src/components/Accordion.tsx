@@ -97,7 +97,11 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
   }, [articles, isOpen]); // Rerun effect when articles changes
 
   return (
-    <div className={styles.accordionContainer}>
+    <div
+      className={`${styles.accordionContainer} ${
+        isOpen ? styles.isOpen : styles.isNotOpen
+      }`}
+    >
       {articles.map((article, index) => {
         const attr = article.attributes;
         return (

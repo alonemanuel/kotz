@@ -260,12 +260,19 @@ p {
       /* color: transparent; */
       .active& {
         top: auto;
+        top: -80%;
       }
 
       &:hover {
         & .bgContent {
-          margin-top: var(--outside-img-margin-top, 300px);
           margin-left: auto;
+          .isNotOpen & {
+            margin-top: var(--outside-img-margin-top, 300px);
+          }
+
+          .isOpen & {
+            margin-top: auto;
+          }
         }
       }
       & .bgContent {
