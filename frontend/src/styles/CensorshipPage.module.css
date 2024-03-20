@@ -292,6 +292,22 @@
         }
       }
     }
+
+    & .bodyImage {
+      float: inline-end;
+      max-width: 50%;
+      margin: 0 0.5em;
+
+      & img {
+        border-radius: 4px;
+      }
+      
+      & footer{
+        color: var(--color-green);
+        font-size: var(--fs-300);
+        font-family: var(--ff-narkis-yair);
+      }
+    }
   }
 }
 

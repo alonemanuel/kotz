@@ -26,6 +26,7 @@ const ArticleContent: React.FC<{ content: ContentBlock[]; terms?: any[] }> = ({
         key={index}
         url={block.image?.url}
         alt={block.image?.alternativeText}
+        caption={block.image?.caption}
       />
     );
   };
