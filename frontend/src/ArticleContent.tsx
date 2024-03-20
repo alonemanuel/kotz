@@ -33,19 +33,21 @@ const ArticleContent: React.FC<{ content: ContentBlock[]; terms?: any[] }> = ({
   const renderTerms = (block: ContentBlock, index: number) => {
     return (
       <div className={styles.terms}>
-        <header>
-          <h1>מילון מושגים</h1>
-        </header>
-        <section>
-          {terms
-            ?.map((term: any) => term.attributes)
-            .map((term: any) => (
-              <div className={styles.term}>
-                <h2>{term?.title}</h2>
-                <p>{term?.definition}</p>
-              </div>
-            ))}
-        </section>
+        <div className={styles.borderContainer}>
+          <header>
+            <h1>מילון מושגים</h1>
+          </header>
+          <section>
+            {terms
+              ?.map((term: any) => term.attributes)
+              .map((term: any) => (
+                <div className={styles.term}>
+                  <h2>{term?.title}</h2>
+                  <p>{term?.definition}</p>
+                </div>
+              ))}
+          </section>
+        </div>
       </div>
     );
   };
