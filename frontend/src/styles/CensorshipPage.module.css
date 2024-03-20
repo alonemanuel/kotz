@@ -93,6 +93,7 @@
     padding: 2em;
     gap: 2em;
 
+
     & h1 {
       font-family: var(--ff-hadassa);
     }
@@ -118,6 +119,7 @@
     flex-flow: column nowrap;
     gap: 2em;
     padding-top: 4em;
+    cursor: default;
 
     & main {
       & .debates {
@@ -131,12 +133,14 @@
           border-radius: 8px;
           display: flex;
           flex-flow: column nowrap;
-          width: 80%;
+          width: 90%;
           background-color: var(--color-white);
           transition: all 0.1s ease-out;
           top: 0;
           right: 0;
           filter: drop-shadow(0 0 3px black);
+          padding: 0.2em 1em;
+          gap: 1em;
 
           &.active {
             z-index: 1;
@@ -145,16 +149,47 @@
           &:not(.active) {
             top: -40px;
             right: 40px;
+
+            &:hover {
+              transform: translate(-4px, -4px);
+            }
+            
+            &:active {
+              transform: translate(-8px, -8px);
+              /* transform: scale(1.02); */
+              /* scale: 1.02; */
+              /* transform-origin: top right; */
+              /* transition: all 0.2s ease-in-out; */
+            }
           }
 
           &:nth-child(odd) {
-            background-color: grey;
+            background-color: rgb(203, 203, 203);
           }
 
-          & img {
-            height: 60px;
-            width: 60px;
-            border-radius: 50%;
+          & header {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: end;
+            gap: 1em;
+
+            & img {
+              height: 20px;
+              width: 20px;
+              border-radius: 50%;
+            }
+
+            & h1 {
+              font-size: var(--fs-300);
+            }
+          }
+
+          & main {
+            & img {
+              height: 60px;
+              width: 60px;
+              border-radius: 50%;
+            }
           }
         }
       }

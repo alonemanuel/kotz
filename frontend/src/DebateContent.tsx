@@ -25,10 +25,22 @@ const DebateContent: React.FC<{ content?: any[] }> = ({ content }) => {
             activeDebate === index ? styles.active : ""
           }`}
         >
-          <img src={content?.author_img?.data?.attributes?.url} alt="bla bla" />
-          <h1>{content?.author}</h1>
-          <h2>{content?.lead}</h2>
-          <ArticleContent content={content?.body} />
+          <header>
+            <img
+              src={content?.author_img?.data?.attributes?.url}
+              alt="bla bla"
+            />
+            <h1>{content?.author}</h1>
+
+          </header>
+          <main>
+            <img
+              src={content?.author_img?.data?.attributes?.url}
+              alt="bla bla"
+            />
+            <h2>{content?.lead}</h2>
+            <ArticleContent content={content?.body} />
+          </main>
         </div>
       ))}
     </div>
