@@ -124,9 +124,14 @@
         display: flex;
 
         & .debate {
+          position: absolute;
           background-color: var(--color-white);
           color: var(--color-black);
           border-radius: 8px;
+
+          &.active {
+            color: purple;
+          }
 
           & img {
             height: 60px;
