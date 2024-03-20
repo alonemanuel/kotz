@@ -9,7 +9,7 @@ export interface ArticleAttribute {
   outside_img_horizontal: any;
   terms: any;
   type: string;
-  debates:any;
+  debate:any;
 }
 
 export interface Article {

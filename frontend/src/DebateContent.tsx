@@ -10,16 +10,15 @@ import ArticleContent from "./ArticleContent";
 const DebateContent: React.FC<{ content?: any[] }> = ({ content }) => {
   return (
     <div className={styles.debates}>
-      {content
-        ?.map((content) => content?.attributes)
-        .map((content) => (
-          <div className={styles.debate}>
-            <img src={content?.author_img?.data?.attributes?.url} alt="bla bla" />
-            <h1>{content?.author}</h1>
-            <h2>{content?.lead}</h2>
-            <ArticleContent content={content?.body} />
-          </div>
-        ))}
+      blibli
+      {content?.map((content) => (
+        <div className={styles.debate}>
+          <img src={content?.author_img?.data?.attributes?.url} alt="bla bla" />
+          <h1>{content?.author}</h1>
+          <h2>{content?.lead}</h2>
+          <ArticleContent content={content?.body} />
+        </div>
+      ))}
     </div>
   );
 };
