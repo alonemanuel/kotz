@@ -41,7 +41,7 @@ const KotzIcon = (props: SVGProps<SVGSVGElement>) => {
     >
       <path
         id="kotzPath"
-        fill="#3C3C3C"
+        fill="whitesmoke"
         d={origPath}
         // d="M0 0 L100 100"
       />
