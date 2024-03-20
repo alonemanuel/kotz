@@ -86,7 +86,7 @@
   & .terms {
     display: flex;
     flex-flow: column nowrap;
-    background-color: var(--color-green);
+    background-color: var(--color-dark-green);
     border-radius: 8;
     color: var(--color-black);
     font-family: var(--ff-hadassa);
