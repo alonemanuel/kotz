@@ -260,7 +260,10 @@ p {
       /* color: transparent; */
       .active& {
         top: auto;
-        top: -80%;
+        display: flex;
+        flex-flow: column nowrap;
+        font-size: var(--fs-400);
+        max-width: 11ch;
       }
 
       &:hover {
@@ -271,7 +274,7 @@ p {
           }
 
           .isOpen & {
-            margin-top: auto;
+            margin-top: 0;
           }
         }
       }
@@ -280,6 +283,12 @@ p {
           --outside-img-vertical-url,
           url(../images/tiger0.png)
         );
+
+        .active & {
+          position: relative;
+          max-height: 37%;
+          /* width: auto; */
+        }
       }
 
       & .textContent {
@@ -287,9 +296,11 @@ p {
         bottom: 0;
         top: auto;
         left: auto;
-        /* left: 0;
-        bottom: auto; */
-        display: flex;
+
+        .active & {
+          position: relative;
+          color: white;
+        }
       }
     }
   }
