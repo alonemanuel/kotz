@@ -93,7 +93,6 @@
     padding: 2em;
     gap: 2em;
 
-
     & h1 {
       font-family: var(--ff-hadassa);
     }
@@ -154,7 +153,7 @@
             &:hover {
               transform: translate(-4px, -4px);
             }
-            
+
             &:active {
               transform: translate(-8px, -8px);
             }
@@ -277,25 +276,29 @@
   font-size: var(--fs-300);
 }
 
-.censorshipPage main  {
-
+.censorshipPage main {
   & p {
     font-family: var(--ff-david-vc);
     font-size: var(--fs-400);
     font-weight: 500;
     line-height: 1.6em;
+
+    margin: auto;
+
+    &:not(:first-child) {
+      text-indent: 3em;
+    }
+    
     & b {
       color: #26bd6b;
     }
-  
+
     & i {
       font-family: var(--ff-narkis-yair);
-    /* text-decoration: underline;
+      /* text-decoration: underline;
     text-decoration-style: dashed;
     text-underline-offset: 0.4em;
     text-decoration-thickness: 0.1em; */
+    }
   }
-  }
-  
-
 }

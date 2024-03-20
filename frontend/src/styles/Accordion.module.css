@@ -49,10 +49,6 @@ svg {
   overflow-y: scroll;
 }
 
-p {
-  margin-block: 10px;
-}
-
 .panel {
   color: #222;
   text-wrap: balance;
