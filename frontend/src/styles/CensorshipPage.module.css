@@ -135,7 +135,7 @@
           flex-flow: column nowrap;
           width: 90%;
           background-color: var(--color-white);
-          transition: all 0.1s ease-out;
+          transition: all 0.15s ease-out;
           top: 0;
           right: 0;
           filter: drop-shadow(0 0 3px black);
@@ -156,10 +156,6 @@
             
             &:active {
               transform: translate(-8px, -8px);
-              /* transform: scale(1.02); */
-              /* scale: 1.02; */
-              /* transform-origin: top right; */
-              /* transition: all 0.2s ease-in-out; */
             }
           }
 
