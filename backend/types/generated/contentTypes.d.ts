@@ -945,6 +945,31 @@ export interface ApiItemArticleItemArticle extends Schema.CollectionType {
   };
 }
 
+export interface ApiPollPoll extends Schema.CollectionType {
+  collectionName: 'polls';
+  info: {
+    singularName: 'poll';
+    pluralName: 'polls';
+    displayName: 'poll';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    order: Attribute.Integer & Attribute.DefaultTo<0>;
+    question: Attribute.Text & Attribute.Required;
+    answer: Attribute.Component<'shared.answer', true>;
+    cover: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::poll.poll', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::poll.poll', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiQuestionQuestion extends Schema.CollectionType {
   collectionName: 'questions';
   info: {
@@ -1052,6 +1077,7 @@ export interface ApiTestTest extends Schema.CollectionType {
           preset: 'toolbar';
         }
       >;
+    answer1: Attribute.Component<'shared.answer0', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1084,6 +1110,7 @@ declare module '@strapi/types' {
       'api::debate.debate': ApiDebateDebate;
       'api::issue.issue': ApiIssueIssue;
       'api::item-article.item-article': ApiItemArticleItemArticle;
+      'api::poll.poll': ApiPollPoll;
       'api::question.question': ApiQuestionQuestion;
       'api::team.team': ApiTeamTeam;
       'api::term.term': ApiTermTerm;

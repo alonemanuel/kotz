@@ -1,5 +1,29 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface SharedAnswer extends Schema.Component {
+  collectionName: 'components_shared_answers';
+  info: {
+    displayName: 'answer';
+    icon: 'feather';
+  };
+  attributes: {
+    tag: Attribute.String;
+    body: Attribute.Text & Attribute.Required;
+  };
+}
+
+export interface SharedAnswer0 extends Schema.Component {
+  collectionName: 'components_shared_answer0s';
+  info: {
+    displayName: 'answer0';
+    icon: 'car';
+  };
+  attributes: {
+    tag: Attribute.String;
+    answer: Attribute.Text;
+  };
+}
+
 export interface SharedMetaSocial extends Schema.Component {
   collectionName: 'components_shared_meta_socials';
   info: {
@@ -54,6 +78,8 @@ export interface SharedSeo extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'shared.answer': SharedAnswer;
+      'shared.answer0': SharedAnswer0;
       'shared.meta-social': SharedMetaSocial;
       'shared.seo': SharedSeo;
     }

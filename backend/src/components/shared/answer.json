@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_shared_answers",
+  "info": {
+    "displayName": "answer",
+    "icon": "feather"
+  },
+  "options": {},
+  "attributes": {
+    "tag": {
+      "type": "string"
+    },
+    "body": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
