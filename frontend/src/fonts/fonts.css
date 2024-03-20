@@ -37,7 +37,7 @@
   font-family: "Hadassa";
   src: url("./hadassah_friedlaender_fontef/HadassahFriedlaender-Regular.woff2")
     format("woff2");
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -45,6 +45,14 @@
   font-family: "Hadassa";
   src: url("./hadassah_friedlaender_fontef/HadassahFriedlaender-Bold.woff2")
     format("woff2");
-  font-weight: bold;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Hadassa";
+  src: url("./hadassah_friedlaender_fontef/HadassahFriedlaender-Black.woff2")
+    format("woff2");
+  font-weight: 900;
   font-style: normal;
 }

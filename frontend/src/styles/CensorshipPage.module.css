@@ -92,9 +92,10 @@
     font-family: var(--ff-hadassa);
     padding: 2em;
     gap: 2em;
-
+    
     & h1 {
       font-family: var(--ff-hadassa);
+      font-weight: 900;
     }
 
     & section {
