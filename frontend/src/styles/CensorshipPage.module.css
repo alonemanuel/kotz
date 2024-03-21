@@ -82,6 +82,22 @@
 .censorshipPage article {
 }
 
+
+@keyframes floating {
+  0% {
+    transform: translateY(var(--translate-y-start, 0px));
+    transform: translateX(var(--translate-x-start, 0px));
+  }
+  50% {
+    transform: translateY(var(--translate-y-end, 10px));
+    transform: translateX(var(--translate-x-end, 10px));
+  }
+  100% {
+    transform: translateY(var(--translate-y-start, 0px));
+    transform: translateX(var(--translate-x-start, 0px));
+  }
+}
+
 .censorshipPage {
   & .terms {
     display: flex;
@@ -232,6 +248,7 @@
       background-size: cover;
       background-position: center center;
       width: 100%;
+      position: relative;
 
       & > h1 {
         font-family: var(--ff-david-vc);
@@ -245,6 +262,9 @@
         display: flex;
         flex-flow: column nowrap;
         gap: 1em;
+        position: absolute;
+        width: 100%;
+        height: 100%;
         & section {
           background-color: var(--color-white);
           color: var(--color-black);
@@ -254,6 +274,10 @@
           flex-flow: column nowrap;
           max-width: 21ch;
           padding: 0.5em;
+          position: absolute;
+
+          animation: floating var(--animation-duration, 5s) infinite ease-in-out var(--animation-delay, 0s);
+          transform: translate(0, var(--translate-y-start, 0px));
 
           & h1 {
             text-align: end;
