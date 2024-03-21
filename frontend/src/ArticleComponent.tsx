@@ -39,7 +39,7 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
               case "debate":
                 return <DebateContent content={attr?.debate} />;
               case "poll":
-                return <PollContent content={attr?.poll?.data?.attributes} />;
+                return <PollContent content={attr?.poll?.data?.attributes} cover={attr?.poll?.cover} />;
             }
           }
         })()}

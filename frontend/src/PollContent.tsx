@@ -7,9 +7,16 @@ import ArticleBodyImage from "./ArticleBodyImage";
 import styles from "./styles/CensorshipPage.module.css";
 import ArticleContent from "./ArticleContent";
 
-const PollContent: React.FC<{ content?: any }> = ({ content }) => {
+const PollContent: React.FC<{ content?: any , cover?:any}> = ({ content, cover }) => {
   return (
-    <div className={styles.polls}>
+    <div
+      className={styles.polls}
+      style={
+        {
+          "--polls-bg-img-url": `url(${content?.cover?.data?.attributes?.url})`,
+        } as React.CSSProperties
+      }
+    >
       <h1>{content?.question}</h1>
       <main>
         {content?.answer?.map((item: any) => (

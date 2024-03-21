@@ -228,6 +228,18 @@
       display: flex;
       flex-flow: column nowrap;
       gap: 2em;
+      background-image: var(--polls-bg-img-url);
+      background-size: cover;
+      background-position: center center;
+      width: 100%;
+
+      & > h1 {
+        font-family: var(--ff-david-vc);
+        font-style: italic;
+        font-size: max(10vw, 18vh);
+        line-height: 0.9;
+        color: var(--color-green);
+      }
 
       & main {
         display: flex;
@@ -246,11 +258,14 @@
           & h1 {
             text-align: end;
             direction: ltr;
+            font-size: var(--fs-400);
           }
 
           & p {
             font-weight: 700;
             line-height: 1.1;
+            font-family: var(--ff-david-vc);
+            font-weight: 700;
           }
         }
       }
@@ -301,8 +316,8 @@
       & img {
         border-radius: 4px;
       }
-      
-      & footer{
+
+      & footer {
         color: var(--color-green);
         font-size: var(--fs-300);
         font-family: var(--ff-narkis-yair);
@@ -326,7 +341,7 @@
 }
 
 .censorshipPage main {
-  & h1 {
+  & > h1 {
     margin-block: 2em 0.5em;
     color: var(--color-green);
     font-family: var(--ff-david-vc);
@@ -334,7 +349,7 @@
     font-size: var(--fs-600);
   }
 
-  & p {
+  & > p {
     font-family: var(--ff-david-vc);
     font-size: var(--fs-400);
     font-weight: 500;
