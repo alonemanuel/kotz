@@ -269,7 +269,7 @@
           filter: drop-shadow(0 0 3px black);
           display: flex;
           flex-flow: column nowrap;
-          max-width: 21ch;
+          width: 21ch;
           padding: 0.5em;
           position: absolute;
 
