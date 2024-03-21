@@ -13,12 +13,70 @@ const PollContent: React.FC<{ content?: any; cover?: any }> = ({
 }) => {
   const pollRef = useRef<HTMLDivElement>(null);
 
+
+
+
+
+// Make the DIV element draggable:
+// dragElement(document.getElementById("mydiv"));
+
+function dragElement(elmnt:HTMLElement) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+//   if (document.getElementById(elmnt.id + "header")) {
+//     // if present, the header is where you move the DIV from:
+//     elmnt.onmousedown = dragMouseDown;
+//   } else {
+    // otherwise, move the DIV from anywhere inside the DIV:
+    elmnt.onmousedown = dragMouseDown;
+//   }
+
+  function dragMouseDown(e:MouseEvent) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    elmnt.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    elmnt.onmousemove = (e) => elementDrag(elmnt, e);
+  }
+
+  function elementDrag(elmnt:HTMLElement, e:MouseEvent) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    // stop moving when mouse button is released:
+    elmnt.onmouseup = null;
+    elmnt.onmousemove = null;
+  }
+}
+
+
+
+
+
+
+
+
+
   useEffect(() => {
     if (pollRef.current) {
       const pollItems = Array.from(pollRef.current?.children);
       pollItems.forEach((item, index) => {
 
+          
           const htmlItem = item as HTMLElement;
+          dragElement(htmlItem );
         const {x,y} = getRandomPosition(htmlItem);
         htmlItem.style.top = `${y}px`;
         htmlItem.style.left = `${x}px`;
