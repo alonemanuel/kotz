@@ -6,27 +6,29 @@ import { ContentBlock, ContentBlockChild } from "./interfaces";
 import ArticleBodyImage from "./ArticleBodyImage";
 import styles from "./styles/CensorshipPage.module.css";
 import ArticleContent from "./ArticleContent";
+import { useOpenArticle } from "./OpenArticleContext";
 
 const PollContent: React.FC<{ content?: any; cover?: any }> = ({
   content,
   cover,
 }) => {
+  const { isOpen, setOpen } = useOpenArticle();
+
   const pollRef = useRef<HTMLDivElement>(null);
 
+  // Make the DIV element draggable:
+  // dragElement(document.getElementById("mydiv"));
 
+  function dragElement(elmnt: HTMLElement) {
+    let pos1 = 0,
+      pos2 = 0,
+      pos3 = 0,
+      pos4 = 0;
 
-
-
-// Make the DIV element draggable:
-// dragElement(document.getElementById("mydiv"));
-
-function dragElement(elmnt: HTMLElement) {
-    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  
     const dragMouseDown = (e: MouseEvent | TouchEvent) => {
       e.preventDefault();
       // Determine whether the event is a touch event
-      if (e.type === 'touchstart' && e instanceof TouchEvent) {
+      if (e.type === "touchstart" && e instanceof TouchEvent) {
         // Use the first touch point
         pos3 = e.touches[0].clientX;
         pos4 = e.touches[0].clientY;
@@ -40,11 +42,11 @@ function dragElement(elmnt: HTMLElement) {
       document.onmousemove = (e) => elementDrag(e);
       document.ontouchmove = (e) => elementDrag(e);
     };
-  
+
     const elementDrag = (e: MouseEvent | TouchEvent) => {
       e.preventDefault();
       // Determine whether the event is a touch event
-      if (e.type === 'touchmove' && e instanceof TouchEvent) {
+      if (e.type === "touchmove" && e instanceof TouchEvent) {
         // Use the first touch point for touch devices
         pos1 = pos3 - e.touches[0].clientX;
         pos2 = pos4 - e.touches[0].clientY;
@@ -58,10 +60,10 @@ function dragElement(elmnt: HTMLElement) {
         pos4 = e.clientY;
       }
       // Set the element's new position
-      elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-      elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+      elmnt.style.top = elmnt.offsetTop - pos2 + "px";
+      elmnt.style.left = elmnt.offsetLeft - pos1 + "px";
     };
-  
+
     const closeDragElement = () => {
       // Stop moving when mouse button is released or touch ends
       document.onmouseup = null;
@@ -69,48 +71,60 @@ function dragElement(elmnt: HTMLElement) {
       document.onmousemove = null;
       document.ontouchmove = null;
     };
-  
+
     // Add event listeners for both mouse and touch events
-    elmnt.addEventListener('mousedown', dragMouseDown);
-    elmnt.addEventListener('touchstart', dragMouseDown);
+    elmnt.addEventListener("mousedown", dragMouseDown);
+    elmnt.addEventListener("touchstart", dragMouseDown);
   }
-  
-
-
-
-
-
-
-
-
+  function timeout(delay: number) {
+    return new Promise((res) => setTimeout(res, delay));
+  }
   useEffect(() => {
     if (pollRef.current) {
+      const containerRect = pollRef.current.getBoundingClientRect();
+      //   const elementRect = element.getBoundingClientRect();
+
+      //   const containerWidth = containerRect.width - elementRect.width;
+      //   const containerHeight = containerRect.height - elementRect.height;
+      console.log(`contaheight:`);
+      console.log(containerRect.height);
+      console.log(`contahwitt:`);
+      console.log(containerRect.width);
+
       const pollItems = Array.from(pollRef.current?.children);
       pollItems.forEach((item, index) => {
+        const htmlItem = item as HTMLElement;
+        dragElement(htmlItem);
+        getRandomPosition(htmlItem).then(({ x, y }) => {
+          htmlItem.style.top = `${y}px`;
+          htmlItem.style.left = `${x}px`;
 
-          
-          const htmlItem = item as HTMLElement;
-          dragElement(htmlItem );
-        const {x,y} = getRandomPosition(htmlItem);
-        htmlItem.style.top = `${y}px`;
-        htmlItem.style.left = `${x}px`;
-        
-        const animationDuration = Math.random() * 5 + 3; // Random duration between 3 and 8 seconds
-        const animationDelay = Math.random() * 2; // Random delay up to 2 seconds
-        const translateYStart = Math.random() * 20 - 10; // Random start position from -10px to 10px
-        const translateYEnd = Math.random() * 20 - 10; // Random end position from -10px to 10px
-        const translateXStart = Math.random() * 20 - 10; // Random start position from -10px to 10px
-        const translateXEnd = Math.random() * 20 - 10; // Random end position from -10px to 10px
+          const animationDuration = Math.random() * 5 + 3; // Random duration between 3 and 8 seconds
+          const animationDelay = Math.random() * 2; // Random delay up to 2 seconds
+          const translateYStart = Math.random() * 20 - 10; // Random start position from -10px to 10px
+          const translateYEnd = Math.random() * 20 - 10; // Random end position from -10px to 10px
+          const translateXStart = Math.random() * 20 - 10; // Random start position from -10px to 10px
+          const translateXEnd = Math.random() * 20 - 10; // Random end position from -10px to 10px
 
-        htmlItem.style.setProperty("--animation-duration", `${animationDuration}s`);
-        htmlItem.style.setProperty("--animation-delay", `${animationDelay}s`);
-        htmlItem.style.setProperty("--translate-y-start", `${translateYStart}px`);
-        htmlItem.style.setProperty("--translate-y-end", `${translateYEnd}px`);
-        htmlItem.style.setProperty("--translate-x-start", `${translateXStart}px`);
-        htmlItem.style.setProperty("--translate-x-end", `${translateXEnd}px`);
+          htmlItem.style.setProperty(
+            "--animation-duration",
+            `${animationDuration}s`
+          );
+          htmlItem.style.setProperty("--animation-delay", `${animationDelay}s`);
+          htmlItem.style.setProperty(
+            "--translate-y-start",
+            `${translateYStart}px`
+          );
+          htmlItem.style.setProperty("--translate-y-end", `${translateYEnd}px`);
+          htmlItem.style.setProperty(
+            "--translate-x-start",
+            `${translateXStart}px`
+          );
+          htmlItem.style.setProperty("--translate-x-end", `${translateXEnd}px`);
+        });
       });
     }
-  }, []);
+  }, [isOpen]);
 
   const getNearRandomPosition = (
     maxDelta: number,
@@ -122,21 +136,29 @@ function dragElement(elmnt: HTMLElement) {
     return { newX, newY };
   };
 
-  const getRandomPosition = (
+  const getRandomPosition = async (
     element: HTMLElement
-  ): { x: number; y: number } => {
+  ): Promise<{ x: number; y: number }> => {
+    console.log("here?");
     const container = pollRef.current;
     if (container) {
+      await timeout(300);
+
       const containerRect = container.getBoundingClientRect();
       const elementRect = element.getBoundingClientRect();
 
       const containerWidth = containerRect.width - elementRect.width;
       const containerHeight = containerRect.height - elementRect.height;
 
+      console.log(`contaheight:`);
+      console.log(containerRect.height);
+      console.log(`contahwitt:`);
+      console.log(containerRect.width);
+
       const { newX, newY } = getNearRandomPosition(
-        0.5*Math.min(containerWidth, containerHeight),
-        containerWidth / 2,
-        containerHeight / 2
+        20,
+        Math.random() * containerWidth,
+        Math.random() * containerHeight
       );
       return { x: newX, y: newY };
     }
