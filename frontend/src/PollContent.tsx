@@ -166,24 +166,25 @@ const PollContent: React.FC<{ content?: any; cover?: any }> = ({
   };
 
   return (
-    <div
-      className={styles.polls}
-      style={
-        {
-          "--polls-bg-img-url": `url(${content?.cover?.data?.attributes?.url})`,
-        } as React.CSSProperties
-      }
-    >
-      <h1>{content?.question}</h1>
-      <main ref={pollRef}>
-        {content?.answer?.map((item: any) => (
-          <section>
-            <h1>@{item?.tag}</h1>
-            <p>{item?.body}</p>
-          </section>
-        ))}
-      </main>
-      {/* {content
+    <main className={styles.poll}>
+      <div
+        className={styles.polls}
+        style={
+          {
+            "--polls-bg-img-url": `url(${content?.cover?.data?.attributes?.url})`,
+          } as React.CSSProperties
+        }
+      >
+        <h1>{content?.question}</h1>
+        <main ref={pollRef}>
+          {content?.answer?.map((item: any) => (
+            <section>
+              <h1>@{item?.tag}</h1>
+              <p>{item?.body}</p>
+            </section>
+          ))}
+        </main>
+        {/* {content
         ?.map((content) => content?.attributes)
         .map((poll) => (
           <div className={styles.poll}>
@@ -194,7 +195,8 @@ const PollContent: React.FC<{ content?: any; cover?: any }> = ({
             <ArticleContent content={poll?.body} />
           </div>
         ))} */}
-    </div>
+      </div>
+    </main>
   );
 };
 

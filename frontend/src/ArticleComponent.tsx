@@ -5,6 +5,7 @@ import * as C from "./constants";
 import styles from "./styles/CensorshipPage.module.css";
 import DebateContent from "./DebateContent";
 import PollContent from "./PollContent";
+import StandardContent from "./StandardContent";
 
 interface ArticleComponentProps {
   article: Article;
@@ -28,22 +29,25 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
         </hgroup>
         <div>{attr.lead && <div className={styles.lead}>{attr.lead}</div>}</div>
       </header>
-      <main>
-        {(() => {
-          if (attr.body) {
-            switch (attr.type) {
-              case "standard":
-                return (
-                  <ArticleContent content={attr?.body} terms={articleTerms} />
-                );
-              case "debate":
-                return <DebateContent content={attr?.debate} />;
-              case "poll":
-                return <PollContent content={attr?.poll?.data?.attributes} cover={attr?.poll?.cover} />;
-            }
+      {(() => {
+        if (attr.body) {
+          switch (attr.type) {
+            case "standard":
+              return (
+                <StandardContent content={attr?.body} terms={articleTerms} />
+              );
+            case "debate":
+              return <DebateContent content={attr?.debate} />;
+            case "poll":
+              return (
+                <PollContent
+                  content={attr?.poll?.data?.attributes}
+                  cover={attr?.poll?.cover}
+                />
+              );
           }
-        })()}
-      </main>
+        }
+      })()}
     </article>
   );
 };

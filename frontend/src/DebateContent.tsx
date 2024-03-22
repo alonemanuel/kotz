@@ -16,34 +16,35 @@ const DebateContent: React.FC<{ content?: any[] }> = ({ content }) => {
   };
 
   return (
-    <div className={styles.debates}>
-      {content?.map((content, index) => (
-        <div
-          ref={(el) => (debateRefs.current[index] = el)}
-          onClick={() => toggleDebate(index)}
-          className={`${styles.debate} ${
-            activeDebate === index ? styles.active : ""
-          }`}
-        >
-          <header>
-            <img
-              src={content?.author_img?.data?.attributes?.url}
-              alt="bla bla"
-            />
-            <h1>{content?.author}</h1>
-
-          </header>
-          <main>
-            <img
-              src={content?.author_img?.data?.attributes?.url}
-              alt="bla bla"
-            />
-            <h2>{content?.lead}</h2>
-            <ArticleContent content={content?.body} />
-          </main>
-        </div>
-      ))}
-    </div>
+    <main className={styles.debate}>
+      <div className={styles.debates}>
+        {content?.map((content, index) => (
+          <div
+            ref={(el) => (debateRefs.current[index] = el)}
+            onClick={() => toggleDebate(index)}
+            className={`${styles.debate} ${
+              activeDebate === index ? styles.active : ""
+            }`}
+          >
+            <header>
+              <img
+                src={content?.author_img?.data?.attributes?.url}
+                alt="bla bla"
+              />
+              <h1>{content?.author}</h1>
+            </header>
+            <main>
+              <img
+                src={content?.author_img?.data?.attributes?.url}
+                alt="bla bla"
+              />
+              <h2>{content?.lead}</h2>
+              <ArticleContent content={content?.body} />
+            </main>
+          </div>
+        ))}
+      </div>
+    </main>
   );
 };
 
