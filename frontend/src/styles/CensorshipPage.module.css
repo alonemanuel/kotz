@@ -156,7 +156,15 @@
           font-family: var(--ff-hadassa);
           font-size: var(--fs-300);
           line-height: 1;
+
+          & > u {
+            text-decoration: 2px dotted underline;
+            text-underline-offset: 0.2em;
+          }
+          
         }
+
+        
       }
     }
   }

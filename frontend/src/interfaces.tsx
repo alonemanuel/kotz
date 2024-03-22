@@ -43,6 +43,7 @@ export interface ContentBlockChild {
   text: string;
   bold?: boolean;
   italic?: boolean;
+  underline?: boolean;
 }
 
 export interface ImageBlock {

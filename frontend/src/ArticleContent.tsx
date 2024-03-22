@@ -5,6 +5,7 @@ import ItalicText from "./ItalicText";
 import { ContentBlock, ContentBlockChild } from "./interfaces";
 import ArticleBodyImage from "./ArticleBodyImage";
 import styles from "./styles/CensorshipPage.module.css";
+import UnderlineText from "./UnderlineText";
 
 const ArticleContent: React.FC<{
   content?: ContentBlock[];
@@ -98,6 +99,8 @@ const ArticleContent: React.FC<{
       return <BoldText key={index}>{node.text}</BoldText>;
     } else if (node.italic) {
       return <ItalicText key={index}>{node.text}</ItalicText>;
+    } else if (node.underline) {
+      return <UnderlineText key={index}>{node.text}</UnderlineText>;
     } else {
       return node.text;
     }
