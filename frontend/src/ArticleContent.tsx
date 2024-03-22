@@ -47,7 +47,9 @@ const ArticleContent: React.FC<{
               .map((term: any) => (
                 <div className={styles.term}>
                   <h2>{term?.title}</h2>
-                  <p>{term?.definition}</p>
+                  <ArticleContent content={term?.body}/>
+
+                  {/* <p>{term?.definition}</p> */}
                 </div>
               ))}
           </section>
