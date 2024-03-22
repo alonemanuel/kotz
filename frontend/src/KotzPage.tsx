@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "../src/styles/KotzPage.module.css";
 import kabarImg from "./images/kabar.jpg";
 import kotzImg from "./images/kotz.svg";
+import kotzImgWhite from "./images/kotz-white.svg";
 
 import KotzFab from "./KotzFab";
 import * as C from "./constants";

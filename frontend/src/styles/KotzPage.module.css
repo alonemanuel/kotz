@@ -63,6 +63,13 @@
         font-size: var(--fs-300);
         color: var(--color-black);
       }
+
+      & > footer {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 2em;
+        padding: 0 1em;
+      }
     }
   }
 
@@ -76,72 +83,64 @@
     padding: 7em 3em;
     border-right: 2px solid var(--color-white);
   }
-}
 
-.sideInfo footer {
-  display: flex;
-  flex-flow: row nowrap;
-  gap: 2em;
-  padding: 0 1em;
-}
-
-
-.gridItem {
-  cursor: pointer;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  gap: 1em;
-
-  &:hover {
-    & img {
-      scale: 1.1;
-    }
-  }
-
-  &:active {
-    & img {
-      scale: 1.15;
-    }
-  }
-
-  &.unpublished {
-    cursor: auto;
-  }
-
-  & .details {
+  .gridItem {
+    cursor: pointer;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    gap: 0.3em;
-  }
-
-  & img {
-    transition: scale 0.1s ease-out;
-  }
-
-  & h1 {
-    font-weight: 500;
-    display: flex;
-    flex-flow: row nowrap;
     gap: 1em;
-  }
 
-  & .guests {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    font-size: var(--fs-400);
-    max-width: 32ch;
-  }
+    &:hover {
+      & img {
+        scale: 1.1;
+      }
+    }
 
-  & p {
-    font-family: var(--ff-narkis-yair);
-    margin: 0;
+    &:active {
+      & img {
+        scale: 1.15;
+      }
+    }
 
-    &:not(:last-child)::after {
-      content: "*";
-      margin: 0 0.3em;
+    &.unpublished {
+      cursor: auto;
+    }
+
+    & .details {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      gap: 0.3em;
+    }
+
+    & img {
+      transition: scale 0.1s ease-out;
+    }
+
+    & h1 {
+      font-weight: 500;
+      display: flex;
+      flex-flow: row nowrap;
+      gap: 1em;
+    }
+
+    & .guests {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      font-size: var(--fs-400);
+      max-width: 32ch;
+    }
+
+    & p {
+      font-family: var(--ff-narkis-yair);
+      margin: 0;
+
+      &:not(:last-child)::after {
+        content: "*";
+        margin: 0 0.3em;
+      }
     }
   }
 }

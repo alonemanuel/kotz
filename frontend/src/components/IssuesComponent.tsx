@@ -7,7 +7,7 @@ import JsonBlocks from "./json_block/JsonBlocks";
 import { Issue } from "../types/issue";
 import { useNavigate } from "react-router-dom";
 import styles from "../styles/KotzPage.module.css";
-import kotzImg from "../images/kotz.svg";
+import kotzImgWhite from "../images/kotz-white.svg";
 
 const IssuesComponent = () => {
   const [issues, setIssues] = useState<Issue[]>([]);
@@ -41,14 +41,17 @@ const IssuesComponent = () => {
           }`}
           onClick={() => issue.is_published && handleBoxClick(issue.path)}
         >
-          <img src={kotzImg} alt={issue.name} />
+          <img src={kotzImgWhite} alt={issue.name} />
           {issue.is_published && (
             <div className={styles.details}>
               <hgroup>
+
                 <h1>
+                  <span>גיליון</span>
                   <span>{issue.number.toString().padStart(2, '0')}</span>
                   {issue.name}
                 </h1>
+                <h2>מרץ 2024</h2>
               </hgroup>
               <div className={styles.guests}>
                 <JsonBlocks content={issue.guests} />
