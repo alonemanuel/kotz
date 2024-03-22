@@ -40,14 +40,14 @@ const AboutComponent = () => {
         </a>
       </nav>
 
-      <footer>
+      {/* <footer>
         <a href="">
           <img src={bezalelImg} alt="האקדמיה בצלאל" />
         </a>
         <a href="">
           <img src={runiImg} alt="אוניברסיטת רייכמן" />
         </a>
-      </footer>
+      </footer> */}
     </main>
   );
 };

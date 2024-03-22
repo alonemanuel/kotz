@@ -36,7 +36,7 @@ const IssuesComponent = () => {
       {issues.map((issue, index) => (
         <div
           key={index}
-          className={`${styles.gridItem}${
+          className={`${styles.gridItem} ${
             !issue.is_published ? styles.unpublished : ``
           }`}
           onClick={() => issue.is_published && handleBoxClick(issue.path)}
