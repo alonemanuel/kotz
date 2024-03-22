@@ -41,6 +41,7 @@ const ArticleContent: React.FC<{
         <div className={styles.borderContainer}>
           <header>
             <h1>מילון מושגים</h1>
+            
           </header>
           <section>
             {terms
