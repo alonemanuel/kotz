@@ -31,6 +31,8 @@ const ArticleContent: React.FC<{ content: ContentBlock[]; terms?: any[] }> = ({
     );
   };
 
+  const renderHr = () => <hr />;
+
   const renderTerms = (block: ContentBlock, index: number) => {
     return (
       <div className={styles.terms}>
@@ -73,6 +75,8 @@ const ArticleContent: React.FC<{ content: ContentBlock[]; terms?: any[] }> = ({
         switch (block?.level) {
           case 6:
             return renderTerms(block, index);
+          case 5:
+            return renderHr();
           default:
             return renderHeading(block, index, block?.level);
         }
