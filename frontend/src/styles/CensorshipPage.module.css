@@ -379,6 +379,10 @@
 }
 
 .censorshipPage main {
+  & > .h1Spacer {
+    height: 2em;
+  }
+
   & > h1 {
     margin-block: 2em 0.5em;
     color: var(--color-green);
@@ -390,10 +394,27 @@
       font-family: var(--ff-greta);
       font-style: italic;
       font-weight: 600;
-      display: inline-block;
+      display: inline;
       margin-inline-end: 0.5em;
       margin-block-start: 2em;
       margin-block-end: 0;
+
+      &::before {
+        content: "";
+        background-image: url(../images/other/paragraph-vector.svg);
+        background-size: contain;
+        height: 2.5em;
+        width: 2em;
+        display: inline-block;
+        background-repeat: no-repeat;
+        margin-inline-end: 0.5em;
+        float: inline-start;
+        background-position: center center;
+      }
+
+      + p & {
+        margin-block-end: 2em;
+      }
     }
   }
 
@@ -429,7 +450,7 @@
 
       h1 + & {
         display: inline;
-        
+
         &::before {
           content: none;
         }

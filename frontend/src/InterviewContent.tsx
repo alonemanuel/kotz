@@ -13,7 +13,7 @@ const InterviewContent: React.FC<{ content: ContentBlock[]; terms: any[] }> = ({
 }) => {
   return (
     <main className={styles.interview}>
-      <ArticleContent content={content} terms={terms} />
+      <ArticleContent content={content} terms={terms} type={'interview'}/>
     </main>
   );
 };

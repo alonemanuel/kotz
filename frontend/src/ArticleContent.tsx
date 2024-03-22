@@ -6,10 +6,11 @@ import { ContentBlock, ContentBlockChild } from "./interfaces";
 import ArticleBodyImage from "./ArticleBodyImage";
 import styles from "./styles/CensorshipPage.module.css";
 
-const ArticleContent: React.FC<{ content: ContentBlock[]; terms?: any[] }> = ({
-  content,
-  terms,
-}) => {
+const ArticleContent: React.FC<{
+  content: ContentBlock[];
+  terms?: any[];
+  type?: string;
+}> = ({ content, terms, type }) => {
   const renderParagraph = (block: ContentBlock, index: number) => {
     return (
       <Paragraph key={index}>
@@ -61,7 +62,16 @@ const ArticleContent: React.FC<{ content: ContentBlock[]; terms?: any[] }> = ({
     level?: number
   ) => {
     const tag = `h${level}`;
-    return React.createElement(tag, null, block?.children?.[0].text);
+    return (
+      <>
+        {type === "interview" && <div className={styles.h1Spacer} />}
+        {React.createElement(tag, null, block?.children?.[0].text)}
+      </>
+    );
+    // if (type === "interview") {
+    // } else {
+    //   return React.createElement(tag, null, block?.children?.[0].text);
+    // }
     // return <Tag>{block?.children?.[0].text}</Tag>;
   };
 
