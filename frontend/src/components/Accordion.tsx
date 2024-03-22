@@ -64,7 +64,7 @@ function useResizeObservers(refs: any, dependency: number | null) {
     handleResize();
     setTimeout(() => {
       handleResize();
-    }, 2000);
+    }, 3000);
 
     // Cleanup
     return () => {
