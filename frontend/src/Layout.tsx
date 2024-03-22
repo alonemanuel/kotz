@@ -24,7 +24,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
       {/* Common element across all pages */}
       {isOpen && (
-        <nav>
+        <nav className={styles.layoutNav}>
           <div
           className={styles.hamburger}
           onClick={closeArticle}

@@ -46,16 +46,6 @@ const KotzPage: React.FC = () => {
       </div>
       <div className={styles.gridContainer}>
         <IssuesComponent />
-        {/* {boxes.map((box) => (
-          <div
-            key={box.id}
-            className={styles.gridItem}
-            onClick={() => handleBoxClick(box.path)}
-          >
-            <img src={box.image} alt={box.title} />
-            <p>{box.title}</p>
-          </div>
-        ))} */}
       </div>
     </div>
   );
