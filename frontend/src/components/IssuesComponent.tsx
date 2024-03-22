@@ -41,17 +41,21 @@ const IssuesComponent = () => {
           }`}
           onClick={() => issue.is_published && handleBoxClick(issue.path)}
         >
-          <img src={kotzImgWhite} alt={issue.name} />
+          <div className={styles.imgContainer}>
+            <img src={kotzImgWhite} alt={issue.name} />
+          </div>
           {issue.is_published && (
             <div className={styles.details}>
               <hgroup>
-
-                <h1>
-                  <span>גיליון</span>
-                  <span>{issue.number.toString().padStart(2, '0')}</span>
-                  {issue.name}
-                </h1>
-                <h2>מרץ 2024</h2>
+                <div className={styles.issueNumber}>
+                  <h2>
+                    <span>גיליון</span>
+                    <span>{issue.number.toString().padStart(2, "0")}</span>
+                  </h2>
+                  <h2 className={styles.asterix}>*</h2>
+                  <h2>מרץ 2024</h2>
+                </div>
+                <h1>{issue.name}</h1>
               </hgroup>
               <div className={styles.guests}>
                 <JsonBlocks content={issue.guests} />

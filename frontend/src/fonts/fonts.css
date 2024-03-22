@@ -29,7 +29,14 @@
 @font-face {
   font-family: "NarkisYair";
   src: url("./narkis_yair_fontef/NarkissYair-Regular-TRIAL.woff") format("woff");
-  font-weight: normal;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NarkisYair";
+  src: url("./narkis_yair_fontef/NarkissYair-Light-TRIAL.woff2") format("woff");
+  font-weight: 300;
   font-style: normal;
 }
 

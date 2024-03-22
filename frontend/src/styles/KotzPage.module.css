@@ -80,66 +80,96 @@
     align-content: center;
     flex: 1;
     justify-items: center;
-    padding: 7em 3em;
+    padding: 7em 1em;
     border-right: 2px solid var(--color-white);
-  }
 
-  .gridItem {
-    cursor: pointer;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    gap: 1em;
-
-    &:hover {
-      & img {
-        scale: 1.1;
-      }
-    }
-
-    &:active {
-      & img {
-        scale: 1.15;
-      }
-    }
-
-    &.unpublished {
-      cursor: auto;
-    }
-
-    & .details {
+    .gridItem {
+      cursor: pointer;
       display: flex;
       flex-flow: column nowrap;
       align-items: center;
-      gap: 0.3em;
-    }
+      gap: 2em;
+      transition: all 0.4s ease-out;
 
-    & img {
-      transition: scale 0.1s ease-out;
-    }
+      &.unpublished {
+        cursor: auto;
+      }
 
-    & h1 {
-      font-weight: 500;
-      display: flex;
-      flex-flow: row nowrap;
-      gap: 1em;
-    }
+      & .details {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: start;
+        gap: 1em;
+        margin-inline: 1em;
+        flex-shrink: 0;
 
-    & .guests {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: center;
-      font-size: var(--fs-400);
-      max-width: 32ch;
-    }
+        & > hgroup {
+          display: flex;
+          flex-flow: column nowrap;
+          gap: 0em;
 
-    & p {
-      font-family: var(--ff-narkis-yair);
-      margin: 0;
+          & > .issueNumber {
+            display: flex;
+            flex-flow: row nowrap;
+            gap: 0.5em;
 
-      &:not(:last-child)::after {
-        content: "*";
-        margin: 0 0.3em;
+            & h2 {
+              font-family: var(--ff-narkis-yair);
+              display: flex;
+              flex-flow: row nowrap;
+              gap: 0.3em;
+              font-weight: 300;
+              line-height: 1;
+
+              &.asterix {
+                margin-top: 0.1em;
+              }
+            }
+          }
+          & h1 {
+            font-weight: 500;
+            display: flex;
+            flex-flow: row nowrap;
+            gap: 0.3em;
+            font-family: var(--ff-narkis-yair);
+            font-size: var(--fs-600);
+            line-height: 1;
+          }
+        }
+
+        & > .guests {
+          display: flex;
+          flex-flow: row wrap;
+          justify-content: start;
+          text-wrap: balance;
+          font-size: var(--fs-300);
+          max-width: 32ch;
+          line-height: 1.3;
+          font-family: var(--ff-david-vc);
+
+        }
+      }
+
+      & > .imgContainer {
+        transition: all 0.1s ease-out;
+        &:hover {
+          scale: 1.1;
+        }
+
+        &:active {
+          scale: 1.2;
+        }
+      }
+
+      & p {
+        /* font-family: var(--ff-narkis-yair); */
+        margin: 0;
+
+        &:not(:last-child)::after {
+          content: "*";
+          margin: 0 0.3em;
+          display: inline-block;
+        }
       }
     }
   }
