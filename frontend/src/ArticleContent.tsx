@@ -7,7 +7,7 @@ import ArticleBodyImage from "./ArticleBodyImage";
 import styles from "./styles/CensorshipPage.module.css";
 
 const ArticleContent: React.FC<{
-  content: ContentBlock[];
+  content?: ContentBlock[];
   terms?: any[];
   type?: string;
 }> = ({ content, terms, type }) => {
@@ -47,9 +47,7 @@ const ArticleContent: React.FC<{
               .map((term: any) => (
                 <div className={styles.term}>
                   <h2>{term?.title}</h2>
-                  <ArticleContent content={term?.body}/>
-
-                  {/* <p>{term?.definition}</p> */}
+                  <ArticleContent content={term?.body} />
                 </div>
               ))}
           </section>
@@ -105,7 +103,7 @@ const ArticleContent: React.FC<{
     }
   };
 
-  return <>{content.map(renderContentBlock)}</>;
+  return <>{content?.map(renderContentBlock)}</>;
 };
 
 export default ArticleContent;
