@@ -6,6 +6,7 @@ import ArticleContent from "../ArticleContent";
 import JsonBlocks from "./json_block/JsonBlocks";
 import bezalelImg from "../images/bezalel_logo_0.png";
 import runiImg from "../images/runi_logo_0.png";
+import styles from '../styles/KotzPage.module.css';
 
 const AboutComponent = () => {
   const [about, setAbout] = useState<AboutUs | null>(null);
@@ -27,8 +28,8 @@ const AboutComponent = () => {
         <h1>{about.title}</h1>
         <h2>{about.subtitle}</h2>
       </header>
-      <div>
-        <JsonBlocks content={about.body} />
+      <div className={styles.aboutBody}>
+        <ArticleContent content={about.body} />
       </div>
       <nav>
         <a href="">

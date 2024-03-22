@@ -1,10 +1,11 @@
 .kotzPage {
   min-height: 100vh;
   width: 100%;
-  padding: 7em;
+  /* padding: 7em; */
   display: flex;
   flex-flow: row wrap;
-  background: var(--color-white);
+  background: var(--color-dark-black);
+  color: var(--color-white);
   /* grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr)); */
 
   /* grid-template-columns: minmax(auto, 26ch) 1fr; */
@@ -15,30 +16,43 @@
   align-content: stretch;
   align-items: start;
   overflow: auto;
+
   & > .sideInfo {
     height: 100%;
     justify-content: space-between;
-    color: var(--color-black);
     display: flex;
     flex-flow: column nowrap;
     gap: 2em;
-    /* flex: 1 1 auto; */
-    flex: 1;
+    flex: 3;
     min-width: 12ch;
-    max-width: 26ch;
+    padding: 2em;
+    /* max-width: 26ch; */
 
     & > main {
       display: flex;
       flex-flow: column nowrap;
       gap: 1em;
 
-      & > p {
-        font-size: var(--fs-300);
-        line-height: 1.3em;
+      & > .aboutBody {
+        & > p {
+          font-size: var(--fs-700);
+          line-height: 1.2em;
+          font-weight: 700;
+        }
       }
 
       & > header {
-        font-weight: 800;
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 0.7em;
+
+        & > h1 {
+          font-weight: 800;
+        }
+
+        & > h2 {
+          font-weight: 400;
+        }
       }
 
       & > nav {
@@ -51,6 +65,17 @@
       }
     }
   }
+
+  & .gridContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
+    gap: 3em;
+    align-content: center;
+    flex: 1;
+    justify-items: center;
+    padding: 7em 3em;
+    border-right: 2px solid var(--color-white);
+  }
 }
 
 .sideInfo footer {
@@ -60,18 +85,9 @@
   padding: 0 1em;
 }
 
-.gridContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
-  gap: 3em;
-  align-content: center;
-  flex: 3;
-  justify-items: center;
-}
 
 .gridItem {
   cursor: pointer;
-  color: var(--color-black);
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
