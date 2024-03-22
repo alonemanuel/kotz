@@ -31,6 +31,9 @@
     },
     "order": {
       "type": "integer"
+    },
+    "body": {
+      "type": "blocks"
     }
   }
 }
