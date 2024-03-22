@@ -6,6 +6,7 @@ import styles from "./styles/CensorshipPage.module.css";
 import DebateContent from "./DebateContent";
 import PollContent from "./PollContent";
 import StandardContent from "./StandardContent";
+import InterviewContent from "./InterviewContent";
 
 interface ArticleComponentProps {
   article: Article;
@@ -35,6 +36,10 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
             case "standard":
               return (
                 <StandardContent content={attr?.body} terms={articleTerms} />
+              );
+            case "interview":
+              return (
+                <InterviewContent content={attr?.body} terms={articleTerms} />
               );
             case "debate":
               return <DebateContent content={attr?.debate} />;
