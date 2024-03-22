@@ -26,7 +26,7 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
           {attr.author && <h3>{attr.author}</h3>}
           {attr.subtitle && <h2>{attr.subtitle}</h2>}
         </hgroup>
-        <div>{attr.lead && <p>{attr.lead}</p>}</div>
+        <div>{attr.lead && <div className={styles.lead}>{attr.lead}</div>}</div>
       </header>
       <main>
         {(() => {

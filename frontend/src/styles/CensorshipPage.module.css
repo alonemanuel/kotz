@@ -340,6 +340,10 @@
           }
         }
       }
+
+      & .lead {
+        font-family: var(--ff-david-vc);
+      }
     }
 
     & .bodyImage {
