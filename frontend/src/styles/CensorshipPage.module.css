@@ -343,6 +343,8 @@
 
       & .lead {
         font-family: var(--ff-david-vc);
+        font-size: var(--fs-400);
+        list-style: 1.1;
       }
     }
 

@@ -85,7 +85,7 @@ const ArticleContent: React.FC<{ content: ContentBlock[]; terms?: any[] }> = ({
     } else if (node.italic) {
       return <ItalicText key={index}>{node.text}</ItalicText>;
     } else {
-      return <span key={index}>{node.text}</span>;
+      return node.text;
     }
   };
 
