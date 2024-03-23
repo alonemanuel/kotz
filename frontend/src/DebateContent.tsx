@@ -33,12 +33,18 @@ const DebateContent: React.FC<{ content?: any[] }> = ({ content }) => {
               />
               <h1>{content?.author}</h1>
             </header>
+
             <main>
-              <img
-                src={content?.author_img?.data?.attributes?.url}
-                alt="bla bla"
-              />
-              <h2>{content?.lead}</h2>
+              <div className={styles.start}>
+                <img
+                  src={content?.author_img?.data?.attributes?.url}
+                  alt="bla bla"
+                />
+                <div className={styles.lead}>
+                  <span className={styles.authorName}>{content?.author}</span>
+                  {content?.lead}
+                </div>
+              </div>
               <ArticleContent content={content?.body} />
             </main>
           </div>
