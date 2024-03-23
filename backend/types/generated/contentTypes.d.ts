@@ -797,7 +797,6 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
     title: Attribute.String;
     subtitle: Attribute.String;
     body_caption: Attribute.String;
-    team: Attribute.Component<'shared.team'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
