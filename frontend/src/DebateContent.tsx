@@ -26,6 +26,7 @@ const DebateContent: React.FC<{ content?: any[] }> = ({ content }) => {
               activeDebate === index ? styles.active : ""
             }`}
           >
+            
             <header>
               <img
                 src={content?.author_img?.data?.attributes?.url}
