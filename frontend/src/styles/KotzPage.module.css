@@ -1,7 +1,6 @@
 .kotzPage {
   height: 100vh;
   width: 100%;
-  overflow: auto;
   /* padding: 7em; */
   display: flex;
   flex-flow: row wrap;
@@ -16,7 +15,7 @@
   font: var(--fs-400) var(--ff-david-vc);
   align-content: stretch;
   align-items: start;
-  overflow: auto;
+  overflow: hidden;
 
   & > .sideInfo {
     max-height: 100%;
@@ -61,17 +60,17 @@
         flex-flow: column wrap;
         gap: 2em;
         font-family: var(--ff-narkis-yair);
-        
+
         & > .team {
           display: flex;
           flex-flow: row nowrap;
           gap: 0.7em;
-          
+
           & > h1 {
             font-weight: 400;
             font-family: var(--ff-narkis-yair);
           }
-          
+
           & > .members {
             font-weight: 300;
             display: flex;
@@ -108,7 +107,7 @@
     align-items: stretch;
     flex: 1;
     justify-content: start;
-    padding: 7em 1em;
+    padding: 0.7em 1em;
     border-inline-start: 2px solid var(--color-white);
     overflow: auto;
     max-height: 100vh;
@@ -247,9 +246,11 @@
       flex: auto;
 
       & > .gridItem {
-        flex-shrink: 0;
+        flex-shrink: 1;
+        flex-grow: 1;
         gap: 0.5em;
         justify-content: space-between;
+        width: 20ch;
 
         & > .imgContainer {
           & > img {
