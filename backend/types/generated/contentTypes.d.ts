@@ -797,6 +797,12 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
     title: Attribute.String;
     subtitle: Attribute.String;
     body_caption: Attribute.String;
+    team: Attribute.Component<'shared.team', true>;
+    issues: Attribute.Relation<
+      'api::about-us.about-us',
+      'oneToMany',
+      'api::issue.issue'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

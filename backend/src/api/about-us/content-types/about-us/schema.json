@@ -23,6 +23,16 @@
     },
     "body_caption": {
       "type": "string"
+    },
+    "team": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.team"
+    },
+    "issues": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::issue.issue"
     }
   }
 }
