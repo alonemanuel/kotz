@@ -23,14 +23,16 @@ const AboutComponent = () => {
   }
 
   return (
-    <main>
-      <header>
-        <h1>{about.title}</h1>
-        <h2>{about.subtitle}</h2>
-      </header>
-      <div className={styles.aboutBody}>
-        <ArticleContent content={about.body} />
-      </div>
+    <>
+      <main>
+        <header>
+          <h1>{about.title}</h1>
+          <h2>{about.subtitle}</h2>
+        </header>
+        <div className={styles.aboutBody}>
+          <ArticleContent content={about.body} />
+        </div>
+      </main>
       <div className={styles.teams}>
         {about.teams?.map((team) => {
           return (
@@ -52,7 +54,7 @@ const AboutComponent = () => {
           <img src={runiImg} alt="אוניברסיטת רייכמן" />
         </a>
       </footer> */}
-    </main>
+    </>
   );
 };
 
