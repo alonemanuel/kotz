@@ -1023,6 +1023,7 @@ export interface ApiTeamTeam extends Schema.CollectionType {
     singularName: 'team';
     pluralName: 'teams';
     displayName: 'Team';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1030,6 +1031,7 @@ export interface ApiTeamTeam extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     members: Attribute.Blocks;
+    order: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
