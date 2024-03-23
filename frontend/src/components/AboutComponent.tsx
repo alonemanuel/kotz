@@ -12,7 +12,7 @@ const AboutComponent = () => {
   const [about, setAbout] = useState<AboutUs | null>(null);
 
   useEffect(() => {
-    fetch(`${C.API_BASE_URL}${C.ABOUT_US_ENDPOINT}`)
+    fetch(`${C.API_BASE_URL}${C.ABOUT_US_ENDPOINT}?${C.API_POPULATE_DEEP}`)
       .then((response) => response.json())
       .then((data) => setAbout(data.data.attributes))
       .catch((error) => console.error(`Error fetching data: ${error}`));
@@ -35,8 +35,10 @@ const AboutComponent = () => {
         {about.teams?.map((team) => {
           return (
             <>
-              <div>{about.teams}</div>
-              <div>מהו קוץ?</div>
+              <h1>{team.name}</h1>
+              <div className={styles.members}>
+                <ArticleContent content={team.members} />
+              </div>
             </>
           );
         })}

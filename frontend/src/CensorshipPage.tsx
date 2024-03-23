@@ -26,7 +26,7 @@ const CensorshipPage: React.FC = () => {
       return response.json();
     });
     const fetchTerms = fetch(
-      `${C.API_BASE_URL}${C.TERMS_ENDPOINT}?sort[0]=order:asc&populate=*`
+      `${C.API_BASE_URL}${C.TERMS_ENDPOINT}?${C.API_SORT_ASCENDING}&${C.API_POPULATE_DEEP}`
     ).then((response: any) => {
       console.log(response);
       return response.json();

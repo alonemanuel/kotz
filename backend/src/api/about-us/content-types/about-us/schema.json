@@ -24,7 +24,7 @@
     "body_caption": {
       "type": "string"
     },
-    "team": {
+    "teams": {
       "type": "component",
       "repeatable": true,
       "component": "shared.team"
