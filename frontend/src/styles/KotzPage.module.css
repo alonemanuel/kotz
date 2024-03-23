@@ -58,8 +58,12 @@
       & > .teams {
         display: flex;
         flex-flow: column wrap;
-        gap: 2em;
+        gap: 0.5em 2em;
         font-family: var(--ff-narkis-yair);
+
+        display: grid;
+        grid-template-columns: minmax(auto, 28ch) 1fr;
+      
 
         & > .team {
           display: flex;
