@@ -929,11 +929,6 @@ export interface ApiItemArticleItemArticle extends Schema.CollectionType {
       'oneToMany',
       'api::question.question'
     >;
-    debates: Attribute.Relation<
-      'api::item-article.item-article',
-      'oneToMany',
-      'api::debate.debate'
-    >;
     debate: Attribute.Component<'shared.debate', true>;
     poll: Attribute.Relation<
       'api::item-article.item-article',
