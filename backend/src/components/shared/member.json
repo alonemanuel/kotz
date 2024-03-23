@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_shared_members",
+  "info": {
+    "displayName": "member"
+  },
+  "options": {},
+  "attributes": {
+    "member": {
+      "type": "string"
+    }
+  }
+}

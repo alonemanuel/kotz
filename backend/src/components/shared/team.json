@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_teams",
+  "info": {
+    "displayName": "team",
+    "icon": "chartBubble"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "members": {
+      "type": "blocks"
+    }
+  }
+}

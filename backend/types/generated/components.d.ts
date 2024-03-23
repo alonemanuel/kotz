@@ -37,6 +37,16 @@ export interface SharedDebate extends Schema.Component {
   };
 }
 
+export interface SharedMember extends Schema.Component {
+  collectionName: 'components_shared_members';
+  info: {
+    displayName: 'member';
+  };
+  attributes: {
+    member: Attribute.String;
+  };
+}
+
 export interface SharedMetaSocial extends Schema.Component {
   collectionName: 'components_shared_meta_socials';
   info: {
@@ -88,14 +98,28 @@ export interface SharedSeo extends Schema.Component {
   };
 }
 
+export interface SharedTeam extends Schema.Component {
+  collectionName: 'components_shared_teams';
+  info: {
+    displayName: 'team';
+    icon: 'chartBubble';
+  };
+  attributes: {
+    name: Attribute.String;
+    members: Attribute.Blocks;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'shared.answer': SharedAnswer;
       'shared.answer0': SharedAnswer0;
       'shared.debate': SharedDebate;
+      'shared.member': SharedMember;
       'shared.meta-social': SharedMetaSocial;
       'shared.seo': SharedSeo;
+      'shared.team': SharedTeam;
     }
   }
 }

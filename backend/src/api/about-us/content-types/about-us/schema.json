@@ -20,6 +20,15 @@
     },
     "subtitle": {
       "type": "string"
+    },
+    "body_caption": {
+      "type": "string"
+    },
+    "team": {
+      "displayName": "team",
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.team"
     }
   }
 }
