@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-03-22T14:55:51.745Z"
+    "x-generation-date": "2024-03-23T00:37:08.866Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -101,6 +101,12 @@
               },
               "subtitle": {
                 "type": "string"
+              },
+              "body_caption": {
+                "type": "string"
+              },
+              "team": {
+                "$ref": "#/components/schemas/SharedTeamComponent"
               }
             }
           }
@@ -161,6 +167,12 @@
           },
           "subtitle": {
             "type": "string"
+          },
+          "body_caption": {
+            "type": "string"
+          },
+          "team": {
+            "$ref": "#/components/schemas/SharedTeamComponent"
           },
           "createdAt": {
             "type": "string",
@@ -482,6 +494,18 @@
           "meta": {
             "type": "object"
           }
+        }
+      },
+      "SharedTeamComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "members": {}
         }
       },
       "DebateRequest": {
@@ -5988,7 +6012,10 @@
               "name": {
                 "type": "string"
               },
-              "members": {}
+              "members": {},
+              "order": {
+                "type": "integer"
+              }
             }
           }
         }
@@ -6046,6 +6073,9 @@
             "type": "string"
           },
           "members": {},
+          "order": {
+            "type": "integer"
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"

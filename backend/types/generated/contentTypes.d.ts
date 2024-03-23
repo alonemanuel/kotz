@@ -796,6 +796,8 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
     body: Attribute.Blocks;
     title: Attribute.String;
     subtitle: Attribute.String;
+    body_caption: Attribute.String;
+    team: Attribute.Component<'shared.team'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1021,6 +1023,7 @@ export interface ApiTeamTeam extends Schema.CollectionType {
     singularName: 'team';
     pluralName: 'teams';
     displayName: 'Team';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1028,6 +1031,7 @@ export interface ApiTeamTeam extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     members: Attribute.Blocks;
+    order: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
