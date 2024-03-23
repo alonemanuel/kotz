@@ -34,12 +34,12 @@ const AboutComponent = () => {
       <div className={styles.teams}>
         {about.teams?.map((team) => {
           return (
-            <>
+            <div className={styles.team}>
               <h1>{team.name}</h1>
               <div className={styles.members}>
                 <ArticleContent content={team.members} />
               </div>
-            </>
+            </div>
           );
         })}
       </div>
