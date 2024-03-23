@@ -37,7 +37,7 @@
         & > p {
           line-height: 1.2em;
           font-weight: 700;
-          font-size: clamp(var(--fs-400), max(6vh, 20vw), var(--fs-700));
+          font-size: clamp(var(--fs-400), min(7vh, 4vw), var(--fs-700));
         }
       }
 
@@ -231,7 +231,8 @@
       & > main {
         & > .aboutBody {
           & > p {
-            font-size: 1.7em;
+          font-size: clamp(var(--fs-400), min(8vh, 5vw), var(--fs-700));
+
             margin-bottom: 0;
           }
         }
@@ -249,6 +250,7 @@
       padding: 1.5em 1.5em;
       gap: 2em;
       flex: auto;
+      flex-grow: 0;
 
       & > .gridItem {
         flex-shrink: 1;
