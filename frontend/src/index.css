@@ -17,13 +17,13 @@
   --fs-400: 1rem;
   --fs-300: 0.9rem;
 
-  --font-david-500: var(--fs-500)/1.6 var(--ff-david-vc);
+  --font-david-500: var(--fs-500) / 1.6 var(--ff-david-vc);
 
   --color-white: whitesmoke;
   --color-dark-black: #222;
-  --color-black: #2B2B2B;
-  --color-green: #27B769;
-  --color-dark-green: #43885B;
+  --color-black: #2b2b2b;
+  --color-green: #27b769;
+  --color-dark-green: #43885b;
 
   --typo-indent: 3em;
 
@@ -42,6 +42,13 @@
     /* --fs-xl: 7rem;
     --fs-600: 2rem;
     --fs-400: 1.125rem; */
+  }
+}
+
+/* Mobile */
+@media (max-aspect-ratio: 1) {
+  :root {
+    font-size: 14px;
   }
 }
 
