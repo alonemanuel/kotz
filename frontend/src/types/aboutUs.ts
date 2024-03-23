@@ -4,4 +4,5 @@ export interface AboutUs {
   title: string;
   subtitle: string;
   body: ContentBlock[];
+  teams: any[];
 }

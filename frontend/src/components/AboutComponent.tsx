@@ -6,7 +6,7 @@ import ArticleContent from "../ArticleContent";
 import JsonBlocks from "./json_block/JsonBlocks";
 import bezalelImg from "../images/bezalel_logo_0.png";
 import runiImg from "../images/runi_logo_0.png";
-import styles from '../styles/KotzPage.module.css';
+import styles from "../styles/KotzPage.module.css";
 
 const AboutComponent = () => {
   const [about, setAbout] = useState<AboutUs | null>(null);
@@ -31,14 +31,16 @@ const AboutComponent = () => {
       <div className={styles.aboutBody}>
         <ArticleContent content={about.body} />
       </div>
-      <nav>
-        <a href="">
-          <div>צוות המגזין</div>
-        </a>
-        <a href="">
-          <div>מהו קוץ?</div>
-        </a>
-      </nav>
+      <div className={styles.teams}>
+        {about.teams?.map((team) => {
+          return (
+            <>
+              <div>{about.teams}</div>
+              <div>מהו קוץ?</div>
+            </>
+          );
+        })}
+      </div>
 
       {/* <footer>
         <a href="">
