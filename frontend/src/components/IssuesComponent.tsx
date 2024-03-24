@@ -53,10 +53,11 @@ const IssuesComponent = () => {
                     <span>{issue.number.toString().padStart(2, "0")}</span>
                   </h2>
                   <h2 className={styles.asterix}>*</h2>
-                  <h2>מרץ 2024</h2>
+                  <h2>{issue.time}</h2>
                 </div>
                 <h1>{issue.name}</h1>
               </hgroup>
+              <div className={styles.about}>{issue.about}</div>
               <div className={styles.guests}>
                 <JsonBlocks content={issue.guests} />
               </div>

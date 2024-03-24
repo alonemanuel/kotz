@@ -177,6 +177,13 @@
           }
         }
 
+        & > .about {
+          font-family: var(--ff-david-vc);
+          font-size: var(--fs-300);
+          font-weight: 400;
+
+        }
+        
         & > .guests {
           display: flex;
           flex-flow: row wrap;
@@ -185,7 +192,7 @@
           font-size: var(--fs-300);
           max-width: 52ch;
           line-height: 1.3;
-          font-family: var(--ff-david-vc);
+          font-family: var(--ff-narkis-yair);
         }
       }
 
