@@ -35,13 +35,20 @@ const ArticleContent: React.FC<{
 
   const renderHr = () => <hr />;
 
+  const renderKotzHr = () => <hr />; // TODO
+  
+  const renderSong = () => (
+    <div>
+      
+    </div>
+  );
+
   const renderTerms = (block: ContentBlock, index: number) => {
     return (
       <div className={styles.terms}>
         <div className={styles.borderContainer}>
           <header>
             <h1>מילון מושגים</h1>
-            
           </header>
           <section>
             {terms
@@ -88,7 +95,13 @@ const ArticleContent: React.FC<{
           case 6:
             return renderTerms(block, index);
           case 5:
-            return renderHr();
+            if (block.text === "---") {
+              return renderHr();
+            } else if (block.text === "-*-") {
+              return renderKotzHr();
+            }
+          case 4:
+            return renderSong();
           default:
             return renderHeading(block, index, block?.level);
         }
