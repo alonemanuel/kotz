@@ -32,6 +32,7 @@ const AboutComponent = () => {
         <div className={styles.aboutBody}>
           <ArticleContent content={about.body} />
         </div>
+          <div className={styles.aboutCaption}>[{about.body_caption}]</div>
       </main>
       <div className={styles.teams}>
         {about.teams?.map((team) => {

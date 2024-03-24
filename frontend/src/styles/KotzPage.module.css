@@ -41,6 +41,12 @@
         }
       }
 
+      & > .aboutCaption {
+        font-family: var(--ff-narkis-yair);
+        font-weight: 300;
+        font-size: var(--fs-500);
+      }
+
       & > header {
         display: flex;
         flex-flow: row nowrap;
