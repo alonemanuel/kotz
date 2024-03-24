@@ -19,9 +19,24 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
 }) => {
   const attr = article.attributes;
   const articleTerms = attr.terms?.data;
+  let classType;
+  switch (attr?.type) {
+    case "standard":
+      classType = styles.standard;
+      break;
+    case "interview":
+      classType = styles.interview;
+      break;
+    case "poll":
+      classType = styles.poll;
+      break;
+    case "debate":
+      classType = styles.debate;
+      break;
+  }
 
   return (
-    <article>
+    <article className={classType}>
       <header>
         <hgroup>
           {attr.title && <h1>{attr.title}</h1>}
@@ -35,7 +50,11 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
           switch (attr.type) {
             case "standard":
               return (
-                <StandardContent content={attr?.body} terms={articleTerms} song={attr?.song}/>
+                <StandardContent
+                  content={attr?.body}
+                  terms={articleTerms}
+                  song={attr?.song}
+                />
               );
             case "interview":
               return (

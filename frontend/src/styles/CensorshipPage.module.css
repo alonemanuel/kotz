@@ -154,7 +154,6 @@
           line-height: 1;
           & + p {
             margin-block-start: 0.2em;
-
           }
 
           & + .separator {
@@ -432,20 +431,23 @@
       flex-flow: column nowrap;
       gap: 4em;
 
+      .poll & {
+        display: none;
+      }
+
       & hgroup {
         display: flex;
         flex-flow: column nowrap;
         /* gap: 0.5em; */
 
         & h1 {
-          font-family: 'KotzDisplay';
-          font-feature-settings: 'ss01';
+          font-family: "KotzDisplay";
+          /* font-feature-settings: "ss01"; */
           font-size: var(--fs-800);
           line-height: 1em;
           color: var(--color-green);
           margin-bottom: 0.2em;
         }
-
 
         & h2 {
           font-family: var(--ff-narkis-yair);
