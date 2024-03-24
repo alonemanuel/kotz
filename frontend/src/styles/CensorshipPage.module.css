@@ -624,5 +624,9 @@
     border-bottom: none;
     width: 70%;
     margin: 2em auto;
+
+    + .h1Spacer {
+      height: 0;
+    }
   }
 }
