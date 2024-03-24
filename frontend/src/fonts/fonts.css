@@ -83,3 +83,27 @@
   font-weight: 400;
   font-style: italic;
 }
+
+@font-face {
+  font-family: "KotzDisplay";
+  src: url("./shira_saar/Shira_Saar_Display.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "KotzText";
+  src: url("./shira_saar/Shira_Saar_text-Bold.woff2") format("woff2");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "KotzText";
+  src: url("./shira_saar/Shira_Saar_text-Medium_Green-SVG.woff2") format("woff2");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Alpha Bravo";
+  src: url("./shira_saar/Shira_Saar_text-Medium_Green-SVG.woff2") format("woff2");
+  font-weight: 500;
+}
+
