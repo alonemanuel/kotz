@@ -27,6 +27,9 @@
     "is_published": {
       "type": "boolean",
       "default": false
+    },
+    "about": {
+      "type": "text"
     }
   }
 }
