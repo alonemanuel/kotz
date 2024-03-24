@@ -284,6 +284,9 @@
           & > .guests {
             display: none;
           }
+          & > .about {
+            display: none;
+          }
         }
       }
     }
