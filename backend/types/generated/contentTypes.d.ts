@@ -873,6 +873,7 @@ export interface ApiIssueIssue extends Schema.CollectionType {
     path: Attribute.String;
     is_published: Attribute.Boolean & Attribute.DefaultTo<false>;
     about: Attribute.Text;
+    time: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
