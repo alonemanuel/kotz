@@ -98,6 +98,18 @@ export interface SharedSeo extends Schema.Component {
   };
 }
 
+export interface SharedSong extends Schema.Component {
+  collectionName: 'components_shared_songs';
+  info: {
+    displayName: 'song';
+  };
+  attributes: {
+    title: Attribute.String;
+    body: Attribute.Blocks;
+    author: Attribute.String;
+  };
+}
+
 export interface SharedTeam extends Schema.Component {
   collectionName: 'components_shared_teams';
   info: {
@@ -119,6 +131,7 @@ declare module '@strapi/types' {
       'shared.member': SharedMember;
       'shared.meta-social': SharedMetaSocial;
       'shared.seo': SharedSeo;
+      'shared.song': SharedSong;
       'shared.team': SharedTeam;
     }
   }

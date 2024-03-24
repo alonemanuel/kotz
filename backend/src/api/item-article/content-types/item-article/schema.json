@@ -121,6 +121,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::poll.poll"
+    },
+    "song": {
+      "displayName": "song",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.song"
     }
   }
 }

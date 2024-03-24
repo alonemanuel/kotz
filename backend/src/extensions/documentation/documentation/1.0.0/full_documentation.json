@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-03-24T18:35:06.613Z"
+    "x-generation-date": "2024-03-24T18:49:49.408Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1968,6 +1968,12 @@
                   }
                 ],
                 "example": "string or id"
+              },
+              "song": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SharedSongComponent"
+                }
               }
             }
           }
@@ -4124,6 +4130,12 @@
               }
             }
           },
+          "song": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SharedSongComponent"
+            }
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -4346,6 +4358,21 @@
             }
           },
           "body": {}
+        }
+      },
+      "SharedSongComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "title": {
+            "type": "string"
+          },
+          "body": {},
+          "author": {
+            "type": "string"
+          }
         }
       },
       "PollRequest": {
