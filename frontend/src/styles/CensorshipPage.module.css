@@ -159,7 +159,6 @@
 
           & + .separator {
             margin-block-start: 2em;
-            color: red;
           }
 
           .separator + & {
