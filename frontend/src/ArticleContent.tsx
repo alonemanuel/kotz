@@ -114,7 +114,10 @@ const ArticleContent: React.FC<{
               return renderHr();
             } else if (block.text === "-*-") {
               return renderKotzHr();
+            } else {
+              return renderHr();
             }
+            break;
           case 4:
             return renderSong();
           default:
