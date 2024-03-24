@@ -9,10 +9,20 @@
     grid-template-columns: repeat(6, 1fr); */
 }
 
+/* Desktop */
 @media (min-aspect-ratio: 1) {
   .censorshipPage {
     width: 100vw;
     height: 100vh;
+  }
+}
+
+/* Mobile */
+@media (max-aspect-ratio: 1) {
+  .polls {
+    & > h1 {
+      padding-block-start: 1.5em;
+    }
   }
 }
 
@@ -247,6 +257,18 @@
     cursor: default;
     min-height: 100vh;
 
+    &.poll {
+      padding: 0;
+
+      & > main {
+        height: 100%;
+
+        & > .polls {
+          height: 100%;
+        }
+      }
+    }
+
     & main {
       & .debates {
         position: relative;
@@ -371,17 +393,22 @@
       flex-flow: column nowrap;
       gap: 2em;
       background-image: var(--polls-bg-img-url);
+      background-repeat: no-repeat;
       background-size: cover;
       background-position: center center;
-      width: 100%;
+
       position: relative;
+      min-width: 20vw;
 
       & > h1 {
-        font-family: var(--ff-kotz-text);
+        font-family: var(--ff-david-vc);
+        font-weight: 600;
         font-style: italic;
-        font-size: max(10vw, 18vh);
+        font-size: clamp(4em, max(9vw, 13vh), 40em);
         line-height: 0.9;
         color: var(--color-green);
+        margin: 0.2em;
+        /* font-size: 10vw; */
       }
 
       & main {
