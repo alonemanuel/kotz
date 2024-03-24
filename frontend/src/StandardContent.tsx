@@ -7,13 +7,14 @@ import ArticleBodyImage from "./ArticleBodyImage";
 import styles from "./styles/CensorshipPage.module.css";
 import ArticleContent from "./ArticleContent";
 
-const StandardContent: React.FC<{ content: ContentBlock[]; terms: any[] }> = ({
+const StandardContent: React.FC<{ content: ContentBlock[]; terms: any[]; song: any[]}> = ({
   content,
   terms,
+  song,
 }) => {
   return (
     <main className={styles.standard}>
-      <ArticleContent content={content} terms={terms} />
+      <ArticleContent content={content} terms={terms} song={song}/>
     </main>
   );
 };

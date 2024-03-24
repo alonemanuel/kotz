@@ -6,9 +6,8 @@ import { ContentBlock, ContentBlockChild } from "./interfaces";
 import ArticleBodyImage from "./ArticleBodyImage";
 import styles from "./styles/CensorshipPage.module.css";
 import UnderlineText from "./UnderlineText";
-import SongContent from "./SongContent";
 
-const ArticleContent: React.FC<{
+const SongContent: React.FC<{
   content?: ContentBlock[];
   terms?: any[];
   song?: any[];
@@ -35,51 +34,6 @@ const ArticleContent: React.FC<{
     );
   };
 
-  const renderHr = () => <hr />;
-
-  const renderKotzHr = () => <hr />; // TODO
-
-  const renderSong = () => (
-    <div>
-      <div className={styles.songs}>
-        <div className={styles.borderContainer}>
-          {song?.map((song) => (
-            <>
-              <header>{song.title && <h1>{song.title}</h1>}</header>
-              <section>
-                <div className={styles.song}>
-                  <SongContent content={song?.body} />
-                </div>
-              </section>
-            </>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-
-  const renderTerms = (block: ContentBlock, index: number) => {
-    return (
-      <div className={styles.terms}>
-        <div className={styles.borderContainer}>
-          <header>
-            <h1>מילון מושגים</h1>
-          </header>
-          <section>
-            {terms
-              ?.map((term: any) => term.attributes)
-              .map((term: any) => (
-                <div className={styles.term}>
-                  <h2>{term?.title}</h2>
-                  <ArticleContent content={term?.body} />
-                </div>
-              ))}
-          </section>
-        </div>
-      </div>
-    );
-  };
-
   const renderHeading = (
     block: ContentBlock,
     index: Number,
@@ -92,11 +46,6 @@ const ArticleContent: React.FC<{
         {React.createElement(tag, null, block?.children?.[0].text)}
       </>
     );
-    // if (type === "interview") {
-    // } else {
-    //   return React.createElement(tag, null, block?.children?.[0].text);
-    // }
-    // return <Tag>{block?.children?.[0].text}</Tag>;
   };
 
   const renderContentBlock = (block: ContentBlock, index: number) => {
@@ -107,16 +56,8 @@ const ArticleContent: React.FC<{
         return renderImage(block, index);
       case "heading":
         switch (block?.level) {
-          case 6:
-            return renderTerms(block, index);
-          case 5:
-            if (block.text === "---") {
-              return renderHr();
-            } else if (block.text === "-*-") {
-              return renderKotzHr();
-            }
-          case 4:
-            return renderSong();
+          case 1:
+            return <div className={styles.separator}>(*)</div>;
           default:
             return renderHeading(block, index, block?.level);
         }
@@ -138,4 +79,4 @@ const ArticleContent: React.FC<{
   return <>{content?.map(renderContentBlock)}</>;
 };
 
-export default ArticleContent;
+export default SongContent;

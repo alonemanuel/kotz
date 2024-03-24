@@ -35,7 +35,7 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
           switch (attr.type) {
             case "standard":
               return (
-                <StandardContent content={attr?.body} terms={articleTerms} />
+                <StandardContent content={attr?.body} terms={articleTerms} song={attr?.song}/>
               );
             case "interview":
               return (
