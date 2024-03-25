@@ -2,6 +2,7 @@
 .censorshipPage {
   width: 100%;
   height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-flow: column nowrap;
   /* display: grid;
@@ -14,6 +15,7 @@
   .censorshipPage {
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
   }
 }
 
@@ -256,6 +258,7 @@
     padding-top: 4em;
     cursor: default;
     min-height: 100vh;
+    min-height: 100dvh;
 
     &.poll {
       padding: 0;
