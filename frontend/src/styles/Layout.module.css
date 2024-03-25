@@ -71,7 +71,7 @@
 
 /* Desktop */
 @media (min-aspect-ratio: 1) {
-  nav {
+  nav.layoutNav {
     display: none;
   }
 }
