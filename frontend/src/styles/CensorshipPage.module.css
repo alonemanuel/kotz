@@ -191,7 +191,7 @@
     position: relative;
     overflow: auto;
     max-height: 40vh;
-    width: 100%;
+    width: clamp(20ch, 90%, 47ch);
 
     & .borderContainer {
       display: flex;

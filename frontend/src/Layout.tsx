@@ -39,6 +39,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </hgroup>
         </nav>
       )}
+      
       <KotzIcon className={styles.kotzIcon} onClick={handleKotzClick} />
     </>
   );

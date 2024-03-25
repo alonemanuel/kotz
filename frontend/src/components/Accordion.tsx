@@ -9,6 +9,8 @@ import ArticleContent from "../ArticleContent";
 import ArticleComponent from "../ArticleComponent";
 import { useOpenArticle } from "../OpenArticleContext";
 import userEvent from "@testing-library/user-event";
+import topArrowImg from "../images/other/up-arrow.svg";
+
 interface AccordionProps {
   // articles: Item[];
   articles: Article[];
@@ -95,6 +97,65 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
   const { isOpen, setOpen } = useOpenArticle();
   // const { setOpen } = useOpenArticle();
 
+  // const addScrollEventListener = (panelRef: HTMLDivElement) => {
+  //   panelRef.addEventListener("scroll", () => {
+  //     panelRef.classList.toggle("scrolled", panelRef.scrollTop > 300);
+  //   });
+  // };
+
+  const scrollToTop = () => {
+    if (activeIndex) {
+      console.log("gopgogo");
+      panelRefs.current[activeIndex]?.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
+  const [isScrolled, setIsScrolled] = useState(false);
+  const ref = useRef(null);
+
+  const handleScroll = () => {
+    let scrolled: any = false;
+    if (
+      activeIndex &&
+      panelRefs &&
+      panelRefs.current &&
+      panelRefs.current[activeIndex]
+    ) {
+      scrolled = panelRefs.current[activeIndex]!.scrollTop > 300;
+    }
+    setIsScrolled(scrolled);
+  };
+
+  useEffect(() => {
+    console.log("popopopo");
+
+    // This function now takes a panel as an argument to add the scroll listener directly to it
+    const addScrollEventListener = (panel: any) => {
+      const scrollHandler = () => {
+        console.log("Scroll event!");
+        const isScrolled = panel.scrollTop > 300;
+        setIsScrolled(isScrolled); // Update state based on scroll position
+      };
+
+      // Add event listener to the panel
+      panel.addEventListener("scroll", scrollHandler);
+
+      // Return a cleanup function to remove the event listener when necessary
+      return () => panel.removeEventListener("scroll", scrollHandler);
+    };
+
+    // Retrieve the current panel based on activeIndex
+    const panel = panelRefs.current[activeIndex!];
+    if (panel) {
+      console.log("Adding event listener to panel:", activeIndex);
+      // Add scroll event listener and get the cleanup function
+      const cleanup = addScrollEventListener(panel);
+
+      // Call the cleanup function when the component unmounts or activeIndex changes
+      return cleanup;
+    }
+  }, [activeIndex]); // Now, this effect depends on activeIndex
+
   const toggleAccordion = (index: number) => {
     const isArticleOpen = activeIndex === index;
     setActiveIndex(isArticleOpen ? null : index);
@@ -131,6 +192,24 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
           ?.clientWidth ?? 0
     );
     textContentWidths.current = widths;
+
+    // Attach scroll event listeners to each panel that is currently active/open
+    // panelRefs.current.forEach((panel, index) => {
+    //   if (panel && activeIndex === index) {
+    //     panel.addEventListener("scroll", () => addScrollEventListener(panel));
+    //   }
+    // });
+
+    // // Cleanup function to remove scroll event listeners
+    // return () => {
+    //   panelRefs.current.forEach((panel, index) => {
+    //     if (panel && activeIndex === index) {
+    //       panel.removeEventListener("scroll", () =>
+    //         addScrollEventListener(panel)
+    //       );
+    //   //     }
+    //   //   });
+    //   };
   }, [articles, isOpen]); // Rerun effect when articles changes
 
   return (
@@ -145,7 +224,7 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
           <React.Fragment key={article.id}>
             <div
               ref={(el) => (panelRefs.current[index] = el)} // Assign refs to panels
-              className={`${styles.panel} 
+              className={`${styles.panel}  
           ${activeIndex === index ? styles.active : ""}`}
             >
               <section className={styles.articleWrapper}>
@@ -196,6 +275,12 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
           </React.Fragment>
         );
       })}
+      <div
+        className={`${styles.toTop} ${isScrolled ? styles.scrolled : ``}`}
+        onClick={() => scrollToTop()}
+      >
+        <img className={styles.topArrow} src={topArrowImg} alt="top" />
+      </div>
     </div>
   );
 };
