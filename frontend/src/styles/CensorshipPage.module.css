@@ -278,6 +278,7 @@
       & .debates {
         position: relative;
         display: flex;
+        /* margin-inline: -0.2em; */
 
         & .debate {
           position: absolute;
@@ -286,7 +287,7 @@
           border-radius: 8px;
           display: flex;
           flex-flow: column nowrap;
-          width: 90%;
+          width: 85%;
           background-color: var(--color-white);
           transition: all 0.15s ease-out;
           top: 0;
@@ -354,7 +355,7 @@
           }
 
           & main {
-            margin: 1em 1.5em;
+            margin: 1em 0.2em;
 
             & > .start {
               display: flex;
