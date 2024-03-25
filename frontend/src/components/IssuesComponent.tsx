@@ -49,7 +49,7 @@ const IssuesComponent = () => {
               <hgroup>
                 <div className={styles.issueNumber}>
                   <h2>
-                    <span>גיליון</span>
+                    <span className={styles.gilayon}>גיליון</span>
                     <span>{issue.number.toString().padStart(2, "0")}</span>
                   </h2>
                   <h2 className={styles.asterix}>*</h2>
