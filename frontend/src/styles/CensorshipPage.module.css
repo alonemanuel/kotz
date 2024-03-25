@@ -10,15 +10,6 @@
     grid-template-columns: repeat(6, 1fr); */
 }
 
-/* Desktop */
-@media (min-aspect-ratio: 1) {
-  .censorshipPage {
-    width: 100vw;
-    height: 100vh;
-    height: 100dvh;
-  }
-}
-
 /* Mobile */
 @media (max-aspect-ratio: 1) {
   .polls {
@@ -633,6 +624,25 @@
 
     + .h1Spacer {
       height: 0;
+    }
+  }
+}
+/* Desktop */
+@media (min-aspect-ratio: 1) {
+  .censorshipPage {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    & article {
+      & > main {
+        & .debates {
+          & > .debate {
+            & > main {
+              margin: 1em 1.5em;
+            }
+          }
+        }
+      }
     }
   }
 }
