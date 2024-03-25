@@ -1,5 +1,6 @@
 .kotzPage {
   height: 100vh;
+  height: 100dvh;
   width: 100%;
   /* padding: 7em; */
   display: flex;
