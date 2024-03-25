@@ -80,6 +80,7 @@ html {
 
 body {
   min-height: 100vh;
+  min-height: 100dvh;
   font-size: var(--fs-400);
 }
 

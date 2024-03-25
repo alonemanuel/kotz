@@ -124,6 +124,7 @@
     border-inline-start: 2px solid var(--color-white);
     overflow: auto;
     max-height: 100vh;
+    max-height: 100dvh;
 
     .gridItem {
       cursor: pointer;
