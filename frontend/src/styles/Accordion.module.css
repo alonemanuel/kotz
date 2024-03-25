@@ -338,7 +338,7 @@ svg {
 /* Portrait */
 .touch {
   & .accordionContainer {
-    & .accordion {
+    & > .accordion {
       &.articleIsNotOpen {
         &:hover {
           & .bgContent {
@@ -357,7 +357,7 @@ svg {
         overflow-x: auto;
         overflow-y: hidden;
 
-        & .bgSpacer {
+        & > .bgSpacer {
           display: inline-block;
           height: 100%;
           width: 90%;
