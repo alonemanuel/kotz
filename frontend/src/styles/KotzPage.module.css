@@ -116,7 +116,7 @@
   & .gridContainer {
     display: flex;
     flex-flow: column nowrap;
-    gap: 9em;
+    gap: 4em;
     align-items: stretch;
     flex: 1;
     justify-content: start;
