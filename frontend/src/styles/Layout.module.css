@@ -30,12 +30,26 @@
   & .hamburger {
     cursor: pointer;
     border-radius: 8px;
-    width: 40px;
-    height: 40px;
+    width: 37px;
+    height: 37px;
     background-color: var(--color-white);
     display: flex;
+    flex-flow: column nowrap;
+    gap: 2px;
+    padding: 6px 6px;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
+
+    
+
+    & > div {
+      /* height: 3px; */
+      /* width: 100%; */
+      background-color: var(--color-black);
+      flex-shrink: 0;
+      flex-grow: 1;
+      border-radius: 2px;
+    }
   }
 
   & hgroup {
