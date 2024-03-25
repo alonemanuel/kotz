@@ -164,6 +164,9 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
                 } as React.CSSProperties
               }
             >
+              <div className={styles.bgContainer}
+              >
+
               <div
                 className={styles.bgContent}
                 style={
@@ -175,6 +178,9 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
                   } as React.CSSProperties)
                 }
               ></div>
+              <div className={styles.bgSpacer}></div>
+              </div>
+
               {(attr.author || attr.title) && (
                 <div className={styles.textContent}>
                   {attr.title && <h1>{attr.title}</h1>}
