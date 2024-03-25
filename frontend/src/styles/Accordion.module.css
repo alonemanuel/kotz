@@ -336,8 +336,8 @@ svg {
 
 /* No Hover */
 /* Portrait */
-@media (hover: none) {
-  .accordionContainer {
+.touch {
+  & .accordionContainer {
     & .accordion {
       &.articleIsNotOpen {
         &:hover {
@@ -399,17 +399,26 @@ svg {
 }
 
 /* Landscape */
-@media (hover: none) and (min-aspect-ratio: 1) {
-  .accordionContainer {
-    & > .accordion {
-      & > .bgContainer {
-        text-wrap: wrap;
-        overflow-x: hidden;
-        overflow-y: auto;
+@media (min-aspect-ratio: 1) {
+  .touch {
+    & .accordionContainer {
+      & > .accordion {
+        &.articleIsNotOpen {
+          &:active {
+            & .bgContent {
+              margin-top: auto;
+            }
+          }
+        }
+        & > .bgContainer {
+          text-wrap: wrap;
+          overflow-x: hidden;
+          overflow-y: auto;
 
-        & > .bgSpacer {
-          width: 100%;
-          height: 80%;
+          & > .bgSpacer {
+            width: 100%;
+            height: 80%;
+          }
         }
       }
     }

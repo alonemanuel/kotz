@@ -77,6 +77,12 @@ function useResizeObservers(refs: any, dependency: number | null) {
   return dimensions;
 }
 const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
+  // Add touch class
+  document.documentElement.classList.toggle(
+    styles.touch,
+    "ontouchstart" in document.documentElement
+  );
+
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   // Create a ref array for each accordion item
   const accordionRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -164,21 +170,19 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
                 } as React.CSSProperties
               }
             >
-              <div className={styles.bgContainer}
-              >
-
-              <div
-                className={styles.bgContent}
-                style={
-                  attr.outside_img_vertical.data &&
-                  attr.outside_img_horizontal.data &&
-                  ({
-                    "--outside-img-horizontal-url": `url(${attr.outside_img_horizontal?.data?.attributes.url})`,
-                    "--outside-img-vertical-url": `url(${attr.outside_img_vertical?.data?.attributes.url})`,
-                  } as React.CSSProperties)
-                }
-              ></div>
-              <div className={styles.bgSpacer}></div>
+              <div className={styles.bgContainer}>
+                <div
+                  className={styles.bgContent}
+                  style={
+                    attr.outside_img_vertical.data &&
+                    attr.outside_img_horizontal.data &&
+                    ({
+                      "--outside-img-horizontal-url": `url(${attr.outside_img_horizontal?.data?.attributes.url})`,
+                      "--outside-img-vertical-url": `url(${attr.outside_img_vertical?.data?.attributes.url})`,
+                    } as React.CSSProperties)
+                  }
+                ></div>
+                <div className={styles.bgSpacer}></div>
               </div>
 
               {(attr.author || attr.title) && (
