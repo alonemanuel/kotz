@@ -411,7 +411,7 @@ svg {
           }
         }
         & > .bgContainer {
-          white-space: wrap;
+          white-space: normal;
           overflow-x: hidden;
           overflow-y: auto;
 
