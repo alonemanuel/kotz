@@ -32,7 +32,7 @@ const IssuesComponent = () => {
   }
 
   return (
-    <>
+    <div className={styles.issuesContainer}>
       {issues.map((issue, index) => (
         <div
           key={index}
@@ -65,7 +65,7 @@ const IssuesComponent = () => {
           )}
         </div>
       ))}
-    </>
+    </div>
   );
 };
 
