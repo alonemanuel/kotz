@@ -129,7 +129,7 @@
     position: relative;
     overflow: auto;
     max-height: 40vh;
-    width: 60%;
+    width: clamp(20ch, 90%, 40ch);
 
     background-image: url(../images/other/song_bg.png);
     background-size: cover;
