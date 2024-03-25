@@ -242,6 +242,19 @@ svg {
 
       & .textContent {
         height: 100%;
+        text-align: end;
+        justify-content: end;
+        max-width: 90%;
+        
+        .articleIsOpen & {
+          max-width: 85%;
+          text-align: start;
+          justify-content: start;
+        }
+
+        & h2 {
+          white-space: nowrap;
+        }
 
         & h3 {
           display: none;
