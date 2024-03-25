@@ -337,52 +337,68 @@ svg {
 /* No Hover */
 /* Portrait */
 @media (hover: none) {
-  .accordion {
-    & > .bgContainer {
-      text-wrap: nowrap;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      text-align: end;
-      z-index: 1;
-      overflow-x: auto;
-      overflow-y: hidden;
-
-      & .bgSpacer {
-        display: inline-block;
-        height: 100%;
-        width: 100%;
-        color: red;
-        .active & {
-          display: none;
+  .accordionContainer {
+    & .accordion {
+      &.articleIsOpen {
+        & .bgSpacer {
+          /* display: none; */
         }
       }
 
-      & > .bgContent {
-        /* position: absolute; */
-        position: static;
-        display: inline-block !important;
+      &.articleIsNotOpen {
+        &:hover {
+          & .bgContent {
+            margin-left: auto;
+          }
+        }
+      }
 
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-
-        background-image: var(
-          --outside-img-horizontal-url,
-          url(../images/tiger0.png)
-        );
-
-        height: 100%;
+      & > .bgContainer {
+        text-wrap: nowrap;
+        position: absolute;
         width: 100%;
-        flex-grow: 1;
-        left: 0;
-
+        height: 100%;
+        text-align: end;
         z-index: 1;
+        overflow-x: auto;
+        overflow-y: hidden;
 
-        transition: all 0.25s ease-out;
+        & .bgSpacer {
+          display: inline-block;
+          height: 100%;
+          width: 100%;
+          color: red;
+          .active & {
+            display: none;
+          }
+        }
 
-        .active & {
-          position: absolute;
+        & > .bgContent {
+          /* position: absolute; */
+          position: static;
+          display: inline-block !important;
+
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: cover;
+
+          background-image: var(
+            --outside-img-horizontal-url,
+            url(../images/tiger0.png)
+          );
+
+          height: 100%;
+          width: 100%;
+          flex-grow: 1;
+          left: 0;
+
+          z-index: 1;
+
+          transition: all 0.25s ease-out;
+
+          .active & {
+            position: absolute;
+          }
         }
       }
     }
@@ -391,12 +407,14 @@ svg {
 
 /* Landscape */
 @media (hover: none) and (min-aspect-ratio: 1) {
-  .accordion {
-    & > .bgContainer {
-      text-wrap: wrap;
-      position: absolute;
-      overflow-x: hidden;
-      overflow-y: auto;
+  .accordionContainer {
+    & > .accordion {
+      & > .bgContainer {
+        text-wrap: wrap;
+        position: absolute;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
     }
   }
 }

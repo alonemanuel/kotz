@@ -155,7 +155,7 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
               ref={(el) => (accordionRefs.current[index] = el)} // Assign refs to accordion
               className={`${styles.accordion}  ${
                 activeIndex === index ? styles.active : ""
-              } ${isOpen ? styles.articleIsOpen : ""}`}
+              } ${isOpen ? styles.articleIsOpen : styles.articleIsNotOpen}`}
               onClick={() => toggleAccordion(index)}
               style={
                 {
