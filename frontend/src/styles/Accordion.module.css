@@ -339,12 +339,6 @@ svg {
 @media (hover: none) {
   .accordionContainer {
     & .accordion {
-      &.articleIsOpen {
-        & .bgSpacer {
-          /* display: none; */
-        }
-      }
-
       &.articleIsNotOpen {
         &:hover {
           & .bgContent {
@@ -367,7 +361,6 @@ svg {
           display: inline-block;
           height: 100%;
           width: 90%;
-          color: red;
           .active & {
             display: none;
           }
@@ -411,13 +404,12 @@ svg {
     & > .accordion {
       & > .bgContainer {
         text-wrap: wrap;
-        position: absolute;
         overflow-x: hidden;
         overflow-y: auto;
 
         & > .bgSpacer {
           width: 100%;
-          max-height: 80%;
+          height: 80%;
         }
       }
     }
