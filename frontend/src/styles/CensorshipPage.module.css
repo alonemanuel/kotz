@@ -246,7 +246,7 @@
     display: flex;
     flex-flow: column nowrap;
     gap: 2em;
-    padding-top: 4em;
+    padding-top: 1.5em;
     cursor: default;
     min-height: 100vh;
     min-height: 100dvh;
@@ -468,7 +468,7 @@
           font-family: "KotzDisplay";
           /* font-feature-settings: "ss01"; */
           font-size: var(--fs-800);
-          line-height: 1em;
+          line-height: 0.85em;
           color: var(--color-green);
           margin-bottom: 0.2em;
         }
@@ -617,10 +617,10 @@
   }
 
   & > hr {
-    border-top: 3px dotted var(--color-green);
+    border-top: 4px dotted var(--color-green);
     border-bottom: none;
-    width: 70%;
-    margin: 2em auto;
+    width: 67ch;
+    margin: 2em 5px 2em 3em;
 
     + .h1Spacer {
       height: 0;

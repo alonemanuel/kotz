@@ -47,41 +47,40 @@
       & > .aboutCaption {
         font-family: var(--ff-narkis-yair);
         font-weight: 300;
-        font-size: var(--fs-500);
+        font-size: var(--fs-600);
       }
 
       & > header {
         display: flex;
         flex-flow: row nowrap;
         gap: 0.7em;
+        align-items: flex-end;
 
         & > h1 {
           font-weight: 800;
+          font-size: clamp(var(--fs-400), min(7vh, 4vw), var(--fs-700));
         }
 
         & > h2 {
-          font-weight: 400;
+          font-family: var(--ff-narkis-yair);
+          font-weight: 300;
+          font-size: var(--fs-600);
+          margin-bottom: 7px;
         }
       }
     }
+
     & > .teams {
       display: flex;
-      flex-flow: column wrap;
-      gap: 0.4em 2em;
+      flex-flow: wrap;
+      /* gap: 0.2em 0.3em; */
       font-family: var(--ff-narkis-yair);
-
-      display: grid;
-      /* grid-template-columns: repeat(auto-fit, minmax(37ch, 1fr));
-      grid-template-rows: repeat(4, 1em);
-
-      grid-auto-flow: column; */
-      grid-template-columns: 1fr 1fr;
       overflow-y: auto;
 
       & > .team {
         display: flex;
         flex-flow: row nowrap;
-        gap: 0.7em;
+        /* gap: 0.3em; */
 
         & > h1 {
           font-weight: 400;
@@ -92,28 +91,41 @@
           font-weight: 300;
           display: flex;
           flex-flow: row wrap;
-          gap: 0.2em 0.7em;
+          /* gap: 0.2em 0.3em; */
         }
+
+        & > .colR {
+          width: 450px;
+          margin-left: 100px;
+        }
+
+        & > .colL {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 500px;
+        }
+
       }
-
-      /*       
-
-      & > nav {
-        display: flex;
-        flex-flow: column nowrap;
-
-        font-family: var(--ff-narkis-yair);
-        font-size: var(--fs-300);
-        color: var(--color-black);
-      }
-
-      & > footer {
-        display: flex;
-        flex-flow: row nowrap;
-        gap: 2em;
-        padding: 0 1em;
-      } */
     }
+  }
+
+  .team p {
+    font-weight: 300;
+    font-size: var(--fs-500);
+    line-height: 1.em;
+  }
+
+  .team b {
+    font-weight: 400;
+  }
+
+  .para_separetor {
+    display: none;
+  }
+
+  .colR p {
+    max-width: 100%;
   }
 
   & .gridContainer {
@@ -164,6 +176,8 @@
               display: flex;
               flex-flow: row nowrap;
               gap: 0.5em;
+              font-size: var(--fs-500);
+              margin-bottom: 2px;
 
               & h2 {
                 font-family: var(--ff-narkis-yair);
@@ -179,21 +193,23 @@
                 }
               }
             }
+
             & h1 {
-              font-weight: 500;
+              font-weight: 800;
               display: flex;
               flex-flow: row nowrap;
-              gap: 0.3em;
+              /* gap: 0.3em; */
               font-family: var(--ff-narkis-yair);
               font-size: var(--fs-600);
-              line-height: 1;
+              line-height: 1.3;
             }
           }
 
           & > .about {
             font-family: var(--ff-david-vc);
-            font-size: var(--fs-300);
-            font-weight: 400;
+            font-size: var(--fs-500);
+            letter-spacing: 0.2px;
+            font-weight: 800;
             line-height: 1.4;
           }
 
@@ -202,7 +218,7 @@
             flex-flow: row wrap;
             justify-content: start;
             text-wrap: balance;
-            font-size: var(--fs-300);
+            font-size: var(--fs-500);
             max-width: 52ch;
             line-height: 1.3;
             font-family: var(--ff-narkis-yair);
@@ -246,6 +262,66 @@
 }
 
 /* Mobile */
+@media (max-width: 1600px) {
+  .kotzPage {
+    & > .sideInfo {
+      max-height: unset;
+      flex-grow: 2;
+      width: 90vw;
+      & > main {
+        & > .aboutBody {
+          & > p {
+            font-size: clamp(var(--fs-400), min(8vh, 5vw), var(--fs-700));
+            margin-bottom: 0;
+          }
+        }
+        }
+
+        & > .teams {
+          overflow-y: visible;
+          width: auto;
+        }
+
+        & > .teams .team {
+          flex-direction: column;
+        }
+
+        & > .teams .team .colL,
+        & > .teams .team .colR {
+          width: auto;
+          margin-left: 0px;
+        }
+
+        & > main {
+          & > .aboutBody {
+              & > p {
+                font-size: clamp(var(--fs-400), min(8vh, 5vw), var(--fs-700));
+              }
+            }
+      
+            & > .aboutCaption {
+              font-size: var(--fs-500);
+            }
+
+          & > header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.7em;
+    
+            & > h1 {
+              font-size: var(--fs-700);
+            }
+    
+            & > h2 {
+              font-size: var(--fs-500);
+              line-height: 1.2em;
+            }
+          }
+        }
+      }
+    }
+}
+
 @media (max-aspect-ratio: 1) {
   .kotzPage {
     flex-flow: column nowrap;
@@ -255,7 +331,8 @@
     & > .sideInfo {
       max-height: unset;
       flex-grow: 2;
-      /* margin: 1em 1em; */
+      width: 90vw;
+
       & > main {
         & > .aboutBody {
           & > p {
@@ -263,10 +340,57 @@
             margin-bottom: 0;
           }
         }
-      }
-      & > .teams {
-        display: none;
-      }
+        }
+
+        & > .teams {
+          overflow-y: visible;
+          width: auto;
+        }
+
+        & > .teams .team {
+          flex-direction: column;
+        }
+
+        & > .teams .team .colL,
+        & > .teams .team .colR {
+          width: auto;
+          margin-left: 0px;
+        }
+
+        & > main {
+          & > .aboutBody {
+              & > p {
+                font-size: clamp(var(--fs-400), min(8vh, 5vw), var(--fs-700));
+              }
+            }
+      
+            & > .aboutCaption {
+              font-size: var(--fs-500);
+            }
+
+          & > header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.7em;
+    
+            & > h1 {
+              font-size: var(--fs-700);
+            }
+    
+            & > h2 {
+              font-size: var(--fs-500);
+              line-height: 1.2em;
+            }
+          }
+        }    
+    }
+
+    .para_separetor {
+      display: block;
+    }
+
+    .sideInfo {
+      overflow: scroll;
     }
 
     & > .gridContainer {
