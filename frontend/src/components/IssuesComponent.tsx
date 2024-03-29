@@ -28,7 +28,8 @@ const IssuesComponent = () => {
   };
 
   useEffect(() => {
-    fetch(`${'http://localhost:1337/api'}${C.ISSUES_ENDPOINT}?sort[0]=number:asc`)
+    // fetch(`${'http://localhost:1337/api'}${C.ISSUES_ENDPOINT}?sort[0]=number:asc`)
+    fetch(`${C.API_BASE_URL}${C.ABOUT_US_ENDPOINT}?${C.API_POPULATE_DEEP}`)
       .then((response) => response.json())
       .then((data) => {
         setIssues(data.data.map((issue: any) => issue.attributes));
