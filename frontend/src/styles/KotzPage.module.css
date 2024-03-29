@@ -295,6 +295,10 @@
           margin-left: 0px;
         }
 
+        .para_separetor {
+          display: block;
+        }
+
         & > main {
           & > .aboutBody {
               & > p {
@@ -386,10 +390,6 @@
             }
           }
         }    
-    }
-
-    .para_separetor {
-      display: block;
     }
 
     .sideInfo {
