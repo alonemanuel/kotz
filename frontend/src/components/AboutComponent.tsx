@@ -12,7 +12,8 @@ const AboutComponent = () => {
   const [about, setAbout] = useState<AboutUs | null>(null);
 
   useEffect(() => {
-    fetch(`${'http://localhost:1337/api'}${C.ABOUT_US_ENDPOINT}?${C.API_POPULATE_DEEP}`)
+    // fetch(`${'http://localhost:1337/api'}${C.ABOUT_US_ENDPOINT}?${C.API_POPULATE_DEEP}`)
+    fetch(`${C.API_BASE_URL}${C.ABOUT_US_ENDPOINT}?${C.API_POPULATE_DEEP}`)
       .then((response) => response.json())
       .then((data) => setAbout(data.data.attributes))
       .catch((error) => console.error(`Error fetching data: ${error}`));
