@@ -18,7 +18,7 @@ const AboutComponent = () => {
       .then((data) => setAbout(data.data.attributes))
       .catch((error) => console.error(`Error fetching data: ${error}`));
   }, []);
-
+  
   if (!about) {
     return <LoadingComponent />;
   }
