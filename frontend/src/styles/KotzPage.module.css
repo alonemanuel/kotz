@@ -113,7 +113,7 @@
   .team p {
     font-weight: 300;
     font-size: var(--fs-500);
-    line-height: 1.em;
+    line-height: 1.3em;
   }
 
   .team b {
