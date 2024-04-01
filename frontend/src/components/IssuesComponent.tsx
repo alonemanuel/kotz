@@ -28,7 +28,6 @@ const IssuesComponent = () => {
   };
 
   useEffect(() => {
-    // fetch(`${'http://localhost:1337/api'}${C.ISSUES_ENDPOINT}?sort[0]=number:asc`)
     fetch(`${C.API_BASE_URL}${C.ISSUES_ENDPOINT}?sort[0]=number:asc`)
       .then((response) => response.json())
       .then((data) => {
