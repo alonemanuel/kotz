@@ -803,6 +803,8 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
       'oneToMany',
       'api::issue.issue'
     >;
+    credit_tagline: Attribute.Text;
+    fonts: Attribute.Blocks;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

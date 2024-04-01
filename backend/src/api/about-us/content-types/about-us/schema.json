@@ -33,6 +33,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::issue.issue"
+    },
+    "credit_tagline": {
+      "type": "text"
+    },
+    "fonts": {
+      "type": "blocks"
     }
   }
 }
