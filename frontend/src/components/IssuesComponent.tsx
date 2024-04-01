@@ -8,11 +8,20 @@ import { Issue } from "../types/issue";
 import { useNavigate } from "react-router-dom";
 import styles from "../styles/KotzPage.module.css";
 import kotzImgWhite from "../images/kotz-white.svg";
+import kotzImg2 from "../images/kotz2.svg";
+import kotzImg3 from "../images/kotz3.svg";
+import kotzImg4 from "../images/kotz4.svg";
+import kotzImg5 from "../images/kotz5.svg";
+import kotzImg6 from "../images/kotz6.svg";
+import kotzImg7 from "../images/kotz7.svg";
+import kotzImg8 from "../images/kotz8.svg";
+import kotzImg9 from "../images/kotz9.svg";
 
 const IssuesComponent = () => {
   const [issues, setIssues] = useState<Issue[]>([]);
 
   const navigate = useNavigate();
+  const kotsimages = [kotzImgWhite, kotzImg2, kotzImg3, kotzImg4, kotzImg5, kotzImg7, kotzImg8, kotzImg9];
 
   const handleBoxClick = (path?: string) => {
     if (path) navigate(`/${path}`);
@@ -42,7 +51,7 @@ const IssuesComponent = () => {
           onClick={() => issue.is_published && handleBoxClick(issue.path)}
         >
           <div className={styles.imgContainer}>
-            <img src={kotzImgWhite} alt={issue.name} />
+            <img src={kotsimages[index]} alt={issue.name} />
           </div>
           {issue.is_published && (
             <div className={styles.details}>

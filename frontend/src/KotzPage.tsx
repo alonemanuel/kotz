@@ -46,7 +46,7 @@ const KotzPage: React.FC = () => {
         <AboutComponent />
       </div>
       <div className={styles.gridContainer}>
-        <IssuesComponent />
+        <IssuesComponent /> 
       </div>
     </div>
   );
