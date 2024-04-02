@@ -226,7 +226,7 @@ svg {
       padding: 0.6em;
       /* background-color: var(--color-white); */
       /* color: var(--color-black); */
-      gap: 0.5em;
+      gap: 0.3em;
 
       .active & {
         right: 0;
@@ -239,7 +239,7 @@ svg {
       }
 
       & h2 {
-        font-size: var(--fs-400);
+        font-size: var(--fs-500);
         line-height: 1;
         font-family: var(--ff-narkis-yair);
 
@@ -252,6 +252,7 @@ svg {
       & h3 {
         color: var(--color-green);
         font-family: var(--ff-narkis-yair);
+        font-size: var(--fs-500);
         line-height: 1.1;
         display: none;
       }
@@ -328,14 +329,15 @@ svg {
         display: flex;
         flex-flow: column nowrap;
         font-size: var(--fs-400);
-        max-width: 16ch;
+        max-width: 21ch;
+        padding-left: 3px;
       }
 
       &:hover {
         & .bgContent {
           margin-left: auto;
           .isNotOpen & {
-            margin-top: var(--outside-img-margin-top, 300px);
+            margin-top: var(--outside-img-margin-top, 0px);
           }
 
           .isOpen & {
@@ -358,6 +360,7 @@ svg {
 
       & .textContent {
         flex-flow: column nowrap;
+        align-items: flex-start;
         bottom: 0;
         top: auto;
         left: auto;

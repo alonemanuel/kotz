@@ -462,7 +462,7 @@
         display: flex;
         flex-flow: column nowrap;
         max-width: 99%;
-        gap: 0.1em;
+        gap: 0em;
 
         & h1 {
           font-family: "KotzDisplay";
@@ -475,14 +475,14 @@
 
         & h2 {
           font-family: var(--ff-narkis-yair);
-          font-size: var(--fs-400);
+          font-size: var(--fs-500);
           color: var(--color-green);
-          max-width: 350px;
+          max-width: 450px;
         }
 
         & h3 {
           font-family: var(--ff-narkis-yair);
-          font-size: var(--fs-400);
+          font-size: var(--fs-500);
 
           &::after {
             content: ">>";
