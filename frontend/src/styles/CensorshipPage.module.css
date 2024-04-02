@@ -461,6 +461,7 @@
       & hgroup {
         display: flex;
         flex-flow: column nowrap;
+        max-width: 99%;
         /* gap: 0.5em; */
 
         & h1 {
@@ -536,7 +537,7 @@
     color: var(--color-green);
     font-family: var(--ff-david-vc);
     font-style: italic;
-    font-size: var(--fs-600);
+    font-size: 1.58rem; /* var(--fs-600); */
     letter-spacing: 1px;
 
     .interview > & {

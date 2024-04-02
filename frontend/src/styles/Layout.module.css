@@ -1,7 +1,7 @@
 .kotzIcon {
   position: fixed;
-  bottom: 20px;
-  left: 20px;
+  bottom: 0px;
+  left: 30px;
   height: clamp(80px, 14vh, 140px);
   display: flex;
   cursor: pointer;
