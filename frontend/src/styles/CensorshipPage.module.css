@@ -536,6 +536,7 @@
     font-family: var(--ff-david-vc);
     font-style: italic;
     font-size: var(--fs-600);
+    letter-spacing: 1px;
 
     .interview > & {
       font-family: var(--ff-greta);
@@ -587,10 +588,7 @@
 
     & i {
       font-family: var(--ff-narkis-yair);
-      /* text-decoration: underline;
-    text-decoration-style: dashed;
-    text-underline-offset: 0.4em;
-    text-decoration-thickness: 0.1em; */
+      font-size: var(--fs-600);
     }
 
     .interview > & {
@@ -616,10 +614,11 @@
   }
 
   & > hr {
-    border-top: 3px dotted var(--color-green);
+    border-top: 4.5px dotted var(--color-green);
     border-bottom: none;
     width: 70%;
     margin: 2em auto;
+    width: 100%;
 
     + .h1Spacer {
       height: 0;
@@ -634,6 +633,7 @@
     height: 100dvh;
     & article {
       & > main {
+        padding-left: 9vw;
         & .debates {
           & > .debate {
             & > main {

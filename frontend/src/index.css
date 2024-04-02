@@ -94,7 +94,7 @@ h6 {
 }
 
 p {
-  max-width: 55ch;
+  /* max-width: 55ch; */
   text-wrap: pretty;
 }
 
