@@ -117,7 +117,7 @@
     position: relative;
     overflow: auto;
     max-height: 40vh;
-    width: clamp(20ch, 90%, 40ch);
+    width: 100%;
 
     background-image: url(../images/other/song_bg.png);
     background-size: cover;
@@ -188,7 +188,7 @@
     position: relative;
     overflow: auto;
     max-height: 40vh;
-    width: clamp(20ch, 90%, 47ch);
+    width: 100%;
 
     & .borderContainer {
       display: flex;
@@ -255,6 +255,7 @@
         height: 100vh;
         height: 100dvh;
         overflow: hidden;
+        padding-left: 0;
 
         & > .polls {
           height: 100%;
@@ -466,7 +467,7 @@
           font-family: "KotzDisplay";
           /* font-feature-settings: "ss01"; */
           font-size: var(--fs-800);
-          line-height: 1em;
+          line-height: 0.9em;
           color: var(--color-green);
           margin-bottom: 0.2em;
         }
@@ -640,6 +641,17 @@
             }
           }
         }
+      }
+    }
+  }
+}
+
+/* Mobile */
+@media (max-aspect-ratio: 1) {
+  .censorshipPage {
+    & article {
+      & > main {
+        max-width: 70ch;
       }
     }
   }
