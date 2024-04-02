@@ -20,13 +20,13 @@ const CensorshipPage: React.FC = () => {
 
   useEffect(() => {
     const fetchArticles = fetch(
-      `${'http://localhost:1337/api'}${C.ITEM_ARTICLES_ENDPOINT}?sort[0]=order:asc&populate=deep`
+      `${C.API_BASE_URL}${C.ITEM_ARTICLES_ENDPOINT}?sort[0]=order:asc&populate=deep`
     ).then((response: any) => {
       console.log(response);
       return response.json();
     });
     const fetchTerms = fetch(
-      `${'http://localhost:1337/api'}${C.TERMS_ENDPOINT}?${C.API_SORT_ASCENDING}&${C.API_POPULATE_DEEP}`
+      `${C.API_BASE_URL}${C.TERMS_ENDPOINT}?${C.API_SORT_ASCENDING}&${C.API_POPULATE_DEEP}`
     ).then((response: any) => {
       console.log(response);
       return response.json();

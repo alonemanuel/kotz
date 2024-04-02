@@ -12,7 +12,6 @@ const AboutComponent = () => {
   const [about, setAbout] = useState<AboutUs | null>(null);
 
   useEffect(() => {
-    console.log(`C.API_BASE_URL: ${C.API_BASE_URL}`);
     fetch(`${C.API_BASE_URL}${C.ABOUT_US_ENDPOINT}?${C.API_POPULATE_DEEP}`)
       .then((response) => response.json())
       .then((data) => setAbout(data.data.attributes))
@@ -40,7 +39,7 @@ const AboutComponent = () => {
           <div className={styles.colR}>
             {about.teams.map((team, index) => (
               <span key={team.name}>
-                {` ${team.name} `}
+                <b>{` ${team.name} `}</b>
                 {team.members.map((member:any, memberIndex:any) => (
                   <React.Fragment key={memberIndex}>
                     {member.children[0].text}
@@ -49,12 +48,14 @@ const AboutComponent = () => {
                 ))}
               </span>
             ))}
+            <p><span>—</span></p>
+            <span><b>מייל לפניות:</b> kotz.magazine@runi.ac.il</span>
           </div>
           <div className={styles.colL}>
             <span className={styles.para_separetor}>—</span>
-              {about.credit_tagline}
+            <span><b>{about.credit_tagline}</b></span>
             <span>—</span>
-            <span>פונטים בשימוש: {about.fonts.map((font:any, fontIndex:any) => (
+            <span><b>פונטים בשימוש:</b> {about.fonts.map((font:any, fontIndex:any) => (
                   <React.Fragment key={fontIndex}>
                     {font.children[0].text}
                     {fontIndex !== about.fonts.length - 1 && ' * '}
