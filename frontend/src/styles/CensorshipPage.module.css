@@ -462,7 +462,7 @@
         display: flex;
         flex-flow: column nowrap;
         max-width: 99%;
-        /* gap: 0.5em; */
+        gap: 0.1em;
 
         & h1 {
           font-family: "KotzDisplay";
@@ -477,6 +477,7 @@
           font-family: var(--ff-narkis-yair);
           font-size: var(--fs-400);
           color: var(--color-green);
+          max-width: 350px;
         }
 
         & h3 {

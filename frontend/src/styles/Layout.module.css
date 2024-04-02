@@ -28,7 +28,9 @@
   align-items: center;
 
   & .hamburger {
-    cursor: pointer;
+    
+
+    /* cursor: pointer;
     border-radius: 8px;
     width: 37px;
     height: 37px;
@@ -40,16 +42,12 @@
     justify-content: center;
     align-items: stretch;
 
-    
-
     & > div {
-      /* height: 3px; */
-      /* width: 100%; */
       background-color: var(--color-black);
       flex-shrink: 0;
       flex-grow: 1;
       border-radius: 2px;
-    }
+    } */
   }
 
   & hgroup {
@@ -57,14 +55,21 @@
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    gap: 0.5em;
-    color: var(--color-white);
+    gap: 0.1em;
+    color: var(--color-green);
     font-size: var(--fs-600);
     font-family: var(--ff-david-vc);
+
+    & h1 {
+      font-family: "Alpha Bravo";
+      font-weight: 100;
+    }
 
     & h2 {
       text-orientation: sideways;
       writing-mode: vertical-rl;
+      transform: rotateZ(180deg);
+      letter-spacing: 1.1px;
     }
   }
 }
@@ -72,6 +77,11 @@
 /* Desktop */
 @media (min-aspect-ratio: 1) {
   nav.layoutNav {
-    display: none;
+    left: auto;
+    right: 0;
+
+    & hgroup {
+      color: var(--color-black);
+    }
   }
 }

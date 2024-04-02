@@ -29,14 +29,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           className={styles.hamburger}
           onClick={closeArticle}
           >
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
           <hgroup>
             <h1>01</h1>
             <h2>צנזורה</h2>
           </hgroup>
+          </div>
         </nav>
       )}
       
