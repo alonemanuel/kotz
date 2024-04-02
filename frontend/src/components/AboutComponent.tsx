@@ -18,7 +18,7 @@ const AboutComponent = () => {
       .then((data) => setAbout(data.data.attributes))
       .catch((error) => console.error(`Error fetching data: ${error}`));
   }, []);
-  
+
   if (!about) {
     return <LoadingComponent />;
   }
@@ -33,18 +33,33 @@ const AboutComponent = () => {
         <div className={styles.aboutBody}>
           <ArticleContent content={about.body} />
         </div>
-          <div className={styles.aboutCaption}>[{about.body_caption}]</div>
+        <div className={styles.aboutCaption}>[{about.body_caption}]</div>
       </main>
       <div className={styles.teams}>
         <div className={styles.team}>
           <div className={styles.colR}>
-            <p><b>יוזמת ומייסדת המגזין</b>: דינה זילבר <b>מערכת</b>: דינה זילבר * יוסי קליין * פרופ׳ יניב רוזנאי <b>עורכים גרפיים</b>: איל זקין * דנה גז <b>רכזי הפרויקט</b>: טל שולזינגר בק * עדי טל * אלון עמנואל <b>פיתוח</b>: אלון עמנואל  <b>חברי המערכת</b>: יותם אבינור * נועה אבן עזרא * קורן אורן * טאשה אדמסקי * איתמר בוחניק * הלה בידץ * גל גרכט * סער דאובה * יהונתן דוידי * שירה ויזנברג * יהודה ויצמן * מעין כץ עוז * אופיר לוי * תומר לוין * קרין מושקוביץ * יובל נאה * שחר פייטלוביץ * הילה פרידמן * ענבר קירוגה * מאיה ראודניץ * לילך רוזן * תום שגיב * אופיר שמאי</p>
+            {about.teams.map((team, index) => (
+              <span key={team.name}>
+                {` ${team.name} `}
+                {team.members.map((member:any, memberIndex:any) => (
+                  <React.Fragment key={memberIndex}>
+                    {member.children[0].text}
+                    {memberIndex !== team.members.length - 1 && ' * '}
+                  </React.Fragment>
+                ))}
+              </span>
+            ))}
           </div>
           <div className={styles.colL}>
-            <p className={styles.para_separetor}>—</p>
-            <p>שיתוף פעולה בין מרכז רובינשטיין לחוקה, אוניברסיטת רייכמן למחלקה לתקשורת חזותית, בצלאל אקדמיה לאמנות ועיצוב ירושלים</p>
-            <p>—</p>
-            <p><b>גופנים בשימוש</b>: אלפא בראבו [מיכל סהר, הגילדה] * גרטה [מיכל סהר, הגילדה] * דוד [חידוש של המחלקה לתקשורת חזותית, בצלאל] * הדסה פרידלנדר [הנרי פרידלנדר, פונטף] * נרקיס יאיר [צבי נרקיס, פונטף] * נרקיסים [צבי נרקיס, פונטף] * Larken [EllenLuff]</p>
+            <span className={styles.para_separetor}>—</span>
+              {about.credit_tagline}
+            <span>—</span>
+            <span>פונטים בשימוש: {about.fonts.map((font:any, fontIndex:any) => (
+                  <React.Fragment key={fontIndex}>
+                    {font.children[0].text}
+                    {fontIndex !== about.fonts.length - 1 && ' * '}
+                  </React.Fragment>
+                ))}</span>
           </div>
         </div>
       </div>
@@ -53,3 +68,4 @@ const AboutComponent = () => {
 };
 
 export default AboutComponent;
+

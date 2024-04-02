@@ -6,4 +6,6 @@ export interface AboutUs {
   body: ContentBlock[];
   body_caption: string;
   teams: any[];
+  credit_tagline: string;
+  fonts: ContentBlock[];
 }

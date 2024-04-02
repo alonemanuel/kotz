@@ -82,6 +82,21 @@
         flex-flow: row nowrap;
         /* gap: 0.3em; */
 
+        & span {
+          font-weight: 300;
+          font-size: var(--fs-500);
+          line-height: 1.3em;
+        }
+
+        & b {
+          font-weight: 400;
+        }
+
+        & .para_separetor { /* TODO: return from GIT */
+          display: none;
+          color: red;
+        }
+
         & > h1 {
           font-weight: 400;
           font-family: var(--ff-narkis-yair);
@@ -97,6 +112,10 @@
         & > .colR {
           width: 450px;
           margin-left: 100px;
+
+          & span {
+            max-width: 100%;
+          }
         }
 
         & > .colL {
@@ -108,24 +127,6 @@
 
       }
     }
-  }
-
-  .team p {
-    font-weight: 300;
-    font-size: var(--fs-500);
-    line-height: 1.3em;
-  }
-
-  .team b {
-    font-weight: 400;
-  }
-
-  .para_separetor {
-    display: none;
-  }
-
-  .colR p {
-    max-width: 100%;
   }
 
   & .gridContainer {
