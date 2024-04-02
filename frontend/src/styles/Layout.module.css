@@ -55,7 +55,7 @@
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    gap: 0.1em;
+    gap: 0.2em;
     color: var(--color-green);
     font-size: var(--fs-600);
     font-family: var(--ff-david-vc);

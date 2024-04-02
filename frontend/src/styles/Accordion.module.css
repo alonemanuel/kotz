@@ -230,6 +230,23 @@ svg {
 
       .active & {
         right: 0;
+
+        & h2 {
+          &::before {
+            content: none;
+          }
+        }
+
+        & > hr {
+          border-top: 4px dotted var(--color-green);
+          border-bottom: none;
+          margin: 1em auto;
+          width: 100%;
+      
+          + .h1Spacer {
+            height: 0;
+          }
+        }
       }
 
       & h1 {
@@ -252,7 +269,7 @@ svg {
       & h3 {
         color: var(--color-green);
         font-family: var(--ff-narkis-yair);
-        font-size: var(--fs-500);
+        font-size: var(--fs-400);
         line-height: 1.1;
         display: none;
       }
