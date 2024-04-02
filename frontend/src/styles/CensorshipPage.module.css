@@ -616,7 +616,6 @@
   & > hr {
     border-top: 4.5px dotted var(--color-green);
     border-bottom: none;
-    width: 70%;
     margin: 2em auto;
     width: 100%;
 
