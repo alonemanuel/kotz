@@ -28,8 +28,6 @@
   align-items: center;
 
   & .hamburger {
-    
-
     /* cursor: pointer;
     border-radius: 8px;
     width: 37px;
@@ -63,6 +61,38 @@
       writing-mode: vertical-rl;
       transform: rotateZ(180deg);
       letter-spacing: 1.1px;
+    }
+  }
+
+  & .changeTheme {
+    position: relative;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+
+    background-color: transparent;
+    border: none;
+
+    .isOpen & {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    & .themeContainer {
+      white-space: nowrap;
+      display: flex;
+      flex-flow: row nowrap;
+      transition: transform 0.2s ease-in-out;
+
+      & .themeIcon {
+        flex: none;
+        width: 30px;
+
+        height: 30px;
+      }
     }
   }
 }
