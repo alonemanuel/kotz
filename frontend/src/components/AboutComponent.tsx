@@ -20,6 +20,9 @@ const AboutComponent = () => {
 
   if (!about) {
     return <LoadingComponent />;
+  } else {
+    console.log(`About us endpoint read succefully. Found:`);
+    console.log(about);
   }
 
   return (
@@ -55,7 +58,7 @@ const AboutComponent = () => {
             <span className={styles.para_separetor}>—</span>
             <span><b>{about.credit_tagline}</b></span>
             <span>—</span>
-            <span><b>פונטים בשימוש:</b> {about.fonts.map((font:any, fontIndex:any) => (
+            <span><b>פונטים בשימוש:</b> {about.fonts?.map((font:any, fontIndex:any) => (
                   <React.Fragment key={fontIndex}>
                     {font.children[0].text}
                     {fontIndex !== about.fonts.length - 1 && ' * '}
