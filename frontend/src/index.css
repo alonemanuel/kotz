@@ -31,6 +31,14 @@
   --typo-indent: 3em;
 
   font-size: 15px;
+
+  --color-theme-background: var(--color-dark-black);
+  --color-theme-foreground: var(--color-white);
+}
+
+[data-theme='light'] {
+  --color-theme-background: var(--color-white);
+  --color-theme-foreground: var(--color-dark-black);
 }
 
 *,

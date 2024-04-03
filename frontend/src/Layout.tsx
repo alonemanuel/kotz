@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import KotzFab from "./KotzFab";
 import KotzIcon from "./components/KotzIcon2";
 import styles from "./styles/Layout.module.css";
@@ -17,26 +17,40 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   const { isOpen, closeArticle } = useOpenArticle();
 
+  // Initial theme is dark or based on the a saved pref
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+
+  useEffect(() => {
+    // Apply the theme to the document
+    document.documentElement.setAttribute("data-theme", theme);
+
+    // Save the user's theme pref
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
   return (
     <>
       {/* This is where page-specific content will go */}
       {children}
 
       {/* Common element across all pages */}
-      {(
+      {
         <nav className={styles.layoutNav}>
-          <div
-          className={styles.hamburger}
-          onClick={closeArticle}
-          >
-          <hgroup>
-            <h1>01</h1>
-            <h2>צנזורה</h2>
-          </hgroup>
+          <div className={styles.hamburger} onClick={closeArticle}>
+            <hgroup>
+              <h1>01</h1>
+              <h2>צנזורה</h2>
+            </hgroup>
           </div>
         </nav>
-      )}
-      
+      }
+      <button className={styles.changeTheme} onClick={toggleTheme}>
+        Switch to {theme === "light" ? "dark" : "light"} Mode
+      </button>
       <KotzIcon className={styles.kotzIcon} onClick={handleKotzClick} />
     </>
   );
