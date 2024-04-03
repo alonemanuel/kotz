@@ -23,7 +23,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       {children}
 
       {/* Common element across all pages */}
-      {isOpen && (
+      {(
         <nav className={styles.layoutNav}>
           <div
           className={styles.hamburger}

@@ -28,6 +28,13 @@
 
 @font-face {
   font-family: "NarkisYair";
+  src: url("./narkis_yair_fontef/NarkissYair-Bold-TRIAL.otf") format("woff");
+  font-weight: 900;
+  font-style: bold;
+}
+
+@font-face {
+  font-family: "NarkisYair";
   src: url("./narkis_yair_fontef/NarkissYair-Regular-TRIAL.woff") format("woff");
   font-weight: 400;
   font-style: normal;
@@ -104,6 +111,18 @@
 @font-face {
   font-family: "Alpha Bravo";
   src: url("./shira_saar/Shira_Saar_text-Medium_Green-SVG.woff2") format("woff2");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Narkissim";
+  src: url("./Narkissim/Narkissim-Regular-TRIAL.otf") format("woff2");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Narkissim";
+  src: url("./Narkissim/Narkissim-Bold-TRIAL.otf") format("woff2");
   font-weight: 500;
 }
 

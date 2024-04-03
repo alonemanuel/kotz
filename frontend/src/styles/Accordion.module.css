@@ -4,7 +4,7 @@ svg {
 }
 
 .accordion {
-  background-color: #eee;
+  /* background-color: #eee; */
   color: var(--color-white);
   /* text-shadow: 0 0 12px black; */
   cursor: pointer;
@@ -24,7 +24,7 @@ svg {
 
 .accordion:hover,
 .accordion.active {
-  background-color: #ccc;
+  /* background-color: #ccc; */
 }
 
 .accordion.active {
@@ -51,10 +51,10 @@ svg {
 
 .panel {
   color: #222;
-  text-wrap: balance;
+  /* text-wrap: balance; */
   display: flex;
   flex-flow: column nowrap;
-  align-items: center;
+  align-items: flex-start;
   /* gap: 2em; */
 
   &.scrolled {
@@ -139,7 +139,7 @@ svg {
   flex-flow: column nowrap;
   flex-grow: 1;
   /* height: 90vh; */
-  background-color: var(--color-black);
+  /* background-color: var(--color-black); */
   transition: all 0.1s ease-out;
 
   & > .toTop {
@@ -180,11 +180,11 @@ svg {
   & .accordion {
     display: flex;
     position: relative;
-    background-color: var(--color-white);
+    /* background-color: var(--color-white); */
     color: var(--color-black);
 
     .active& {
-      background-color: var(--color-black);
+      /* background-color: var(--color-black); */
     }
 
     &:hover {
@@ -231,14 +231,9 @@ svg {
       .active & {
         right: 0;
 
-        & h2 {
-          &::before {
-            content: none;
-          }
-        }
-
         & > hr {
-          border-top: 4px dotted var(--color-green);
+          border: none;
+          border-top: 2px dotted var(--color-green);
           border-bottom: none;
           margin: 1em auto;
           width: 100%;
@@ -256,9 +251,9 @@ svg {
       }
 
       & h2 {
-        font-size: var(--fs-500);
-        line-height: 1;
         font-family: var(--ff-narkis-yair);
+        font-size: var(--fs-400);
+        line-height: 1;
 
         &::before {
           content: ">";
@@ -289,11 +284,11 @@ svg {
         top: 0;
         z-index: 2;
         height: 2.5em;
+        overflow: visible;
       }
 
       .articleIsOpen:not(.active)& {
         display: none;
-        /* background-color: red; */
       }
 
       & .bgContent {
@@ -307,11 +302,21 @@ svg {
         text-align: end;
         justify-content: end;
         max-width: 90%;
+        padding: 1em;
+        flex-wrap: wrap;
 
         .articleIsOpen & {
           max-width: 85%;
           text-align: start;
           justify-content: start;
+        }
+
+        & h1 {
+          font-family: var(--ff-narkis-yair);
+          font-size: var(--fs-400);
+
+          mix-blend-mode:darken ;
+          line-height: 1em;
         }
 
         & h2 {
@@ -322,6 +327,12 @@ svg {
           display: none;
         }
       }
+
+      & .textContent {
+          & > hr {
+            display: none;
+          }
+        }
     }
   }
 }
@@ -385,6 +396,12 @@ svg {
         .active & {
           position: relative;
           color: white;
+
+          & h2 {
+            &::before {
+              content: none;
+            }
+          }
         }
 
         & h3 {

@@ -34,20 +34,13 @@
     border-radius: 8px;
     width: 37px;
     height: 37px;
-    background-color: var(--color-white);
-    display: flex;
-    flex-flow: column nowrap;
+    background-color: var(--color-white); */
+    /* display: flex; */
+    /* flex-flow: column nowrap;
     gap: 2px;
     padding: 6px 6px;
     justify-content: center;
-    align-items: stretch;
-
-    & > div {
-      background-color: var(--color-black);
-      flex-shrink: 0;
-      flex-grow: 1;
-      border-radius: 2px;
-    } */
+    align-items: stretch; */
   }
 
   & hgroup {
@@ -57,7 +50,7 @@
     justify-content: center;
     gap: 0.2em;
     color: var(--color-green);
-    font-size: var(--fs-600);
+    font-size: 1.6rem;
     font-family: var(--ff-david-vc);
 
     & h1 {
@@ -81,7 +74,14 @@
     right: 0;
 
     & hgroup {
-      color: var(--color-black);
+      color: var(--color-white);
+
+      gap: 0.2em;
+      font-size: var(--fs-700);
+
+      & h2 {
+        letter-spacing: 1.1px;
+      }
     }
   }
 }

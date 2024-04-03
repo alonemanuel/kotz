@@ -194,6 +194,7 @@
       display: flex;
       flex-flow: column nowrap;
       gap: 2em;
+      border: none;
       border-right: 2px dotted black;
       padding: 2em 1em;
       padding-top: 0;
@@ -203,6 +204,7 @@
     & h1 {
       font-family: var(--ff-hadassa);
       font-weight: 900;
+      font-size: 1.5rem;
       font-style: normal;
       color: var(--color-black);
       margin: 0;
@@ -215,7 +217,7 @@
       line-height: 1;
       & .term {
         & h2 {
-          font-size: var(--fs-400);
+          font-size: 1.5rem;
           font-weight: 900;
           display: inline;
           line-height: 1;
@@ -224,8 +226,9 @@
 
         & p {
           display: inline;
-          font-family: var(--ff-hadassa);
-          font-size: var(--fs-300);
+          font-family: "Narkissim";
+          font-weight: 300;
+          font-size: 1.25rem;
           line-height: 1;
 
           & > u {
@@ -300,8 +303,8 @@
           }
 
           &:not(.active) {
-            top: -40px;
-            right: 40px;
+            top: 0;
+            right: 150px;
 
             &:hover {
               transform: translate(-4px, -4px);
@@ -322,7 +325,8 @@
             justify-content: end;
             gap: 0.5em;
             align-items: center;
-            border-bottom: 3px dotted var(--color-black);
+            border: none;
+            border-bottom: 2px dotted var(--color-black);
             padding-block: 0.3em 0.4em;
 
             & ::after {
@@ -487,7 +491,7 @@
 
           &::before {
             content: ">";
-            margin-inline-start: 1em;
+            margin-inline-end: 0.5em;
           }
         }
       }
@@ -498,9 +502,9 @@
     }
 
     & .bodyImage {
-      float: inline-end;
       max-width: 50%;
-      margin: 0 0.5em;
+      margin: 2em 0;
+      margin-inline-start: -2em;
 
       & img {
         border-radius: 4px;
@@ -510,6 +514,8 @@
         color: var(--color-green);
         font-size: var(--fs-300);
         font-family: var(--ff-narkis-yair);
+        text-align: left;
+        margin-top: 3px;
       }
     }
   }
@@ -592,7 +598,7 @@
 
     & i {
       font-family: var(--ff-narkis-yair);
-      font-size: var(--fs-600);
+      font-size: 1.4rem;
     }
 
     .interview > & {
@@ -618,7 +624,8 @@
   }
 
   & > hr {
-    border-top: 4.5px dotted var(--color-green);
+    border: none;
+    border-top: 2px dotted var(--color-green);
     border-bottom: none;
     margin: 2em auto;
     width: 100%;
@@ -657,6 +664,11 @@
       padding-top: 4em;
       & > main {
         max-width: 70ch;
+        padding-left: 13vw;
+
+        & .bodyImage {
+          max-width: 90%;
+        }
       }
     }
   }
