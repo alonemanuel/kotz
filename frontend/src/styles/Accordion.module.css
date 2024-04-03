@@ -25,12 +25,13 @@ svg {
 }
 
 .panel {
+  background-color: var(--color-theme-background);
   color: var(--color-theme-foreground);
   font-size: 20px;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
-  transition-property: color, max-height, max-width, padding;
+  transition-property: background-color, color, max-height, max-width, padding;
 }
 
 .panel.active {

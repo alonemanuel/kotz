@@ -2,6 +2,9 @@ import React, { ReactNode, useEffect, useState } from "react";
 import KotzFab from "./KotzFab";
 import KotzIcon from "./components/KotzIcon2";
 import styles from "./styles/Layout.module.css";
+import SunIcon from "./images/other/sun-solid.svg";
+import MoonIcon from "./images/other/moon-solid.svg";
+
 import { useNavigate } from "react-router-dom";
 import { OpenArticleProvider, useOpenArticle } from "./OpenArticleContext";
 
@@ -18,18 +21,23 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { isOpen, closeArticle } = useOpenArticle();
 
   // Initial theme is dark or based on the a saved pref
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+  const [isLightMode, setIsLightMode] = useState(
+    localStorage.getItem("theme") === "light" || false
+  );
 
   useEffect(() => {
     // Apply the theme to the document
-    document.documentElement.setAttribute("data-theme", theme);
+    document.documentElement.setAttribute(
+      "data-theme",
+      isLightMode ? "light" : "dark"
+    );
 
     // Save the user's theme pref
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+    localStorage.setItem("theme", isLightMode ? "light" : "dark");
+  }, [isLightMode]);
 
   const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
+    setIsLightMode(!isLightMode);
   };
 
   return (
@@ -40,17 +48,29 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       {/* Common element across all pages */}
       {
         <nav className={styles.layoutNav}>
-          <div className={styles.hamburger} onClick={closeArticle}>
-            <hgroup>
-              <h1>01</h1>
-              <h2>צנזורה</h2>
-            </hgroup>
-          </div>
+          <hgroup>
+            <h1>01</h1>
+            <h2>צנזורה</h2>
+          </hgroup>
+          <button className={styles.changeTheme} onClick={toggleTheme}>
+            <div
+              className={styles.themeContainer}
+              style={{ transform: isLightMode ? "translateX(30px)" : "translateX(0)" }} // Shift the container to show the other icon
+            >
+              <img
+                className={styles.themeIcon}
+                src={MoonIcon}
+                alt="dark-theme"
+              />
+              <img
+                className={styles.themeIcon}
+                src={SunIcon}
+                alt="light-theme"
+              />
+            </div>
+          </button>
         </nav>
       }
-      <button className={styles.changeTheme} onClick={toggleTheme}>
-        Switch to {theme === "light" ? "dark" : "light"} Mode
-      </button>
       <KotzIcon className={styles.kotzIcon} onClick={handleKotzClick} />
     </>
   );
