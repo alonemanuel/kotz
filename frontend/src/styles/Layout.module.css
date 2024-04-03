@@ -70,20 +70,27 @@
     width: 30px;
     height: 30px;
     overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
 
     background-color: transparent;
     border: none;
+
+    .isOpen & {
+      opacity: 1;
+      pointer-events: all;
+    }
 
     & .themeContainer {
       white-space: nowrap;
       display: flex;
       flex-flow: row nowrap;
       transition: transform 0.2s ease-in-out;
-      
+
       & .themeIcon {
         flex: none;
         width: 30px;
-        
+
         height: 30px;
       }
     }

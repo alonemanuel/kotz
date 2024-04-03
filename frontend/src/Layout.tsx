@@ -2,8 +2,10 @@ import React, { ReactNode, useEffect, useState } from "react";
 import KotzFab from "./KotzFab";
 import KotzIcon from "./components/KotzIcon2";
 import styles from "./styles/Layout.module.css";
-import SunIcon from "./images/other/sun-solid.svg";
-import MoonIcon from "./images/other/moon-solid.svg";
+import SunIcon from "./images/other/sun-solid-green.svg";
+
+import MoonIcon from "./images/other/moon-solid-green.svg";
+
 
 import { useNavigate } from "react-router-dom";
 import { OpenArticleProvider, useOpenArticle } from "./OpenArticleContext";
@@ -47,7 +49,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
       {/* Common element across all pages */}
       {
-        <nav className={styles.layoutNav}>
+        <nav className= {`${styles.layoutNav} ${
+          isOpen ? styles.isOpen : styles.isNotOpen
+        }`}>
           <hgroup>
             <h1>01</h1>
             <h2>צנזורה</h2>
@@ -55,7 +59,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <button className={styles.changeTheme} onClick={toggleTheme}>
             <div
               className={styles.themeContainer}
-              style={{ transform: isLightMode ? "translateX(30px)" : "translateX(0)" }} // Shift the container to show the other icon
+              style={{
+                transform: isLightMode ? "translateX(30px)" : "translateX(0)",
+              }} // Shift the container to show the other icon
             >
               <img
                 className={styles.themeIcon}
