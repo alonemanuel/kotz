@@ -36,7 +36,6 @@ function useResizeObservers(refs: any, dependency: number | null) {
 
   useEffect(() => {
     const handleResize = debounce(() => {
-      console.log(`Handling resize`);
       setDimensions(
         refs.current.map((ref: any) => {
           return ref
@@ -105,34 +104,16 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
 
   const scrollToTop = () => {
     if (activeIndex) {
-      console.log("gopgogo");
       panelRefs.current[activeIndex]?.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
   const [isScrolled, setIsScrolled] = useState(false);
-  const ref = useRef(null);
-
-  const handleScroll = () => {
-    let scrolled: any = false;
-    if (
-      activeIndex &&
-      panelRefs &&
-      panelRefs.current &&
-      panelRefs.current[activeIndex]
-    ) {
-      scrolled = panelRefs.current[activeIndex]!.scrollTop > 300;
-    }
-    setIsScrolled(scrolled);
-  };
 
   useEffect(() => {
-    console.log("popopopo");
-
     // This function now takes a panel as an argument to add the scroll listener directly to it
     const addScrollEventListener = (panel: any) => {
       const scrollHandler = () => {
-        console.log("Scroll event!");
         const isScrolled = panel.scrollTop > 300;
         setIsScrolled(isScrolled); // Update state based on scroll position
       };
@@ -147,7 +128,6 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
     // Retrieve the current panel based on activeIndex
     const panel = panelRefs.current[activeIndex!];
     if (panel) {
-      console.log("Adding event listener to panel:", activeIndex);
       // Add scroll event listener and get the cleanup function
       const cleanup = addScrollEventListener(panel);
 
