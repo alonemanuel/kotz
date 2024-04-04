@@ -39,6 +39,9 @@ const AboutComponent = () => {
 
   if (!about) {
     return <LoadingComponent />;
+  } else {
+    console.log(`About us endpoint read succefully. Found:`);
+    console.log(about);
   }
 
   return (
