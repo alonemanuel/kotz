@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ArticleContent from "./ArticleContent";
 import { Article, Term } from "./interfaces";
 import * as C from "./constants";
@@ -34,6 +34,35 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
       classType = styles.debate;
       break;
   }
+
+  const [wrappedTitle, setWrappedTitle] = useState("");
+
+  useEffect(() => {
+    if (attr.title) {
+      const titleStr = attr.title;
+      // Your logic for wrapping the title
+      const CHANGE_FACTOR = 0.4;
+      const chars = [...titleStr.split("")];
+      const wrapCount = Math.floor(chars.length * CHANGE_FACTOR);
+      let wrappedIndices: number[] = [];
+
+      while (wrappedIndices.length < wrapCount) {
+        const randomIndex = Math.floor(Math.random() * chars.length);
+        if (
+          !wrappedIndices.includes(randomIndex) &&
+          chars[randomIndex] !== " "
+        ) {
+          chars[
+            randomIndex
+          ] = `<span class=${styles.altGlyph}>${chars[randomIndex]}</span>`;
+          wrappedIndices.push(randomIndex);
+        }
+      }
+
+      const wrappedTitleString = chars.join("");
+      setWrappedTitle(wrappedTitleString);
+    }
+  }, [attr.title]); // Dependency array ensures this runs only if attr.title changes
 
   const getArticleTitle = (titleStr: string) => {
     // Decide on how many special chars to change
@@ -75,7 +104,12 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
     <article className={classType}>
       <header>
         <hgroup>
-          {attr.title && getArticleTitle(attr.title)}
+          {wrappedTitle && (
+            <h1
+              className={styles.title}
+              dangerouslySetInnerHTML={{ __html: wrappedTitle }}
+            />
+          )}
           {attr.author && <h3>{attr.author}</h3>}
           {attr.subtitle && <h2>{attr.subtitle}</h2>}
         </hgroup>
