@@ -110,7 +110,8 @@ svg {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: var(--color-theme-foreground);
+
     /* filter: drop-shadow(0 0 3px black); */
     box-shadow: 0px 1px 8px 2px rgb(0 0 0 / 3%);
 
@@ -123,7 +124,7 @@ svg {
     pointer-events: none;
 
     &.scrolled {
-      opacity: 1;
+      opacity: 0.5;
       cursor: pointer;
       pointer-events: all;
     }
@@ -131,6 +132,7 @@ svg {
     & > .topArrow {
       filter: none;
       margin-block-end: 2px;
+      filter: drop-shadow(0 0 3px black);
       /* width: 80%; */
     }
   }
@@ -274,7 +276,7 @@ svg {
           font-size: var(--fs-400);
 
           /* alon: why is this? */
-          /* mix-blend-mode: darken; */ 
+          /* mix-blend-mode: darken; */
           line-height: 1em;
         }
 
