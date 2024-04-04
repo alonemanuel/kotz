@@ -81,16 +81,6 @@ const PollContent: React.FC<{ content?: any; cover?: any }> = ({
   }
   useEffect(() => {
     if (pollRef.current) {
-      const containerRect = pollRef.current.getBoundingClientRect();
-      //   const elementRect = element.getBoundingClientRect();
-
-      //   const containerWidth = containerRect.width - elementRect.width;
-      //   const containerHeight = containerRect.height - elementRect.height;
-      console.log(`contaheight:`);
-      console.log(containerRect.height);
-      console.log(`contahwitt:`);
-      console.log(containerRect.width);
-
       const pollItems = Array.from(pollRef.current?.children);
       pollItems.forEach((item, index) => {
         const htmlItem = item as HTMLElement;
@@ -139,7 +129,6 @@ const PollContent: React.FC<{ content?: any; cover?: any }> = ({
   const getRandomPosition = async (
     element: HTMLElement
   ): Promise<{ x: number; y: number }> => {
-    console.log("here?");
     const container = pollRef.current;
     if (container) {
       await timeout(300);
@@ -149,11 +138,6 @@ const PollContent: React.FC<{ content?: any; cover?: any }> = ({
 
       const containerWidth = containerRect.width - elementRect.width;
       const containerHeight = containerRect.height - elementRect.height;
-
-      console.log(`contaheight:`);
-      console.log(containerRect.height);
-      console.log(`contahwitt:`);
-      console.log(containerRect.width);
 
       const { newX, newY } = getNearRandomPosition(
         20,
