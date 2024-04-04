@@ -474,13 +474,19 @@
           line-height: 0.9em;
           color: var(--color-green);
           margin-bottom: 0.2em;
+
+          &.title {
+            & .altGlyph {
+              font-feature-settings: "ss01" 1;
+            }
+          }
         }
 
         & h2 {
           font-family: var(--ff-narkis-yair);
           font-size: 1.5rem;
           line-height: 1.7rem;
-          
+
           max-width: 450px;
         }
 
