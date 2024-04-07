@@ -6,7 +6,6 @@ import SunIcon from "./images/other/sun-solid-green.svg";
 
 import MoonIcon from "./images/other/moon-solid-green.svg";
 
-
 import { useNavigate } from "react-router-dom";
 import { OpenArticleProvider, useOpenArticle } from "./OpenArticleContext";
 
@@ -43,16 +42,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   };
 
   return (
-    <>
-      {/* This is where page-specific content will go */}
-      {children}
-
+    <div className={styles.layout}>
       {/* Common element across all pages */}
       {
-        <nav className= {`${styles.layoutNav} ${
-          isOpen ? styles.isOpen : styles.isNotOpen
-        }`}>
+        <nav
+          className={`${styles.layoutNav} ${
+            isOpen ? styles.isOpen : styles.isNotOpen
+          }`}
+        >
           <hgroup>
+            <h3>קוץ</h3>
             <h1>01</h1>
             <h2>צנזורה</h2>
           </hgroup>
@@ -77,8 +76,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </button>
         </nav>
       }
+      {/* This is where page-specific content will go */}
+      {children}
+
       <KotzIcon className={styles.kotzIcon} onClick={handleKotzClick} />
-    </>
+    </div>
   );
 };
 
