@@ -20,13 +20,13 @@ const DebateContent: React.FC<{ content?: any[] }> = ({ content }) => {
       <div className={styles.debates}>
         {content?.map((content, index) => (
           <div
+            key={index}
             ref={(el) => (debateRefs.current[index] = el)}
             onClick={() => toggleDebate(index)}
             className={`${styles.debate} ${
               activeDebate === index ? styles.active : ""
             }`}
           >
-            
             <header>
               <img
                 src={content?.author_img?.data?.attributes?.url}

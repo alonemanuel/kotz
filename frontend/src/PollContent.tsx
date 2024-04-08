@@ -161,8 +161,8 @@ const PollContent: React.FC<{ content?: any; cover?: any }> = ({
       >
         <h1>{content?.question}</h1>
         <main ref={pollRef}>
-          {content?.answer?.map((item: any) => (
-            <section>
+          {content?.answer?.map((item: any, index: number) => (
+            <section key={index}>
               <h1>@{item?.tag}</h1>
               <p>{item?.body}</p>
             </section>

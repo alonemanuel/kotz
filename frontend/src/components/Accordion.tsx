@@ -109,6 +109,20 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
   };
 
   const [isScrolled, setIsScrolled] = useState(false);
+  const ref = useRef(null);
+
+  const handleScroll = () => {
+    let scrolled: any = false;
+    if (
+      activeIndex &&
+      panelRefs &&
+      panelRefs.current &&
+      panelRefs.current[activeIndex]
+    ) {
+      scrolled = panelRefs.current[activeIndex]!.scrollTop > 300;
+    }
+    setIsScrolled(scrolled);
+  };
 
   useEffect(() => {
     // This function now takes a panel as an argument to add the scroll listener directly to it
