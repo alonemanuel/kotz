@@ -1,13 +1,146 @@
+/* Desktop */
+@media (min-aspect-ratio: 1) {
+  .layout {
+    display: flex;
+    flex-flow: row nowrap;
+
+    & .layoutNav {
+      position: static;
+      background-color: var(--color-theme-background);
+      margin: 0;
+      justify-content: start;
+      padding: 0.5em 0.5em;
+
+      & hgroup {
+        color: var(--color-theme-foreground);
+        font-size: clamp(1.5rem, min(7dvh, 3dvw), 2rem);
+
+        & h3 {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
 .kotzIcon {
   position: fixed;
-  bottom: 20px;
-  left: 20px;
-  height: 10%;
+  bottom: 0px;
+  left: 30px;
+  height: clamp(80px, 14vh, 140px);
   display: flex;
   cursor: pointer;
   transition: scale 0.1s ease-out;
 
+  filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.7));
+  z-index: 10;
+
   :hover {
     scale: 1.05;
+  }
+}
+
+.layoutNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  margin: 1em;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.5em;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s ease-out;
+  transition-property: background-color, color;
+
+  & .hamburger {
+    /* cursor: pointer;
+    border-radius: 8px;
+    width: 37px;
+    height: 37px;
+    background-color: var(--color-white); */
+    /* display: flex; */
+    /* flex-flow: column nowrap;
+    gap: 2px;
+    padding: 6px 6px;
+    justify-content: center;
+    align-items: stretch; */
+  }
+
+  & hgroup {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2em;
+    color: var(--color-green);
+    font-size: 1.6rem;
+    font-family: var(--ff-david-vc);
+
+    & h1 {
+      font-family: "Alpha Bravo";
+      font-weight: 100;
+      color: var(--color-green);
+    }
+
+    & h2,
+    h3 {
+      text-orientation: sideways;
+      writing-mode: vertical-rl;
+      transform: rotateZ(180deg);
+      letter-spacing: 1.1px;
+    }
+
+    & h2 {
+    }
+
+    & h3 {
+      display: none;
+    }
+  }
+
+  & .changeTheme {
+    position: relative;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+
+    background-color: transparent;
+    border: none;
+
+    & .themeContainer {
+      white-space: nowrap;
+      display: flex;
+      flex-flow: row nowrap;
+      transition: transform 0.2s ease-in-out;
+
+      & .themeIcon {
+        flex: none;
+        width: 30px;
+
+        height: 30px;
+      }
+    }
+  }
+}
+
+/* Desktop */
+@media (min-aspect-ratio: 1) {
+  nav.layoutNav {
+    left: auto;
+    right: 0;
+
+    & hgroup {
+      color: var(--color-white);
+
+      gap: 0.2em;
+      font-size: var(--fs-700);
+
+      & h2 {
+        letter-spacing: 1.1px;
+      }
+    }
   }
 }

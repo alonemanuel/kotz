@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_shared_debates",
+  "info": {
+    "displayName": "debate"
+  },
+  "options": {},
+  "attributes": {
+    "author": {
+      "type": "string"
+    },
+    "lead": {
+      "type": "text"
+    },
+    "author_img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "body": {
+      "type": "blocks"
+    }
+  }
+}

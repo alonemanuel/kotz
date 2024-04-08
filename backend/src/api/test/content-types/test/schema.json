@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tests",
+  "info": {
+    "singularName": "test",
+    "pluralName": "tests",
+    "displayName": "Test",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "test0": {
+      "type": "string"
+    },
+    "test1": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "answer1": {
+      "displayName": "answer0",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.answer0"
+    },
+    "bodybody": {
+      "type": "blocks"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+.comingSoon {
+  height: 100vh;
+  width: 100vw;
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  color: black;
+  gap: 100px;
+  /* font-style: italic; */
+  h1 {
+    font-family: "DavidVC";
+    font-weight: bold;
+    /* font-style: italic; */
+    font-size: 28px;
+  }
+}
+
+.comingSoon h1 {
+  font-family: "DavidVC";
+  font-weight: bold;
+  /* font-style: italic; */
+  font-size: 28px;
+}
+
+#morphingPath {
+  stroke: none;
+  fill: #444;
+}
+
+.asterix {
+    font-size: 1.2em;
+    font-family: "Hadassa";
+}

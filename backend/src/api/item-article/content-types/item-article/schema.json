@@ -1,0 +1,132 @@
+{
+  "kind": "collectionType",
+  "collectionName": "item_articles",
+  "info": {
+    "singularName": "item-article",
+    "pluralName": "item-articles",
+    "displayName": "Article",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "cover_caption": {
+      "type": "string"
+    },
+    "body": {
+      "type": "blocks"
+    },
+    "short_title": {
+      "type": "string"
+    },
+    "lead": {
+      "type": "text"
+    },
+    "author_about": {
+      "type": "text"
+    },
+    "outside_img_vertical": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "author_img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    },
+    "outside_img_horizontal": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "terms": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::term.term"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "standard",
+        "interview",
+        "debate",
+        "questions",
+        "pinned",
+        "poll"
+      ],
+      "default": "standard"
+    },
+    "questions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::question.question"
+    },
+    "debates": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::debate.debate"
+    },
+    "debate": {
+      "displayName": "debate",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.debate"
+    },
+    "poll": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::poll.poll"
+    },
+    "song": {
+      "displayName": "song",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.song"
+    }
+  }
+}

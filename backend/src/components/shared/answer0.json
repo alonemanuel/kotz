@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_answer0s",
+  "info": {
+    "displayName": "answer0",
+    "icon": "car"
+  },
+  "options": {},
+  "attributes": {
+    "tag": {
+      "type": "string"
+    },
+    "answer": {
+      "type": "text"
+    }
+  }
+}

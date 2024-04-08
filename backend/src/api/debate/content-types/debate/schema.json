@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "debates",
+  "info": {
+    "singularName": "debate",
+    "pluralName": "debates",
+    "displayName": "Debate"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "author": {
+      "type": "string"
+    },
+    "lead": {
+      "type": "text"
+    },
+    "body": {
+      "type": "blocks"
+    },
+    "author_img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "order": {
+      "type": "integer"
+    }
+  }
+}

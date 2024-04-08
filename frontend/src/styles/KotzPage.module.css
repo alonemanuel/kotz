@@ -1,25 +1,469 @@
-.container {
-    background-color: red;
-    margin: 100px;
-    display: grid;
-    gap: 20px;
-}
+.kotzPage {
+  height: 100vh;
+  height: 100dvh;
+  width: 100%;
+  /* padding: 7em; */
+  display: flex;
+  flex-flow: row wrap;
+  background: var(--color-dark-black);
+  color: var(--color-white);
+  /* grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr)); */
 
-.gridContainer {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
+  /* grid-template-columns: minmax(auto, 26ch) 1fr; */
+  align-content: center;
+  align-items: start;
+  /* gap: 3em; */
+  font: var(--fs-400) var(--ff-david-vc);
+  align-content: stretch;
+  align-items: start;
+  overflow: hidden;
 
-.gridItem {
-    cursor: pointer;
+  & > .sideInfo {
+    height: 100%;
+    justify-content: space-between;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2em;
+    flex: 3;
+    flex-grow: 2;
+    flex-shrink: 1;
+    min-width: 12ch;
+    padding: 2em;
+    /* max-width: 26ch; */
 
-}
+    & > main {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 1em;
 
-.gridItem img {
-    width: 100%;
+      & > .aboutBody {
+        & > p {
+          line-height: 1.2em;
+          font-weight: 700;
+          font-size: clamp(var(--fs-400), min(7vh, 4vw), var(--fs-700));
+          letter-spacing: 1px;
+        }
+      }
+
+      & > .aboutCaption {
+        font-family: var(--ff-narkis-yair);
+        font-weight: 300;
+        font-size: var(--fs-600);
+      }
+
+      & > header {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 0.7em;
+        align-items: flex-end;
+
+        & > h1 {
+          font-weight: 800;
+          font-size: clamp(var(--fs-400), min(7vh, 4vw), var(--fs-700));
+        }
+
+        & > h2 {
+          font-family: var(--ff-narkis-yair);
+          font-weight: 300;
+          font-size: var(--fs-600);
+          margin-bottom: 7px;
+        }
+      }
+    }
+
+    & > .teams {
+      display: flex;
+      flex-flow: wrap;
+      /* gap: 0.2em 0.3em; */
+      font-family: var(--ff-narkis-yair);
+      overflow-y: auto;
+
+      & > .team {
+        display: flex;
+        flex-flow: row nowrap;
+        /* gap: 0.3em; */
+
+        & span {
+          font-weight: 300;
+          font-size: var(--fs-400);
+          line-height: 1.3em;
+        }
+
+        & b {
+          font-weight: 900;
+        }
+
+        & .para_separetor { /* TODO: return from GIT */
+          display: none;
+        }
+
+        & > h1 {
+          font-weight: 400;
+          font-family: var(--ff-narkis-yair);
+        }
+
+        & > .members {
+          font-weight: 300;
+          display: flex;
+          flex-flow: row wrap;
+          /* gap: 0.2em 0.3em; */
+        }
+
+        & > .colR {
+          width: 500px;
+          margin-left: 100px;
+
+          & span {
+            max-width: 100%;
+          }
+        }
+
+        & > .colL {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 450px;
+        }
+
+      }
+    }
+  }
+
+  & .gridContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1;
+    padding: 1.5em 1em;
+    border: none;
+    border-inline-start: 2px solid var(--color-white);
+    overflow: auto;
+    max-height: 100vh;
+    max-height: 100dvh;
+    flex-grow: 1;
+    
+    & > .issuesContainer {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 4em;
+      justify-content: start;
+      align-items: stretch;
+      
+      
+      .gridItem {
+        cursor: pointer;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: stretch;
+        gap: 2em;
+        transition: all 0.4s ease-out;
+
+        &.unpublished {
+          cursor: auto;
+        }
+
+        & .details {
+          display: flex;
+          flex-flow: column nowrap;
+          align-items: start;
+          gap: 1em;
+          margin-inline: 1em;
+          flex-shrink: 0;
+
+          & > hgroup {
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 0em;
+
+            & > .issueNumber {
+              display: flex;
+              flex-flow: row nowrap;
+              gap: 0.5em;
+              font-size: var(--fs-500);
+              margin-bottom: 2px;
+
+              & h2 {
+                font-family: var(--ff-narkis-yair);
+                display: flex;
+                flex-flow: row nowrap;
+                gap: 0.3em;
+                font-weight: 300;
+                line-height: 1;
+                white-space: nowrap;
+
+                &.asterix {
+                  margin-top: 0.1em;
+                }
+              }
+            }
+
+            & h1 {
+              font-weight: 800;
+              display: flex;
+              flex-flow: row nowrap;
+              font-family: var(--ff-narkis-yair);
+              font-size: var(--fs-600);
+              line-height: 1.3;
+            }
+          }
+
+          & > .about {
+            font-family: var(--ff-david-vc);
+            font-size: var(--fs-500);
+            letter-spacing: 0.5px;
+            font-weight: 800;
+            line-height: 1.4;
+          }
+
+          & > .guests {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: start;
+            text-wrap: balance;
+            font-size: var(--fs-400);
+            max-width: 52ch;
+            line-height: 1.3;
+            font-family: var(--ff-narkis-yair);
+          }
+        }
+
+        & > .imgContainer {
+          transition: all 0.1s ease-out;
+          display: flex;
+          justify-content: center;
+          &:hover {
+            scale: 1.1;
+          }
+
+          &:active {
+            scale: 1.2;
+          }
+
+          & > img {
+            min-height: 200px;
+          }
+        }
+
+        & p {
+          margin: 0;
+
+          &:not(:last-child)::after {
+            content: "*";
+            margin: 0 0.3em;
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
 }
 
 .header {
-    text-align: center;
+  text-align: center;
+}
+
+/* Mobile */
+@media (max-width: 1700px) {
+  .kotzPage {
+    & > .sideInfo {
+      max-height: unset;
+      flex-grow: 2;
+      width: 90vw;
+      
+      overflow-y: scroll;
+
+      & > main {
+        & > .aboutBody {
+          & > p {
+            font-size: clamp(var(--fs-400), min(8vh, 5vw), var(--fs-700));
+            margin-bottom: 0;
+          }
+        }
+        }
+
+        & > .teams {
+          overflow-y: visible;
+          width: auto;
+          max-width: 700px;
+
+          & > .team {
+    
+            & .para_separetor {
+              display: flex;
+            }
+          }
+        }
+
+        & > .teams .team {
+          flex-direction: column;
+        }
+
+        & > .teams .team .colL,
+        & > .teams .team .colR {
+          width: auto;
+          margin-left: 0px;
+        }
+
+        & > main {
+          & > .aboutBody {
+              & > p {
+                font-size: clamp(var(--fs-400), min(8vh, 5vw), var(--fs-700));
+              }
+            }
+      
+            & > .aboutCaption {
+              font-size: var(--fs-400);
+            }
+
+          & > header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.7em;
+    
+            & > h1 {
+              font-size: var(--fs-700);
+            }
+    
+            & > h2 {
+              font-size: var(--fs-400);
+              line-height: 1.2em;
+            }
+          }
+        }
+      }
+    }
+}
+
+@media (max-aspect-ratio: 1) {
+  .kotzPage {
+    flex-flow: column nowrap;
+    overflow: hidden;
+    gap: 2em;
+
+    & > .sideInfo {
+      max-height: unset;
+      flex-grow: 2;
+      width: 90vw;
+
+      & > main {
+        & > .aboutBody {
+          & > p {
+            font-size: clamp(var(--fs-400), min(8vh, 5vw), var(--fs-700));
+            margin-bottom: 0;
+          }
+        }
+        }
+
+        & > .teams {
+          overflow-y: visible;
+          width: auto;
+        }
+
+        & > .teams .team {
+          flex-direction: column;
+        }
+
+        & > .teams .team .colL,
+        & > .teams .team .colR {
+          width: auto;
+          margin-left: 0px;
+        }
+
+        & > main {
+          & > .aboutBody {
+              & > p {
+                font-size: clamp(var(--fs-400), min(8vh, 5vw), var(--fs-700));
+              }
+            }
+      
+            & > .aboutCaption {
+              font-size: var(--fs-400);
+            }
+
+          & > header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.7em;
+    
+            & > h1 {
+              font-size: var(--fs-700);
+            }
+    
+            & > h2 {
+              font-size: var(--fs-400);
+              line-height: 1.2em;
+            }
+          }
+        }    
+    }
+
+    .sideInfo {
+      overflow: scroll;
+    }
+
+    & > .gridContainer {
+      border-inline-start: none;
+      border-block-start: 2px solid var(--color-white);
+      max-height: unset;
+      flex-flow: row nowrap;
+      padding: 1.5em 1.5em;
+      align-items: center;
+      flex-shrink: 1;
+
+      & > .issuesContainer {
+        /* max-height: unset; */
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 2em;
+        flex: auto;
+        /* flex-grow: 0; */
+        max-width: 100vw;
+        align-items: start;
+        flex-shrink: 0;
+        flex-grow: 1;
+
+        /* height: 100%; */
+        & > .gridItem {
+          flex-shrink: 1;
+          flex-grow: 1;
+          gap: 0.5em;
+          justify-content: space-between;
+          /* width: 20ch; */
+
+          & > .imgContainer {
+            width: min(34vw, 20vh);
+
+            & > img {
+              min-height: unset;
+              flex-shrink: 1;
+              min-height: 80px;
+              min-width: 80px;
+            }
+          }
+
+          & > .details {
+            & .gilayon {
+              display: none;
+            }
+
+            & > .guests {
+              display: none;
+            }
+
+            & > .about {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .kotzPage {
+    gap: 0;
+    & > .sideInfo {
+      padding: 1.5em 1em;
+    }
+  }
 }

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_songs",
+  "info": {
+    "displayName": "song"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "blocks"
+    },
+    "author": {
+      "type": "string"
+    }
+  }
+}

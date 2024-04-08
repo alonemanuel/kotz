@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../src/styles/KotzPage.module.css";
 import kabarImg from "./images/kabar.jpg";
 import kotzImg from "./images/kotz.svg";
+import kotzImgWhite from "./images/kotz-white.svg";
+
 import KotzFab from "./KotzFab";
+import * as C from "./constants";
+import AboutComponent from "./components/AboutComponent";
+import IssuesComponent from "./components/IssuesComponent";
 
 interface Box {
   id: number;
-  title: string;
+  title?: string;
   image: string;
   path?: string; // optional, only needed for boxes that currently have navigation
 }
@@ -17,32 +22,31 @@ const KotzPage: React.FC = () => {
 
   const boxes: Box[] = [
     { id: 0, title: "צנזורה", image: kotzImg, path: "/censorship" },
-    { id: 1, title: "פייק", image: kotzImg, path: "/fake" },
-    { id: 2, title: "בקרוב", image: kotzImg },
-    { id: 3, title: "בקרוב", image: kotzImg },
-    { id: 4, title: "בקרוב", image: kotzImg },
-    { id: 5, title: "בקרוב", image: kotzImg },
+    { id: 1, image: kotzImg },
+    { id: 2, image: kotzImg },
+    { id: 3, image: kotzImg },
+    { id: 4, image: kotzImg },
+    { id: 5, image: kotzImg },
   ];
 
   const handleBoxClick = (path?: string) => {
     if (path) navigate(path);
   };
 
-  return (
-    <div className={styles.container}>
-      <div className={styles.header}>כל הקוצים</div>
+  const [issues, setIssues] = useState([]);
+  const [about, setAbout] = useState([]);
 
+  if (!issues) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div className={styles.kotzPage}>
+      <div className={styles.sideInfo}>
+        <AboutComponent />
+      </div>
       <div className={styles.gridContainer}>
-        {boxes.map((box) => (
-          <div
-            key={box.id}
-            className={styles.gridItem}
-            onClick={() => handleBoxClick(box.path)}
-          >
-            <img src={box.image} alt={box.title} />
-            <p>{box.title}</p>
-          </div>
-        ))}
+        <IssuesComponent /> 
       </div>
     </div>
   );
