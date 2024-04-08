@@ -1,3 +1,28 @@
+/* Desktop */
+@media (min-aspect-ratio: 1) {
+  .layout {
+    display: flex;
+    flex-flow: row nowrap;
+
+    & .layoutNav {
+      position: static;
+      background-color: var(--color-theme-background);
+      margin: 0;
+      justify-content: start;
+      padding: 0.5em 0.5em;
+
+      & hgroup {
+        color: var(--color-theme-foreground);
+        font-size: clamp(1.5rem, min(7dvh, 3dvw), 2rem);
+
+        & h3 {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
 .kotzIcon {
   position: fixed;
   bottom: 0px;
@@ -26,6 +51,8 @@
   gap: 0.5em;
   justify-content: center;
   align-items: center;
+  transition: background-color 0.2s ease-out;
+  transition-property: background-color, color;
 
   & .hamburger {
     /* cursor: pointer;
@@ -54,13 +81,22 @@
     & h1 {
       font-family: "Alpha Bravo";
       font-weight: 100;
+      color: var(--color-green);
     }
 
-    & h2 {
+    & h2,
+    h3 {
       text-orientation: sideways;
       writing-mode: vertical-rl;
       transform: rotateZ(180deg);
       letter-spacing: 1.1px;
+    }
+
+    & h2 {
+    }
+
+    & h3 {
+      display: none;
     }
   }
 
@@ -70,16 +106,9 @@
     width: 30px;
     height: 30px;
     overflow: hidden;
-    opacity: 0;
-    pointer-events: none;
 
     background-color: transparent;
     border: none;
-
-    .isOpen & {
-      opacity: 1;
-      pointer-events: all;
-    }
 
     & .themeContainer {
       white-space: nowrap;
