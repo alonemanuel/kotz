@@ -51,6 +51,8 @@
   gap: 0.5em;
   justify-content: center;
   align-items: center;
+  transition: background-color 0.2s ease-out;
+  transition-property: background-color, color;
 
   & .hamburger {
     /* cursor: pointer;
@@ -104,16 +106,9 @@
     width: 30px;
     height: 30px;
     overflow: hidden;
-    opacity: 0;
-    pointer-events: none;
 
     background-color: transparent;
     border: none;
-
-    .isOpen & {
-      opacity: 1;
-      pointer-events: all;
-    }
 
     & .themeContainer {
       white-space: nowrap;
