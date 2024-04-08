@@ -20,6 +20,13 @@
 }
 
 @font-face {
+  font-family: "DavidKotz";
+  src: url("./david_kotz/VC_david_Kotz-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "DavidVC";
   src: url("./david_bezalel/VC_david-Cursive.woff") format("woff");
   font-weight: 400;

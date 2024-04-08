@@ -6,6 +6,10 @@ import ArticleContent from "../ArticleContent";
 import JsonBlocks from "./json_block/JsonBlocks";
 import bezalelImg from "../images/bezalel_logo_0.png";
 import runiImg from "../images/runi_logo_0.png";
+import KotzLogotype from "../images/kotz_logotype.svg";
+import Kof from "../images/other/kof.svg";
+import Pe from "../images/other/pe.svg";
+import Vav from "../images/other/vav.svg";
 import styles from "../styles/KotzPage.module.css";
 
 const AboutComponent = () => {

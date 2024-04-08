@@ -99,7 +99,7 @@
     color: var(--color-green);
     font-size: 1.6rem;
     font-family: var(--ff-david-vc);
-    
+
     & h1 {
       font-family: "Alpha Bravo";
       font-weight: 100;
@@ -107,17 +107,19 @@
       letter-spacing: -1.1px;
       font-size: 0.9em;
     }
-    
+
     & h2,
     h3 {
       text-orientation: sideways;
       writing-mode: vertical-rl;
       transform: rotateZ(180deg);
       letter-spacing: 1.1px;
-    }
-    
-    & h2 {
       font-weight: 700;
+    }
+
+    & h3 {
+      font-family: "DavidKotz";
+      font-feature-settings: "ss01" 1;
     }
 
     & h3 {
