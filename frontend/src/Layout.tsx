@@ -43,14 +43,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   };
 
   return (
-    <div className={styles.layout}>
+    <div
+      className={`${styles.layout} ${
+        isOpen ? styles.isOpen : styles.isNotOpen
+      }`}
+    >
       {/* Common element across all pages */}
       {
-        <nav
-          className={`${styles.layoutNav} ${
-            isOpen ? styles.isOpen : styles.isNotOpen
-          }`}
-        >
+        <nav className={styles.layoutNav}>
           <hgroup>
             <h3>קוץ</h3>
             <h1>01</h1>
