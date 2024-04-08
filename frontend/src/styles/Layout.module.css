@@ -82,7 +82,7 @@
   margin: 1em;
   display: flex;
   flex-flow: column nowrap;
-  gap: 0.5em;
+  gap: 0.7em;
   justify-content: center;
   align-items: center;
   transition: background-color 0.2s ease-out;
@@ -93,17 +93,19 @@
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    gap: 0.2em;
+    gap: 0.5em;
     color: var(--color-green);
     font-size: 1.6rem;
     font-family: var(--ff-david-vc);
-
+    
     & h1 {
       font-family: "Alpha Bravo";
       font-weight: 100;
       color: var(--color-green);
+      letter-spacing: -1.1px;
+      font-size: 0.9em;
     }
-
+    
     & h2,
     h3 {
       text-orientation: sideways;
@@ -111,8 +113,9 @@
       transform: rotateZ(180deg);
       letter-spacing: 1.1px;
     }
-
+    
     & h2 {
+      font-weight: 700;
     }
 
     & h3 {
