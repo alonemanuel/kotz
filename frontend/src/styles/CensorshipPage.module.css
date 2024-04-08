@@ -1,8 +1,7 @@
 /* FakePage.module.css */
 .censorshipPage {
   width: 100%;
-  height: 100vh;
-  height: 100dvh;
+  height: 100%;
   display: flex;
   flex-flow: column nowrap;
   /* display: grid;
@@ -126,7 +125,6 @@
 
     transition: background-color 0.1s ease-out;
     transition-property: background-color, color;
-
 
     & .borderContainer {
       display: flex;
@@ -549,42 +547,44 @@
 }
 
 .censorshipPage main {
-  & > .h1Spacer {
-    height: 2em;
-  }
+  & > .interviewQuestion {
+    & > .h1Spacer {
+      height: 2em;
+    }
 
-  & > h1 {
-    margin-block: 2em 0.5em;
-    color: var(--color-green);
-    font-family: var(--ff-david-vc);
-    font-style: italic;
-    font-size: 1.58rem; /* var(--fs-600); */
-    letter-spacing: 1px;
-
-    .interview > & {
-      font-family: var(--ff-greta);
+    & > h1 {
+      margin-block: 2em 0.5em;
+      color: var(--color-green);
+      font-family: var(--ff-david-vc);
       font-style: italic;
-      font-weight: 600;
-      display: inline;
-      margin-inline-end: 0.5em;
-      margin-block-start: 2em;
-      margin-block-end: 0;
+      font-size: 1.58rem; /* var(--fs-600); */
+      letter-spacing: 1px;
 
-      &::before {
-        content: "";
-        background-image: url(../images/other/paragraph-vector.svg);
-        background-size: contain;
-        height: 2.5em;
-        width: 2em;
-        display: inline-block;
-        background-repeat: no-repeat;
+      .interview & {
+        font-family: var(--ff-greta);
+        font-style: italic;
+        font-weight: 600;
+        display: inline;
         margin-inline-end: 0.5em;
-        float: inline-start;
-        background-position: center center;
-      }
+        margin-block-start: 2em;
+        margin-block-end: 0;
 
-      + p & {
-        margin-block-end: 2em;
+        &::before {
+          content: "";
+          background-image: url(../images/other/paragraph-vector.svg);
+          background-size: contain;
+          height: 2.5em;
+          width: 2em;
+          display: inline-block;
+          background-repeat: no-repeat;
+          margin-inline-end: 0.5em;
+          float: inline-start;
+          background-position: center center;
+        }
+
+        + p & {
+          margin-block-end: 2em;
+        }
       }
     }
   }

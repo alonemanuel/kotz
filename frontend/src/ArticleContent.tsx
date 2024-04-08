@@ -87,7 +87,7 @@ const ArticleContent: React.FC<{
   ) => {
     const tag = `h${level}`;
     return (
-      <div key={index}>
+      <div className={styles.interviewQuestion} key={index}>
         {type === "interview" && <div className={styles.h1Spacer} />}
         {React.createElement(tag, null, block?.children?.[0].text)}
       </div>

@@ -227,7 +227,6 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
                   article={article}
                   terms={terms}
                 />
-                {/* {article.content} */}
               </section>
             </div>
             <div
