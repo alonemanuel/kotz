@@ -12,14 +12,11 @@ const AboutComponent = () => {
   const [about, setAbout] = useState<AboutUs | null>(null);
 
   const preloadCensorshipImages = () => {
-    console.log(`preloading article images`);
+    console.log(`Preloading article images`);
     fetch(`${C.API_BASE_URL}${C.ITEM_ARTICLES_ENDPOINT}?${C.API_POPULATE_DEEP}`)
       .then((response) => response.json())
       .then((articles) => {
-        console.log(`inside articles`);
-        console.log(articles);
         articles?.data?.map((article: any, index: number) => {
-          console.log(`Preloading img ${index}`);
           const img = new Image();
           let imgUrl =
             article.attributes.outside_img_horizontal?.data?.attributes.url;
@@ -39,9 +36,6 @@ const AboutComponent = () => {
 
   if (!about) {
     return <LoadingComponent />;
-  } else {
-    console.log(`About us endpoint read succefully. Found:`);
-    console.log(about);
   }
 
   return (

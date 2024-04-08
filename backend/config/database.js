@@ -3,9 +3,6 @@ require('dotenv').config({ path: process.env.NODE_ENV === 'production' ? '.env.p
 
 
 module.exports = ({ env }) => {
-  console.log('Database URL:', env('DATABASE_URL'));
-
-  
   const client = env('DATABASE_CLIENT', 'postgres');
 
   const connections = {
