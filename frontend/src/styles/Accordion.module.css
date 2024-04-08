@@ -182,7 +182,7 @@ svg {
       position: absolute;
       bottom: auto;
       left: 0;
-      padding: 0.6em;
+      padding: 0.4em;
       color: var(--color-theme-foreground);
       transition: background-color 0.2s ease-out;
       transition-property: background-color, color;
@@ -216,7 +216,7 @@ svg {
 
         &::before {
           content: ">";
-          margin-inline-end: 0.5em;
+          margin-inline: 0.5em;
         }
       }
 
