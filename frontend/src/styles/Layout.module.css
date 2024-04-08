@@ -1,6 +1,8 @@
 .layout {
   display: flex;
   flex-flow: row nowrap;
+  height: 100vh;
+  height: 100dvh;
 
   & .layoutNav {
     position: static;
