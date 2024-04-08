@@ -1,22 +1,56 @@
-/* Desktop */
-@media (min-aspect-ratio: 1) {
+.layout {
+  display: flex;
+  flex-flow: row nowrap;
+
+  & .layoutNav {
+    position: static;
+    background-color: var(--color-theme-background);
+    margin: 0;
+    justify-content: start;
+    padding: 0.5em 0.5em;
+
+    & hgroup {
+      color: var(--color-theme-foreground);
+      font-size: clamp(1.5rem, min(7dvh, 3dvw), 2rem);
+
+      & h3 {
+        display: block;
+      }
+    }
+  }
+}
+
+/* Mobile */
+@media (max-aspect-ratio: 1) {
   .layout {
-    display: flex;
-    flex-flow: row nowrap;
+    &.isNotOpen {
+      flex-direction: column;
 
-    & .layoutNav {
-      position: static;
-      background-color: var(--color-theme-background);
-      margin: 0;
-      justify-content: start;
-      padding: 0.5em 0.5em;
+      & .layoutNav {
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        padding-inline: clamp(0.2em, 2dvw, 1.5em);
+        & hgroup {
+          flex-direction: row;
+          & h2,
+          h3 {
+            text-orientation: upright;
+            writing-mode: initial;
+            transform: none;
+            letter-spacing: 1.1px;
+          }
+        }
+      }
+    }
 
-      & hgroup {
-        color: var(--color-theme-foreground);
-        font-size: clamp(1.5rem, min(7dvh, 3dvw), 2rem);
+    &.isOpen {
+      & .layoutNav {
+        position: absolute;
+        left: 0;
+        top: 0;
 
         & h3 {
-          display: block;
+          display: none;
         }
       }
     }
@@ -53,20 +87,6 @@
   align-items: center;
   transition: background-color 0.2s ease-out;
   transition-property: background-color, color;
-
-  & .hamburger {
-    /* cursor: pointer;
-    border-radius: 8px;
-    width: 37px;
-    height: 37px;
-    background-color: var(--color-white); */
-    /* display: flex; */
-    /* flex-flow: column nowrap;
-    gap: 2px;
-    padding: 6px 6px;
-    justify-content: center;
-    align-items: stretch; */
-  }
 
   & hgroup {
     display: flex;
