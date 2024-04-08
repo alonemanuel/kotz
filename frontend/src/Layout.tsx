@@ -3,6 +3,7 @@ import KotzFab from "./KotzFab";
 import KotzIcon from "./components/KotzIcon2";
 import styles from "./styles/Layout.module.css";
 import SunIcon from "./images/other/sun-solid-green.svg";
+import KotzLogotype from "./images/kotz_logotype.svg";
 
 import MoonIcon from "./images/other/moon-solid-green.svg";
 
