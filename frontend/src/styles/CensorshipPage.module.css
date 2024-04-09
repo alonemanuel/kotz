@@ -513,7 +513,7 @@
     }
 
     & .bodyImage {
-      max-width: 50%;
+      max-width: calc(100% + 2em);
       margin: 2em 0;
       margin-inline-start: -2em;
 
@@ -678,10 +678,6 @@
       & > main {
         max-width: 70ch;
         padding-left: 13vw;
-
-        & .bodyImage {
-          max-width: 90%;
-        }
       }
     }
   }
