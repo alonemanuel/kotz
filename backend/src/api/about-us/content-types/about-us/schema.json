@@ -39,6 +39,9 @@
     },
     "fonts": {
       "type": "blocks"
+    },
+    "copyright_tag": {
+      "type": "text"
     }
   }
 }

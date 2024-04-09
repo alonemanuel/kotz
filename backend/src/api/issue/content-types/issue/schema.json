@@ -33,6 +33,24 @@
     },
     "time": {
       "type": "string"
+    },
+    "inner_image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "kotz_vector": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "has_preview": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

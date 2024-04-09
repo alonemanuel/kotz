@@ -805,6 +805,7 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
     >;
     credit_tagline: Attribute.Text;
     fonts: Attribute.Blocks;
+    copyright_tag: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -876,6 +877,9 @@ export interface ApiIssueIssue extends Schema.CollectionType {
     is_published: Attribute.Boolean & Attribute.DefaultTo<false>;
     about: Attribute.Text;
     time: Attribute.String;
+    inner_image: Attribute.Media;
+    kotz_vector: Attribute.Media;
+    has_preview: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
