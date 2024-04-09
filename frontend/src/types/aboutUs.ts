@@ -8,4 +8,5 @@ export interface AboutUs {
   teams: any[];
   credit_tagline: string;
   fonts: ContentBlock[];
+  copyright_tag?: string;
 }

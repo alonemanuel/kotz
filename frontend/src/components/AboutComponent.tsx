@@ -90,6 +90,12 @@ const AboutComponent = () => {
                 </React.Fragment>
               ))}
             </span>
+            {about.copyright_tag && (
+              <>
+                <span>—</span>
+                <span>{about.copyright_tag}</span>
+              </>
+            )}
           </div>
         </div>
       </div>
