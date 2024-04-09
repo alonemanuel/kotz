@@ -46,14 +46,14 @@ const IssuesComponent = () => {
         <div
           key={index}
           className={`${styles.gridItem} ${
-            !issue.is_published ? styles.unpublished : ``
+            !issue.is_published ? styles.unpublished : styles.published
           }`}
           onClick={() => issue.is_published && handleBoxClick(issue.path)}
         >
           <div className={styles.imgContainer}>
             <img src={kotsimages[index]} alt={issue.name} />
           </div>
-          {issue.is_published && (
+          {issue.has_preview && (
             <div className={styles.details}>
               <hgroup>
                 <div className={styles.issueNumber}>

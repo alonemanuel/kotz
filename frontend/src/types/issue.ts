@@ -8,4 +8,5 @@ export interface Issue {
   time: string;
   path: string;
   is_published: boolean;
+  has_preview: boolean;
 }
