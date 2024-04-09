@@ -87,10 +87,10 @@ const ArticleContent: React.FC<{
   ) => {
     const tag = `h${level}`;
     return (
-      <div className={styles.interviewQuestion} key={index}>
+      <React.Fragment key={index}>
         {type === "interview" && <div className={styles.h1Spacer} />}
         {React.createElement(tag, null, block?.children?.[0].text)}
-      </div>
+      </React.Fragment>
     );
     // if (type === "interview") {
     // } else {
