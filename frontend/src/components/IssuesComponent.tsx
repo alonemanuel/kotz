@@ -46,7 +46,7 @@ const IssuesComponent = () => {
         <div
           key={index}
           className={`${styles.gridItem} ${
-            !issue.is_published ? styles.unpublished : ``
+            !issue.is_published ? styles.unpublished : styles.published
           }`}
           onClick={() => issue.is_published && handleBoxClick(issue.path)}
         >
