@@ -53,7 +53,7 @@ const IssuesComponent = () => {
           <div className={styles.imgContainer}>
             <img src={kotsimages[index]} alt={issue.name} />
           </div>
-          {issue.is_published && (
+          {issue.has_preview && (
             <div className={styles.details}>
               <hgroup>
                 <div className={styles.issueNumber}>
