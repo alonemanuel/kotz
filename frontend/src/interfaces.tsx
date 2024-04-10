@@ -14,7 +14,7 @@ export interface ArticleAttribute {
   debate: any;
   poll: any;
   long_author_about: ContentBlock[];
-  author_image: any;
+  author_img: any;
 }
 
 export interface Article {

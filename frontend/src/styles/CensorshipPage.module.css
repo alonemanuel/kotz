@@ -653,10 +653,27 @@
     font-family: var(--ff-narkis-yair);
     font-size: 1.4rem;
 
-    & > .authorAbout {
-      & > h1 {
-        font-family: inherit;
-        font-weight: 700;
+    & > main {
+      display: flex;
+      flex-flow: row nowrap;
+      gap: 1em;
+
+      & > .imageContainer {
+        flex: 1;
+
+        & > img {
+          border-radius: 50%;
+        }
+      }
+
+      & > .textBody {
+        display: flex;
+        flex-flow: column nowrap;
+        flex: 4;
+        & > h1 {
+          font-family: inherit;
+          font-weight: 700;
+        }
       }
     }
   }
@@ -692,6 +709,18 @@
       & > main {
         max-width: 70ch;
         padding-left: 13vw;
+      }
+    }
+
+    & footer {
+      & > main {
+        flex-direction: column;
+
+        & .imageContainer {
+          & > img {
+            max-width: 30%;
+          }
+        }
       }
     }
   }

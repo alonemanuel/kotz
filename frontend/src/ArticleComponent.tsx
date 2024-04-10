@@ -109,12 +109,23 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
       {attr.long_author_about && (
         <footer>
           <hr />
-          <div className={styles.authorAbout}>
-            {attr.author && <h1>{attr.author}</h1>}
-            {attr.long_author_about && (
-              <JsonBlocksContent content={attr.long_author_about} />
+          <main>
+            {attr.author_img && (
+              <div className={styles.imageContainer}>
+
+              <img
+                src={attr.author_img?.data?.attributes.url}
+                alt={attr.author}
+                />
+                </div>
             )}
-          </div>
+            <div className={styles.textBody}>
+              {attr.author && <h1>{attr.author}</h1>}
+              {attr.long_author_about && (
+                <JsonBlocksContent content={attr.long_author_about} />
+              )}
+            </div>
+          </main>
         </footer>
       )}
     </article>
