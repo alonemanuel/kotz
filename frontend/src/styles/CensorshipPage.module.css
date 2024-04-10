@@ -653,6 +653,12 @@
     font-family: var(--ff-narkis-yair);
     font-size: 1.4rem;
 
+    & > .authorAbout {
+      & > h1 {
+        font-family: inherit;
+        font-weight: 700;
+      }
+    }
   }
 }
 /* Desktop */
