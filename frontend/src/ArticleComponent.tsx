@@ -106,12 +106,13 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
           }
         }
       })()}
-      <footer>
-        <hr />
-        <JsonBlocksContent content={attr.long_author_about}/>
-      </footer>
+      {attr.long_author_about && (
+        <footer>
+          <hr />
+          <JsonBlocksContent content={attr.long_author_about} />
+        </footer>
+      )}
     </article>
-
   );
 };
 
