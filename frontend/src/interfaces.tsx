@@ -13,6 +13,8 @@ export interface ArticleAttribute {
   type: string;
   debate: any;
   poll: any;
+  long_author_about: ContentBlock[];
+  author_img: any;
 }
 
 export interface Article {

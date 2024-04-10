@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as C from "../constants";
 import LoadingComponent from "./LoadingComponent";
 import { AboutUs } from "../types/aboutUs";
-import ArticleContent from "../ArticleContent";
+import JsonBlocksContent from "../JsonBlocksContent";
 import JsonBlocks from "./json_block/JsonBlocks";
 import { Issue } from "../types/issue";
 import { useNavigate } from "react-router-dom";
@@ -68,7 +68,7 @@ const IssuesComponent = () => {
               </hgroup>
               <div className={styles.about}>{issue.about}</div>
               <div className={styles.guests}>
-                <JsonBlocks content={issue.guests} />
+                <JsonBlocksContent content={issue.guests} />
               </div>
             </div>
           )}

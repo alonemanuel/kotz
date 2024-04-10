@@ -5,7 +5,7 @@ import { Article, Term } from "../interfaces";
 
 import * as C from "../constants";
 
-import ArticleContent from "../ArticleContent";
+import JsonBlocksContent from "../JsonBlocksContent";
 import ArticleComponent from "../ArticleComponent";
 import { useOpenArticle } from "../OpenArticleContext";
 import userEvent from "@testing-library/user-event";

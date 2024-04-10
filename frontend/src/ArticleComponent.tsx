@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ArticleContent from "./ArticleContent";
+import JsonBlocksContent from "./JsonBlocksContent";
 import { Article, Term } from "./interfaces";
 import * as C from "./constants";
 import styles from "./styles/CensorshipPage.module.css";
@@ -64,42 +64,6 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
     }
   }, [attr.title]); // Dependency array ensures this runs only if attr.title changes
 
-  const getArticleTitle = (titleStr: string) => {
-    // Decide on how many special chars to change
-    const CHANGE_FACTOR = 0.4;
-
-    // Split the title string into an array of characters
-    const chars = [...titleStr.split("")];
-    // Calculate the number of characters to wrap as 10% of the total
-    const wrapCount = Math.floor(chars.length * CHANGE_FACTOR);
-    // Create an array to keep track of indices that have been wrapped
-    let wrappedIndices: number[] = [];
-
-    // While loop to randomly select characters to wrap
-    while (wrappedIndices.length < wrapCount) {
-      const randomIndex = Math.floor(Math.random() * chars.length);
-      // If the character at randomIndex hasn't been wrapped yet, wrap it
-      if (!wrappedIndices.includes(randomIndex) && chars[randomIndex] !== " ") {
-        chars[
-          randomIndex
-        ] = `<span class=${styles.altGlyph}>${chars[randomIndex]}</span>`;
-        wrappedIndices.push(randomIndex);
-      }
-    }
-
-    // Join the characters (now including span tags for some) back into a string
-    const wrappedTitle = chars.join("");
-
-    // Render the wrappedTitle string as HTML inside the <h1> tag using dangerouslySetInnerHTML
-    // This is necessary because the string includes HTML markup
-    return (
-      <h1
-        className={styles.title}
-        dangerouslySetInnerHTML={{ __html: wrappedTitle }}
-      ></h1>
-    );
-  };
-
   return (
     <article className={classType}>
       <header>
@@ -142,6 +106,28 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
           }
         }
       })()}
+      {attr.long_author_about && (
+        <footer>
+          <hr />
+          <main>
+            {attr.author_img && (
+              <div className={styles.imageContainer}>
+
+              <img
+                src={attr.author_img?.data?.attributes.url}
+                alt={attr.author}
+                />
+                </div>
+            )}
+            <div className={styles.textBody}>
+              {attr.author && <h1>{attr.author}</h1>}
+              {attr.long_author_about && (
+                <JsonBlocksContent content={attr.long_author_about} />
+              )}
+            </div>
+          </main>
+        </footer>
+      )}
     </article>
   );
 };
