@@ -5,7 +5,7 @@ import ItalicText from "./ItalicText";
 import { ContentBlock, ContentBlockChild } from "./interfaces";
 import ArticleBodyImage from "./ArticleBodyImage";
 import styles from "./styles/CensorshipPage.module.css";
-import ArticleContent from "./ArticleContent";
+import JsonBlocksContent from "./JsonBlocksContent";
 import { useOpenArticle } from "./OpenArticleContext";
 
 const PollContent: React.FC<{ content?: any; cover?: any }> = ({

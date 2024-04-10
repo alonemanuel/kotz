@@ -5,7 +5,7 @@ import ItalicText from "./ItalicText";
 import { ContentBlock, ContentBlockChild } from "./interfaces";
 import ArticleBodyImage from "./ArticleBodyImage";
 import styles from "./styles/CensorshipPage.module.css";
-import ArticleContent from "./ArticleContent";
+import JsonBlocksContent from "./JsonBlocksContent";
 
 const DebateContent: React.FC<{ content?: any[] }> = ({ content }) => {
   const [activeDebate, setActiveDebate] = useState<number>(0);
@@ -46,7 +46,7 @@ const DebateContent: React.FC<{ content?: any[] }> = ({ content }) => {
                   {content?.lead}
                 </div>
               </div>
-              <ArticleContent content={content?.body} />
+              <JsonBlocksContent content={content?.body} />
             </main>
           </div>
         ))}

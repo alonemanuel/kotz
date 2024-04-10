@@ -8,7 +8,7 @@ import styles from "./styles/CensorshipPage.module.css";
 import UnderlineText from "./UnderlineText";
 import SongContent from "./SongContent";
 
-const ArticleContent: React.FC<{
+const JsonBlocksContent: React.FC<{
   content?: ContentBlock[];
   terms?: any[];
   song?: any[];
@@ -71,7 +71,7 @@ const ArticleContent: React.FC<{
               .map((term: any, termIndex: number) => (
                 <div key={termIndex} className={styles.term}>
                   <h2>{term?.title}</h2>
-                  <ArticleContent content={term?.body} />
+                  <JsonBlocksContent content={term?.body} />
                 </div>
               ))}
           </section>
@@ -146,4 +146,4 @@ const ArticleContent: React.FC<{
   );
 };
 
-export default ArticleContent;
+export default JsonBlocksContent;

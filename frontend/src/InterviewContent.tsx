@@ -5,7 +5,7 @@ import ItalicText from "./ItalicText";
 import { ContentBlock, ContentBlockChild } from "./interfaces";
 import ArticleBodyImage from "./ArticleBodyImage";
 import styles from "./styles/CensorshipPage.module.css";
-import ArticleContent from "./ArticleContent";
+import JsonBlocksContent from "./JsonBlocksContent";
 
 const InterviewContent: React.FC<{ content: ContentBlock[]; terms: any[] }> = ({
   content,
@@ -13,7 +13,7 @@ const InterviewContent: React.FC<{ content: ContentBlock[]; terms: any[] }> = ({
 }) => {
   return (
     <main className={styles.interview}>
-      <ArticleContent content={content} terms={terms} type={'interview'}/>
+      <JsonBlocksContent content={content} terms={terms} type={'interview'}/>
     </main>
   );
 };
