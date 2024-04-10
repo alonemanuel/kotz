@@ -949,6 +949,7 @@ export interface ApiItemArticleItemArticle extends Schema.CollectionType {
       'api::poll.poll'
     >;
     song: Attribute.Component<'shared.song', true>;
+    long_author_about: Attribute.Blocks;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

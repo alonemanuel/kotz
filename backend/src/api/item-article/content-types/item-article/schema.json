@@ -127,6 +127,9 @@
       "type": "component",
       "repeatable": true,
       "component": "shared.song"
+    },
+    "long_author_about": {
+      "type": "blocks"
     }
   }
 }

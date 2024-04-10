@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-04-09T14:59:21.115Z"
+    "x-generation-date": "2024-04-10T09:48:48.957Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -3037,7 +3037,8 @@
                 "items": {
                   "$ref": "#/components/schemas/SharedSongComponent"
                 }
-              }
+              },
+              "long_author_about": {}
             }
           }
         }
@@ -5199,6 +5200,7 @@
               "$ref": "#/components/schemas/SharedSongComponent"
             }
           },
+          "long_author_about": {},
           "createdAt": {
             "type": "string",
             "format": "date-time"
