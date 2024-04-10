@@ -52,6 +52,7 @@ svg {
     justify-content: center;
     flex-shrink: 0;
     z-index: 2;
+    padding-block-end: 4em;
 
     aside {
       background-color: #4b875c;
