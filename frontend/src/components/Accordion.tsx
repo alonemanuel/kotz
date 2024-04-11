@@ -94,13 +94,6 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
   const textContentWidths = useRef<(number | null)[]>([]);
 
   const { isOpen, setOpen } = useOpenArticle();
-  // const { setOpen } = useOpenArticle();
-
-  // const addScrollEventListener = (panelRef: HTMLDivElement) => {
-  //   panelRef.addEventListener("scroll", () => {
-  //     panelRef.classList.toggle("scrolled", panelRef.scrollTop > 300);
-  //   });
-  // };
 
   const scrollToTop = () => {
     if (activeIndex) {
@@ -109,20 +102,6 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
   };
 
   const [isScrolled, setIsScrolled] = useState(false);
-  const ref = useRef(null);
-
-  const handleScroll = () => {
-    let scrolled: any = false;
-    if (
-      activeIndex &&
-      panelRefs &&
-      panelRefs.current &&
-      panelRefs.current[activeIndex]
-    ) {
-      scrolled = panelRefs.current[activeIndex]!.scrollTop > 300;
-    }
-    setIsScrolled(scrolled);
-  };
 
   useEffect(() => {
     // This function now takes a panel as an argument to add the scroll listener directly to it
@@ -168,6 +147,20 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
     }
   };
 
+  const potentiallyHideKotzIcon = (index: number) => {
+    const ARTICLES_HIDDEN_BY_KOTZ_ICON = 2;
+    if (index >= articles.length - ARTICLES_HIDDEN_BY_KOTZ_ICON) {
+      // Make kotz icon opacity 0 when clicking the last two articles
+      document.documentElement.setAttribute("kotz-icon-is-hiding", "true");
+    } else {
+      document.documentElement.setAttribute("kotz-icon-is-hiding", "false");
+    }
+  };
+
+  const showKotzIcon = () => {
+    document.documentElement.setAttribute("kotz-icon-is-hiding", "false");
+  };
+
   useEffect(() => {
     if (!isOpen) {
       setActiveIndex(null);
@@ -186,24 +179,6 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
           ?.clientWidth ?? 0
     );
     textContentWidths.current = widths;
-
-    // Attach scroll event listeners to each panel that is currently active/open
-    // panelRefs.current.forEach((panel, index) => {
-    //   if (panel && activeIndex === index) {
-    //     panel.addEventListener("scroll", () => addScrollEventListener(panel));
-    //   }
-    // });
-
-    // // Cleanup function to remove scroll event listeners
-    // return () => {
-    //   panelRefs.current.forEach((panel, index) => {
-    //     if (panel && activeIndex === index) {
-    //       panel.removeEventListener("scroll", () =>
-    //         addScrollEventListener(panel)
-    //       );
-    //   //     }
-    //   //   });
-    //   };
   }, [articles, isOpen]); // Rerun effect when articles changes
 
   return (
@@ -214,6 +189,7 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
     >
       {articles.map((article, index) => {
         const attr = article.attributes;
+
         return (
           <React.Fragment key={article.id}>
             <div
@@ -235,6 +211,9 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
                 activeIndex === index ? styles.active : ""
               } ${isOpen ? styles.articleIsOpen : styles.articleIsNotOpen}`}
               onClick={() => toggleAccordion(index)}
+              onMouseEnter={() => potentiallyHideKotzIcon(index)}
+              onTouchStart={() => potentiallyHideKotzIcon(index)}
+              onMouseLeave={() => showKotzIcon()}
               style={
                 {
                   "--outside-img-margin-top": `-${textContentHeights.current[index]}px`,
