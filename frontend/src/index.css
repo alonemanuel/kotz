@@ -34,11 +34,18 @@
 
   --color-theme-background: var(--color-dark-black);
   --color-theme-foreground: var(--color-white);
+
+  --kotz-icon-opacity: 1;
+
 }
 
 [data-theme='light'] {
   --color-theme-background: var(--color-white);
   --color-theme-foreground: var(--color-dark-black);
+}
+
+[kotz-icon-is-hiding='true'] {
+  --kotz-icon-opacity: 0.05;
 }
 
 *,
