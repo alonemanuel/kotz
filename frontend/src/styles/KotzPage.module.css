@@ -249,6 +249,12 @@
 
           & > .innerImage {
             clip-path: var(--vector-path);
+            opacity: 0;
+            position: absolute;
+
+            :hover > & {
+              opacity: 1;
+            }
           }
         }
 

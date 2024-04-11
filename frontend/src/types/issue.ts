@@ -11,5 +11,5 @@ export interface Issue {
   has_preview: boolean;
   kotz_vector: any;
   inner_image: any;
-  svg_path: any;
+  svg_path: string;
 }
