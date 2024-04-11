@@ -35,22 +35,27 @@
       "type": "string"
     },
     "inner_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "kotz_vector": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "has_preview": {
       "type": "boolean",
       "default": false
+    },
+    "svg_path": {
+      "type": "text"
     }
   }
 }
