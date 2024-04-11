@@ -94,13 +94,6 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
   const textContentWidths = useRef<(number | null)[]>([]);
 
   const { isOpen, setOpen } = useOpenArticle();
-  // const { setOpen } = useOpenArticle();
-
-  // const addScrollEventListener = (panelRef: HTMLDivElement) => {
-  //   panelRef.addEventListener("scroll", () => {
-  //     panelRef.classList.toggle("scrolled", panelRef.scrollTop > 300);
-  //   });
-  // };
 
   const scrollToTop = () => {
     if (activeIndex) {
@@ -186,24 +179,6 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
           ?.clientWidth ?? 0
     );
     textContentWidths.current = widths;
-
-    // Attach scroll event listeners to each panel that is currently active/open
-    // panelRefs.current.forEach((panel, index) => {
-    //   if (panel && activeIndex === index) {
-    //     panel.addEventListener("scroll", () => addScrollEventListener(panel));
-    //   }
-    // });
-
-    // // Cleanup function to remove scroll event listeners
-    // return () => {
-    //   panelRefs.current.forEach((panel, index) => {
-    //     if (panel && activeIndex === index) {
-    //       panel.removeEventListener("scroll", () =>
-    //         addScrollEventListener(panel)
-    //       );
-    //   //     }
-    //   //   });
-    //   };
   }, [articles, isOpen]); // Rerun effect when articles changes
 
   return (
