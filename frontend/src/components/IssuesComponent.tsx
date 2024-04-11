@@ -21,14 +21,23 @@ const IssuesComponent = () => {
   const [issues, setIssues] = useState<Issue[]>([]);
 
   const navigate = useNavigate();
-  const kotsimages = [kotzImgWhite, kotzImg2, kotzImg3, kotzImg4, kotzImg5, kotzImg7, kotzImg8, kotzImg9];
+  const kotsimages = [
+    kotzImgWhite,
+    kotzImg2,
+    kotzImg3,
+    kotzImg4,
+    kotzImg5,
+    kotzImg7,
+    kotzImg8,
+    kotzImg9,
+  ];
 
   const handleBoxClick = (path?: string) => {
     if (path) navigate(`/${path}`);
   };
 
   useEffect(() => {
-    fetch(`${C.API_BASE_URL}${C.ISSUES_ENDPOINT}?sort[0]=number:asc`)
+    fetch(`${C.API_BASE_URL}${C.ISSUES_ENDPOINT}?${C.API_POPULATE_DEEP}&sort[0]=number:asc`)
       .then((response) => response.json())
       .then((data) => {
         setIssues(data.data.map((issue: any) => issue.attributes));
@@ -51,7 +60,14 @@ const IssuesComponent = () => {
           onClick={() => issue.is_published && handleBoxClick(issue.path)}
         >
           <div className={styles.imgContainer}>
-            <img src={kotsimages[index]} alt={issue.name} />
+            {issue?.kotz_vector?.data ? (
+              <img
+                src={issue?.kotz_vector?.data?.attributes.url}
+                alt={issue.name}
+              />
+            ) : (
+              <img src={kotsimages[index]} alt={issue.name} />
+            )}
           </div>
           {issue.has_preview && (
             <div className={styles.details}>

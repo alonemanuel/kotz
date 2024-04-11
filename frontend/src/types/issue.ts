@@ -9,4 +9,6 @@ export interface Issue {
   path: string;
   is_published: boolean;
   has_preview: boolean;
+  kotz_vector: any;
+  inner_image: any;
 }
