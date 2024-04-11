@@ -37,6 +37,7 @@ svg {
 
 .panel.active {
   max-height: 100vh; /* Adjust as needed for your content */
+  max-height: 100dvh;
   max-width: 100%;
   overflow-y: scroll;
 }
@@ -47,16 +48,16 @@ svg {
   flex-flow: column nowrap;
   align-items: flex-start;
 
-  section.articleWrapper {
+  & section.articleWrapper {
     display: flex;
     flex-flow: column nowrap;
     align-items: start;
     justify-content: center;
     flex-shrink: 0;
     z-index: 2;
-    padding-block-end: 8em;
+    margin-block-end: 8em;
 
-    aside {
+    & aside {
       background-color: #4b875c;
       display: flex;
       flex-flow: column nowrap;
@@ -65,26 +66,26 @@ svg {
       line-height: 1em;
       margin-inline: -18px;
 
-      h1 {
+      & h1 {
         font: bold 1em/1em "Hadassa";
       }
-      main {
+      & main {
         display: flex;
         flex-flow: column nowrap;
         gap: 1em;
         padding-inline-start: 1em;
-        article {
-          h1 {
+        & article {
+          & h1 {
             font: bold 1em/1em "Hadassa";
             display: inline-block;
             margin-inline-end: 1em;
           }
 
-          p {
+          & p {
             display: inline;
             font: normal 0.8em "DavidVC";
 
-            a {
+            & a {
               font: unset;
               color: unset;
               text-decoration: underline 2px;
