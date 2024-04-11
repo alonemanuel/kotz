@@ -246,6 +246,10 @@
           & > img {
             min-height: 200px;
           }
+
+          & > .innerImage {
+            clip-path: var(--vector-path);
+          }
         }
 
         & p {

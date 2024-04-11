@@ -37,7 +37,9 @@ const IssuesComponent = () => {
   };
 
   useEffect(() => {
-    fetch(`${C.API_BASE_URL}${C.ISSUES_ENDPOINT}?${C.API_POPULATE_DEEP}&sort[0]=number:asc`)
+    fetch(
+      `${C.API_BASE_URL}${C.ISSUES_ENDPOINT}?${C.API_POPULATE_DEEP}&sort[0]=number:asc`
+    )
       .then((response) => response.json())
       .then((data) => {
         setIssues(data.data.map((issue: any) => issue.attributes));
@@ -61,10 +63,22 @@ const IssuesComponent = () => {
         >
           <div className={styles.imgContainer}>
             {issue?.kotz_vector?.data ? (
-              <img
-                src={issue?.kotz_vector?.data?.attributes.url}
-                alt={issue.name}
-              />
+              <React.Fragment>
+                <img
+                  src={issue?.kotz_vector?.data?.attributes.url}
+                  alt={issue.name}
+                />
+                <img
+                  className={styles.innerImage}
+                  src={issue?.inner_image?.data?.attributes.url}
+                  alt={issue.name}
+                  style={
+                    {
+                      "--vector-path": `path('${issue.svg_path}')`,
+                    } as React.CSSProperties
+                  }
+                />
+              </React.Fragment>
             ) : (
               <img src={kotsimages[index]} alt={issue.name} />
             )}
