@@ -46,11 +46,8 @@
     }
 
     &.isOpen {
+      flex-direction: row-reverse;
       & .layoutNav {
-        position: absolute;
-        left: 0;
-        top: 0;
-
         & h3 {
           display: none;
         }
