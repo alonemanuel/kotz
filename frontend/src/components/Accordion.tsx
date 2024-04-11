@@ -152,6 +152,8 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
     if (index >= articles.length - ARTICLES_HIDDEN_BY_KOTZ_ICON) {
       // Make kotz icon opacity 0 when clicking the last two articles
       document.documentElement.setAttribute("kotz-icon-is-hiding", "true");
+    } else {
+      document.documentElement.setAttribute("kotz-icon-is-hiding", "false");
     }
   };
 
@@ -210,6 +212,7 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
               } ${isOpen ? styles.articleIsOpen : styles.articleIsNotOpen}`}
               onClick={() => toggleAccordion(index)}
               onMouseEnter={() => potentiallyHideKotzIcon(index)}
+              onTouchStart={() => potentiallyHideKotzIcon(index)}
               onMouseLeave={() => showKotzIcon()}
               style={
                 {
