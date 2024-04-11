@@ -49,6 +49,7 @@ svg {
   align-items: flex-start;
 
   & section.articleWrapper {
+    max-width: 100%;
     display: flex;
     flex-flow: column nowrap;
     align-items: start;
@@ -321,6 +322,7 @@ svg {
         flex-flow: column nowrap;
         font-size: var(--fs-400);
         max-width: 21ch;
+        min-width: 15ch;
         padding-left: 3px;
       }
 
@@ -480,6 +482,19 @@ svg {
           }
         }
       }
+    }
+  }
+}
+
+/* Landscape and small */
+@media (min-aspect-ratio: 1) and (max-width: 1000px) {
+  .panel.active {
+    max-width: none;
+  }
+  
+  .accordion {
+    .articleIsOpen:not(.active)& {
+      max-width: 0;
     }
   }
 }

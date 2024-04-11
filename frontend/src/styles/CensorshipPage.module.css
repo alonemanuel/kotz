@@ -1,6 +1,6 @@
 /* FakePage.module.css */
 .censorshipPage {
-  width: 100%;
+  overflow: hidden;
   height: 100%;
   display: flex;
   flex-flow: column nowrap;
@@ -243,6 +243,7 @@
   }
 
   & article {
+    max-width: 100%;
     padding: 2em;
     color: var(--color-theme-foreground);
     display: flex;
