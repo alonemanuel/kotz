@@ -29,6 +29,7 @@ svg {
   color: var(--color-theme-foreground);
   font-size: 20px;
   max-height: 0;
+  max-width: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
   transition-property: background-color, color, max-height, max-width, padding;
@@ -36,6 +37,7 @@ svg {
 
 .panel.active {
   max-height: 100vh; /* Adjust as needed for your content */
+  max-width: 100%;
   overflow-y: scroll;
 }
 
@@ -52,7 +54,7 @@ svg {
     justify-content: center;
     flex-shrink: 0;
     z-index: 2;
-    padding-block-end: 4em;
+    padding-block-end: 8em;
 
     aside {
       background-color: #4b875c;
@@ -261,11 +263,11 @@ svg {
         height: 100%;
         text-align: end;
         justify-content: end;
-        max-width: 90%;
+        /* max-width: 90%; */
         flex-wrap: wrap;
 
         .articleIsOpen & {
-          max-width: 85%;
+          /* max-width: 85%; */
           text-align: start;
           justify-content: start;
         }
