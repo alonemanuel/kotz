@@ -51,6 +51,19 @@ const IssuesComponent = () => {
     return <LoadingComponent />;
   }
 
+  const svgPathToNode = (path: string) => {
+    return (
+      <svg
+        className={styles.innerImageVector}
+        fill="transparent"
+        stroke="whitesmoke"
+        viewBox="0 0 126 90"
+      >
+        <path d={path} />
+      </svg>
+    );
+  };
+
   return (
     <div className={styles.issuesContainer}>
       {issues.map((issue, index) => (
@@ -64,16 +77,12 @@ const IssuesComponent = () => {
           <div className={styles.imgContainer}>
             {issue?.kotz_vector?.data ? (
               <React.Fragment>
-                <img
-                  src={issue?.kotz_vector?.data?.attributes.url}
-                  alt={issue.name}
-                />
-                <img
-                  className={styles.innerImage}
-                  src={issue?.inner_image?.data?.attributes.url}
-                  alt={issue.name}
+                {svgPathToNode(issue.svg_path)}
+                <div
+                  className={styles.innerImageRaster}
                   style={
                     {
+                      "background-image": `url(${issue?.inner_image?.data?.attributes.url})`,
                       "--vector-path": `path('${issue.svg_path}')`,
                     } as React.CSSProperties
                   }

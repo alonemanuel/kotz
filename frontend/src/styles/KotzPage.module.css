@@ -233,9 +233,11 @@
           transition: all 0.1s ease-out;
           display: flex;
           justify-content: center;
+          position: relative;
+
           .published & {
             &:hover {
-              scale: 1.1;
+              /* scale: 1.1; */
             }
 
             &:active {
@@ -243,14 +245,28 @@
             }
           }
 
-          & > img {
-            min-height: 200px;
+          & > * {
+            object-fit: fit;
+            transition: opacity 0.1s ease-out;
           }
 
-          & > .innerImage {
+          & > .innerImageVector {
+            position: absolute;
+            height: 100%;
+
+            :hover > & {
+              opacity: 0;
+            }
+          }
+
+          & > .innerImageRaster {
             clip-path: var(--vector-path);
             opacity: 0;
-            position: absolute;
+            width: 126px;
+            height: 90px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
 
             :hover > & {
               opacity: 1;
