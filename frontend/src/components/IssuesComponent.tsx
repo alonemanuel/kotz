@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as C from "../constants";
 import LoadingComponent from "./LoadingComponent";
 import { AboutUs } from "../types/aboutUs";
@@ -16,6 +16,32 @@ import kotzImg6 from "../images/kotz6.svg";
 import kotzImg7 from "../images/kotz7.svg";
 import kotzImg8 from "../images/kotz8.svg";
 import kotzImg9 from "../images/kotz9.svg";
+
+const SvgPathToNode = ({ path }: any) => {
+  const svgRef = useRef<SVGSVGElement>(null);
+  const [viewBox, setViewBox] = useState("0 0 0 0 ");
+
+  useEffect(() => {
+    if (svgRef.current) {
+      const bbox = svgRef.current.getBBox();
+      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+    }
+  }, [path]);
+
+  return (
+    <svg
+      ref={svgRef}
+      className={styles.innerImageVector}
+      fill="transparent"
+      stroke="whitesmoke"
+      // preserveAspectRatio="xMinYMin meet"
+      // viewBo`x="0 0 126 500"
+      viewBox={viewBox}
+    >
+      <path id="myPath" d={path} />
+    </svg>
+  );
+};
 
 const IssuesComponent = () => {
   const [issues, setIssues] = useState<Issue[]>([]);
@@ -51,19 +77,6 @@ const IssuesComponent = () => {
     return <LoadingComponent />;
   }
 
-  const svgPathToNode = (path: string) => {
-    return (
-      <svg
-        className={styles.innerImageVector}
-        fill="transparent"
-        stroke="whitesmoke"
-        viewBox="0 0 126 90"
-      >
-        <path d={path} />
-      </svg>
-    );
-  };
-
   return (
     <div className={styles.issuesContainer}>
       {issues.map((issue, index) => (
@@ -77,7 +90,7 @@ const IssuesComponent = () => {
           <div className={styles.imgContainer}>
             {issue?.kotz_vector?.data ? (
               <React.Fragment>
-                {svgPathToNode(issue.svg_path)}
+                <SvgPathToNode path={issue.svg_path} />
                 <div
                   className={styles.innerImageRaster}
                   style={
