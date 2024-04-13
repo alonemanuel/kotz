@@ -232,6 +232,23 @@
         & .imgSizer {
           display: flex;
           justify-content: center;
+          position: relative;
+
+          & > .prompt {
+            position: absolute;
+            font-size: 0.9rem;
+            font-family: var(--ff-narkis-yair);
+            opacity: 0;
+            margin: auto;
+            top: 45%;
+            left: 55%;
+            transform: translateX(-50%) translateY(-50%);
+            transition: opacity 0.1s ease-out;
+
+            :hover > & {
+              opacity: 1;
+            }
+          }
           & > .imgContainer {
             transition: all 0.1s ease-out;
             position: relative;
@@ -260,7 +277,7 @@
             }
 
             & .innerImageRaster {
-              clip-path: var(--vector-path);
+              /* clip-path: var(--vector-path); */
               position: absolute;
               top: 0;
               left: 0;

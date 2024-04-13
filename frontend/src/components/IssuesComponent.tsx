@@ -17,10 +17,11 @@ import kotzImg7 from "../images/kotz7.svg";
 import kotzImg8 from "../images/kotz8.svg";
 import kotzImg9 from "../images/kotz9.svg";
 
-const SvgPathToNode = ({ issue }: any) => {
+const SvgPathToNode = ({ issue, index }: any) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const [viewBox, setViewBox] = useState({ x: 0, y: 0, width: 0, height: 0 });
   const strokeWidth = 1;
+  const pathId = `svgClipPath${index}`;
 
   useEffect(() => {
     if (svgRef.current) {
@@ -46,19 +47,17 @@ const SvgPathToNode = ({ issue }: any) => {
       <svg
         className={styles.innerImageRaster}
         fill="transparent"
-        stroke="whitesmoke"
         viewBox={`${viewBox?.x} ${viewBox?.y} ${viewBox?.width} ${viewBox?.height}`}
       >
         <defs>
-          <clipPath id="svgPath">
+          <clipPath id={pathId}>
             <path d={issue.svg_path} />
           </clipPath>
         </defs>
         <image
           xlinkHref={issue?.inner_image?.data?.attributes.url}
-          y={-viewBox?.height / 2} // Centers the image horizontally
           width={`${viewBox?.width}px`}
-          style={{ clipPath: `url(#svgPath)` }}
+          style={{ clipPath: `url(#${pathId})` }}
         />
       </svg>
     </>
@@ -113,11 +112,12 @@ const IssuesComponent = () => {
             <div className={styles.imgSizer}>
               <div className={styles.imgContainer}>
                 {issue?.svg_path && issue?.inner_image ? (
-                  <SvgPathToNode issue={issue} />
+                  <SvgPathToNode issue={issue} index={index} />
                 ) : (
                   <img src={kotsimages[index]} alt={issue.name} />
                 )}
               </div>
+              <span className={styles.prompt}>אל הגיליון</span>
             </div>
             {issue.has_preview && (
               <div className={styles.details}>
