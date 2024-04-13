@@ -245,6 +245,7 @@
             transform: translateX(-50%) translateY(-50%);
             transition: opacity 0.1s ease-out;
             pointer-events: none;
+            display: none;
 
             :hover > & {
               opacity: 1;
