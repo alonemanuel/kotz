@@ -109,7 +109,7 @@ const IssuesComponent = () => {
             }`}
             onClick={() => issue.is_published && handleBoxClick(issue.path)}
           >
-            {issue?.svg_path ? (
+            {issue?.svg_path && issue?.inner_image ? (
               <React.Fragment>
                 <SvgPathToNode issue={issue} />
               </React.Fragment>
