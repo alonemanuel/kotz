@@ -42,14 +42,6 @@
         "images"
       ]
     },
-    "kotz_vector": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "has_preview": {
       "type": "boolean",
       "default": false

@@ -878,7 +878,6 @@ export interface ApiIssueIssue extends Schema.CollectionType {
     about: Attribute.Text;
     time: Attribute.String;
     inner_image: Attribute.Media;
-    kotz_vector: Attribute.Media;
     has_preview: Attribute.Boolean & Attribute.DefaultTo<false>;
     svg_path: Attribute.Text;
     createdAt: Attribute.DateTime;
