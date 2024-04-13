@@ -254,8 +254,7 @@
           & > .imgContainer {
             transition: all 0.1s ease-out;
             position: relative;
-            width: clamp(100px, 33vw, 200px);
-            /* width: 80%; */
+            width: clamp(100px, 33vw, 80%);
 
             .published & {
               &:hover {
@@ -383,11 +382,16 @@
   }
 }
 
+/* Landscape */
 @media (max-aspect-ratio: 1) {
   .kotzPage {
     flex-flow: column nowrap;
     overflow: hidden;
     gap: 2em;
+
+    & .imgSizer {
+      width: clamp(100px, 33vw, 200px);
+    }
 
     & > .sideInfo {
       max-height: unset;
