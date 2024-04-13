@@ -229,48 +229,48 @@
           }
         }
 
-        & > .imgContainer {
-          transition: all 0.1s ease-out;
-          position: relative;
+        & .imgSizer {
+          display: flex;
+          justify-content: center;
+          & > .imgContainer {
+            transition: all 0.1s ease-out;
+            position: relative;
 
-          .published & {
-            &:hover {
-              /* scale: 1.1; */
+            .published & {
+              &:hover {
+                /* scale: 1.1; */
+              }
+
+              &:active {
+                scale: 1.2;
+              }
             }
 
-            &:active {
-              scale: 1.2;
+            & > * {
+              transition: opacity 0.1s ease-out;
             }
-          }
 
-          & > * {
-            transition: opacity 0.1s ease-out;
-          }
+            & .innerImageVector {
+              :hover > & {
+                opacity: 0;
+              }
+            }
 
-          & .innerImageVector {
-            :hover > & {
+            & .innerImageRaster {
+              clip-path: var(--vector-path);
               opacity: 0;
-            }
-          }
+              height: 100%;
+              width: 100%;
+              position: absolute;
+              top: 0;
+              left: 0;
+              background-repeat: no-repeat;
+              background-position: center center;
+              background-size: cover;
 
-          & .innerImageRaster {
-            clip-path: var(--vector-path);
-            opacity: 0;
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            /* /* position: absolute; */
-            /* height: 100%; */
-            /* width: 126px;
-            height: 90px; */
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: cover;
-
-            :hover > & {
-              opacity: 1;
+              :hover > & {
+                opacity: 1;
+              }
             }
           }
         }
@@ -458,22 +458,19 @@
           flex-grow: 1;
           gap: 0.5em;
           justify-content: space-between;
-          /* width: 20ch; */
 
-          /* & > .imgContainer { */
-          /* width: min(34vw, 20vh); */
+          & .imgSizer {
+            & > .imgContainer {
+              position: relative;
 
-          & > div {
-            position: relative;
-
-            & > img {
-              min-height: unset;
-              flex-shrink: 1;
-              min-height: 80px;
-              min-width: 80px;
+              & > img {
+                min-height: unset;
+                flex-shrink: 1;
+                min-height: 80px;
+                min-width: 80px;
+              }
             }
           }
-          /* } */
 
           & > .details {
             & .gilayon {

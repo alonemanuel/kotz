@@ -41,8 +41,6 @@ const SvgPathToNode = ({ issue }: any) => {
         className={styles.innerImageVector}
         fill="transparent"
         stroke="whitesmoke"
-        width={viewBox?.width}
-        height={viewBox?.height}
         viewBox={`${viewBox?.x} ${viewBox?.y} ${viewBox?.width} ${viewBox?.height}`}
       >
         <path id="myPath" d={issue.svg_path} />
@@ -99,7 +97,6 @@ const IssuesComponent = () => {
   return (
     <div className={styles.issuesContainer}>
       {issues.map((issue, index) => {
-        // const { svg, dimensions } = SvgPathToNode(issue.svg_path); // Destructure to get SVG and dimensions
 
         return (
           <div
@@ -110,9 +107,9 @@ const IssuesComponent = () => {
             onClick={() => issue.is_published && handleBoxClick(issue.path)}
           >
             {issue?.svg_path && issue?.inner_image ? (
-              <React.Fragment>
+              <div className={styles.imgSizer}>
                 <SvgPathToNode issue={issue} />
-              </React.Fragment>
+              </div>
             ) : (
               <img src={kotsimages[index]} alt={issue.name} />
             )}
