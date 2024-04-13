@@ -29,13 +29,7 @@ const SvgPathToNode = ({ issue }: any) => {
   }, []);
 
   return (
-    <div
-      className={styles.imgContainer}
-      style={{
-        width: `${viewBox?.width}px`,
-        height: `${viewBox?.height}px`,
-      }}
-    >
+    <div className={styles.imgContainer}>
       <svg
         ref={svgRef}
         className={styles.innerImageVector}
@@ -45,17 +39,23 @@ const SvgPathToNode = ({ issue }: any) => {
       >
         <path id="myPath" d={issue.svg_path} />
       </svg>
-      <div
+      <svg
         className={styles.innerImageRaster}
-        style={
-          {
-            width: `${viewBox?.width}px`,
-            height: `${viewBox?.height}px`,
-            backgroundImage: `url(${issue?.inner_image?.data?.attributes.url})`,
-            "--vector-path": `path('${issue.svg_path}')`,
-          } as React.CSSProperties
-        }
-      ></div>
+        fill="transparent"
+        stroke="whitesmoke"
+        viewBox={`${viewBox?.x} ${viewBox?.y} ${viewBox?.width} ${viewBox?.height}`}
+      >
+        <defs>
+          <clipPath id="svgPath">
+            <path d={issue.svg_path} />
+          </clipPath>
+        </defs>
+        <image
+          xlinkHref={issue?.inner_image?.data?.attributes.url}
+          width={`${viewBox?.width}px`}
+          style={{ clipPath: `url(#svgPath)` }}
+        />
+      </svg>
     </div>
   );
 };
@@ -97,7 +97,6 @@ const IssuesComponent = () => {
   return (
     <div className={styles.issuesContainer}>
       {issues.map((issue, index) => {
-
         return (
           <div
             key={index}

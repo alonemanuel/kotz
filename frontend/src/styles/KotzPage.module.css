@@ -235,6 +235,7 @@
           & > .imgContainer {
             transition: all 0.1s ease-out;
             position: relative;
+            width: 80%;
 
             .published & {
               &:hover {
@@ -259,8 +260,6 @@
             & .innerImageRaster {
               clip-path: var(--vector-path);
               opacity: 0;
-              height: 100%;
-              width: 100%;
               position: absolute;
               top: 0;
               left: 0;
