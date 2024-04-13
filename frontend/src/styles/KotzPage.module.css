@@ -253,14 +253,14 @@
             }
 
             & .innerImageVector {
+              opacity: 0;
               :hover > & {
-                opacity: 0;
+                opacity: 1;
               }
             }
 
             & .innerImageRaster {
               clip-path: var(--vector-path);
-              opacity: 0;
               position: absolute;
               top: 0;
               left: 0;
@@ -269,7 +269,7 @@
               background-size: cover;
 
               :hover > & {
-                opacity: 1;
+                opacity: 0;
               }
             }
           }
