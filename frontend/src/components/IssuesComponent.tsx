@@ -52,6 +52,7 @@ const SvgPathToNode = ({ issue }: any) => {
         </defs>
         <image
           xlinkHref={issue?.inner_image?.data?.attributes.url}
+          y={(-viewBox?.height) / 2} // Centers the image horizontally
           width={`${viewBox?.width}px`}
           style={{ clipPath: `url(#svgPath)` }}
         />
