@@ -231,8 +231,6 @@
 
         & > .imgContainer {
           transition: all 0.1s ease-out;
-          display: flex;
-          justify-content: center;
           position: relative;
 
           .published & {
@@ -246,24 +244,27 @@
           }
 
           & > * {
-            object-fit: fit;
             transition: opacity 0.1s ease-out;
           }
 
-          & > .innerImageVector {
-            position: absolute;
-            height: 100%;
-
+          & .innerImageVector {
             :hover > & {
               opacity: 0;
             }
           }
 
-          & > .innerImageRaster {
+          & .innerImageRaster {
             clip-path: var(--vector-path);
             opacity: 0;
-            width: 126px;
-            height: 90px;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* /* position: absolute; */
+            /* height: 100%; */
+            /* width: 126px;
+            height: 90px; */
             background-repeat: no-repeat;
             background-position: center center;
             background-size: cover;
@@ -459,8 +460,11 @@
           justify-content: space-between;
           /* width: 20ch; */
 
-          & > .imgContainer {
-            width: min(34vw, 20vh);
+          /* & > .imgContainer { */
+          /* width: min(34vw, 20vh); */
+
+          & > div {
+            position: relative;
 
             & > img {
               min-height: unset;
@@ -469,6 +473,7 @@
               min-width: 80px;
             }
           }
+          /* } */
 
           & > .details {
             & .gilayon {

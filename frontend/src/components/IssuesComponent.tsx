@@ -17,29 +17,48 @@ import kotzImg7 from "../images/kotz7.svg";
 import kotzImg8 from "../images/kotz8.svg";
 import kotzImg9 from "../images/kotz9.svg";
 
-const SvgPathToNode = ({ path }: any) => {
+const SvgPathToNode = ({ issue }: any) => {
   const svgRef = useRef<SVGSVGElement>(null);
-  const [viewBox, setViewBox] = useState("0 0 0 0 ");
+  const [viewBox, setViewBox] = useState({ x: 0, y: 0, width: 0, height: 0 });
 
   useEffect(() => {
     if (svgRef.current) {
       const bbox = svgRef.current.getBBox();
-      setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+      setViewBox(bbox);
     }
-  }, [path]);
+  }, []);
 
   return (
-    <svg
-      ref={svgRef}
-      className={styles.innerImageVector}
-      fill="transparent"
-      stroke="whitesmoke"
-      // preserveAspectRatio="xMinYMin meet"
-      // viewBo`x="0 0 126 500"
-      viewBox={viewBox}
+    <div
+      className={styles.imgContainer}
+      style={{
+        width: `${viewBox?.width}px`,
+        height: `${viewBox?.height}px`,
+      }}
     >
-      <path id="myPath" d={path} />
-    </svg>
+      <svg
+        ref={svgRef}
+        className={styles.innerImageVector}
+        fill="transparent"
+        stroke="whitesmoke"
+        width={viewBox?.width}
+        height={viewBox?.height}
+        viewBox={`${viewBox?.x} ${viewBox?.y} ${viewBox?.width} ${viewBox?.height}`}
+      >
+        <path id="myPath" d={issue.svg_path} />
+      </svg>
+      <div
+        className={styles.innerImageRaster}
+        style={
+          {
+            width: `${viewBox?.width}px`,
+            height: `${viewBox?.height}px`,
+            backgroundImage: `url(${issue?.inner_image?.data?.attributes.url})`,
+            "--vector-path": `path('${issue.svg_path}')`,
+          } as React.CSSProperties
+        }
+      ></div>
+    </div>
   );
 };
 
@@ -79,53 +98,46 @@ const IssuesComponent = () => {
 
   return (
     <div className={styles.issuesContainer}>
-      {issues.map((issue, index) => (
-        <div
-          key={index}
-          className={`${styles.gridItem} ${
-            !issue.is_published ? styles.unpublished : styles.published
-          }`}
-          onClick={() => issue.is_published && handleBoxClick(issue.path)}
-        >
-          <div className={styles.imgContainer}>
-            {issue?.kotz_vector?.data ? (
+      {issues.map((issue, index) => {
+        // const { svg, dimensions } = SvgPathToNode(issue.svg_path); // Destructure to get SVG and dimensions
+
+        return (
+          <div
+            key={index}
+            className={`${styles.gridItem} ${
+              !issue.is_published ? styles.unpublished : styles.published
+            }`}
+            onClick={() => issue.is_published && handleBoxClick(issue.path)}
+          >
+            {issue?.svg_path ? (
               <React.Fragment>
-                <SvgPathToNode path={issue.svg_path} />
-                <div
-                  className={styles.innerImageRaster}
-                  style={
-                    {
-                      "background-image": `url(${issue?.inner_image?.data?.attributes.url})`,
-                      "--vector-path": `path('${issue.svg_path}')`,
-                    } as React.CSSProperties
-                  }
-                />
+                <SvgPathToNode issue={issue} />
               </React.Fragment>
             ) : (
               <img src={kotsimages[index]} alt={issue.name} />
             )}
-          </div>
-          {issue.has_preview && (
-            <div className={styles.details}>
-              <hgroup>
-                <div className={styles.issueNumber}>
-                  <h2>
-                    <span className={styles.gilayon}>גיליון</span>
-                    <span>{issue.number.toString().padStart(2, "0")}</span>
-                  </h2>
-                  <h2 className={styles.asterix}>*</h2>
-                  <h2>{issue.time}</h2>
+            {issue.has_preview && (
+              <div className={styles.details}>
+                <hgroup>
+                  <div className={styles.issueNumber}>
+                    <h2>
+                      <span className={styles.gilayon}>גיליון</span>
+                      <span>{issue.number.toString().padStart(2, "0")}</span>
+                    </h2>
+                    <h2 className={styles.asterix}>*</h2>
+                    <h2>{issue.time}</h2>
+                  </div>
+                  <h1>{issue.name}</h1>
+                </hgroup>
+                <div className={styles.about}>{issue.about}</div>
+                <div className={styles.guests}>
+                  <JsonBlocksContent content={issue.guests} />
                 </div>
-                <h1>{issue.name}</h1>
-              </hgroup>
-              <div className={styles.about}>{issue.about}</div>
-              <div className={styles.guests}>
-                <JsonBlocksContent content={issue.guests} />
               </div>
-            </div>
-          )}
-        </div>
-      ))}
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 };
