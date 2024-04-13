@@ -229,22 +229,67 @@
           }
         }
 
-        & > .imgContainer {
-          transition: all 0.1s ease-out;
+        & .imgSizer {
           display: flex;
           justify-content: center;
-          .published & {
-            &:hover {
-              scale: 1.1;
-            }
+          position: relative;
 
-            &:active {
-              scale: 1.2;
+          & > .prompt {
+            position: absolute;
+            font-size: 0.9rem;
+            font-family: var(--ff-narkis-yair);
+            opacity: 0;
+            margin: auto;
+            top: 45%;
+            left: 55%;
+            transform: translateX(-50%) translateY(-50%);
+            transition: opacity 0.1s ease-out;
+            pointer-events: none;
+            display: none;
+
+            :hover > & {
+              opacity: 1;
             }
           }
+          & > .imgContainer {
+            transition: all 0.1s ease-out;
+            position: relative;
+            width: clamp(100px, 33vw, 80%);
 
-          & > img {
-            min-height: 200px;
+            .published & {
+              &:hover {
+                /* scale: 1.1; */
+              }
+
+              &:active {
+                scale: 1.2;
+              }
+            }
+
+            & > * {
+              transition: opacity 0.1s ease-out;
+            }
+
+            & .innerImageVector {
+              opacity: 0;
+              :hover > & {
+                opacity: 1;
+              }
+            }
+
+            & .innerImageRaster {
+              /* clip-path: var(--vector-path); */
+              position: absolute;
+              top: 0;
+              left: 0;
+              background-repeat: no-repeat;
+              background-position: center center;
+              background-size: cover;
+
+              :hover > & {
+                opacity: 0;
+              }
+            }
           }
         }
 
@@ -337,11 +382,16 @@
   }
 }
 
+/* Landscape */
 @media (max-aspect-ratio: 1) {
   .kotzPage {
     flex-flow: column nowrap;
     overflow: hidden;
     gap: 2em;
+
+    & .imgSizer {
+      width: clamp(100px, 33vw, 200px);
+    }
 
     & > .sideInfo {
       max-height: unset;
@@ -431,16 +481,17 @@
           flex-grow: 1;
           gap: 0.5em;
           justify-content: space-between;
-          /* width: 20ch; */
 
-          & > .imgContainer {
-            width: min(34vw, 20vh);
+          & .imgSizer {
+            & > .imgContainer {
+              position: relative;
 
-            & > img {
-              min-height: unset;
-              flex-shrink: 1;
-              min-height: 80px;
-              min-width: 80px;
+              & > img {
+                min-height: unset;
+                flex-shrink: 1;
+                min-height: 80px;
+                min-width: 80px;
+              }
             }
           }
 
