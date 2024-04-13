@@ -235,7 +235,8 @@
           & > .imgContainer {
             transition: all 0.1s ease-out;
             position: relative;
-            width: 80%;
+            width: clamp(100px, 33vw, 200px);
+            /* width: 80%; */
 
             .published & {
               &:hover {
