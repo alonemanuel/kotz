@@ -20,6 +20,7 @@ import kotzImg9 from "../images/kotz9.svg";
 const SvgPathToNode = ({ issue }: any) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const [viewBox, setViewBox] = useState({ x: 0, y: 0, width: 0, height: 0 });
+  const strokeWidth = 1;
 
   useEffect(() => {
     if (svgRef.current) {
@@ -35,7 +36,10 @@ const SvgPathToNode = ({ issue }: any) => {
         className={styles.innerImageVector}
         fill="transparent"
         stroke="whitesmoke"
-        viewBox={`${viewBox?.x} ${viewBox?.y} ${viewBox?.width} ${viewBox?.height}`}
+        strokeWidth={strokeWidth}
+        viewBox={`${viewBox?.x - strokeWidth / 2} ${
+          viewBox?.y - strokeWidth / 2
+        } ${viewBox?.width + strokeWidth} ${viewBox?.height + strokeWidth}`}
       >
         <path id="myPath" d={issue.svg_path} />
       </svg>
@@ -52,7 +56,7 @@ const SvgPathToNode = ({ issue }: any) => {
         </defs>
         <image
           xlinkHref={issue?.inner_image?.data?.attributes.url}
-          y={(-viewBox?.height) / 2} // Centers the image horizontally
+          y={-viewBox?.height / 2} // Centers the image horizontally
           width={`${viewBox?.width}px`}
           style={{ clipPath: `url(#svgPath)` }}
         />
