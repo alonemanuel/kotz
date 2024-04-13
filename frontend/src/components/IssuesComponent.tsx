@@ -29,7 +29,7 @@ const SvgPathToNode = ({ issue }: any) => {
   }, []);
 
   return (
-    <div className={styles.imgContainer}>
+    <>
       <svg
         ref={svgRef}
         className={styles.innerImageVector}
@@ -56,7 +56,7 @@ const SvgPathToNode = ({ issue }: any) => {
           style={{ clipPath: `url(#svgPath)` }}
         />
       </svg>
-    </div>
+    </>
   );
 };
 
@@ -105,13 +105,15 @@ const IssuesComponent = () => {
             }`}
             onClick={() => issue.is_published && handleBoxClick(issue.path)}
           >
-            {issue?.svg_path && issue?.inner_image ? (
-              <div className={styles.imgSizer}>
-                <SvgPathToNode issue={issue} />
+            <div className={styles.imgSizer}>
+              <div className={styles.imgContainer}>
+                {issue?.svg_path && issue?.inner_image ? (
+                  <SvgPathToNode issue={issue} />
+                ) : (
+                  <img src={kotsimages[index]} alt={issue.name} />
+                )}
               </div>
-            ) : (
-              <img src={kotsimages[index]} alt={issue.name} />
-            )}
+            </div>
             {issue.has_preview && (
               <div className={styles.details}>
                 <hgroup>
