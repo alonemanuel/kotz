@@ -272,6 +272,7 @@
     }
 
     & main {
+      max-width: 78ch;
       & .debates {
         position: relative;
         display: flex;
