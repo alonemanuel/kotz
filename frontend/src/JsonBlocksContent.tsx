@@ -80,6 +80,28 @@ const JsonBlocksContent: React.FC<{
     );
   };
 
+  const renderQuestionnaire = (block: ContentBlock, index: number) => {
+    return (
+      <div key={index} className={`${styles.terms} ${styles.questionnaire}`}>
+        <div className={styles.borderContainer}>
+          <header>
+            <h1>שאלון</h1>
+          </header>
+          <section>
+            {terms
+              ?.map((term: any) => term.attributes)
+              .map((term: any, termIndex: number) => (
+                <div key={termIndex} className={styles.term}>
+                  <h2>{term?.title}</h2>
+                  <JsonBlocksContent content={term?.body} />
+                </div>
+              ))}
+          </section>
+        </div>
+      </div>
+    );
+  };
+
   const renderHeading = (
     block: ContentBlock,
     index: number,
@@ -119,6 +141,8 @@ const JsonBlocksContent: React.FC<{
             }
           case 4:
             return renderSong(index);
+          case 3:
+            return renderQuestionnaire(block, index);
           default:
             return renderHeading(block, index, block?.level);
         }

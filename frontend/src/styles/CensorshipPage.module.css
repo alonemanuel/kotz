@@ -192,6 +192,10 @@
     max-height: 40vh;
     width: 100%;
 
+    &.questionnaire {
+      background-color: rgb(113, 163, 255);
+    }
+
     & .borderContainer {
       display: flex;
       flex-flow: column nowrap;
