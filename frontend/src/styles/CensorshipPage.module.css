@@ -561,6 +561,7 @@
       letter-spacing: 1px;
 
       .interview & {
+        line-height: 1em;
         font-family: var(--ff-greta);
         font-style: italic;
         font-weight: 600;
