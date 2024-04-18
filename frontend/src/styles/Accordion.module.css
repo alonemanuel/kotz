@@ -388,10 +388,9 @@ svg {
 
   .panel.active {
     /* Adjust as needed for your content */
-    max-width: clamp(45ch, 60vw, 90ch);
+    max-width: clamp(45ch, 60vw, 80ch);
     overflow-y: scroll;
     max-height: 100%;
-    /* padding-inline: 16px; */
   }
 }
 
