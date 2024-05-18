@@ -10,13 +10,13 @@ import Accordion from "./components/Accordion";
 
 const App: React.FC = () => {
   return (
-    <Routes>
-      <Route path="/" element={<KotzPage />} />
-      <Route path="/censorship" element={<CensorshipPage />} />
-      <Route path="/fake" element={<FakePage />} />
-      <Route path="/censorship/:urlSuffix" element={<CensorshipPage />} />
-      {/* <Route path="/" element={<ComingSoon />} /> */}
-    </Routes>
+      <Routes>
+        <Route path="/" element={<KotzPage />} />
+        <Route path="/censorship" element={<CensorshipPage />} />
+        <Route path="/fake" element={<FakePage />} />
+        <Route path="/censorship/:urlSuffix" element={<CensorshipPage />} />
+        {/* <Route path="/" element={<ComingSoon />} /> */}
+      </Routes>
   );
 };
 
