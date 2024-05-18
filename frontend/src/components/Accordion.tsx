@@ -149,9 +149,11 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
       );
     }
     if (urlSuffix && (index !== -1)) {
+      console.log('found!');
       setActiveIndex(index);
       setOpen(true);
     } else {
+      console.log('didnt find');
       setActiveIndex(null);
       setOpen(false);
     }
