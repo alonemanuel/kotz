@@ -6,14 +6,15 @@ import FakePage from "./FakePage";
 import CensorshipPage from "./CensorshipPage";
 import "./styles/App.css";
 import ComingSoon from "./components/ComingSoon";
+import Accordion from "./components/Accordion";
 
 const App: React.FC = () => {
-
   return (
     <Routes>
       <Route path="/" element={<KotzPage />} />
       <Route path="/censorship" element={<CensorshipPage />} />
       <Route path="/fake" element={<FakePage />} />
+      <Route path="/censorship/:urlSuffix" element={<CensorshipPage />} />
       {/* <Route path="/" element={<ComingSoon />} /> */}
     </Routes>
   );

@@ -2,6 +2,7 @@ import React, { RefObject, useEffect, useRef, useState } from "react";
 import styles from "../styles/Accordion.module.css";
 import { ItemArticle } from "../types/itemArticle";
 import { Article, Term } from "../interfaces";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 
 import * as C from "../constants";
 
@@ -84,6 +85,10 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
     "ontouchstart" in document.documentElement
   );
 
+  const navigate = useNavigate();
+  const { urlSuffix } = useParams<{ urlSuffix: string }>();
+  const location = useLocation();
+
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   // Create a ref array for each accordion item
   const accordionRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -133,11 +138,42 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
     }
   }, [activeIndex]); // Now, this effect depends on activeIndex
 
+  useEffect(() => {
+    let index = articles.findIndex(
+      (article) => normalizeTitle(article.attributes.url_title) === urlSuffix
+    );
+
+    if (index === -1) {
+      index = articles.findIndex(
+        (article) => normalizeTitle(article.attributes.title) === urlSuffix
+      );
+    }
+    if (urlSuffix && (index !== -1)) {
+      setActiveIndex(index);
+      setOpen(true);
+    } else {
+      setActiveIndex(null);
+      setOpen(false);
+    }
+  }, [urlSuffix, articles, setOpen, location]);
+
   const toggleAccordion = (index: number) => {
     const isArticleOpen = activeIndex === index;
     setActiveIndex(isArticleOpen ? null : index);
     setOpen(!isArticleOpen);
     setIsScrolled(isScrolled && isArticleOpen); // Make sure that on close, the arrow will disappear
+
+    if (!isArticleOpen) {
+      const normalizedTitle = normalizeTitle(articles[index].attributes.title);
+      const normalizedUrl = normalizeTitle(
+        articles[index].attributes.url_title
+      );
+
+      const urlSuffix = normalizedUrl ? normalizedUrl : normalizedTitle;
+      navigate(`/censorship/${urlSuffix}`, { replace: false });
+    } else {
+      navigate(`/censorship`, { replace: false });
+    }
 
     // If the accordion is being opened, scroll it into view
     if (activeIndex !== index) {
@@ -150,6 +186,10 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
       }, 200);
       // });
     }
+  };
+
+  const normalizeTitle = (title: string | undefined) => {
+    return title?.toLowerCase().replace(/[^א-ת0-9a-z]+/g, "-");
   };
 
   const potentiallyHideKotzIcon = (index: number) => {
