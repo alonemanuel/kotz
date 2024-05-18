@@ -130,6 +130,9 @@
     },
     "long_author_about": {
       "type": "blocks"
+    },
+    "url_title": {
+      "type": "string"
     }
   }
 }
