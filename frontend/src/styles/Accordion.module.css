@@ -220,7 +220,7 @@ svg {
 
         &::before {
           content: ">";
-          margin-inline-end: 0.5em;
+          margin-inline: 0.5em;
         }
       }
 
@@ -235,7 +235,7 @@ svg {
   }
 }
 
-/* Mobile */
+/* Portrait */
 @media (max-aspect-ratio: 1) {
   .accordionContainer {
     & .accordion {
@@ -300,7 +300,7 @@ svg {
   }
 }
 
-/* Desktop */
+/* Landscape */
 @media (min-aspect-ratio: 1) {
   .accordionContainer {
     flex-direction: row;
@@ -366,6 +366,13 @@ svg {
           & h2 {
             &::before {
               content: none;
+            }
+          }
+        }
+        & h2 {
+          .articleIsNotOpen & {
+            &::before {
+              margin-inline-start: 0;
             }
           }
         }
@@ -490,7 +497,7 @@ svg {
   .panel.active {
     max-width: none;
   }
-  
+
   .accordion {
     .articleIsOpen:not(.active)& {
       max-width: 0;
