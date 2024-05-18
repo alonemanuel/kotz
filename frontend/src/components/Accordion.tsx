@@ -137,6 +137,18 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
     }
   }, [activeIndex]); // Now, this effect depends on activeIndex
 
+  useEffect(() => {
+    if (articleTitle) {
+      const index = articles.findIndex(
+        (article) => normalizeTitle(article.attributes.title) === articleTitle
+      );
+      if (index !== -1) {
+        setActiveIndex(index);
+        setOpen(true);
+      }
+    }
+  }, [articleTitle, articles, setOpen]);
+
   const toggleAccordion = (index: number) => {
     const isArticleOpen = activeIndex === index;
     setActiveIndex(isArticleOpen ? null : index);
