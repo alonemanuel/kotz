@@ -2,6 +2,7 @@ import React, { RefObject, useEffect, useRef, useState } from "react";
 import styles from "../styles/Accordion.module.css";
 import { ItemArticle } from "../types/itemArticle";
 import { Article, Term } from "../interfaces";
+import { useParams, useNavigate } from "react-router-dom";
 
 import * as C from "../constants";
 
@@ -84,6 +85,9 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
     "ontouchstart" in document.documentElement
   );
 
+  const navigate = useNavigate();
+  const { articleTitle } = useParams<{ articleTitle: string }>();
+
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   // Create a ref array for each accordion item
   const accordionRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -139,6 +143,13 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
     setOpen(!isArticleOpen);
     setIsScrolled(isScrolled && isArticleOpen); // Make sure that on close, the arrow will disappear
 
+    if (!isArticleOpen) {
+      const articleTitle = normalizeTitle(articles[index].attributes.title);
+      navigate(`/censorship/${articleTitle}`);
+    } else {
+      navigate(`/censorship`);
+    }
+
     // If the accordion is being opened, scroll it into view
     if (activeIndex !== index) {
       setTimeout(() => {
@@ -150,6 +161,10 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
       }, 200);
       // });
     }
+  };
+
+  const normalizeTitle = (title: string) => {
+    return title.toLowerCase().replace(/[^א-ת0-9]+/g, "-");
   };
 
   const potentiallyHideKotzIcon = (index: number) => {
