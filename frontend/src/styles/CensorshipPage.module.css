@@ -641,6 +641,17 @@
         }
       }
     }
+
+    & > h3 {
+      font: var(--font-kotz-500);
+      font-weight: 600;
+      line-height: 1.3em;
+      letter-spacing: 0.7px;
+      margin: 0;
+      color: #26bd6b;
+      text-align: center;
+      font-size: 1.6em;
+    }
   }
 
   & hr {
