@@ -2,7 +2,7 @@ import React, { RefObject, useEffect, useRef, useState } from "react";
 import styles from "../styles/Accordion.module.css";
 import { ItemArticle } from "../types/itemArticle";
 import { Article, Term } from "../interfaces";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 
 import * as C from "../constants";
 
@@ -87,6 +87,7 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
 
   const navigate = useNavigate();
   const { articleTitle } = useParams<{ articleTitle: string }>();
+  const location = useLocation();
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   // Create a ref array for each accordion item
@@ -138,16 +139,17 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
   }, [activeIndex]); // Now, this effect depends on activeIndex
 
   useEffect(() => {
-    if (articleTitle) {
-      const index = articles.findIndex(
-        (article) => normalizeTitle(article.attributes.title) === articleTitle
-      );
-      if (index !== -1) {
-        setActiveIndex(index);
-        setOpen(true);
-      }
+    const index = articles.findIndex(
+      (article) => normalizeTitle(article.attributes.title) === articleTitle
+    );
+    if (index !== -1) {
+      setActiveIndex(index);
+      setOpen(true);
+    } else {
+      setActiveIndex(null);
+      setOpen(false);
     }
-  }, [articleTitle, articles, setOpen]);
+  }, [articleTitle, articles, setOpen, location]);
 
   const toggleAccordion = (index: number) => {
     const isArticleOpen = activeIndex === index;
@@ -157,9 +159,9 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
 
     if (!isArticleOpen) {
       const articleTitle = normalizeTitle(articles[index].attributes.title);
-      navigate(`/censorship/${articleTitle}`);
+      navigate(`/censorship/${articleTitle}`, { replace: false });
     } else {
-      navigate(`/censorship`);
+      navigate(`/censorship`, { replace: false });
     }
 
     // If the accordion is being opened, scroll it into view
