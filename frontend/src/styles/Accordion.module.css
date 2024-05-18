@@ -127,6 +127,10 @@ svg {
     transition: all 0.1s ease-in-out;
     pointer-events: none;
 
+    .articleIsNotOpen ~ & {
+      display: none;
+    }
+
     &.scrolled {
       opacity: 0.5;
       cursor: pointer;

@@ -103,16 +103,20 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
 
   const [isScrolled, setIsScrolled] = useState(false);
 
+  const scrollHandler = (panel: HTMLDivElement | null) => {
+    const isScrolled = (panel?.scrollTop ?? 0) > 300;
+    setIsScrolled(isScrolled); // Update state based on scroll position
+  };
+
   useEffect(() => {
+    if (activeIndex) {
+      scrollHandler(panelRefs.current[activeIndex]);
+    }
+
     // This function now takes a panel as an argument to add the scroll listener directly to it
     const addScrollEventListener = (panel: any) => {
-      const scrollHandler = () => {
-        const isScrolled = panel.scrollTop > 300;
-        setIsScrolled(isScrolled); // Update state based on scroll position
-      };
-
       // Add event listener to the panel
-      panel.addEventListener("scroll", scrollHandler);
+      panel.addEventListener("scroll", () => scrollHandler(panel));
 
       // Return a cleanup function to remove the event listener when necessary
       return () => panel.removeEventListener("scroll", scrollHandler);
@@ -133,6 +137,7 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
     const isArticleOpen = activeIndex === index;
     setActiveIndex(isArticleOpen ? null : index);
     setOpen(!isArticleOpen);
+    setIsScrolled(isScrolled && isArticleOpen); // Make sure that on close, the arrow will disappear
 
     // If the accordion is being opened, scroll it into view
     if (activeIndex !== index) {
