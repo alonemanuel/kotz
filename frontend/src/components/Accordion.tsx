@@ -86,7 +86,7 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
   );
 
   const navigate = useNavigate();
-  const { articleTitle } = useParams<{ articleTitle: string }>();
+  const { urlSuffix } = useParams<{ urlSuffix: string }>();
   const location = useLocation();
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -139,17 +139,23 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
   }, [activeIndex]); // Now, this effect depends on activeIndex
 
   useEffect(() => {
-    const index = articles.findIndex(
-      (article) => normalizeTitle(article.attributes.title) === articleTitle
+    let index = articles.findIndex(
+      (article) => normalizeTitle(article.attributes.url_title) === urlSuffix
     );
-    if (index !== -1) {
+
+    if (index === -1) {
+      index = articles.findIndex(
+        (article) => normalizeTitle(article.attributes.title) === urlSuffix
+      );
+    }
+    if (urlSuffix && (index !== -1)) {
       setActiveIndex(index);
       setOpen(true);
     } else {
       setActiveIndex(null);
       setOpen(false);
     }
-  }, [articleTitle, articles, setOpen, location]);
+  }, [urlSuffix, articles, setOpen, location]);
 
   const toggleAccordion = (index: number) => {
     const isArticleOpen = activeIndex === index;
@@ -158,8 +164,13 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
     setIsScrolled(isScrolled && isArticleOpen); // Make sure that on close, the arrow will disappear
 
     if (!isArticleOpen) {
-      const articleTitle = normalizeTitle(articles[index].attributes.title);
-      navigate(`/censorship/${articleTitle}`, { replace: false });
+      const normalizedTitle = normalizeTitle(articles[index].attributes.title);
+      const normalizedUrl = normalizeTitle(
+        articles[index].attributes.url_title
+      );
+
+      const urlSuffix = normalizedUrl ? normalizedUrl : normalizedTitle;
+      navigate(`/censorship/${urlSuffix}`, { replace: false });
     } else {
       navigate(`/censorship`, { replace: false });
     }
@@ -177,8 +188,8 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
     }
   };
 
-  const normalizeTitle = (title: string) => {
-    return title.toLowerCase().replace(/[^א-ת0-9]+/g, "-");
+  const normalizeTitle = (title: string | undefined) => {
+    return title?.toLowerCase().replace(/[^א-ת0-9a-z]+/g, "-");
   };
 
   const potentiallyHideKotzIcon = (index: number) => {

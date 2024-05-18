@@ -14,7 +14,7 @@ const App: React.FC = () => {
       <Route path="/" element={<KotzPage />} />
       <Route path="/censorship" element={<CensorshipPage />} />
       <Route path="/fake" element={<FakePage />} />
-      <Route path="/censorship/:articleTitle" element={<CensorshipPage />} />
+      <Route path="/censorship/:urlSuffix" element={<CensorshipPage />} />
       {/* <Route path="/" element={<ComingSoon />} /> */}
     </Routes>
   );
