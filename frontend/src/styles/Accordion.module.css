@@ -220,7 +220,7 @@ svg {
 
         &::before {
           content: ">";
-          margin-inline: 0.5em;
+          margin-inline-end: 0.5em;
         }
       }
 
