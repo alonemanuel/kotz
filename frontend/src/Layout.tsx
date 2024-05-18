@@ -52,8 +52,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       {
         <nav className={styles.layoutNav}>
           <hgroup>
-            <h3>קוץ</h3>
-            <h1>01</h1>
+            <h3 onClick={() => navigate("/")}>קוץ</h3>
+            <h1 onClick={() => navigate("/")}>01</h1>
             <h2>צנזורה</h2>
           </hgroup>
           <button className={styles.changeTheme} onClick={toggleTheme}>
