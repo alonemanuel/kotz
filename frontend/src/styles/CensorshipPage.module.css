@@ -630,6 +630,15 @@
           }
         }
 
+        &:first-child,
+        div + &,
+        hr + &,
+        h1 + & {
+          &::before {
+            content: none;
+          }
+        }
+        
         &::before {
           content: "";
           display: inline-block;
