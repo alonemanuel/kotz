@@ -1,5 +1,7 @@
 /* FakePage.module.css */
 .censorshipPage {
+  width: 100vw;
+  width: 100dvw;
   overflow: hidden;
   height: 100%;
   display: flex;
@@ -12,6 +14,7 @@
 /* Mobile */
 @media (max-aspect-ratio: 1) {
   .polls {
+
     & > h1 {
       padding-block-start: 1.5em;
     }
@@ -708,7 +711,7 @@
     }
   }
 }
-/* Desktop */
+/* Landscape */
 @media (min-aspect-ratio: 1) {
   .censorshipPage {
     position: static;
@@ -739,6 +742,10 @@
 
       & > main {
         max-width: 60ch;
+
+        .poll & {
+          max-width: none;
+        }
         /* padding-left: 13vw; */
       }
     }
