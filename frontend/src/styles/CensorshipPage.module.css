@@ -404,7 +404,7 @@
       min-width: 20vw;
 
       & > h1 {
-        font-family: var(--ff-david-vc);
+        font-family: var(--ff-kotz-display);
         font-weight: 600;
         font-style: italic;
         font-size: clamp(4em, max(9vw, 13vh), 40em);
@@ -412,6 +412,9 @@
         color: var(--color-green);
         margin: 0.2em;
         /* font-size: 10vw; */
+        & .altGlyph {
+          font-feature-settings: "ss01" 1;
+        }
       }
 
       & main {
@@ -473,7 +476,7 @@
         gap: 0em;
 
         & h1 {
-          font-family: "KotzDisplay";
+          font-family: var(--ff-kotz-display);
           /* font-feature-settings: "ss01"; */
           font-size: var(--fs-800);
           line-height: 0.9em;
@@ -707,7 +710,7 @@
       padding: 1em;
       padding-top: 4em;
       padding-inline-end: 0;
-      
+
       & > main {
         max-width: 60ch;
         /* padding-left: 13vw; */
