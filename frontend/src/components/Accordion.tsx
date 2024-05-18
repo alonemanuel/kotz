@@ -244,7 +244,7 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
             <div
               ref={(el) => (panelRefs.current[index] = el)} // Assign refs to panels
               className={`${styles.panel}  
-          ${activeIndex === index ? styles.active : ""}`}
+          ${(activeIndex === index) ? styles.active : ""}`}
             >
               <section className={styles.articleWrapper}>
                 <ArticleComponent
@@ -257,7 +257,7 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
             <div
               ref={(el) => (accordionRefs.current[index] = el)} // Assign refs to accordion
               className={`${styles.accordion}  ${
-                activeIndex === index ? styles.active : ""
+                (activeIndex === index) ? styles.active : ""
               } ${isOpen ? styles.articleIsOpen : styles.articleIsNotOpen}`}
               onClick={() => toggleAccordion(index)}
               onMouseEnter={() => potentiallyHideKotzIcon(index)}
