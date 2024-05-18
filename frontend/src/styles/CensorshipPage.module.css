@@ -521,6 +521,9 @@
       max-width: calc(100% + 2em);
       margin: 2em 0;
       margin-inline-start: -2em;
+      display: flex;
+      flex-flow: column nowrap;
+      width: max-content;
 
       & img {
         border-radius: 4px;
@@ -532,6 +535,7 @@
         font-family: var(--ff-narkis-yair);
         text-align: left;
         margin-top: 3px;
+        width: 100%;
       }
     }
   }
