@@ -150,6 +150,8 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
     }
     if (urlSuffix && (index !== -1)) {
       console.log('found!');
+      console.log(`index: ${index}`);
+      console.log(`name: ${articles[index].attributes.title}`);
       setActiveIndex(index);
       setOpen(true);
     } else {
