@@ -128,21 +128,27 @@ const JsonBlocksContent: React.FC<{
       case "image":
         return renderImage(block, index);
       case "heading":
+        const text = block.children ? block.children[0].text : "";
         switch (block?.level) {
           case 6:
-            return renderTerms(block, index);
+            console.log(text);
+            if (text === "מילון") {
+              return renderTerms(block, index);
+            } else if (text === "שאלון") {
+              return renderQuestionnaire(block, index);
+            } else {
+              return renderTerms(block, index);
+            }
           case 5:
-            if (block.text === "---") {
+            if (text === "---") {
               return renderHr(index);
-            } else if (block.text === "-*-") {
+            } else if (text === "-*-") {
               return renderKotzHr(index);
             } else {
               return renderHr(index);
             }
           case 4:
             return renderSong(index);
-          case 3:
-            return renderQuestionnaire(block, index);
           default:
             return renderHeading(block, index, block?.level);
         }
