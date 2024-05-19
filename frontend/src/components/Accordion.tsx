@@ -142,14 +142,14 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
     let index = articles.findIndex(
       (article) => normalizeTitle(article.attributes.url_title) === urlSuffix
     );
-  
+
     if (index === -1) {
       index = articles.findIndex(
         (article) => normalizeTitle(article.attributes.title) === urlSuffix
       );
     }
-    if (urlSuffix && (index !== -1)) {
-      console.log('found!');
+    if (urlSuffix && index !== -1) {
+      console.log("found!");
       console.log(`index: ${index}`);
       console.log(`name: ${articles[index].attributes.title}`);
       console.log(`Active Index before: ${activeIndex}`);
@@ -157,11 +157,11 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
       console.log(`Active Index after: ${activeIndex}`);
       setOpen(true);
     } else {
-      console.log('didnt find');
+      console.log("didnt find");
       setActiveIndex(null);
       setOpen(false);
     }
-  }, [urlSuffix, articles, isOpen, location]);
+  }, [urlSuffix, activeIndex, setOpen, articles, isOpen, location]);
 
   const toggleAccordion = (index: number) => {
     const isArticleOpen = activeIndex === index;
@@ -246,7 +246,7 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
             <div
               ref={(el) => (panelRefs.current[index] = el)} // Assign refs to panels
               className={`${styles.panel}  
-          ${(activeIndex === index) ? styles.active : ""}`}
+          ${activeIndex === index ? styles.active : ""}`}
             >
               <section className={styles.articleWrapper}>
                 <ArticleComponent
@@ -259,7 +259,7 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
             <div
               ref={(el) => (accordionRefs.current[index] = el)} // Assign refs to accordion
               className={`${styles.accordion}  ${
-                (activeIndex === index) ? styles.active : ""
+                activeIndex === index ? styles.active : ""
               } ${isOpen ? styles.articleIsOpen : styles.articleIsNotOpen}`}
               onClick={() => toggleAccordion(index)}
               onMouseEnter={() => potentiallyHideKotzIcon(index)}
