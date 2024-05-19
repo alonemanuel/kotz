@@ -1,7 +1,475 @@
-svg {
-  /* width: 30px;
-  height: 30px; */
+.accordion {
+  color: var(--color-theme-foreground);
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  text-align: right;
+  outline: none;
+  font-size: var(--fs-600);
+  font-family: var(--ff-david-vc);
+  font-weight: 500;
+
+  flex-grow: 1;
+
+  transition: color 0.1s ease-out;
 }
+
+.accordion.active {
+  top: 0;
+  position: sticky;
+}
+
+.panel {
+  background-color: var(--color-theme-background);
+  color: var(--color-theme-foreground);
+  font-size: 20px;
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  transition-property: background-color, color, max-height, max-width, padding;
+}
+
+.panel.active {
+  max-height: 100vh; /* Adjust as needed for your content */
+  max-height: 100dvh;
+  max-width: 100%;
+  overflow-y: scroll;
+}
+
+.panel {
+  color: #222;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+}
+
+.panel section.articleWrapper {
+  max-width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: start;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.panel section.articleWrapper aside {
+  background-color: #4b875c;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1em;
+  padding: 2em;
+  line-height: 1em;
+  margin-inline: -18px;
+}
+
+.panel section.articleWrapper aside h1 {
+  font: bold 1em/1em "Hadassa";
+}
+
+.panel section.articleWrapper aside main {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1em;
+  padding-inline-start: 1em;
+}
+
+.panel section.articleWrapper aside main article h1 {
+  font: bold 1em/1em "Hadassa";
+  display: inline-block;
+  margin-inline-end: 1em;
+}
+
+.panel section.articleWrapper aside main article p {
+  display: inline;
+  font: normal 0.8em "DavidVC";
+}
+.panel section.articleWrapper aside main article p a {
+  font: unset;
+  color: unset;
+  text-decoration: underline 2px;
+  text-underline-offset: 3px;
+}
+
+.accordionContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  flex-grow: 1;
+  transition: all 0.1s ease-out;
+}
+
+.accordionContainer > .toTop {
+  position: absolute;
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 20px auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-theme-foreground);
+
+  /* filter: drop-shadow(0 0 3px black); */
+  box-shadow: 0px 1px 8px 2px rgb(0 0 0 / 3%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  opacity: 0;
+  transition: all 0.1s ease-in-out;
+  pointer-events: none;
+}
+.accordionContainer .articleIsNotOpen ~ .toTop {
+  display: none;
+}
+
+.accordionContainer > .toTop.scrolled {
+  opacity: 0.5;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.accordionContainer > .toTop > .topArrow {
+  filter: none;
+  margin-block-end: 2px;
+  filter: drop-shadow(0 0 3px black);
+  /* width: 80%; */
+}
+
+.accordionContainer .accordion {
+  display: flex;
+  position: relative;
+  color: var(--color-black);
+
+  background-color: var(--color-theme-background);
+  transition: background-color 0.2s ease-out;
+  transition-property: background-color, color;
+}
+.accordionContainer .accordion:hover .bgContent {
+  margin-left: var(--outside-img-margin-left, 400px);
+  margin-top: auto;
+}
+
+.accordionContainer .accordion .bgContent {
+  position: absolute;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  background-image: var(
+    --outside-img-horizontal-url,
+    url(../images/tiger0.png)
+  );
+
+  height: 100%;
+  width: 100%;
+  flex-grow: 1;
+  left: 0;
+
+  z-index: 1;
+
+  transition: all 0.25s ease-out;
+}
+
+.accordionContainer .accordion .textContent {
+  align-items: center;
+  /* width: 100%; */
+  display: flex;
+  flex-flow: row nowrap;
+  position: absolute;
+  bottom: auto;
+  left: 0;
+  padding: 0.4em;
+  color: var(--color-theme-foreground);
+  transition: background-color 0.2s ease-out;
+  transition-property: background-color, color;
+}
+
+.accordionContainer .accordion .active .textContent {
+  right: 0;
+}
+.accordionContainer .accordion .active .textContent > hr {
+  border: none;
+  border-top: 2px dotted var(--color-green);
+  border-bottom: none;
+  margin: 1em auto;
+  width: 100%;
+}
+.accordionContainer .accordion .active .textContent > hr + .h1Spacer {
+  height: 0;
+}
+
+.accordionContainer .accordion .active .textContent h1 {
+  font-family: var(--ff-david-vc);
+  font-size: var(--fs-500);
+  font-weight: 700;
+}
+
+.accordionContainer .accordion .active .textContent h2 {
+  font-family: var(--ff-narkis-yair);
+  font-size: var(--fs-400);
+  line-height: 1;
+}
+.accordionContainer .accordion .active .textContent h2::before {
+  content: ">";
+  margin-inline: 0.5em;
+}
+
+.accordionContainer .accordion .active .textContent h3 {
+  color: var(--color-green);
+  font-family: var(--ff-narkis-yair);
+  font-size: var(--fs-400);
+  line-height: 1.1;
+  display: none;
+}
+
+/* Portrait */
+@media (max-aspect-ratio: 1), (orientation: portrait) {
+  .accordionContainer .accordion {
+    overflow: auto;
+  }
+  .accordionContainer.active .accordion {
+    color: var(--color-theme-foreground);
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    height: 2.5em;
+    overflow: visible;
+  }
+  .accordionContainer.articleIsOpen:not(.active) .accordion {
+    display: none;
+  }
+
+  .accordionContainer .accordion .active .bgContent {
+    margin-left: 100%;
+  }
+
+  .accordionContainer .accordion .textContent {
+    height: 100%;
+    text-align: end;
+    justify-content: end;
+    /* max-width: 90%; */
+    flex-wrap: wrap;
+
+    .accordionContainer .accordion .articleIsOpen .textContent {
+      /* max-width: 85%; */
+      text-align: start;
+      justify-content: start;
+    }
+
+    .accordionContainer .accordion .textContent h1 {
+      font-family: var(--ff-narkis-yair);
+      font-size: var(--fs-400);
+
+      /* alon: why is this? */
+      /* mix-blend-mode: darken; */
+      line-height: 1em;
+    }
+
+    .accordionContainer .accordion .textContent h2 {
+      white-space: nowrap;
+    }
+
+    .accordionContainer .accordion .textContent h3 {
+      display: none;
+    }
+  }
+
+  .accordionContainer .accordion .textContent > hr {
+    display: none;
+  }
+}
+
+/* Landscape */
+@media (min-aspect-ratio: 1), (orientation: landscape) {
+  .accordionContainer {
+    flex-direction: row;
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+
+  .accordionContainer .accordion {
+    flex-grow: 1;
+    overflow: hidden;
+    height: 100%;
+    width: auto;
+    writing-mode: sideways-lr;
+    /* color: transparent; */
+  }
+
+  .accordionContainer.active .accordion {
+    top: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    font-size: var(--fs-400);
+    max-width: 21ch;
+    min-width: 15ch;
+    padding-left: 3px;
+  }
+
+  .accordionContainer .accordion:hover .bgContent {
+    margin-left: auto;
+  }
+
+  .accordionContainer .accordion:hover .isNotOpen .bgContent {
+    margin-top: var(--outside-img-margin-top, 0px);
+  }
+
+  .accordionContainer .accordion:hover .isOpen .bgContent {
+    margin-top: var(--outside-img-margin-top, 0px);
+  }
+
+  .accordionContainer .accordion .bgContent {
+    background-image: var(
+      --outside-img-vertical-url,
+      url(../images/tiger0.png)
+    );
+  }
+
+  .accordionContainer .accordion .active .bgContent {
+    position: relative;
+    max-height: 37%;
+    /* width: auto; */
+  }
+
+  .accordionContainer .accordion .textContent {
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    bottom: 0;
+    top: auto;
+    left: auto;
+    transition: background-color 0.1s ease-out;
+    transition-property: background-color, color;
+  }
+  .accordionContainer .accordion .active .textContent {
+    position: relative;
+    color: var(--color-theme-foreground);
+  }
+
+  .accordionContainer .accordion .active .textContent h2::before {
+    content: none;
+  }
+
+  .accordionContainer .accordion .textContent .articleIsNotOpen h2::before {
+    margin-inline-start: 0;
+  }
+
+  .accordionContainer .accordion .textContent .isOpen h3 {
+    display: unset;
+  }
+
+  .panel {
+    height: 100%;
+    max-width: 0;
+    padding-inline: 0;
+  }
+
+  .panel.active {
+    /* Adjust as needed for your content */
+    max-width: clamp(45ch, 60vw, 90ch);
+    overflow-y: scroll;
+    max-height: 100%;
+    /* padding-inline: 16px; */
+  }
+}
+
+/* No Hover */
+/* Portrait */
+.touch .accordionContainer > .accordion.articleIsNotOpen:hover .bgContent {
+  margin-left: auto;
+}
+
+.touch .accordionContainer > .accordion > .bgContainer {
+  white-space: nowrap;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: end;
+  z-index: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.touch .accordionContainer > .accordion > .bgContainer > .bgSpacer {
+  display: inline-block;
+  height: 100%;
+  width: 90%;
+  .active & {
+    display: none;
+  }
+}
+
+.touch .accordionContainer > .accordion > .bgContainer > .bgContent {
+  /* position: absolute; */
+  position: static;
+  display: inline-block !important;
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  background-image: var(
+    --outside-img-horizontal-url,
+    url(../images/tiger0.png)
+  );
+
+  height: 100%;
+  width: 100%;
+  flex-grow: 1;
+  left: 0;
+
+  z-index: 1;
+
+  transition: all 0.25s ease-out;
+}
+
+.touch .accordionContainer > .accordion > .active .bgContainer {
+  position: absolute;
+}
+
+/* Landscape */
+@media (min-aspect-ratio: 1), (orientation: landscape) {
+  .touch .accordionContainer > .accordion.articleIsNotOpen:active .bgContent {
+    margin-top: auto;
+  }
+  .touch .accordionContainer > .accordion > .bgContainer {
+    white-space: normal;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .touch .accordionContainer > .accordion > .bgContainer > .bgSpacer {
+    width: 100%;
+    height: 80%;
+  }
+}
+
+
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
 
 .accordion {
   color: var(--color-theme-foreground);
