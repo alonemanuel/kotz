@@ -543,6 +543,10 @@
         text-align: left;
         margin-top: 3px;
         width: 100%;
+
+        .term & {
+          color: var(--color-theme-foreground);
+        }
       }
     }
   }
