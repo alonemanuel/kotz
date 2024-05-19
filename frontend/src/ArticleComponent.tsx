@@ -7,6 +7,8 @@ import DebateContent from "./DebateContent";
 import PollContent from "./PollContent";
 import StandardContent from "./StandardContent";
 import InterviewContent from "./InterviewContent";
+import { Helmet } from "react-helmet";
+import { useParams } from "react-router-dom";
 
 interface ArticleComponentProps {
   article: Article;
@@ -17,6 +19,8 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
   article,
   terms,
 }) => {
+  const { urlSuffix } = useParams<{ urlSuffix: string }>();
+
   const attr = article.attributes;
   const articleTerms = attr.terms?.data;
   let classType;
@@ -66,6 +70,17 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
 
   return (
     <article className={classType}>
+      <Helmet>
+        <title>{attr.title}</title>
+        <meta property="og:title" content={attr.title} />
+        <meta property="og:description" content={attr.lead} />
+        <meta property="og:image" content={attr.cover?.data?.attributes.url} />
+        <meta
+          property="og:url"
+          content={`https://kotz.org.il/censorship/${urlSuffix}`}
+        />
+        <meta property="og:type" content="article" />
+      </Helmet>
       <header>
         <hgroup>
           {wrappedTitle && (
@@ -112,12 +127,11 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
           <main>
             {attr.author_img && (
               <div className={styles.imageContainer}>
-
-              <img
-                src={attr.author_img?.data?.attributes.url}
-                alt={attr.author}
+                <img
+                  src={attr.author_img?.data?.attributes.url}
+                  alt={attr.author}
                 />
-                </div>
+              </div>
             )}
             <div className={styles.textBody}>
               {attr.author && <h1>{attr.author}</h1>}

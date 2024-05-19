@@ -15,6 +15,7 @@ export interface ArticleAttribute {
   poll: any;
   long_author_about: ContentBlock[];
   author_img: any;
+  cover: any;
   url_title: string;
 }
 
