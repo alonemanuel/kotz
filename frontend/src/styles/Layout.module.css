@@ -24,16 +24,16 @@
 /* Mobile */
 @media (max-aspect-ratio: 1), (orientation: portrait) {
   .layout.isNotOpen {
-    flex-direction: column;
+    flex-direction: column !important;
   }
 
   .layout .layoutNav {
-    flex-flow: row nowrap;
-    justify-content: space-between;
+    flex-flow: row nowrap !important;
+    justify-content: space-between !important;
     padding-inline: clamp(0.2em, 2dvw, 1.5em);
   }
   .layout .layoutNav hgroup {
-    flex-direction: row;
+    flex-direction: row !important;
   }
   .layout .layoutNav hgroup h2,
   .layout .layoutNav hgroup h3 {
@@ -167,8 +167,8 @@
 /* Desktop */
 @media (min-aspect-ratio: 1), (orientation: landscape) {
   nav.layoutNav {
-    left: auto;
-    right: 0;
+    left: auto !important;
+    right: 0 !important;
   }
   nav.layoutNav hgroup {
     color: var(--color-white);
