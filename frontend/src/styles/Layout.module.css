@@ -22,7 +22,7 @@
 }
 
 /* Mobile */
-@media (max-aspect-ratio: 1) {
+@media (max-aspect-ratio: 1), (orientation: portrait) {
   .layout.isNotOpen {
     flex-direction: column;
   }
@@ -165,7 +165,7 @@
 }
 
 /* Desktop */
-@media (min-aspect-ratio: 1) {
+@media (min-aspect-ratio: 1), (orientation: landscape) {
   nav.layoutNav {
     left: auto;
     right: 0;
