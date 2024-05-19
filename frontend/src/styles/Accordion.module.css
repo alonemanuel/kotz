@@ -253,29 +253,28 @@
     justify-content: end;
     /* max-width: 90%; */
     flex-wrap: wrap;
+  }
+  .accordionContainer .accordion .articleIsOpen .textContent {
+    /* max-width: 85%; */
+    text-align: start;
+    justify-content: start;
+  }
 
-    .accordionContainer .accordion .articleIsOpen .textContent {
-      /* max-width: 85%; */
-      text-align: start;
-      justify-content: start;
-    }
+  .accordionContainer .accordion .textContent h1 {
+    font-family: var(--ff-narkis-yair);
+    font-size: var(--fs-400);
 
-    .accordionContainer .accordion .textContent h1 {
-      font-family: var(--ff-narkis-yair);
-      font-size: var(--fs-400);
+    /* alon: why is this? */
+    /* mix-blend-mode: darken; */
+    line-height: 1em;
+  }
 
-      /* alon: why is this? */
-      /* mix-blend-mode: darken; */
-      line-height: 1em;
-    }
+  .accordionContainer .accordion .textContent h2 {
+    white-space: nowrap;
+  }
 
-    .accordionContainer .accordion .textContent h2 {
-      white-space: nowrap;
-    }
-
-    .accordionContainer .accordion .textContent h3 {
-      display: none;
-    }
+  .accordionContainer .accordion .textContent h3 {
+    display: none;
   }
 
   .accordionContainer .accordion .textContent > hr {
@@ -446,7 +445,6 @@
     height: 80%;
   }
 }
-
 
 /* NEW CSS */
 /* NEW CSS */
