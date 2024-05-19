@@ -547,6 +547,10 @@
         .term & {
           color: var(--color-theme-foreground);
         }
+
+        .terms.questionnaire & {
+          color: var(--color-theme-background);
+        }
       }
     }
   }
