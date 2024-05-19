@@ -27,30 +27,31 @@
     flex-direction: column !important;
   }
 
-  .layout .layoutNav {
+  .layout.isNotOpen .layoutNav {
     flex-flow: row nowrap !important;
     justify-content: space-between !important;
     padding-inline: clamp(0.2em, 2dvw, 1.5em);
   }
-  .layout .layoutNav hgroup {
+  .layout.isNotOpen .layoutNav hgroup {
     flex-direction: row !important;
   }
-  .layout .layoutNav hgroup h2,
-  .layout .layoutNav hgroup h3 {
+  .layout.isNotOpen .layoutNav hgroup h2,
+  .layout.isNotOpen .layoutNav hgroup h3 {
     text-orientation: upright;
     writing-mode: initial;
     transform: none;
     letter-spacing: 1.1px;
   }
+  
+  .layout.isOpen {
+    flex-direction: row-reverse;
+  }
+  
+  .layout.isOpen .layoutNav h3 {
+    display: none;
+  }
 }
 
-.layout.isNotOpen {
-  flex-direction: row-reverse;
-}
-
-.layout.isNotOpen .layoutNav h3 {
-  display: none;
-}
 
 .kotzIcon {
   position: fixed;
@@ -216,7 +217,7 @@
   }
 }
 
-/* Mobile */
+/* Portrait */
 @media (max-aspect-ratio: 1) {
   .layout {
     &.isNotOpen {
