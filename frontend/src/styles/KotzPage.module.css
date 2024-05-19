@@ -17,6 +17,596 @@
   align-content: stretch;
   align-items: start;
   overflow: hidden;
+}
+.kotzPage > .sideInfo {
+  height: 100%;
+  justify-content: space-between;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2em;
+  flex: 3;
+  flex-grow: 2;
+  flex-shrink: 1;
+  min-width: 12ch;
+  padding: 2em;
+  /* max-width: 26ch; */
+}
+.kotzPage > .sideInfo > main {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1em;
+}
+.kotzPage > .sideInfo > main > .aboutBody > p {
+  line-height: 1.2em;
+  font-weight: 700;
+  font-size: clamp(var(--fs-400), min(7vh, 4vw), var(--fs-700));
+  letter-spacing: 1px;
+  font-family: DavidKotz;
+  font-feature-settings: "ss01" 1;
+}
+
+.kotzPage > .sideInfo > main > .aboutCaption {
+  font-family: var(--ff-narkis-yair);
+  font-weight: 300;
+  font-size: var(--fs-600);
+}
+
+.kotzPage > .sideInfo > main > header {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0.7em;
+  align-items: flex-end;
+}
+.kotzPage > .sideInfo > main > header > h1 {
+  font-family: DavidKotz;
+  font-feature-settings: "ss01" 1;
+  font-weight: 700;
+  font-size: clamp(var(--fs-400), min(7vh, 4vw), var(--fs-700));
+}
+
+.kotzPage > .sideInfo > main > header > h2 {
+  font-family: var(--ff-narkis-yair);
+  font-weight: 300;
+  font-size: var(--fs-600);
+  margin-bottom: 7px;
+}
+
+.kotzPage > .sideInfo > .teams {
+  display: flex;
+  flex-flow: wrap;
+  /* gap: 0.2em 0.3em; */
+  font-family: var(--ff-narkis-yair);
+  overflow-y: auto;
+}
+
+.kotzPage > .sideInfo > .teams > .team {
+  display: flex;
+  flex-flow: row nowrap;
+  /* gap: 0.3em; */
+}
+.kotzPage > .sideInfo > .teams > .team span {
+  font-weight: 300;
+  font-size: var(--fs-400);
+  line-height: 1.3em;
+}
+
+.kotzPage > .sideInfo > .teams > .team b {
+  font-weight: 900;
+}
+
+.kotzPage > .sideInfo > .teams > .team .para_separetor {
+  /* TODO: return from GIT */
+  display: none;
+}
+
+.kotzPage > .sideInfo > .teams > .team > h1 {
+  font-weight: 400;
+  font-family: var(--ff-narkis-yair);
+}
+
+.kotzPage > .sideInfo > .teams > .team > .members {
+  font-weight: 300;
+  display: flex;
+  flex-flow: row wrap;
+  /* gap: 0.2em 0.3em; */
+}
+
+.kotzPage > .sideInfo > .teams > .team > .colR {
+  width: 500px;
+  margin-left: 100px;
+}
+.kotzPage > .sideInfo > .teams > .team > .colR span {
+  max-width: 100%;
+}
+
+.kotzPage > .sideInfo > .teams > .team > .colL {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 450px;
+}
+
+.kotzPage .gridContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1;
+  padding: 1.5em 1em;
+  border: none;
+  border-inline-start: 2px solid var(--color-white);
+  overflow: auto;
+  max-height: 100vh;
+  max-height: 100dvh;
+  flex-grow: 1;
+}
+.kotzPage .gridContainer > .issuesContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 4em;
+  justify-content: start;
+  align-items: stretch;
+}
+.kotzPage .gridContainer > .issuesContainer .gridItem {
+  cursor: pointer;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  align-items: center;
+  gap: 2em;
+  transition: all 0.4s ease-out;
+}
+.kotzPage .gridContainer > .issuesContainer .gridItem.unpublished {
+  cursor: auto;
+}
+
+.kotzPage .gridContainer > .issuesContainer .gridItem .details {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: start;
+  gap: 1em;
+  margin-inline: 1em;
+  flex-shrink: 0;
+  width: 90%;
+}
+.kotzPage .gridContainer > .issuesContainer .gridItem .details > hgroup {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0em;
+}
+.kotzPage
+  .gridContainer
+  > .issuesContainer
+  .gridItem
+  .details
+  > hgroup
+  > .issueNumber {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0.5em;
+  font-size: var(--fs-500);
+  margin-bottom: 2px;
+}
+.kotzPage
+  .gridContainer
+  > .issuesContainer
+  .gridItem
+  .details
+  > hgroup
+  > .issueNumber
+  h2 {
+  font-family: var(--ff-narkis-yair);
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0.3em;
+  font-weight: 300;
+  line-height: 1;
+  white-space: nowrap;
+}
+.kotzPage
+  .gridContainer
+  > .issuesContainer
+  .gridItem
+  .details
+  > hgroup
+  > .issueNumber
+  h2.asterix {
+  margin-top: 0.1em;
+}
+
+.kotzPage .gridContainer > .issuesContainer .gridItem .details h1 {
+  font-weight: 800;
+  display: flex;
+  flex-flow: row nowrap;
+  font-family: var(--ff-narkis-yair);
+  font-size: var(--fs-600);
+  line-height: 1.3;
+}
+
+.kotzPage .gridContainer > .issuesContainer .gridItem .details > .about {
+  font-family: var(--ff-david-vc);
+  font-size: var(--fs-500);
+  letter-spacing: 0.5px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.kotzPage .gridContainer > .issuesContainer .gridItem .details > .guests {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: start;
+  text-wrap: balance;
+  font-size: var(--fs-400);
+  max-width: 52ch;
+  line-height: 1.3;
+  font-family: var(--ff-narkis-yair);
+}
+
+.kotzPage .gridContainer > .issuesContainer .gridItem .imgSizer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: clamp(100px, 33vw, 80%);
+}
+
+.kotzPage .gridContainer > .issuesContainer .gridItem .imgSizer > .prompt {
+  position: absolute;
+  font-size: 0.9rem;
+  font-family: var(--ff-narkis-yair);
+  opacity: 0;
+  margin: auto;
+  top: 45%;
+  left: 55%;
+  transform: translateX(-50%) translateY(-50%);
+  transition: opacity 0.1s ease-out;
+  pointer-events: none;
+  display: none;
+}
+
+.kotzPage
+  .gridContainer
+  > .issuesContainer
+  .gridItem
+  .imgSizer:hover
+  > .prompt {
+  opacity: 1;
+}
+
+.kotzPage
+  .gridContainer
+  > .issuesContainer
+  .gridItem
+  .imgSizer
+  > .imgContainer {
+  transition: all 0.1s ease-out;
+  position: relative;
+  width: 100%;
+}
+.kotzPage
+  .gridContainer
+  > .issuesContainer
+  .gridItem
+  .imgSizer
+  .published
+  .imgContainer:active {
+  scale: 1.2;
+}
+
+.kotzPage
+  .gridContainer
+  > .issuesContainer
+  .gridItem
+  .imgSizer
+  > .imgContainer
+  > * {
+  transition: opacity 0.1s ease-out;
+}
+
+.kotzPage
+  .gridContainer
+  > .issuesContainer
+  .gridItem
+  .imgSizer
+  > .imgContainer
+  .innerImageVector {
+  opacity: 0;
+}
+.kotzPage
+  .gridContainer
+  > .issuesContainer
+  .gridItem
+  .imgSizer
+  > .imgContainer:hover
+  > .innerImageVector {
+  opacity: 1;
+}
+
+.kotzPage
+  .gridContainer
+  > .issuesContainer
+  .gridItem
+  .imgSizer
+  > .imgContainer
+  .innerImageRaster {
+  /* clip-path: var(--vector-path); */
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.kotzPage
+  .gridContainer
+  > .issuesContainer
+  .gridItem
+  .imgSizer
+  > .imgContainer:hover
+  > .innerImageRaster {
+  opacity: 0;
+}
+
+.kotzPage .gridContainer > .issuesContainer .gridItem p {
+  margin: 0;
+}
+
+.kotzPage
+  .gridContainer
+  > .issuesContainer
+  .gridItem
+  p:not(:last-child)::after {
+  content: "*";
+  margin: 0 0.3em;
+  display: inline-block;
+}
+
+.header {
+  text-align: center;
+}
+
+/* Mobile */
+@media (max-width: 1700px) {
+  .kotzPage > .sideInfo {
+    max-height: unset;
+    flex-grow: 2;
+    width: 100%;
+
+    overflow-y: scroll;
+  }
+  .kotzPage > .sideInfo > main > .aboutBody > p {
+    font-size: clamp(var(--fs-400), min(8vh, 5vw), var(--fs-700));
+    margin-bottom: 0;
+  }
+
+  .kotzPage > .sideInfo > .teams {
+    overflow-y: visible;
+    width: auto;
+    max-width: 700px;
+  }
+  .kotzPage > .sideInfo > .teams > .team .para_separetor {
+    display: flex;
+  }
+
+  .kotzPage > .sideInfo > .teams .team {
+    flex-direction: column;
+  }
+
+  .kotzPage > .sideInfo > .teams .team .colL,
+  .kotzPage > .sideInfo > .teams .team .colR {
+    width: auto;
+    margin-left: 0px;
+  }
+
+  .kotzPage > .sideInfo > main > .aboutBody > p {
+    font-size: clamp(var(--fs-400), min(8vh, 5vw), var(--fs-700));
+  }
+
+  .kotzPage > .sideInfo > main > .aboutCaption {
+    font-size: var(--fs-400);
+  }
+
+  .kotzPage > .sideInfo > main > header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7em;
+  }
+  .kotzPage > .sideInfo > main > header > h1 {
+    font-size: var(--fs-700);
+  }
+
+  .kotzPage > .sideInfo > main > header > h2 {
+    font-size: var(--fs-400);
+    line-height: 1.2em;
+  }
+}
+
+/* Portrait */
+@media (max-aspect-ratio: 1), (orientation: portrait) {
+  .kotzPage {
+    flex-flow: column nowrap !important;
+    overflow: hidden;
+    gap: 2em;
+  }
+
+  .kotzPage > .gridContainer > .issuesContainer > .gridItem > .imgSizer {
+    width: clamp(100px, 33vw, 200px);
+  }
+
+  .kotzPage > .sideInfo {
+    max-height: unset;
+    flex-grow: 7;
+  }
+
+  .kotzPage > .sideInfo > main > .aboutBody > p {
+    font-size: clamp(var(--fs-400), min(8vh, 5vw), var(--fs-700));
+    margin-bottom: 0;
+  }
+
+  .kotzPage > .sideInfo > .teams {
+    overflow-y: visible;
+    width: auto;
+  }
+
+  .kotzPage > .sideInfo > .teams .team {
+    flex-direction: column;
+  }
+
+  .kotzPage > .sideInfo > .teams .team .colL,
+  .kotzPage > .sideInfo > .teams .team .colR {
+    width: auto;
+    margin-left: 0px;
+  }
+
+  .kotzPage > .sideInfo > main > .aboutBody > p {
+    font-size: clamp(var(--fs-400), min(8vh, 5vw), var(--fs-700));
+  }
+  .kotzPage > .sideInfo > main > .aboutBody > .aboutCaption {
+    font-size: var(--fs-400);
+  }
+
+  .kotzPage > .sideInfo > main > .aboutBody > header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7em;
+  }
+  .kotzPage > .sideInfo > main > .aboutBody > header > h1 {
+    font-size: var(--fs-700);
+  }
+
+  .kotzPage > .sideInfo > main > .aboutBody > header > h2 {
+    font-size: var(--fs-400);
+    line-height: 1.2em;
+  }
+
+  .kotzPage .sideInfo {
+    overflow: scroll;
+  }
+
+  .kotzPage > .gridContainer {
+    border-inline-start: none;
+    border-block-start: 2px solid var(--color-white);
+    max-height: unset;
+    flex-flow: row nowrap;
+    padding: 1.5em 1.5em;
+    align-items: center;
+    flex-shrink: 1;
+    flex-grow: 3;
+  }
+
+  .kotzPage > .gridContainer > .issuesContainer {
+    /* max-height: unset; */
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 2em;
+    flex: auto;
+    /* flex-grow: 0; */
+    max-width: 100vw;
+    align-items: start;
+    flex-shrink: 0;
+    flex-grow: 1;
+  }
+  /* height: 100%; */
+  .kotzPage > .gridContainer > .issuesContainer > .gridItem {
+    flex-shrink: 1;
+    flex-grow: 1;
+    gap: 0.5em;
+    justify-content: space-between;
+  }
+  .kotzPage
+    > .gridContainer
+    > .issuesContainer
+    > .gridItem
+    .imgSizer
+    > .imgContainer {
+    position: relative;
+  }
+  .kotzPage
+    > .gridContainer
+    > .issuesContainer
+    > .gridItem
+    .imgSizer
+    > .imgContainer
+    > img {
+    min-height: unset;
+    flex-shrink: 1;
+    min-height: 80px;
+    min-width: 80px;
+  }
+
+  .kotzPage
+    > .gridContainer
+    > .issuesContainer
+    > .gridItem
+    > .details
+    .gilayon {
+    display: none;
+  }
+
+  .kotzPage
+    > .gridContainer
+    > .issuesContainer
+    > .gridItem
+    > .details
+    > .guests {
+    display: none;
+  }
+
+  .kotzPage
+    > .gridContainer
+    > .issuesContainer
+    > .gridItem
+    > .details
+    > .about {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .kotzPage {
+    gap: 0;
+  }
+  .kotzPage > .sideInfo {
+    padding: 1.5em 1em;
+  }
+}
+
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+
+.kotzPage {
+  height: 100vh;
+  height: 100dvh;
+  width: 100%;
+  /* padding: 7em; */
+  display: flex;
+  flex-flow: row wrap;
+  background: var(--color-dark-black);
+  color: var(--color-white);
+  /* grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr)); */
+
+  /* grid-template-columns: minmax(auto, 26ch) 1fr; */
+  align-content: center;
+  align-items: start;
+  /* gap: 3em; */
+  font: var(--fs-400) var(--ff-david-vc);
+  align-content: stretch;
+  align-items: start;
+  overflow: hidden;
 
   & > .sideInfo {
     height: 100%;

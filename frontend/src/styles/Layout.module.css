@@ -3,6 +3,201 @@
   flex-flow: row nowrap;
   height: 100vh;
   height: 100dvh;
+}
+
+.layout .layoutNav {
+  position: static;
+  background-color: var(--color-theme-background);
+  margin: 0;
+  justify-content: start;
+  padding: 0.5em 0.5em;
+}
+
+.layout .layoutNav hgroup {
+  color: var(--color-theme-foreground);
+  font-size: clamp(1.5rem, min(7dvh, 3dvw), 2rem);
+}
+.layout .layoutNav hgroup h3 {
+  display: block;
+}
+
+/* Mobile */
+@media (max-aspect-ratio: 1), (orientation: portrait) {
+  .layout.isNotOpen {
+    flex-direction: column !important;
+  }
+
+  .layout.isNotOpen .layoutNav {
+    flex-flow: row nowrap !important;
+    justify-content: space-between !important;
+    padding-inline: clamp(0.2em, 2dvw, 1.5em);
+  }
+  .layout.isNotOpen .layoutNav hgroup {
+    flex-direction: row !important;
+  }
+  .layout.isNotOpen .layoutNav hgroup h2,
+  .layout.isNotOpen .layoutNav hgroup h3 {
+    text-orientation: upright;
+    writing-mode: initial;
+    transform: none;
+    letter-spacing: 1.1px;
+  }
+  
+  .layout.isOpen {
+    flex-direction: row-reverse;
+  }
+  
+  .layout.isOpen .layoutNav h3 {
+    display: none;
+  }
+}
+
+
+.kotzIcon {
+  position: fixed;
+  bottom: 0px;
+  left: 30px;
+  height: clamp(80px, 14vh, 140px);
+  display: flex;
+  cursor: pointer;
+  transition: scale 0.1s ease-out, opacity 0.2s ease-out;
+
+  filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.7));
+  z-index: 10;
+}
+
+.isNotOpen .kotzIcon {
+  opacity: var(--kotz-icon-opacity);
+}
+
+.kotzIcon:hover {
+  scale: 1.1;
+  opacity: 1;
+}
+
+.kotzIcon:active {
+  scale: 1.15;
+  opacity: 1;
+}
+
+.layoutNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  margin: 1em;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.7em;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s ease-out;
+  transition-property: background-color, color;
+}
+.layoutNav hgroup {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  color: var(--color-green);
+  font-size: 1.6rem;
+  font-family: var(--ff-david-vc);
+  cursor: default;
+}
+.layoutNav hgroup h1 {
+  font-family: "Alpha Bravo";
+  font-weight: 300;
+  color: var(--color-green);
+  letter-spacing: -1.1px;
+  font-size: 0.9em;
+}
+
+.layoutNav hgroup h2,
+.layoutNav hgroup h3 {
+  text-orientation: sideways;
+  writing-mode: vertical-rl;
+  transform: rotateZ(180deg);
+  letter-spacing: 1.1px;
+  font-weight: 700;
+}
+
+.layoutNav hgroup h3 {
+  font-family: "DavidKotz";
+  font-feature-settings: "ss01" 1;
+  display: none;
+  transition: all 0.1s ease-out;
+}
+
+.layoutNav hgroup h1:hover,
+.layoutNav hgroup h3:hover {
+  cursor: pointer;
+  color: var(--color-green);
+  scale: 1.1;
+}
+
+.layoutNav hgroup h1:active,
+.layoutNav hgroup h3:active {
+  scale: 1.2;
+}
+
+.layoutNav .changeTheme {
+  position: relative;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+
+  background-color: transparent;
+  border: none;
+}
+
+.layoutNav .changeTheme .themeContainer {
+  white-space: nowrap;
+  display: flex;
+  flex-flow: row nowrap;
+  transition: transform 0.2s ease-in-out;
+}
+.layoutNav .changeTheme .themeContainer .themeIcon {
+  flex: none;
+  width: 30px;
+
+  height: 30px;
+}
+
+/* Desktop */
+@media (min-aspect-ratio: 1), (orientation: landscape) {
+  nav.layoutNav {
+    left: auto !important;
+    right: 0 !important;
+  }
+  nav.layoutNav hgroup {
+    color: var(--color-white);
+
+    gap: 0.2em;
+    font-size: var(--fs-700);
+  }
+  nav.layoutNav hgroup h2 {
+    letter-spacing: 1.1px;
+  }
+}
+
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+
+.layout {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 100vh;
+  height: 100dvh;
 
   & .layoutNav {
     position: static;
@@ -22,7 +217,7 @@
   }
 }
 
-/* Mobile */
+/* Portrait */
 @media (max-aspect-ratio: 1) {
   .layout {
     &.isNotOpen {
@@ -139,11 +334,10 @@
         color: var(--color-green);
         scale: 1.1;
       }
-      
+
       &:active {
         scale: 1.2;
       }
-
     }
   }
 

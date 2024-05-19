@@ -6,6 +6,701 @@
   height: 100%;
   display: flex;
   flex-flow: column nowrap;
+}
+
+/* Mobile */
+@media (max-aspect-ratio: 1) {
+  .polls > h1 {
+    padding-block-start: 1.5em;
+  }
+}
+
+.imageBar {
+  display: flex;
+  flex-flow: column nowrap;
+  /* width: 1fr; */
+  overflow: hidden;
+  /* height: 60px; */
+  width: 100%;
+  position: relative;
+  /* transition: all 2s ease-out; */
+}
+
+.articleContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  /* height: 100vh; */
+  width: 100%;
+  justify-content: center;
+  /* width: 20px; */
+  align-items: center;
+  /* position: absolute; */
+  max-height: 1px;
+  /* top: 0; */
+  overflow: hidden;
+  /* transition: all 2s ease-out; */
+}
+
+.show .articleContainer {
+  max-height: 300px;
+  justify-content: flex-start;
+  flex-shrink: 0;
+}
+
+.headerImage {
+  width: 100%;
+  height: 120px;
+  /* Additional styles */
+  flex-shrink: 0;
+}
+
+.imageImg {
+  width: 100%;
+  /* max-height: 120px; */
+}
+
+.imgCont {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* max-height: 100px; */
+}
+
+.show .imgCont {
+  height: 80px;
+}
+
+.show.imageBar {
+  flex-shrink: 0;
+}
+
+@keyframes floating {
+  0% {
+    transform: translate(
+      var(--translate-x-start, 0px),
+      var(--translate-y-start, 0px)
+    );
+  }
+  50% {
+    transform: translate(
+      var(--translate-x-end, 0px),
+      var(--translate-y-end, 0px)
+    );
+  }
+  100% {
+    transform: translate(
+      var(--translate-x-start, 0px),
+      var(--translate-y-start, 0px)
+    );
+  }
+}
+
+.censorshipPage .songs {
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: var(--color-theme-foreground);
+  color: var(--color-theme-background);
+  font-family: var(--ff-narkis-yair);
+  padding: 0 2em;
+
+  margin: 2em 0;
+  margin-inline-start: -2em;
+  position: relative;
+  overflow: auto;
+  max-height: 40vh;
+  width: 100%;
+
+  background-image: url(../images/other/song_bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  transition: background-color 0.1s ease-out;
+  transition-property: background-color, color;
+
+  .censorshipPage .songs .borderContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2em;
+    padding: 2em 1em;
+    padding-top: 0;
+  }
+
+  .censorshipPage .songs h1 {
+    font-family: var(--ff-hadassa);
+    font-weight: 900;
+    font-style: normal;
+    color: var(--color-black);
+    margin: 0;
+  }
+
+  .censorshipPage .songs section {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1em;
+    line-height: 1;
+  }
+  .censorshipPage .songs section .song .separator {
+    margin-block-end: 0.5em;
+  }
+
+  .censorshipPage .songs section .song p {
+    line-height: 1;
+  }
+  .censorshipPage .songs section .song p + p {
+    margin-block-start: 0.2em;
+  }
+
+  .censorshipPage .songs section .song p + .separator {
+    margin-block-start: 2em;
+  }
+}
+
+.censorshipPage .terms {
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: var(--color-dark-green);
+  color: var(--color-black);
+  font-family: var(--ff-hadassa);
+  padding: 0 2em;
+
+  margin: 2em 0;
+  margin-inline-start: -2em;
+  position: relative;
+  overflow: auto;
+  max-height: 40vh;
+  width: 100%;
+}
+.censorshipPage .terms .borderContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2em;
+  border: none;
+  border-right: 2px dotted black;
+  padding: 2em 1em;
+  padding-top: 0;
+  margin-top: 2em;
+}
+
+.censorshipPage .terms h1 {
+  font-family: var(--ff-hadassa);
+  font-weight: 900;
+  font-size: 1.5rem;
+  font-style: normal;
+  color: var(--color-black);
+  margin: 0;
+}
+
+.censorshipPage .terms section {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1em;
+  line-height: 1;
+}
+.censorshipPage .terms section .term h2 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  display: inline;
+  line-height: 1;
+  margin-inline-end: 0.5em;
+}
+
+.censorshipPage .terms section .term p {
+  display: inline;
+  font-family: "Narkissim";
+  font-weight: 300;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.censorshipPage .terms section .term p > u {
+  text-decoration: 2px dotted underline;
+  text-underline-offset: 0.2em;
+}
+
+.censorshipPage article {
+  max-width: 100%;
+  padding: 2em;
+  color: var(--color-theme-foreground);
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2em;
+  padding-top: 4em;
+  cursor: default;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: var(--color-theme-background);
+  transition: background-color 0.1s ease-out;
+  transition-property: background-color, color;
+  margin-block-end: 8em;
+}
+
+.censorshipPage article.poll {
+  padding: 0;
+  margin-block-end: 0;
+}
+
+.censorshipPage article.poll > main {
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+.censorshipPage article.poll > main > .polls {
+  height: 100%;
+}
+
+.censorshipPage article main .debates {
+  position: relative;
+  display: flex;
+  /* margin-inline: -0.2em; */
+}
+
+.censorshipPage article main .debates .debate {
+  position: absolute;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border-radius: 8px;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 85%;
+  background-color: var(--color-white);
+  transition: all 0.15s ease-out;
+  top: 0;
+  right: 0;
+  filter: drop-shadow(0 0 3px black);
+  padding: 0.2em 1em;
+  gap: 1em;
+}
+
+.censorshipPage article main .debates .debate.active {
+  z-index: 1;
+}
+
+.censorshipPage article main .debates .debate.active header ::after {
+  content: "<";
+}
+
+.censorshipPage article main .debates .debate.active:active {
+  transform: translate(-4px, -4px);
+}
+
+.censorshipPage article main .debates .debate:not(.active) {
+  top: 0;
+  right: 150px;
+}
+.censorshipPage article main .debates .debate:not(.active):hover {
+  transform: translate(-4px, -4px);
+}
+
+.censorshipPage article main .debates .debate:not(.active):active {
+  transform: translate(-8px, -8px);
+}
+
+.censorshipPage article main .debates .debate:nth-child(odd) {
+  background-color: rgb(203, 203, 203);
+}
+
+.censorshipPage article main .debates .debate header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: end;
+  gap: 0.5em;
+  align-items: center;
+  border: none;
+  border-bottom: 2px dotted var(--color-black);
+  padding-block: 0.3em 0.4em;
+}
+
+.censorshipPage article main .debates .debate header ::after {
+  content: ">";
+  margin-inline-start: 1em;
+}
+
+.censorshipPage article main .debates .debate header img {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}
+
+.censorshipPage article main .debates .debate header h1 {
+  font-family: var(--ff-greta);
+  font-size: var(--fs-500);
+  font-weight: 600;
+}
+
+.censorshipPage article main .debates .debate main {
+  margin: 1em 0.2em;
+}
+.censorshipPage article main .debates .debate main > .start {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.5em;
+  align-items: flex-end;
+}
+.censorshipPage article main .debates .debate main > .start img {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
+
+.censorshipPage article main .debates .debate main > .start .lead {
+  color: var(--color-green);
+  font-weight: 500;
+  font-family: var(--ff-david-vc);
+  font-size: var(--fs-500);
+  line-height: 1.3;
+  margin-block-end: 2em;
+}
+
+.censorshipPage article main .debates .debate main > .start .lead .authorName {
+  font-family: var(--ff-greta);
+  margin-inline-end: 0.5em;
+  font-size: 1.15em;
+}
+
+.censorshipPage article main .debates .debate .body {
+  color: var(--color-black);
+}
+
+.censorshipPage article .polls {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2em;
+  background-image: var(--polls-bg-img-url);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+  position: relative;
+  min-width: 20vw;
+}
+.censorshipPage article .polls > h1 {
+  font-family: var(--ff-kotz-display);
+  font-weight: 600;
+  font-style: italic;
+  font-size: clamp(4em, max(9vw, 13vh), 40em);
+  line-height: 0.9;
+  color: var(--color-green);
+  margin: 0.2em;
+  /* font-size: 10vw; */
+}
+.censorshipPage article .polls > h1 .altGlyph {
+  font-feature-settings: "ss01" 1;
+}
+
+.censorshipPage article .polls main {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1em;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.censorshipPage article .polls main section {
+  background-color: var(--color-theme-foreground);
+  color: var(--color-theme-background);
+  border-radius: 8px;
+  filter: drop-shadow(0 0 3px black);
+  display: flex;
+  flex-flow: column nowrap;
+  width: 21ch;
+  padding: 0.5em;
+  position: absolute;
+  gap: 0.5em;
+  animation: floating var(--animation-duration, 5s) infinite ease-in-out
+    var(--animation-delay, 0s);
+  transform-origin: top left;
+  transition: background-color 0.1s ease-out;
+  transition-property: background-color, color;
+}
+
+.censorshipPage article .polls main section h1 {
+  text-align: end;
+  direction: ltr;
+  font-size: var(--fs-400);
+}
+
+.censorshipPage article .polls main section p {
+  font-weight: 700;
+  line-height: 1.1;
+  font-family: var(--ff-david-vc);
+  font-weight: 700;
+  font-size: var(--fs-500);
+  margin: 0;
+}
+
+.censorshipPage article header {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 4em;
+}
+
+.censorshipPage article .poll header {
+  display: none;
+}
+
+.censorshipPage article header hgroup {
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: 99%;
+  gap: 0em;
+}
+.censorshipPage article header hgroup h1 {
+  font-family: var(--ff-kotz-display);
+  /* font-feature-settings: "ss01"; */
+  font-size: var(--fs-800);
+  line-height: 0.9em;
+  color: var(--color-green);
+  margin-bottom: 0.2em;
+}
+.censorshipPage article header hgroup h1.title .altGlyph {
+  font-feature-settings: "ss01" 1;
+}
+
+.censorshipPage article header hgroup h2 {
+  font-family: var(--ff-narkis-yair);
+  font-size: 1.5rem;
+  line-height: 1.7rem;
+
+  max-width: 450px;
+}
+
+.censorshipPage article header hgroup h3 {
+  font-family: var(--ff-narkis-yair);
+  color: var(--color-green);
+  font-size: 1.5rem;
+}
+.censorshipPage article header hgroup h3::before {
+  content: ">";
+  margin-inline-end: 0.5em;
+}
+
+.censorshipPage article header .lead {
+  font: var(--font-kotz-500);
+}
+
+.censorshipPage article .bodyImage {
+  max-width: calc(100% + 2em);
+  margin: 2em 0;
+  margin-inline-start: -2em;
+  display: flex;
+  flex-flow: column nowrap;
+  width: max-content;
+}
+.censorshipPage article .bodyImage img {
+  border-radius: 4px;
+}
+
+.censorshipPage article .bodyImage footer {
+  color: var(--color-green);
+  font-size: var(--fs-300);
+  font-family: var(--ff-narkis-yair);
+  text-align: left;
+  margin-top: 3px;
+  width: 100%;
+}
+
+.censorshipPage figure {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.censorshipPage figure img {
+  /* height: 17em; */
+  /* width: auto; */
+}
+
+.censorshipPage figure figcaption {
+  font-family: var(--ff-narkis-yair);
+  font-size: var(--fs-300);
+}
+
+.censorshipPage main > .h1Spacer {
+  height: 2em;
+}
+
+.censorshipPage main > h1 {
+  margin-block: 2em 0.5em;
+  color: var(--color-green);
+  font-family: var(--ff-david-vc);
+  font-style: italic;
+  font-size: 1.58rem; /* var(--fs-600); */
+  letter-spacing: 1px;
+}
+
+.censorshipPage main .interview h1 {
+  line-height: 1em;
+  font-family: var(--ff-greta);
+  font-style: italic;
+  font-weight: 600;
+  display: inline;
+  margin-inline-end: 0.5em;
+  margin-block-start: 2em;
+  margin-block-end: 0;
+}
+
+.censorshipPage main .interview h1::before {
+  content: "";
+  background-image: url(../images/other/paragraph-vector.svg);
+  background-size: contain;
+  height: 2.5em;
+  width: 2em;
+  display: inline-block;
+  background-repeat: no-repeat;
+  margin-inline-end: 0.5em;
+  float: inline-start;
+  background-position: center center;
+}
+
+.censorshipPage main > p {
+  font: var(--font-kotz-500);
+  font-weight: 500;
+  line-height: 1.77rem;
+  letter-spacing: 0.7px;
+  margin: 0;
+}
+.censorshipPage main > p:not(:first-child) {
+  text-indent: var(--typo-indent);
+}
+
+.censorshipPage main > p b {
+  color: #26bd6b;
+}
+
+.censorshipPage main > p i {
+  font-family: var(--ff-narkis-yair);
+  font-size: 1.4rem;
+}
+
+.censorshipPage main .interview p {
+  text-indent: 0;
+}
+
+.censorshipPage main .interview p::before {
+  content: "";
+  display: inline-block;
+  height: 0.7em;
+  width: var(--typo-indent);
+  background-color: var(--color-theme-foreground);
+  margin-inline-end: 0.3em;
+  transition: background-color 0.1s ease-out;
+}
+
+.censorshipPage main > h3 {
+  font: var(--font-kotz-500);
+  font-weight: 600;
+  line-height: 1.3em;
+  letter-spacing: 0.7px;
+  margin: 0;
+  color: #26bd6b;
+  text-align: center;
+  font-size: 1.6em;
+}
+
+.censorshipPage hr {
+  border: none;
+  border-top: 2px dotted var(--color-green);
+  border-bottom: none;
+  margin: 2em auto;
+  width: 100%;
+}
+.censorshipPage + .h1Spacer {
+  height: 0;
+}
+
+.censorshipPage footer {
+  font-family: var(--ff-narkis-yair);
+  font-size: 1.4rem;
+}
+.censorshipPage footer > main {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1em;
+}
+.censorshipPage footer > main > .imageContainer {
+  flex: 1;
+}
+.censorshipPage footer > main > .imageContainer > img {
+  border-radius: 50%;
+}
+
+.censorshipPage footer > main > .textBody {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 4;
+}
+.censorshipPage footer > main > .textBody > h1 {
+  font-family: inherit;
+  font-weight: 700;
+}
+
+/* Landscape */
+@media (min-aspect-ratio: 1), (orientation: landscape) {
+  .censorshipPage {
+    position: static;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  .censorshipPage article > main .debates > .debate > main {
+    margin: 1em 1.5em;
+  }
+}
+
+/* Mobile */
+@media (max-aspect-ratio: 1), (orientation: portrait) {
+  .censorshipPage article {
+    padding: 1em;
+    padding-top: 4em;
+    padding-inline-end: 0;
+  }
+  .censorshipPage article > main {
+    max-width: 60ch;
+  }
+
+  .censorshipPage article .poll main {
+    max-width: none;
+  }
+
+  .censorshipPage footer > main {
+    flex-direction: column;
+  }
+  .censorshipPage footer > main .imageContainer > img {
+    max-width: 30%;
+  }
+}
+
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+/* NEW CSS */
+
+/* FakePage.module.css */
+.censorshipPage {
+  width: 100vw;
+  width: 100dvw;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
   /* display: grid;
     
     grid-template-columns: repeat(6, 1fr); */
@@ -14,7 +709,6 @@
 /* Mobile */
 @media (max-aspect-ratio: 1) {
   .polls {
-
     & > h1 {
       padding-block-start: 1.5em;
     }
@@ -645,7 +1339,7 @@
             content: none;
           }
         }
-        
+
         &::before {
           content: "";
           display: inline-block;
