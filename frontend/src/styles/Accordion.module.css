@@ -56,7 +56,6 @@ svg {
     justify-content: center;
     flex-shrink: 0;
     z-index: 2;
-    margin-block-end: 8em;
 
     & aside {
       background-color: #4b875c;
@@ -127,6 +126,10 @@ svg {
     opacity: 0;
     transition: all 0.1s ease-in-out;
     pointer-events: none;
+
+    .articleIsNotOpen ~ & {
+      display: none;
+    }
 
     &.scrolled {
       opacity: 0.5;
@@ -236,7 +239,7 @@ svg {
   }
 }
 
-/* Mobile */
+/* Portrait */
 @media (max-aspect-ratio: 1) {
   .accordionContainer {
     & .accordion {
@@ -301,7 +304,7 @@ svg {
   }
 }
 
-/* Desktop */
+/* Landscape */
 @media (min-aspect-ratio: 1) {
   .accordionContainer {
     flex-direction: row;
@@ -367,6 +370,13 @@ svg {
           & h2 {
             &::before {
               content: none;
+            }
+          }
+        }
+        & h2 {
+          .articleIsNotOpen & {
+            &::before {
+              margin-inline-start: 0;
             }
           }
         }
@@ -491,7 +501,7 @@ svg {
   .panel.active {
     max-width: none;
   }
-  
+
   .accordion {
     .articleIsOpen:not(.active)& {
       max-width: 0;

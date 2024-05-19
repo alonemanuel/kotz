@@ -10,7 +10,8 @@
     "gh-pages": "^6.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.0",
+    "react-ga4": "^2.1.0",
+    "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
     "simplebar": "^6.2.5",
     "snapsvg": "^0.5.1",
@@ -25,7 +26,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": ".",
   "eslintConfig": {
     "extends": [
       "react-app",

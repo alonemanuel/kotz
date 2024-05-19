@@ -950,6 +950,7 @@ export interface ApiItemArticleItemArticle extends Schema.CollectionType {
     >;
     song: Attribute.Component<'shared.song', true>;
     long_author_about: Attribute.Blocks;
+    url_title: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -106,6 +106,7 @@
     color: var(--color-green);
     font-size: 1.6rem;
     font-family: var(--ff-david-vc);
+    cursor: default;
 
     & h1 {
       font-family: "Alpha Bravo";
@@ -127,10 +128,22 @@
     & h3 {
       font-family: "DavidKotz";
       font-feature-settings: "ss01" 1;
+      display: none;
+      transition: all 0.1s ease-out;
     }
 
-    & h3 {
-      display: none;
+    & h1,
+    h3 {
+      &:hover {
+        cursor: pointer;
+        color: var(--color-green);
+        scale: 1.1;
+      }
+      
+      &:active {
+        scale: 1.2;
+      }
+
     }
   }
 

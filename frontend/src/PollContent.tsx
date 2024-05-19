@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Paragraph from "./Paragraph";
 import BoldText from "./BoldText";
 import ItalicText from "./ItalicText";
@@ -15,6 +15,35 @@ const PollContent: React.FC<{ content?: any; cover?: any }> = ({
   const { isOpen, setOpen } = useOpenArticle();
 
   const pollRef = useRef<HTMLDivElement>(null);
+
+  const [wrappedQuestion, setWrappedQuestion] = useState("");
+
+  useEffect(() => {
+    if (content?.question) {
+      const titleStr = content.question;
+      // Your logic for wrapping the question
+      const CHANGE_FACTOR = 0.4;
+      const chars = [...titleStr.split("")];
+      const wrapCount = Math.floor(chars.length * CHANGE_FACTOR);
+      let wrappedIndices: number[] = [];
+
+      while (wrappedIndices.length < wrapCount) {
+        const randomIndex = Math.floor(Math.random() * chars.length);
+        if (
+          !wrappedIndices.includes(randomIndex) &&
+          chars[randomIndex] !== " "
+        ) {
+          chars[
+            randomIndex
+          ] = `<span class=${styles.altGlyph}>${chars[randomIndex]}</span>`;
+          wrappedIndices.push(randomIndex);
+        }
+      }
+
+      const wrappedQuestionString = chars.join("");
+      setWrappedQuestion(wrappedQuestionString);
+    }
+  }, [content?.question]); // Dependency array ensures this runs only if content.question changes
 
   // Make the DIV element draggable:
   // dragElement(document.getElementById("mydiv"));
@@ -159,7 +188,12 @@ const PollContent: React.FC<{ content?: any; cover?: any }> = ({
           } as React.CSSProperties
         }
       >
-        <h1>{content?.question}</h1>
+        {wrappedQuestion && (
+          <h1
+            className={styles.title}
+            dangerouslySetInnerHTML={{ __html: wrappedQuestion }}
+          />
+        )}
         <main ref={pollRef}>
           {content?.answer?.map((item: any, index: number) => (
             <section key={index}>

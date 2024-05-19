@@ -1,5 +1,7 @@
 /* FakePage.module.css */
 .censorshipPage {
+  width: 100vw;
+  width: 100dvw;
   overflow: hidden;
   height: 100%;
   display: flex;
@@ -12,6 +14,7 @@
 /* Mobile */
 @media (max-aspect-ratio: 1) {
   .polls {
+
     & > h1 {
       padding-block-start: 1.5em;
     }
@@ -260,9 +263,11 @@
     background-color: var(--color-theme-background);
     transition: background-color 0.1s ease-out;
     transition-property: background-color, color;
+    margin-block-end: 8em;
 
     &.poll {
       padding: 0;
+      margin-block-end: 0;
 
       & > main {
         height: 100vh;
@@ -408,7 +413,7 @@
       min-width: 20vw;
 
       & > h1 {
-        font-family: var(--ff-david-vc);
+        font-family: var(--ff-kotz-display);
         font-weight: 600;
         font-style: italic;
         font-size: clamp(4em, max(9vw, 13vh), 40em);
@@ -416,6 +421,9 @@
         color: var(--color-green);
         margin: 0.2em;
         /* font-size: 10vw; */
+        & .altGlyph {
+          font-feature-settings: "ss01" 1;
+        }
       }
 
       & main {
@@ -477,7 +485,7 @@
         gap: 0em;
 
         & h1 {
-          font-family: "KotzDisplay";
+          font-family: var(--ff-kotz-display);
           /* font-feature-settings: "ss01"; */
           font-size: var(--fs-800);
           line-height: 0.9em;
@@ -520,6 +528,9 @@
       max-width: calc(100% + 2em);
       margin: 2em 0;
       margin-inline-start: -2em;
+      display: flex;
+      flex-flow: column nowrap;
+      width: max-content;
 
       & img {
         border-radius: 4px;
@@ -531,6 +542,7 @@
         font-family: var(--ff-narkis-yair);
         text-align: left;
         margin-top: 3px;
+        width: 100%;
       }
     }
   }
@@ -565,6 +577,7 @@
       letter-spacing: 1px;
 
       .interview & {
+        line-height: 1em;
         font-family: var(--ff-greta);
         font-style: italic;
         font-weight: 600;
@@ -628,6 +641,15 @@
           }
         }
 
+        &:first-child,
+        div + &,
+        hr + &,
+        h1 + & {
+          &::before {
+            content: none;
+          }
+        }
+        
         &::before {
           content: "";
           display: inline-block;
@@ -638,6 +660,17 @@
           transition: background-color 0.1s ease-out;
         }
       }
+    }
+
+    & > h3 {
+      font: var(--font-kotz-500);
+      font-weight: 600;
+      line-height: 1.3em;
+      letter-spacing: 0.7px;
+      margin: 0;
+      color: #26bd6b;
+      text-align: center;
+      font-size: 1.6em;
     }
   }
 
@@ -682,7 +715,7 @@
     }
   }
 }
-/* Desktop */
+/* Landscape */
 @media (min-aspect-ratio: 1) {
   .censorshipPage {
     position: static;
@@ -710,9 +743,13 @@
       padding: 1em;
       padding-top: 4em;
       padding-inline-end: 0;
-      
+
       & > main {
         max-width: 60ch;
+
+        .poll & {
+          max-width: none;
+        }
         /* padding-left: 13vw; */
       }
     }
