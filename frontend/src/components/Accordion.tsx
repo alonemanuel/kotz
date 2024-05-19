@@ -148,14 +148,20 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
         (article) => normalizeTitle(article.attributes.title) === urlSuffix
       );
     }
-    if (urlSuffix && (index !== -1)) {
+    if (urlSuffix && index !== -1) {
+      console.log("found!");
+      console.log(`index: ${index}`);
+      console.log(`name: ${articles[index].attributes.title}`);
+      console.log(`Active Index before: ${activeIndex}`);
       setActiveIndex(index);
+      console.log(`Active Index after: ${activeIndex}`);
       setOpen(true);
     } else {
+      console.log("didnt find");
       setActiveIndex(null);
       setOpen(false);
     }
-  }, [urlSuffix, articles, setOpen, location]);
+  }, [urlSuffix, activeIndex, setOpen, articles, isOpen, location]);
 
   const toggleAccordion = (index: number) => {
     const isArticleOpen = activeIndex === index;
