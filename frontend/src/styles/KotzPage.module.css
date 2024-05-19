@@ -419,8 +419,8 @@
   }
 }
 
-/* Mobile */
-@media (max-aspect-ratio: 1) {
+/* Portrait */
+@media (max-aspect-ratio: 1), (orientation: portrait) {
   .kotzPage {
     flex-flow: column nowrap;
     overflow: hidden;
