@@ -422,7 +422,7 @@
 /* Portrait */
 @media (max-aspect-ratio: 1), (orientation: portrait) {
   .kotzPage {
-    flex-flow: column nowrap;
+    flex-flow: column nowrap !important;
     overflow: hidden;
     gap: 2em;
   }
