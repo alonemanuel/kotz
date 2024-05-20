@@ -489,6 +489,7 @@
 }
 .censorshipPage article .bodyImage img {
   border-radius: 4px;
+  width: 100%;
 }
 
 .censorshipPage article .bodyImage footer {
@@ -1224,6 +1225,7 @@
 
       & img {
         border-radius: 4px;
+        width: 100%;
       }
 
       & footer {
