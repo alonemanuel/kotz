@@ -903,7 +903,9 @@
     }
 
     &.questionnaire {
-      background-color: rgb(255, 230, 0);
+      background-color: var(--color-theme-foreground);
+      color: var(--color-theme-background);
+      max-height: 80vh;
     }
 
     & .borderContainer {
