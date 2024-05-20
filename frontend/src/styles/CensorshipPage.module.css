@@ -528,7 +528,7 @@
   letter-spacing: 1px;
 }
 
-.censorshipPage main .interview h1 {
+.censorshipPage main.interview h1 {
   line-height: 1em;
   font-family: var(--ff-greta);
   font-style: italic;
@@ -539,7 +539,7 @@
   margin-block-end: 0;
 }
 
-.censorshipPage main .interview h1::before {
+.censorshipPage main.interview h1::before {
   content: "";
   background-image: url(../images/other/paragraph-vector.svg);
   background-size: contain;
