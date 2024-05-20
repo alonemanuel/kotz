@@ -80,6 +80,28 @@ const JsonBlocksContent: React.FC<{
     );
   };
 
+  const renderQuestionnaire = (block: ContentBlock, index: number) => {
+    return (
+      <div key={index} className={`${styles.terms} ${styles.questionnaire}`}>
+        <div className={styles.borderContainer}>
+          <header>
+            <h1>שאלון</h1>
+          </header>
+          <section>
+            {terms
+              ?.map((term: any) => term.attributes)
+              .map((term: any, termIndex: number) => (
+                <div key={termIndex} className={styles.term}>
+                  <h2>{term?.title}</h2>
+                  <JsonBlocksContent content={term?.body} />
+                </div>
+              ))}
+          </section>
+        </div>
+      </div>
+    );
+  };
+
   const renderHeading = (
     block: ContentBlock,
     index: number,
@@ -106,13 +128,21 @@ const JsonBlocksContent: React.FC<{
       case "image":
         return renderImage(block, index);
       case "heading":
+        const text = block.children ? block.children[0].text : "";
         switch (block?.level) {
           case 6:
-            return renderTerms(block, index);
+            console.log(text);
+            if (text === "מילון") {
+              return renderTerms(block, index);
+            } else if (text === "שאלון") {
+              return renderQuestionnaire(block, index);
+            } else {
+              return renderTerms(block, index);
+            }
           case 5:
-            if (block.text === "---") {
+            if (text === "---") {
               return renderHr(index);
-            } else if (block.text === "-*-") {
+            } else if (text === "-*-") {
               return renderKotzHr(index);
             } else {
               return renderHr(index);

@@ -895,12 +895,18 @@
     max-height: 40vh;
     width: 100%;
 
-    /* .interview & {
+    .interview & {
       & h1::before {
         content: "";
         display: none;
       }
-    } */
+    }
+
+    &.questionnaire {
+      background-color: var(--color-theme-foreground);
+      color: var(--color-theme-background);
+      max-height: 80vh;
+    }
 
     & .borderContainer {
       display: flex;
@@ -1247,6 +1253,14 @@
         text-align: left;
         margin-top: 3px;
         width: 100%;
+
+        .term & {
+          color: var(--color-theme-foreground);
+        }
+
+        .terms.questionnaire & {
+          color: var(--color-theme-background);
+        }
       }
     }
   }
