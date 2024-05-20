@@ -191,6 +191,11 @@
   margin: 0;
 }
 
+.censorshipPage .interview .terms h1::before {
+  content: "";
+  display: none;
+}
+
 .censorshipPage .terms section {
   display: flex;
   flex-flow: column nowrap;
@@ -875,7 +880,7 @@
     }
   }
 
-  & .terms {
+  & main .terms {
     display: flex;
     flex-flow: column nowrap;
     background-color: var(--color-dark-green);
@@ -889,6 +894,13 @@
     overflow: auto;
     max-height: 40vh;
     width: 100%;
+
+    /* .interview & {
+      & h1::before {
+        content: "";
+        display: none;
+      }
+    } */
 
     & .borderContainer {
       display: flex;
