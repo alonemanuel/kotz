@@ -895,12 +895,12 @@
     max-height: 40vh;
     width: 100%;
 
-    /* .interview & {
+    .interview & {
       & h1::before {
         content: "";
         display: none;
       }
-    } */
+    }
 
     &.questionnaire {
       background-color: rgb(255, 230, 0);
