@@ -194,8 +194,8 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
   }, [articles, isOpen]);
 
   return (
-    <div className={styles.sidebarContainer}>
-      <div className={styles.sidebarNavigation}>
+    <div className={styles.outer}>
+      <div className={styles.nav}>
         {articles.map((article, index) => (
           <div
             key={index}
@@ -209,7 +209,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
         ))}
       </div>
       <div
-        className={`${styles.accordionContainer} ${
+        className={`${styles.articles} ${
           isOpen ? styles.isOpen : styles.isNotOpen
         }`}
       >
@@ -220,8 +220,8 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
             <React.Fragment key={article.id}>
               <div
                 ref={(el) => (panelRefs.current[index] = el)}
-                className={`${styles.panel} ${
-                  activeIndex === index ? styles.active : ""
+                className={`${styles.article} ${
+                  activeIndex === index ? styles.active : styles.notActive
                 }`}
               >
                 <section className={styles.articleWrapper}>
@@ -232,7 +232,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
                   />
                 </section>
               </div>
-              <div
+              {/* <div
                 ref={(el) => (accordionRefs.current[index] = el)}
                 className={`${styles.accordion} ${
                   activeIndex === index ? styles.active : ""
@@ -267,7 +267,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
                     {attr.author_about && <h3>{attr.author_about}</h3>}
                   </div>
                 )}
-              </div>
+              </div> */}
             </React.Fragment>
           );
         })}
