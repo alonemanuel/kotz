@@ -217,58 +217,15 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
           const attr = article.attributes;
 
           return (
-            <React.Fragment key={article.id}>
-              <div
-                ref={(el) => (panelRefs.current[index] = el)}
-                className={`${styles.article} ${
-                  activeIndex === index ? styles.active : styles.notActive
-                }`}
-              >
-                <section className={styles.articleWrapper}>
-                  <ArticleComponent
-                    key={article.id}
-                    article={article}
-                    terms={terms}
-                  />
-                </section>
-              </div>
-              {/* <div
-                ref={(el) => (accordionRefs.current[index] = el)}
-                className={`${styles.accordion} ${
-                  activeIndex === index ? styles.active : ""
-                } ${isOpen ? styles.articleIsOpen : styles.articleIsNotOpen}`}
-                onClick={() => toggleAccordion(index)}
-                style={
-                  {
-                    "--outside-img-margin-top": `-${textContentHeights.current[index]}px`,
-                    "--outside-img-margin-left": `${textContentWidths.current[index]}px`,
-                  } as React.CSSProperties
-                }
-              >
-                <div className={styles.bgContainer}>
-                  <div
-                    className={styles.bgContent}
-                    style={
-                      attr.outside_img_vertical.data &&
-                      attr.outside_img_horizontal.data &&
-                      ({
-                        "--outside-img-horizontal-url": `url(${attr.outside_img_horizontal?.data?.attributes.url})`,
-                        "--outside-img-vertical-url": `url(${attr.outside_img_vertical?.data?.attributes.url})`,
-                      } as React.CSSProperties)
-                    }
-                  ></div>
-                  <div className={styles.bgSpacer}></div>
-                </div>
-
-                {(attr.author || attr.title) && (
-                  <div className={styles.textContent}>
-                    {attr.title && <h1>{attr.title}</h1>}
-                    {attr.author && <h2>{attr.author}</h2>}
-                    {attr.author_about && <h3>{attr.author_about}</h3>}
-                  </div>
-                )}
-              </div> */}
-            </React.Fragment>
+            <div
+              key={article.id}
+              ref={(el) => (panelRefs.current[index] = el)}
+              className={`${styles.articleOuter} ${
+                activeIndex === index ? styles.active : styles.notActive
+              }`}
+            >
+              <ArticleComponent article={article} terms={terms} />
+            </div>
           );
         })}
         <div

@@ -27,6 +27,16 @@
     display: flex;
     flex: 3;
 
+    & > .articleOuter {
+      &.notActive {
+        display: none;
+    }
+    & > article {
+          height: 100dvh;
+          overflow: auto;
+      }
+    }
+
     & .articleIsNotOpen ~ .toTop {
       display: none;
     }
@@ -61,12 +71,6 @@
         opacity: 0.5;
         cursor: pointer;
         pointer-events: all;
-      }
-    }
-
-    & > .article {
-      &.notActive {
-        display: none;
       }
     }
   }
