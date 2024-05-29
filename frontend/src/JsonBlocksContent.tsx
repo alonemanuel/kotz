@@ -4,7 +4,7 @@ import BoldText from "./BoldText";
 import ItalicText from "./ItalicText";
 import { ContentBlock, ContentBlockChild } from "./interfaces";
 import ArticleBodyImage from "./ArticleBodyImage";
-import styles from "./styles/CensorshipPage.module.css";
+// import styles from "./styles/CensorshipPage.module.css";
 import UnderlineText from "./UnderlineText";
 import SongContent from "./SongContent";
 
@@ -13,7 +13,8 @@ const JsonBlocksContent: React.FC<{
   terms?: any[];
   song?: any[];
   type?: string;
-}> = ({ content, terms, song, type }) => {
+  styles: any
+}> = ({ content, terms, song, type,styles }) => {
   const renderParagraph = (block: ContentBlock, index: number) => {
     return (
       <Paragraph key={index}>
@@ -71,7 +72,7 @@ const JsonBlocksContent: React.FC<{
               .map((term: any, termIndex: number) => (
                 <div key={termIndex} className={styles.term}>
                   <h2>{term?.title}</h2>
-                  <JsonBlocksContent content={term?.body} />
+                  <JsonBlocksContent content={term?.body} styles={styles}/>
                 </div>
               ))}
           </section>
@@ -93,7 +94,7 @@ const JsonBlocksContent: React.FC<{
               .map((term: any, termIndex: number) => (
                 <div key={termIndex} className={styles.term}>
                   <h2>{term?.title}</h2>
-                  <JsonBlocksContent content={term?.body} />
+                  <JsonBlocksContent content={term?.body} styles={styles}/>
                 </div>
               ))}
           </section>

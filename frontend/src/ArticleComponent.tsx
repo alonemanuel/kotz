@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import JsonBlocksContent from "./JsonBlocksContent";
 import { Article, Term } from "./interfaces";
 import * as C from "./constants";
-import styles from "./styles/CensorshipPage.module.css";
+// import styles from "./styles/CensorshipPage.module.css";
 import DebateContent from "./DebateContent";
 import PollContent from "./PollContent";
 import StandardContent from "./StandardContent";
@@ -11,11 +11,13 @@ import InterviewContent from "./InterviewContent";
 interface ArticleComponentProps {
   article: Article;
   terms: any;
+  styles: any;
 }
 
 const ArticleComponent: React.FC<ArticleComponentProps> = ({
   article,
   terms,
+  styles
 }) => {
   const attr = article.attributes;
   const articleTerms = attr.terms?.data;
@@ -92,7 +94,7 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
               );
             case "interview":
               return (
-                <InterviewContent content={attr?.body} terms={articleTerms} />
+                <InterviewContent content={attr?.body} terms={articleTerms} styles={styles}/>
               );
             case "debate":
               return <DebateContent content={attr?.debate} />;
@@ -122,7 +124,7 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
             <div className={styles.textBody}>
               {attr.author && <h1>{attr.author}</h1>}
               {attr.long_author_about && (
-                <JsonBlocksContent content={attr.long_author_about} />
+                <JsonBlocksContent content={attr.long_author_about} styles={styles} />
               )}
             </div>
           </main>

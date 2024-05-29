@@ -1,5 +1,6 @@
 import React, { RefObject, useEffect, useRef, useState } from "react";
 import styles from "../styles/Sidebar.module.css";
+import provocationStyles from '../styles/ProvocationPage.module.css';
 import { ItemArticle } from "../types/itemArticle";
 import { Article, Term } from "../interfaces";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
@@ -224,7 +225,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
                 activeIndex === index ? styles.active : styles.notActive
               }`}
             >
-              <ArticleComponent article={article} terms={terms} />
+              <ArticleComponent article={article} terms={terms} styles={provocationStyles}/>
             </div>
           );
         })}

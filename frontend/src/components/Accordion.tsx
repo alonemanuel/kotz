@@ -253,6 +253,7 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
                   key={article.id}
                   article={article}
                   terms={terms}
+                  styles={styles}
                 />
               </section>
             </div>

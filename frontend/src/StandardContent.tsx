@@ -14,7 +14,7 @@ const StandardContent: React.FC<{ content: ContentBlock[]; terms: any[]; song: a
 }) => {
   return (
     <main className={styles.standard}>
-      <JsonBlocksContent content={content} terms={terms} song={song}/>
+      <JsonBlocksContent content={content} terms={terms} song={song} styles={styles}/>
     </main>
   );
 };

@@ -46,7 +46,7 @@ const DebateContent: React.FC<{ content?: any[] }> = ({ content }) => {
                   {content?.lead}
                 </div>
               </div>
-              <JsonBlocksContent content={content?.body} />
+              <JsonBlocksContent content={content?.body} styles={styles} />
             </main>
           </div>
         ))}
