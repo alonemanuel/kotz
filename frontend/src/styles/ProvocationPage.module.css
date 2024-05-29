@@ -1,5 +1,5 @@
 /* FakePage.module.css */
-.censorshipPage {
+.provocationPage {
   width: 100vw;
   width: 100dvw;
   overflow: hidden;
@@ -95,7 +95,7 @@
   }
 }
 
-.censorshipPage .songs {
+.provocationPage .songs {
   display: flex;
   flex-flow: column nowrap;
   background-color: var(--color-theme-foreground);
@@ -118,7 +118,7 @@
   transition: background-color 0.1s ease-out;
   transition-property: background-color, color;
 
-  .censorshipPage .songs .borderContainer {
+  .provocationPage .songs .borderContainer {
     display: flex;
     flex-flow: column nowrap;
     gap: 2em;
@@ -126,7 +126,7 @@
     padding-top: 0;
   }
 
-  .censorshipPage .songs h1 {
+  .provocationPage .songs h1 {
     font-family: var(--ff-hadassa);
     font-weight: 900;
     font-style: normal;
@@ -134,29 +134,29 @@
     margin: 0;
   }
 
-  .censorshipPage .songs section {
+  .provocationPage .songs section {
     display: flex;
     flex-flow: column nowrap;
     gap: 1em;
     line-height: 1;
   }
-  .censorshipPage .songs section .song .separator {
+  .provocationPage .songs section .song .separator {
     margin-block-end: 0.5em;
   }
 
-  .censorshipPage .songs section .song p {
+  .provocationPage .songs section .song p {
     line-height: 1;
   }
-  .censorshipPage .songs section .song p + p {
+  .provocationPage .songs section .song p + p {
     margin-block-start: 0.2em;
   }
 
-  .censorshipPage .songs section .song p + .separator {
+  .provocationPage .songs section .song p + .separator {
     margin-block-start: 2em;
   }
 }
 
-.censorshipPage .terms {
+.provocationPage .terms {
   display: flex;
   flex-flow: column nowrap;
   background-color: var(--color-dark-green);
@@ -171,7 +171,7 @@
   max-height: 40vh;
   width: 100%;
 }
-.censorshipPage .terms .borderContainer {
+.provocationPage .terms .borderContainer {
   display: flex;
   flex-flow: column nowrap;
   gap: 2em;
@@ -182,7 +182,7 @@
   margin-top: 2em;
 }
 
-.censorshipPage .terms h1 {
+.provocationPage .terms h1 {
   font-family: var(--ff-hadassa);
   font-weight: 900;
   font-size: 1.5rem;
@@ -191,18 +191,18 @@
   margin: 0;
 }
 
-.censorshipPage .interview .terms h1::before {
+.provocationPage .interview .terms h1::before {
   content: "";
   display: none;
 }
 
-.censorshipPage .terms section {
+.provocationPage .terms section {
   display: flex;
   flex-flow: column nowrap;
   gap: 1em;
   line-height: 1;
 }
-.censorshipPage .terms section .term h2 {
+.provocationPage .terms section .term h2 {
   font-size: 1.5rem;
   font-weight: 900;
   display: inline;
@@ -210,7 +210,7 @@
   margin-inline-end: 0.5em;
 }
 
-.censorshipPage .terms section .term p {
+.provocationPage .terms section .term p {
   display: inline;
   font-family: "Narkissim";
   font-weight: 300;
@@ -218,12 +218,12 @@
   line-height: 1;
 }
 
-.censorshipPage .terms section .term p > u {
+.provocationPage .terms section .term p > u {
   text-decoration: 2px dotted underline;
   text-underline-offset: 0.2em;
 }
 
-.censorshipPage article {
+.provocationPage article {
   max-width: 100%;
   padding: 2em;
   color: var(--color-theme-foreground);
@@ -240,27 +240,27 @@
   margin-block-end: 8em;
 }
 
-.censorshipPage article.poll {
+.provocationPage article.poll {
   padding: 0;
   margin-block-end: 0;
 }
 
-.censorshipPage article.poll > main {
+.provocationPage article.poll > main {
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
 }
-.censorshipPage article.poll > main > .polls {
+.provocationPage article.poll > main > .polls {
   height: 100%;
 }
 
-.censorshipPage article main .debates {
+.provocationPage article main .debates {
   position: relative;
   display: flex;
   /* margin-inline: -0.2em; */
 }
 
-.censorshipPage article main .debates .debate {
+.provocationPage article main .debates .debate {
   position: absolute;
   background-color: var(--color-white);
   color: var(--color-black);
@@ -277,35 +277,35 @@
   gap: 1em;
 }
 
-.censorshipPage article main .debates .debate.active {
+.provocationPage article main .debates .debate.active {
   z-index: 1;
 }
 
-.censorshipPage article main .debates .debate.active header ::after {
+.provocationPage article main .debates .debate.active header ::after {
   content: "<";
 }
 
-.censorshipPage article main .debates .debate.active:active {
+.provocationPage article main .debates .debate.active:active {
   transform: translate(-4px, -4px);
 }
 
-.censorshipPage article main .debates .debate:not(.active) {
+.provocationPage article main .debates .debate:not(.active) {
   top: 0;
   right: 150px;
 }
-.censorshipPage article main .debates .debate:not(.active):hover {
+.provocationPage article main .debates .debate:not(.active):hover {
   transform: translate(-4px, -4px);
 }
 
-.censorshipPage article main .debates .debate:not(.active):active {
+.provocationPage article main .debates .debate:not(.active):active {
   transform: translate(-8px, -8px);
 }
 
-.censorshipPage article main .debates .debate:nth-child(odd) {
+.provocationPage article main .debates .debate:nth-child(odd) {
   background-color: rgb(203, 203, 203);
 }
 
-.censorshipPage article main .debates .debate header {
+.provocationPage article main .debates .debate header {
   display: flex;
   flex-flow: row nowrap;
   justify-content: end;
@@ -316,39 +316,39 @@
   padding-block: 0.3em 0.4em;
 }
 
-.censorshipPage article main .debates .debate header ::after {
+.provocationPage article main .debates .debate header ::after {
   content: ">";
   margin-inline-start: 1em;
 }
 
-.censorshipPage article main .debates .debate header img {
+.provocationPage article main .debates .debate header img {
   height: 20px;
   width: 20px;
   border-radius: 50%;
 }
 
-.censorshipPage article main .debates .debate header h1 {
+.provocationPage article main .debates .debate header h1 {
   font-family: var(--ff-greta);
   font-size: var(--fs-500);
   font-weight: 600;
 }
 
-.censorshipPage article main .debates .debate main {
+.provocationPage article main .debates .debate main {
   margin: 1em 0.2em;
 }
-.censorshipPage article main .debates .debate main > .start {
+.provocationPage article main .debates .debate main > .start {
   display: flex;
   flex-flow: column nowrap;
   gap: 0.5em;
   align-items: flex-end;
 }
-.censorshipPage article main .debates .debate main > .start img {
+.provocationPage article main .debates .debate main > .start img {
   height: 80px;
   width: 80px;
   border-radius: 50%;
 }
 
-.censorshipPage article main .debates .debate main > .start .lead {
+.provocationPage article main .debates .debate main > .start .lead {
   color: var(--color-green);
   font-weight: 500;
   font-family: var(--ff-david-vc);
@@ -357,17 +357,17 @@
   margin-block-end: 2em;
 }
 
-.censorshipPage article main .debates .debate main > .start .lead .authorName {
+.provocationPage article main .debates .debate main > .start .lead .authorName {
   font-family: var(--ff-greta);
   margin-inline-end: 0.5em;
   font-size: 1.15em;
 }
 
-.censorshipPage article main .debates .debate .body {
+.provocationPage article main .debates .debate .body {
   color: var(--color-black);
 }
 
-.censorshipPage article .polls {
+.provocationPage article .polls {
   display: flex;
   flex-flow: column nowrap;
   gap: 2em;
@@ -379,7 +379,7 @@
   position: relative;
   min-width: 20vw;
 }
-.censorshipPage article .polls > h1 {
+.provocationPage article .polls > h1 {
   font-family: var(--ff-kotz-display);
   font-weight: 600;
   font-style: italic;
@@ -389,11 +389,11 @@
   margin: 0.2em;
   /* font-size: 10vw; */
 }
-.censorshipPage article .polls > h1 .altGlyph {
+.provocationPage article .polls > h1 .altGlyph {
   font-feature-settings: "ss01" 1;
 }
 
-.censorshipPage article .polls main {
+.provocationPage article .polls main {
   display: flex;
   flex-flow: column nowrap;
   gap: 1em;
@@ -401,7 +401,7 @@
   width: 100%;
   height: 100%;
 }
-.censorshipPage article .polls main section {
+.provocationPage article .polls main section {
   background-color: var(--color-theme-foreground);
   color: var(--color-theme-background);
   border-radius: 8px;
@@ -419,13 +419,13 @@
   transition-property: background-color, color;
 }
 
-.censorshipPage article .polls main section h1 {
+.provocationPage article .polls main section h1 {
   text-align: end;
   direction: ltr;
   font-size: var(--fs-400);
 }
 
-.censorshipPage article .polls main section p {
+.provocationPage article .polls main section p {
   font-weight: 700;
   line-height: 1.1;
   font-family: var(--ff-david-vc);
@@ -434,23 +434,23 @@
   margin: 0;
 }
 
-.censorshipPage article header {
+.provocationPage article header {
   display: flex;
   flex-flow: column nowrap;
   gap: 4em;
 }
 
-.censorshipPage article .poll header {
+.provocationPage article .poll header {
   display: none;
 }
 
-.censorshipPage article header hgroup {
+.provocationPage article header hgroup {
   display: flex;
   flex-flow: column nowrap;
   max-width: 99%;
   gap: 0em;
 }
-.censorshipPage article header hgroup h1 {
+.provocationPage article header hgroup h1 {
   font-family: var(--ff-kotz-display);
   /* font-feature-settings: "ss01"; */
   font-size: var(--fs-800);
@@ -458,11 +458,11 @@
   color: var(--color-green);
   margin-bottom: 0.2em;
 }
-.censorshipPage article header hgroup h1.title .altGlyph {
+.provocationPage article header hgroup h1.title .altGlyph {
   font-feature-settings: "ss01" 1;
 }
 
-.censorshipPage article header hgroup h2 {
+.provocationPage article header hgroup h2 {
   font-family: var(--ff-narkis-yair);
   font-size: 1.5rem;
   line-height: 1.7rem;
@@ -470,21 +470,21 @@
   max-width: 450px;
 }
 
-.censorshipPage article header hgroup h3 {
+.provocationPage article header hgroup h3 {
   font-family: var(--ff-narkis-yair);
   color: var(--color-green);
   font-size: 1.5rem;
 }
-.censorshipPage article header hgroup h3::before {
+.provocationPage article header hgroup h3::before {
   content: ">";
   margin-inline-end: 0.5em;
 }
 
-.censorshipPage article header .lead {
+.provocationPage article header .lead {
   font: var(--font-kotz-500);
 }
 
-.censorshipPage article .bodyImage {
+.provocationPage article .bodyImage {
   max-width: calc(100% + 2em);
   margin: 2em 0;
   margin-inline-start: -2em;
@@ -492,12 +492,12 @@
   flex-flow: column nowrap;
   width: max-content;
 }
-.censorshipPage article .bodyImage img {
+.provocationPage article .bodyImage img {
   border-radius: 4px;
   width: 100%;
 }
 
-.censorshipPage article .bodyImage footer {
+.provocationPage article .bodyImage footer {
   color: var(--color-green);
   font-size: var(--fs-300);
   font-family: var(--ff-narkis-yair);
@@ -506,25 +506,25 @@
   width: 100%;
 }
 
-.censorshipPage figure {
+.provocationPage figure {
   display: flex;
   flex-flow: column nowrap;
 }
-.censorshipPage figure img {
+.provocationPage figure img {
   /* height: 17em; */
   /* width: auto; */
 }
 
-.censorshipPage figure figcaption {
+.provocationPage figure figcaption {
   font-family: var(--ff-narkis-yair);
   font-size: var(--fs-300);
 }
 
-.censorshipPage main > .h1Spacer {
+.provocationPage main > .h1Spacer {
   height: 2em;
 }
 
-.censorshipPage main > h1 {
+.provocationPage main > h1 {
   margin-block: 2em 0.5em;
   color: var(--color-green);
   font-family: var(--ff-david-vc);
@@ -533,7 +533,7 @@
   letter-spacing: 1px;
 }
 
-.censorshipPage main.interview h1 {
+.provocationPage main.interview h1 {
   line-height: 1em;
   font-family: var(--ff-greta);
   font-style: italic;
@@ -544,7 +544,7 @@
   margin-block-end: 0;
 }
 
-.censorshipPage main.interview h1::before {
+.provocationPage main.interview h1::before {
   content: "";
   background-image: url(../images/other/paragraph-vector.svg);
   background-size: contain;
@@ -557,31 +557,31 @@
   background-position: center center;
 }
 
-.censorshipPage main > p {
+.provocationPage main > p {
   font: var(--font-kotz-500);
   font-weight: 500;
   line-height: 1.77rem;
   letter-spacing: 0.7px;
   margin: 0;
 }
-.censorshipPage main > p:not(:first-child) {
+.provocationPage main > p:not(:first-child) {
   text-indent: var(--typo-indent);
 }
 
-.censorshipPage main > p b {
+.provocationPage main > p b {
   color: #26bd6b;
 }
 
-.censorshipPage main > p i {
+.provocationPage main > p i {
   font-family: var(--ff-narkis-yair);
   font-size: 1.4rem;
 }
 
-.censorshipPage main .interview p {
+.provocationPage main .interview p {
   text-indent: 0;
 }
 
-.censorshipPage main .interview p::before {
+.provocationPage main .interview p::before {
   content: "";
   display: inline-block;
   height: 0.7em;
@@ -591,7 +591,7 @@
   transition: background-color 0.1s ease-out;
 }
 
-.censorshipPage main > h3 {
+.provocationPage main > h3 {
   font: var(--font-kotz-500);
   font-weight: 600;
   line-height: 1.3em;
@@ -602,76 +602,76 @@
   font-size: 1.6em;
 }
 
-.censorshipPage hr {
+.provocationPage hr {
   border: none;
   border-top: 2px dotted var(--color-green);
   border-bottom: none;
   margin: 2em auto;
   width: 100%;
 }
-.censorshipPage + .h1Spacer {
+.provocationPage + .h1Spacer {
   height: 0;
 }
 
-.censorshipPage footer {
+.provocationPage footer {
   font-family: var(--ff-narkis-yair);
   font-size: 1.4rem;
 }
-.censorshipPage footer > main {
+.provocationPage footer > main {
   display: flex;
   flex-flow: row nowrap;
   gap: 1em;
 }
-.censorshipPage footer > main > .imageContainer {
+.provocationPage footer > main > .imageContainer {
   flex: 1;
 }
-.censorshipPage footer > main > .imageContainer > img {
+.provocationPage footer > main > .imageContainer > img {
   border-radius: 50%;
 }
 
-.censorshipPage footer > main > .textBody {
+.provocationPage footer > main > .textBody {
   display: flex;
   flex-flow: column nowrap;
   flex: 4;
 }
-.censorshipPage footer > main > .textBody > h1 {
+.provocationPage footer > main > .textBody > h1 {
   font-family: inherit;
   font-weight: 700;
 }
 
 /* Landscape */
 @media (min-aspect-ratio: 1), (orientation: landscape) {
-  .censorshipPage {
+  .provocationPage {
     position: static;
     width: 100vw;
     height: 100vh;
     height: 100dvh;
   }
 
-  .censorshipPage article > main .debates > .debate > main {
+  .provocationPage article > main .debates > .debate > main {
     margin: 1em 1.5em;
   }
 }
 
 /* Mobile */
 @media (max-aspect-ratio: 1), (orientation: portrait) {
-  .censorshipPage article {
+  .provocationPage article {
     padding: 1em;
     padding-top: 4em;
     padding-inline-end: 0;
   }
-  .censorshipPage article > main {
+  .provocationPage article > main {
     max-width: 60ch;
   }
 
-  .censorshipPage article .poll main {
+  .provocationPage article .poll main {
     max-width: none;
   }
 
-  .censorshipPage footer > main {
+  .provocationPage footer > main {
     flex-direction: column;
   }
-  .censorshipPage footer > main .imageContainer > img {
+  .provocationPage footer > main .imageContainer > img {
     max-width: 30%;
   }
 }
@@ -700,7 +700,7 @@
 /* NEW CSS */
 
 /* FakePage.module.css */
-.censorshipPage {
+.provocationPage {
   width: 100vw;
   width: 100dvw;
   overflow: hidden;
@@ -805,7 +805,7 @@
   }
 }
 
-.censorshipPage {
+.provocationPage {
   & .songs {
     display: flex;
     flex-flow: column nowrap;
@@ -1266,21 +1266,21 @@
   }
 }
 
-.censorshipPage figure {
+.provocationPage figure {
   display: flex;
   flex-flow: column nowrap;
 }
-.censorshipPage figure img {
+.provocationPage figure img {
   /* height: 17em; */
   /* width: auto; */
 }
 
-.censorshipPage figure figcaption {
+.provocationPage figure figcaption {
   font-family: var(--ff-narkis-yair);
   font-size: var(--fs-300);
 }
 
-.censorshipPage {
+.provocationPage {
   & main {
     & > .h1Spacer {
       height: 2em;
@@ -1435,7 +1435,7 @@
 }
 /* Landscape */
 @media (min-aspect-ratio: 1) {
-  .censorshipPage {
+  .provocationPage {
     position: static;
     width: 100vw;
     height: 100vh;
@@ -1456,7 +1456,7 @@
 
 /* Mobile */
 @media (max-aspect-ratio: 1) {
-  .censorshipPage {
+  .provocationPage {
     & article {
       padding: 1em;
       padding-top: 4em;

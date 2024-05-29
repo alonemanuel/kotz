@@ -45,7 +45,7 @@ const ProvocationPage: React.FC = () => {
   return (
     <OpenArticleProvider>
       <Layout>
-        <div className={styles.ProvocationPage}>
+        <div className={styles.provocationPage}>
           <Sidebar articles={articlesStrapi} terms={termsStrapi} />
         </div>
       </Layout>
