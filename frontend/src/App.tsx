@@ -27,6 +27,7 @@ const App: React.FC = () => {
         <Route path="/provocation" element={<ProvocationPage />} />
         <Route path="/fake" element={<FakePage />} />
         <Route path="/censorship/:urlSuffix" element={<CensorshipPage />} />
+        <Route path="/provocation/:urlSuffix" element={<ProvocationPage />} />
       </Routes>
     </>
   );
