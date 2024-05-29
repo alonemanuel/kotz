@@ -278,7 +278,8 @@
   }
 
   .accordionContainer .accordion .textContent > hr {
-    display: none;
+    display: none; 
+    /*  */
   }
 }
 
