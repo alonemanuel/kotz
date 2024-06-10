@@ -17,7 +17,7 @@ interface ArticleComponentProps {
 const ArticleComponent: React.FC<ArticleComponentProps> = ({
   article,
   terms,
-  styles
+  styles,
 }) => {
   const attr = article.attributes;
   const articleTerms = attr.terms?.data;
@@ -94,7 +94,11 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
               );
             case "interview":
               return (
-                <InterviewContent content={attr?.body} terms={articleTerms} styles={styles}/>
+                <InterviewContent
+                  content={attr?.body}
+                  terms={articleTerms}
+                  styles={styles}
+                />
               );
             case "debate":
               return <DebateContent content={attr?.debate} />;
@@ -114,17 +118,19 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
           <main>
             {attr.author_img && (
               <div className={styles.imageContainer}>
-
-              <img
-                src={attr.author_img?.data?.attributes.url}
-                alt={attr.author}
+                <img
+                  src={attr.author_img?.data?.attributes.url}
+                  alt={attr.author}
                 />
-                </div>
+              </div>
             )}
             <div className={styles.textBody}>
               {attr.author && <h1>{attr.author}</h1>}
               {attr.long_author_about && (
-                <JsonBlocksContent content={attr.long_author_about} styles={styles} />
+                <JsonBlocksContent
+                  content={attr.long_author_about}
+                  styles={styles}
+                />
               )}
             </div>
           </main>
