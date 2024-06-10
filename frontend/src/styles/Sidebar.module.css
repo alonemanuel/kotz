@@ -17,21 +17,22 @@
     background-color: black;
     padding: var(--border-size);
     padding-inline-end: 0;
-    
+
     & .navItem {
-      background-color: #f5f5f5;
+      background-color: var(--color-theme-background);
       cursor: pointer;
       padding: 10px;
       /* border-bottom: 1px solid #ddd; */
       font-size: 18px;
       color: #333;
       flex-grow: 1;
+      transition: all 0.1s ease-out;
 
       /* outline: 1.5px solid black; */
-      
+
       &:hover,
       &.activeNavItem {
-        background-color: #ddd;
+        background-color: red;
       }
     }
   }
@@ -46,13 +47,22 @@
 
     & > .articleOuter {
       /* outline: 3px solid black; */
+
       &.notActive {
         display: none;
-    }
-    & > article {
-          height: 100dvh;
-          overflow: auto;
+      }
 
+      & > .topBar {
+        position: sticky;
+        top: 0;
+        height: clamp(20px, 5dvh, 40px);
+        background-color: red;
+        outline: var(--border-size) solid black;
+      }
+
+      & > article {
+        height: 100dvh;
+        overflow: auto;
       }
     }
 
