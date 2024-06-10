@@ -135,9 +135,9 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
         if (prevIndices.includes(index)) {
           return prevIndices;
         } else {
-          const newIndices = [...prevIndices, index];
+          const newIndices = [index, ...prevIndices];
           if (newIndices.length > 3) {
-            newIndices.shift();
+            newIndices.pop();
           }
           return newIndices;
         }
@@ -154,9 +154,9 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
       const isArticleOpen = prevIndices.includes(index);
       let newIndices = isArticleOpen
         ? prevIndices.filter((i) => i !== index)
-        : [...prevIndices, index];
+        : [index, ...prevIndices];
       if (newIndices.length > 3) {
-        newIndices.shift();
+        newIndices.pop();
       }
       return newIndices;
     });
@@ -219,16 +219,13 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
           isOpen ? styles.isOpen : styles.isNotOpen
         }`}
       >
-        {articles.map((article, index) => {
-          const attr = article.attributes;
-
+        {activeIndices.map((activeIndex) => {
+          const article = articles[activeIndex];
           return (
             <div
               key={article.id}
-              ref={(el) => (panelRefs.current[index] = el)}
-              className={`${styles.articleOuter} ${
-                activeIndices.includes(index) ? styles.active : styles.notActive
-              }`}
+              ref={(el) => (panelRefs.current[activeIndex] = el)}
+              className={`${styles.articleOuter} ${styles.active}`}
             >
               <ArticleComponent
                 article={article}

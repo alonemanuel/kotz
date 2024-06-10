@@ -25,6 +25,7 @@
 
   & > .articles {
     display: flex;
+    flex-direction: row-reverse;
     flex: 3;
 
     & > .articleOuter {
