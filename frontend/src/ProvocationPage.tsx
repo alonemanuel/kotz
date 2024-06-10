@@ -1,10 +1,11 @@
 // CensorshipPage.tsx
 import React, { useEffect, useState } from "react";
-import styles from "./styles/CensorshipPage.module.css";
+import styles from "./styles/ProvocationPage.module.css";
 import KotzFab from "./KotzFab";
 import kabarImg from "./images/kabar.jpg";
 import kav300Img from "./images/kav_300_0.png";
 import Accordion from "./components/Accordion";
+import Sidebar from "./components/Sidebar";
 import { ItemArticle } from "./types/itemArticle";
 import Layout from "./Layout";
 import Questionnaire from "./questionnaire";
@@ -44,10 +45,9 @@ const ProvocationPage: React.FC = () => {
   return (
     <OpenArticleProvider>
       <Layout>
-        {/* <div className={styles.censorshipPage}>
-          <Accordion articles={articlesStrapi} terms={termsStrapi} />
-        </div> */}
-        <p>welcome to provocation</p>
+        <div className={styles.provocationPage}>
+          <Sidebar articles={articlesStrapi} terms={termsStrapi} />
+        </div>
       </Layout>
     </OpenArticleProvider>
   );

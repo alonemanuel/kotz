@@ -133,3 +133,9 @@
   font-weight: 500;
 }
 
+@font-face {
+  font-family: "Leon";
+  src: url("./leon_hafontia/Leon-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+

@@ -1,0 +1,85 @@
+.outer {
+  display: flex;
+
+  & > .nav {
+    background-color: #f5f5f5;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1;
+    font-family: var(--ff-leon);
+    & .navItem {
+      cursor: pointer;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      font-size: 18px;
+      color: #333;
+      &:hover,
+      &.activeNavItem {
+        background-color: #ddd;
+      }
+    }
+  }
+
+  & > .articles {
+    display: flex;
+    flex: 3;
+
+    & > .articleOuter {
+      &.notActive {
+        display: none;
+    }
+    & > article {
+          height: 100dvh;
+          overflow: auto;
+
+      }
+    }
+
+    & .articleIsNotOpen ~ .toTop {
+      display: none;
+    }
+
+    & > .toTop {
+      position: absolute;
+      z-index: 3;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin: 20px auto;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--color-theme-foreground);
+      box-shadow: 0px 1px 8px 2px rgb(0 0 0 / 3%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      opacity: 0;
+      transition: all 0.1s ease-in-out;
+      pointer-events: none;
+
+      & > .topArrow {
+        filter: none;
+        margin-block-end: 2px;
+        filter: drop-shadow(0 0 3px black);
+      }
+
+      &.scrolled {
+        opacity: 0.5;
+        cursor: pointer;
+        pointer-events: all;
+      }
+    }
+  }
+}
+
+/* Landscape */
+@media (min-aspect-ratio: 1) {
+  .outer {
+    flex-direction: row;
+  }
+}

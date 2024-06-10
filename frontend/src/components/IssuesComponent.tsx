@@ -134,7 +134,7 @@ const IssuesComponent = () => {
                 </hgroup>
                 <div className={styles.about}>{issue.about}</div>
                 <div className={styles.guests}>
-                  <JsonBlocksContent content={issue.guests} />
+                  <JsonBlocksContent content={issue.guests} styles={styles}/>
                 </div>
               </div>
             )}

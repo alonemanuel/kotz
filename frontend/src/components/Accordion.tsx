@@ -1,5 +1,6 @@
 import React, { RefObject, useEffect, useRef, useState } from "react";
 import styles from "../styles/Accordion.module.css";
+import censorshipStyles from "../styles/CensorshipPage.module.css";
 import { ItemArticle } from "../types/itemArticle";
 import { Article, Term } from "../interfaces";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
@@ -253,6 +254,7 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
                   key={article.id}
                   article={article}
                   terms={terms}
+                  styles={censorshipStyles}
                 />
               </section>
             </div>

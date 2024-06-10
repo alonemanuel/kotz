@@ -50,7 +50,7 @@ const AboutComponent = () => {
           <h2>{about.subtitle}</h2>
         </header>
         <div className={styles.aboutBody}>
-          <JsonBlocksContent content={about.body} />
+          <JsonBlocksContent content={about.body} styles={styles} />
         </div>
         <div className={styles.aboutCaption}>[{about.body_caption}]</div>
       </main>
