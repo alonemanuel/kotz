@@ -175,6 +175,17 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
     }
   };
 
+  const closeArticle = (index: number) => {
+    setActiveIndices((prevIndices) => {
+      const newIndices = prevIndices.filter((i) => i !== index);
+      return newIndices;
+    });
+
+    if (activeIndices.length === 1) {
+      navigate(`/provocation`, { replace: false });
+    }
+  };
+
   const normalizeTitle = (title: string | undefined) => {
     return title?.toLowerCase().replace(/[^א-ת0-9a-z]+/g, "-");
   };
@@ -227,7 +238,12 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
               ref={(el) => (panelRefs.current[activeIndex] = el)}
               className={`${styles.articleOuter} ${styles.active}`}
             >
-              <div className={styles.topBar}></div>
+              <div className={styles.topBar}>
+                <div
+                  className={styles.xButton}
+                  onClick={() => closeArticle(activeIndex)}
+                ></div>
+              </div>
               <ArticleComponent
                 article={article}
                 terms={terms}
