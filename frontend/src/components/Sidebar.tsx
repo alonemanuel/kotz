@@ -227,7 +227,9 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
               ref={(el) => (panelRefs.current[activeIndex] = el)}
               className={`${styles.articleOuter} ${styles.active}`}
             >
-              <div className={styles.topBar}></div>
+              <div className={styles.topBar}>
+                <div className={styles.xButton}></div>
+              </div>
               <ArticleComponent
                 article={article}
                 terms={terms}
