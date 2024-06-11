@@ -1,40 +1,68 @@
+* {
+  --border-size: 3px;
+}
+
 .outer {
   display: flex;
+  height: 100%;
 
   & > .nav {
-    background-color: #f5f5f5;
-    padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     height: 100%;
     display: flex;
     flex-flow: column nowrap;
     flex: 1;
     font-family: var(--ff-leon);
+    gap: var(--border-size);
+    background-color: black;
+    padding: var(--border-size);
+    padding-inline-end: 0;
+
     & .navItem {
+      background-color: var(--color-theme-background);
       cursor: pointer;
       padding: 10px;
-      border-bottom: 1px solid #ddd;
+      /* border-bottom: 1px solid #ddd; */
       font-size: 18px;
       color: #333;
+      flex-grow: 1;
+      transition: all 0.1s ease-out;
+
+      /* outline: 1.5px solid black; */
+
       &:hover,
       &.activeNavItem {
-        background-color: #ddd;
+        background-color: red;
       }
     }
   }
 
   & > .articles {
     display: flex;
+    flex-direction: row-reverse;
     flex: 3;
+    gap: var(--border-size);
+    background-color: black;
+    padding: var(--border-size);
 
     & > .articleOuter {
+      /* outline: 3px solid black; */
+
       &.notActive {
         display: none;
-    }
-    & > article {
-          height: 100dvh;
-          overflow: auto;
+      }
 
+      & > .topBar {
+        position: sticky;
+        top: 0;
+        height: clamp(20px, 5dvh, 40px);
+        background-color: red;
+        outline: var(--border-size) solid black;
+      }
+
+      & > article {
+        height: 100dvh;
+        overflow: auto;
       }
     }
 

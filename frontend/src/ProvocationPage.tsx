@@ -12,7 +12,6 @@ import Questionnaire from "./questionnaire";
 import * as C from "./constants";
 import { OpenArticleProvider } from "./OpenArticleContext";
 
-
 const ProvocationPage: React.FC = () => {
   const [articlesStrapi, setArticlesStrapi] = useState([]);
   const [termsStrapi, setTermsStrapi] = useState([]);

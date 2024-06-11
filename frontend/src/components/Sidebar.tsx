@@ -1,7 +1,6 @@
-import React, { RefObject, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/Sidebar.module.css";
-import provocationStyles from '../styles/ProvocationPage.module.css';
-import { ItemArticle } from "../types/itemArticle";
+import provocationStyles from "../styles/ProvocationPage.module.css";
 import { Article, Term } from "../interfaces";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 
@@ -20,7 +19,7 @@ interface SidebarProps {
 function debounce(func: any, wait: number) {
   let timeout: any;
 
-  return function exectuedFunction(...args: any) {
+  return function executedFunction(...args: any) {
     const later = () => {
       clearTimeout(timeout);
       func(...args);
@@ -81,9 +80,9 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
   const { urlSuffix } = useParams<{ urlSuffix: string }>();
   const location = useLocation();
 
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeIndices, setActiveIndices] = useState<number[]>([]);
   const accordionRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const dimensions = useResizeObservers(accordionRefs, activeIndex);
+  const dimensions = useResizeObservers(accordionRefs, activeIndices.length);
 
   const panelRefs = useRef<(HTMLDivElement | null)[]>([]);
   const textContentHeights = useRef<(number | null)[]>([]);
@@ -91,10 +90,8 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
 
   const { isOpen, setOpen } = useOpenArticle();
 
-  const scrollToTop = () => {
-    if (activeIndex !== null) {
-      panelRefs.current[activeIndex]?.scrollTo({ top: 0, behavior: "smooth" });
-    }
+  const scrollToTop = (index: number) => {
+    panelRefs.current[index]?.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -105,8 +102,8 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
   };
 
   useEffect(() => {
-    if (activeIndex !== null) {
-      scrollHandler(panelRefs.current[activeIndex]);
+    if (activeIndices.length > 0) {
+      scrollHandler(panelRefs.current[activeIndices[0]]);
     }
 
     const addScrollEventListener = (panel: any) => {
@@ -115,13 +112,13 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
       return () => panel.removeEventListener("scroll", scrollHandler);
     };
 
-    const panel = panelRefs.current[activeIndex!];
+    const panel = panelRefs.current[activeIndices[0]];
     if (panel) {
       const cleanup = addScrollEventListener(panel);
 
       return cleanup;
     }
-  }, [activeIndex]);
+  }, [activeIndices]);
 
   useEffect(() => {
     let index = articles.findIndex(
@@ -134,21 +131,38 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
       );
     }
     if (urlSuffix && index !== -1) {
-      setActiveIndex(index);
+      setActiveIndices((prevIndices) => {
+        if (prevIndices.includes(index)) {
+          return prevIndices;
+        } else {
+          const newIndices = [index, ...prevIndices];
+          if (newIndices.length > 3) {
+            newIndices.pop();
+          }
+          return newIndices;
+        }
+      });
       setOpen(true);
     } else {
-      setActiveIndex(null);
+      setActiveIndices([]);
       setOpen(false);
     }
   }, [urlSuffix, setOpen, articles, location]);
 
   const toggleAccordion = (index: number) => {
-    const isArticleOpen = activeIndex === index;
-    setActiveIndex(isArticleOpen ? null : index);
-    setOpen(!isArticleOpen);
-    setIsScrolled(isScrolled && isArticleOpen);
+    setActiveIndices((prevIndices) => {
+      const isArticleOpen = prevIndices.includes(index);
+      let newIndices = isArticleOpen
+        ? prevIndices.filter((i) => i !== index)
+        : [index, ...prevIndices];
+      if (newIndices.length > 3) {
+        newIndices.pop();
+      }
+      return newIndices;
+    });
+    setOpen(true);
 
-    if (!isArticleOpen) {
+    if (!activeIndices.includes(index)) {
       const normalizedTitle = normalizeTitle(articles[index].attributes.title);
       const normalizedUrl = normalizeTitle(
         articles[index].attributes.url_title
@@ -156,17 +170,8 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
 
       const newUrlSuffix = normalizedUrl ? normalizedUrl : normalizedTitle;
       navigate(`/provocation/${newUrlSuffix}`, { replace: false });
-    } else {
+    } else if (activeIndices.length === 1) {
       navigate(`/provocation`, { replace: false });
-    }
-
-    if (activeIndex !== index) {
-      setTimeout(() => {
-        accordionRefs.current[index]?.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }, 200);
     }
   };
 
@@ -176,7 +181,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
 
   useEffect(() => {
     if (!isOpen) {
-      setActiveIndex(null);
+      setActiveIndices([]);
     }
 
     const heights = accordionRefs.current.map(
@@ -201,7 +206,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
           <div
             key={index}
             className={`${styles.navItem} ${
-              activeIndex === index ? styles.activeNavItem : ""
+              activeIndices.includes(index) ? styles.activeNavItem : ""
             }`}
             onClick={() => toggleAccordion(index)}
           >
@@ -214,24 +219,26 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
           isOpen ? styles.isOpen : styles.isNotOpen
         }`}
       >
-        {articles.map((article, index) => {
-          const attr = article.attributes;
-
+        {activeIndices.map((activeIndex) => {
+          const article = articles[activeIndex];
           return (
             <div
               key={article.id}
-              ref={(el) => (panelRefs.current[index] = el)}
-              className={`${styles.articleOuter} ${
-                activeIndex === index ? styles.active : styles.notActive
-              }`}
+              ref={(el) => (panelRefs.current[activeIndex] = el)}
+              className={`${styles.articleOuter} ${styles.active}`}
             >
-              <ArticleComponent article={article} terms={terms} styles={provocationStyles}/>
+              <div className={styles.topBar}></div>
+              <ArticleComponent
+                article={article}
+                terms={terms}
+                styles={provocationStyles}
+              />
             </div>
           );
         })}
         <div
           className={`${styles.toTop} ${isScrolled ? styles.scrolled : ``}`}
-          onClick={() => scrollToTop()}
+          onClick={() => scrollToTop(activeIndices[0])}
         >
           <img className={styles.topArrow} src={topArrowImg} alt="top" />
         </div>
