@@ -3,9 +3,7 @@ import styles from "../styles/Sidebar.module.css";
 import provocationStyles from "../styles/ProvocationPage.module.css";
 import { Article, Term } from "../interfaces";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-
 import * as C from "../constants";
-
 import JsonBlocksContent from "../JsonBlocksContent";
 import ArticleComponent from "../ArticleComponent";
 import { useOpenArticle } from "../OpenArticleContext";
@@ -210,6 +208,34 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
     textContentWidths.current = widths;
   }, [articles, isOpen]);
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    const touchStartX = touch.clientX;
+    panelRefs.current[0]?.setAttribute("data-touch-start-x", touchStartX.toString());
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    const touchStartX = Number(panelRefs.current[0]?.getAttribute("data-touch-start-x"));
+    const touchEndX = touch.clientX;
+
+    const deltaX = touchEndX - touchStartX;
+    if (Math.abs(deltaX) > 50) {
+      if (deltaX > 0) {
+        // Swipe right
+        if (activeIndices[0] > 0) {
+          toggleAccordion(activeIndices[0] - 1);
+        }
+      } else {
+        // Swipe left
+        if (activeIndices[0] < articles.length - 1) {
+          toggleAccordion(activeIndices[0] + 1);
+        }
+      }
+      panelRefs.current[0]?.removeAttribute("data-touch-start-x");
+    }
+  };
+
   return (
     <div className={styles.outer}>
       <div className={styles.nav}>
@@ -229,6 +255,8 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
         className={`${styles.articles} ${
           isOpen ? styles.isOpen : styles.isNotOpen
         }`}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
       >
         {activeIndices.map((activeIndex) => {
           const article = articles[activeIndex];
