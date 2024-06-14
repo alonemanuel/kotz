@@ -135,6 +135,13 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
             const lastIndex = activeIndices[0];
             setActiveArticleIndex(lastIndex);
             setLastOpenedIndex(lastIndex);
+            setTimeout(() => {
+              panelRefs.current[lastIndex]?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+                inline: "nearest",
+              });
+            }, 0);
           }
         } else {
           // Switching to landscape
