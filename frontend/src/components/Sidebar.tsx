@@ -79,6 +79,9 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
   const location = useLocation();
 
   const [activeIndices, setActiveIndices] = useState<number[]>([]);
+  const [isPortrait, setIsPortrait] = useState(
+    window.innerHeight > window.innerWidth
+  );
   const accordionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const dimensions = useResizeObservers(accordionRefs, activeIndices.length);
 
@@ -117,6 +120,18 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
       return cleanup;
     }
   }, [activeIndices]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsPortrait(window.innerHeight > window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     let index = articles.findIndex(
@@ -170,6 +185,15 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
       navigate(`/provocation/${newUrlSuffix}`, { replace: false });
     } else if (activeIndices.length === 1) {
       navigate(`/provocation`, { replace: false });
+    }
+
+    // Scroll to the selected article if in portrait mode
+    if (isPortrait) {
+      panelRefs.current[index]?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
     }
   };
 
@@ -263,29 +287,48 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
       >
-        {activeIndices.map((activeIndex) => {
-          console.log('lololo')
-          const article = articles[activeIndex];
-          return (
-            <div
-              key={article.id}
-              ref={(el) => (panelRefs.current[activeIndex] = el)}
-              className={`${styles.articleOuter} ${styles.active}`}
-            >
-              <div className={styles.topBar}>
-                <div
-                  className={styles.xButton}
-                  onClick={() => closeArticle(activeIndex)}
-                ></div>
+        {isPortrait
+          ? articles.map((article, index) => (
+              <div
+                key={article.id}
+                ref={(el) => (panelRefs.current[index] = el)}
+                className={`${styles.articleOuter}`}
+              >
+                <div className={styles.topBar}>
+                  <div
+                    className={styles.xButton}
+                    onClick={() => closeArticle(index)}
+                  ></div>
+                </div>
+                <ArticleComponent
+                  article={article}
+                  terms={terms}
+                  styles={provocationStyles}
+                />
               </div>
-              <ArticleComponent
-                article={article}
-                terms={terms}
-                styles={provocationStyles}
-              />
-            </div>
-          );
-        })}
+            ))
+          : activeIndices.map((activeIndex) => {
+              const article = articles[activeIndex];
+              return (
+                <div
+                  key={article.id}
+                  ref={(el) => (panelRefs.current[activeIndex] = el)}
+                  className={`${styles.articleOuter}`}
+                >
+                  <div className={styles.topBar}>
+                    <div
+                      className={styles.xButton}
+                      onClick={() => closeArticle(activeIndex)}
+                    ></div>
+                  </div>
+                  <ArticleComponent
+                    article={article}
+                    terms={terms}
+                    styles={provocationStyles}
+                  />
+                </div>
+              );
+            })}
         <div
           className={`${styles.toTop} ${isScrolled ? styles.scrolled : ``}`}
           onClick={() => scrollToTop(activeIndices[0])}
