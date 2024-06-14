@@ -82,6 +82,9 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
   const [isPortrait, setIsPortrait] = useState(
     window.innerHeight > window.innerWidth
   );
+  const [activeArticleIndex, setActiveArticleIndex] = useState<number | null>(
+    null
+  );
   const accordionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const dimensions = useResizeObservers(accordionRefs, activeIndices.length);
 
@@ -194,6 +197,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
         block: "start",
         inline: "nearest",
       });
+      setActiveArticleIndex(index);
     }
   };
 
@@ -231,6 +235,31 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
     );
     textContentWidths.current = widths;
   }, [articles, isOpen]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isPortrait) {
+        const articleElements = panelRefs.current;
+        const viewportHeight = window.innerHeight;
+
+        for (let i = 0; i < articleElements.length; i++) {
+          const el = articleElements[i];
+          const rect = el?.getBoundingClientRect();
+
+          if (rect && rect.top >= 0 && rect.top < viewportHeight / 2) {
+            setActiveArticleIndex(i);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isPortrait]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     const touch = e.touches[0];
@@ -272,7 +301,13 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
           <div
             key={index}
             className={`${styles.navItem} ${
-              activeIndices.includes(index) ? styles.activeNavItem : ""
+              (
+                isPortrait
+                  ? activeArticleIndex === index
+                  : activeIndices.includes(index)
+              )
+                ? styles.activeNavItem
+                : ""
             }`}
             onClick={() => toggleAccordion(index)}
           >
