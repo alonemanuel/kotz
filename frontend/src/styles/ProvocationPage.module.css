@@ -43,6 +43,7 @@
     white-space: nowrap;
     overflow: hidden;
     position: relative;
+    font-family: var(--ff-david-vc);
 
     & > .tickerContent {
       display: inline-block;
@@ -58,10 +59,10 @@
 
 @keyframes tickerAnimation {
   0% {
-    transform: translateX(100%);
+    transform: translateX(-100%);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(100%);
   }
 }
 
