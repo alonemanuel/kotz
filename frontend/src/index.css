@@ -31,6 +31,9 @@
 
   --typo-indent: 3em;
 
+  --ticker-height: 40px;
+  --border-size: 3px;
+
   font-size: 15px;
 
   --color-theme-background: var(--color-dark-black);
