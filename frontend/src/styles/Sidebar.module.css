@@ -151,7 +151,7 @@
       &:hover {
         width: 200px; /* Adjust as needed */
       }
-      
+
       .navItem {
         display: block;
         white-space: nowrap;
@@ -168,6 +168,12 @@
       .articleOuter {
         min-width: 100%;
         scroll-snap-align: start;
+
+        & > .topBar {
+          & > .xButton {
+            display: none;
+          }
+        }
       }
     }
   }
