@@ -85,6 +85,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
   const [activeArticleIndex, setActiveArticleIndex] = useState<number | null>(
     null
   );
+  const [lastOpenedIndex, setLastOpenedIndex] = useState<number | null>(null);
   const accordionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const dimensions = useResizeObservers(accordionRefs, activeIndices.length);
 
@@ -126,7 +127,23 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsPortrait(window.innerHeight > window.innerWidth);
+      const newIsPortrait = window.innerHeight > window.innerWidth;
+      if (newIsPortrait !== isPortrait) {
+        if (newIsPortrait) {
+          // Switching to portrait
+          if (activeIndices.length > 0) {
+            const lastIndex = activeIndices[0];
+            setActiveArticleIndex(lastIndex);
+            setLastOpenedIndex(lastIndex);
+          }
+        } else {
+          // Switching to landscape
+          if (activeArticleIndex !== null) {
+            setActiveIndices([activeArticleIndex]);
+          }
+        }
+      }
+      setIsPortrait(newIsPortrait);
     };
 
     window.addEventListener("resize", handleResize);
@@ -134,7 +151,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [isPortrait, activeIndices, activeArticleIndex]);
 
   useEffect(() => {
     let index = articles.findIndex(
@@ -159,6 +176,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
         }
       });
       setOpen(true);
+      setLastOpenedIndex(index);
     } else {
       setActiveIndices([]);
       setOpen(false);
@@ -198,6 +216,9 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
         inline: "nearest",
       });
       setActiveArticleIndex(index);
+      setLastOpenedIndex(index);
+    } else {
+      setLastOpenedIndex(index);
     }
   };
 
@@ -248,6 +269,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
 
           if (rect && rect.top >= 0 && rect.top < viewportHeight / 2) {
             setActiveArticleIndex(i);
+            setLastOpenedIndex(i);
             break;
           }
         }
