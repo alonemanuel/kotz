@@ -42,7 +42,7 @@ const ProvocationPage: React.FC = () => {
               {articlesStrapi.map((article: any, index: number) => (
                 <span key={index} className={styles.tickerItem}>
                   {article.attributes.title}
-                  {index < articlesStrapi.length - 1 && " - "}
+                  {index < articlesStrapi.length - 1 && ""}
                 </span>
               ))}
             </div>
