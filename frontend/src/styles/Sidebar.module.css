@@ -26,6 +26,11 @@
       color: #333;
       flex-grow: 1;
       transition: all 0.1s ease-out;
+      text-overflow: ellipsis;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      overflow: hidden;
 
       &:hover,
       &.activeNavItem {
@@ -43,6 +48,9 @@
     padding: var(--border-size);
 
     & > .articleOuter {
+      flex: 1;
+      overflow: hidden;
+
       &.notActive {
         display: none;
       }
@@ -72,7 +80,7 @@
             position: absolute;
             content: "";
             width: 100%;
-            height: 4px;
+            height: 4px; /* Cross thickness */
             background-color: black;
           }
 
@@ -87,6 +95,7 @@
       }
 
       & > article {
+        height: 100vh;
         height: 100dvh;
         overflow: auto;
       }
@@ -135,6 +144,10 @@
 @media (min-aspect-ratio: 1) {
   .outer {
     flex-direction: row;
+
+    & > .nav {
+      min-width: 100px;
+    }
   }
 }
 
