@@ -132,7 +132,6 @@ const JsonBlocksContent: React.FC<{
         const text = block.children ? block.children[0].text : "";
         switch (block?.level) {
           case 6:
-            console.log(text);
             if (text === "מילון") {
               return renderTerms(block, index);
             } else if (text === "שאלון") {

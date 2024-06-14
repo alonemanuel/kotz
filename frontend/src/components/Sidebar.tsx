@@ -3,9 +3,7 @@ import styles from "../styles/Sidebar.module.css";
 import provocationStyles from "../styles/ProvocationPage.module.css";
 import { Article, Term } from "../interfaces";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-
 import * as C from "../constants";
-
 import JsonBlocksContent from "../JsonBlocksContent";
 import ArticleComponent from "../ArticleComponent";
 import { useOpenArticle } from "../OpenArticleContext";
@@ -81,6 +79,13 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
   const location = useLocation();
 
   const [activeIndices, setActiveIndices] = useState<number[]>([]);
+  const [isPortrait, setIsPortrait] = useState(
+    window.innerHeight > window.innerWidth
+  );
+  const [activeArticleIndex, setActiveArticleIndex] = useState<number | null>(
+    null
+  );
+  const [lastOpenedIndex, setLastOpenedIndex] = useState<number | null>(null);
   const accordionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const dimensions = useResizeObservers(accordionRefs, activeIndices.length);
 
@@ -121,6 +126,52 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
   }, [activeIndices]);
 
   useEffect(() => {
+    const handleResize = () => {
+      const newIsPortrait = window.innerHeight > window.innerWidth;
+      if (newIsPortrait !== isPortrait) {
+        if (newIsPortrait) {
+          // Switching to portrait
+          if (activeIndices.length > 0) {
+            const lastIndex = activeIndices[0];
+            setActiveArticleIndex(lastIndex);
+            setLastOpenedIndex(lastIndex);
+            setTimeout(() => {
+              panelRefs.current[lastIndex]?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+                inline: "nearest",
+              });
+            }, 0);
+          } else {
+            // If no articles are open, open the first article in portrait mode
+            setActiveArticleIndex(0);
+            setLastOpenedIndex(0);
+            setTimeout(() => {
+              panelRefs.current[0]?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+                inline: "nearest",
+              });
+            }, 0);
+          }
+        } else {
+          // Switching to landscape
+          if (activeArticleIndex !== null) {
+            setActiveIndices([activeArticleIndex]);
+          }
+        }
+      }
+      setIsPortrait(newIsPortrait);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [isPortrait, activeIndices, activeArticleIndex]);
+
+  useEffect(() => {
     let index = articles.findIndex(
       (article) => normalizeTitle(article.attributes.url_title) === urlSuffix
     );
@@ -143,6 +194,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
         }
       });
       setOpen(true);
+      setLastOpenedIndex(index);
     } else {
       setActiveIndices([]);
       setOpen(false);
@@ -172,6 +224,19 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
       navigate(`/provocation/${newUrlSuffix}`, { replace: false });
     } else if (activeIndices.length === 1) {
       navigate(`/provocation`, { replace: false });
+    }
+
+    // Scroll to the selected article if in portrait mode
+    if (isPortrait) {
+      panelRefs.current[index]?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
+      setActiveArticleIndex(index);
+      setLastOpenedIndex(index);
+    } else {
+      setLastOpenedIndex(index);
     }
   };
 
@@ -210,6 +275,65 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
     textContentWidths.current = widths;
   }, [articles, isOpen]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isPortrait) {
+        const articleElements = panelRefs.current;
+        const viewportHeight = window.innerHeight;
+
+        for (let i = 0; i < articleElements.length; i++) {
+          const el = articleElements[i];
+          const rect = el?.getBoundingClientRect();
+
+          if (rect && rect.top >= 0 && rect.top < viewportHeight / 2) {
+            setActiveArticleIndex(i);
+            setLastOpenedIndex(i);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isPortrait]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    const touchStartX = touch.clientX;
+    panelRefs.current[0]?.setAttribute(
+      "data-touch-start-x",
+      touchStartX.toString()
+    );
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    const touchStartX = Number(
+      panelRefs.current[0]?.getAttribute("data-touch-start-x")
+    );
+    const touchEndX = touch.clientX;
+
+    const deltaX = touchEndX - touchStartX;
+    if (Math.abs(deltaX) > 50) {
+      if (deltaX > 0) {
+        // Swipe right
+        if (activeIndices[0] > 0) {
+          toggleAccordion(activeIndices[0] - 1);
+        }
+      } else {
+        // Swipe left
+        if (activeIndices[0] < articles.length - 1) {
+          toggleAccordion(activeIndices[0] + 1);
+        }
+      }
+      panelRefs.current[0]?.removeAttribute("data-touch-start-x");
+    }
+  };
+
   return (
     <div className={styles.outer}>
       <div className={styles.nav}>
@@ -217,7 +341,13 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
           <div
             key={index}
             className={`${styles.navItem} ${
-              activeIndices.includes(index) ? styles.activeNavItem : ""
+              (
+                isPortrait
+                  ? activeArticleIndex === index
+                  : activeIndices.includes(index)
+              )
+                ? styles.activeNavItem
+                : ""
             }`}
             onClick={() => toggleAccordion(index)}
           >
@@ -229,29 +359,51 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
         className={`${styles.articles} ${
           isOpen ? styles.isOpen : styles.isNotOpen
         }`}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
       >
-        {activeIndices.map((activeIndex) => {
-          const article = articles[activeIndex];
-          return (
-            <div
-              key={article.id}
-              ref={(el) => (panelRefs.current[activeIndex] = el)}
-              className={`${styles.articleOuter} ${styles.active}`}
-            >
-              <div className={styles.topBar}>
-                <div
-                  className={styles.xButton}
-                  onClick={() => closeArticle(activeIndex)}
-                ></div>
+        {isPortrait
+          ? articles.map((article, index) => (
+              <div
+                key={article.id}
+                ref={(el) => (panelRefs.current[index] = el)}
+                className={`${styles.articleOuter}`}
+              >
+                <div className={styles.topBar}>
+                  <div
+                    className={styles.xButton}
+                    onClick={() => closeArticle(index)}
+                  ></div>
+                </div>
+                <ArticleComponent
+                  article={article}
+                  terms={terms}
+                  styles={provocationStyles}
+                />
               </div>
-              <ArticleComponent
-                article={article}
-                terms={terms}
-                styles={provocationStyles}
-              />
-            </div>
-          );
-        })}
+            ))
+          : activeIndices.map((activeIndex) => {
+              const article = articles[activeIndex];
+              return (
+                <div
+                  key={article.id}
+                  ref={(el) => (panelRefs.current[activeIndex] = el)}
+                  className={`${styles.articleOuter}`}
+                >
+                  <div className={styles.topBar}>
+                    <div
+                      className={styles.xButton}
+                      onClick={() => closeArticle(activeIndex)}
+                    ></div>
+                  </div>
+                  <ArticleComponent
+                    article={article}
+                    terms={terms}
+                    styles={provocationStyles}
+                  />
+                </div>
+              );
+            })}
         <div
           className={`${styles.toTop} ${isScrolled ? styles.scrolled : ``}`}
           onClick={() => scrollToTop(activeIndices[0])}
