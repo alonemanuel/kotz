@@ -142,6 +142,17 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
                 inline: "nearest",
               });
             }, 0);
+          } else {
+            // If no articles are open, open the first article in portrait mode
+            setActiveArticleIndex(0);
+            setLastOpenedIndex(0);
+            setTimeout(() => {
+              panelRefs.current[0]?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+                inline: "nearest",
+              });
+            }, 0);
           }
         } else {
           // Switching to landscape
