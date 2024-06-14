@@ -1,33 +1,24 @@
 // CensorshipPage.tsx
 import React, { useEffect, useState } from "react";
 import styles from "./styles/ProvocationPage.module.css";
-import KotzFab from "./KotzFab";
-import kabarImg from "./images/kabar.jpg";
-import kav300Img from "./images/kav_300_0.png";
-import Accordion from "./components/Accordion";
 import Sidebar from "./components/Sidebar";
 import { ItemArticle } from "./types/itemArticle";
 import Layout from "./Layout";
-import Questionnaire from "./questionnaire";
 import * as C from "./constants";
 import { OpenArticleProvider } from "./OpenArticleContext";
 
 const ProvocationPage: React.FC = () => {
   const [articlesStrapi, setArticlesStrapi] = useState([]);
   const [termsStrapi, setTermsStrapi] = useState([]);
-  const baseUrl = C.API_BASE_URL;
 
   useEffect(() => {
     const fetchArticles = fetch(
       `${C.API_BASE_URL}${C.ITEM_ARTICLES_ENDPOINT}?sort[0]=order:asc&populate=deep`
-    ).then((response: any) => {
-      return response.json();
-    });
+    ).then((response: any) => response.json());
+
     const fetchTerms = fetch(
       `${C.API_BASE_URL}${C.TERMS_ENDPOINT}?${C.API_SORT_ASCENDING}&${C.API_POPULATE_DEEP}`
-    ).then((response: any) => {
-      return response.json();
-    });
+    ).then((response: any) => response.json());
 
     Promise.all([fetchArticles, fetchTerms])
       .then(([articlesData, termsData]) => {
@@ -46,7 +37,16 @@ const ProvocationPage: React.FC = () => {
       <Layout>
         <div className={styles.provocationPage}>
           <Sidebar articles={articlesStrapi} terms={termsStrapi} />
-          <div className={styles.ticker}></div>
+          <div className={styles.ticker}>
+            <div className={styles.tickerContent}>
+              {articlesStrapi.map((article: any, index: number) => (
+                <span key={index} className={styles.tickerItem}>
+                  {article.attributes.title}
+                  {index < articlesStrapi.length - 1 && " - "}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </Layout>
     </OpenArticleProvider>

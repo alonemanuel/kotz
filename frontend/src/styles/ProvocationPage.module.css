@@ -37,6 +37,31 @@
     height: var(--ticker-height);
     background-color: black;
     flex-shrink: 0;
+    height: var(--ticker-height);
+    background-color: black;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+
+    & > .tickerContent {
+      display: inline-block;
+      padding-left: 100%;
+      animation: tickerAnimation 60s linear infinite;
+      & > .tickerItem {
+        display: inline;
+        padding: 0 10px;
+      }
+    }
+  }
+}
+
+@keyframes tickerAnimation {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }
 
