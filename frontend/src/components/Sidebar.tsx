@@ -1,3 +1,5 @@
+// Sidebar.tsx
+
 import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/Sidebar.module.css";
 import provocationStyles from "../styles/ProvocationPage.module.css";
