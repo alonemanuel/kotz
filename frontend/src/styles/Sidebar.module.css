@@ -157,12 +157,12 @@
     /* flex-direction: column; */
     .nav {
       flex: none;
-      width: 10vw;
-      transition: width 0.3s ease-in-out;
+      max-width: 10vw;
+      transition: all 0.3s ease-in-out;
       padding-inline-end: var(--border-size);
       outline: var(--border-size) solid black;
       &:hover {
-        width: 200px; /* Adjust as needed */
+        max-width: 100vw; /* Adjust as needed */
       }
 
       .navItem {
