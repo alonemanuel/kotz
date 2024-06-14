@@ -141,16 +141,17 @@
 /* Portrait */
 @media (max-aspect-ratio: 1) {
   .outer {
-    flex-direction: column;
+    /* flex-direction: column; */
     .nav {
       flex: none;
-      width: 7px;
+      width: 10vw;
       transition: width 0.3s ease-in-out;
-
+      padding-inline-end: var(--border-size);
+      outline: var(--border-size) solid black;
       &:hover {
         width: 200px; /* Adjust as needed */
       }
-
+      
       .navItem {
         display: block;
         white-space: nowrap;

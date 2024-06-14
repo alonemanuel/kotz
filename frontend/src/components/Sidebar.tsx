@@ -211,12 +211,17 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
   const handleTouchStart = (e: React.TouchEvent) => {
     const touch = e.touches[0];
     const touchStartX = touch.clientX;
-    panelRefs.current[0]?.setAttribute("data-touch-start-x", touchStartX.toString());
+    panelRefs.current[0]?.setAttribute(
+      "data-touch-start-x",
+      touchStartX.toString()
+    );
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
     const touch = e.touches[0];
-    const touchStartX = Number(panelRefs.current[0]?.getAttribute("data-touch-start-x"));
+    const touchStartX = Number(
+      panelRefs.current[0]?.getAttribute("data-touch-start-x")
+    );
     const touchEndX = touch.clientX;
 
     const deltaX = touchEndX - touchStartX;
@@ -259,6 +264,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
         onTouchMove={handleTouchMove}
       >
         {activeIndices.map((activeIndex) => {
+          console.log('lololo')
           const article = articles[activeIndex];
           return (
             <div
