@@ -342,14 +342,14 @@
     & > main {
       & > .cases {
         outline: var(--border-size) solid black;
-        font-family: var(--ff-david-vc);
-        font-weight: 700;
         color: white;
         background-color: black;
         display: flex;
         flex-flow: column;
         --padding: 10px;
         & > .tabs {
+          font-family: var(--ff-david-vc);
+          font-weight: 700;
           display: flex;
           justify-content: center;
           align-items: center;

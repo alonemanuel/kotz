@@ -4,10 +4,9 @@ import { ContentBlock } from "./interfaces";
 import styles from "./styles/CensorshipPage.module.css";
 
 const CasesContent: React.FC<{
-  content: ContentBlock[];
-  terms: any[];
+  content: any[];
   styles: any;
-}> = ({ content, terms, styles }) => {
+}> = ({ content, styles }) => {
   const [activeTab, setActiveTab] = useState(0);
 
   const cases = [
@@ -22,15 +21,10 @@ const CasesContent: React.FC<{
 
   return (
     <main className={styles.cases}>
-      <JsonBlocksContent
-        content={content}
-        terms={terms}
-        type="cases"
-        styles={styles}
-      />
+      <JsonBlocksContent content={content} type="cases" styles={styles} />
       <div className={styles.cases}>
         <div className={styles.tabs}>
-          {cases.map((caseItem: any, index: number) => (
+          {content?.map((caseItem: any, index: number) => (
             <div
               key={index}
               className={`${styles.tab} ${
@@ -43,14 +37,14 @@ const CasesContent: React.FC<{
           ))}
         </div>
         <div className={styles.mains}>
-          {cases.map((caseItem: any, index: number) => (
+          {content?.map((caseItem: any, index: number) => (
             <div
               key={index}
               className={`${styles.main} ${
                 activeTab === index ? styles.active : ""
               }`}
             >
-              {caseItem.body}
+              <JsonBlocksContent content={caseItem.body} styles={styles} />
             </div>
           ))}
         </div>
