@@ -1022,6 +1022,11 @@ export interface ApiProvocationItemProvocationItem
     url_title: Attribute.String;
     type: Attribute.Enumeration<['standard', 'interview', 'cases', 'popout']> &
       Attribute.DefaultTo<'standard'>;
+    provocation_terms: Attribute.Relation<
+      'api::provocation-item.provocation-item',
+      'oneToMany',
+      'api::provocation-term.provocation-term'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
