@@ -339,6 +339,53 @@
     transition-property: background-color, color;
     margin-block-end: 8em;
 
+    & > main {
+      & > .cases {
+        outline: var(--border-size) solid black;
+        color: white;
+        background-color: black;
+        display: flex;
+        flex-flow: column;
+        --padding: 10px;
+        & > .tabs {
+          font-family: var(--ff-david-vc);
+          font-weight: 700;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: var(--border-size);
+          & > .tab {
+            display: flex;
+            justify-content: center;
+            padding: var(--padding);
+            cursor: pointer;
+            flex: 1;
+            background-color: var(--theme-color);
+            transition: all 0.05s ease-out;
+
+            margin-bottom: var(--border-size);
+            &.active {
+              background-color: var(--color-theme-background);
+              color: var(--color-theme-foreground);
+              padding-bottom: calc(var(--padding) + (var(--border-size) * 2));
+              margin-bottom: calc(-1 * var(--border-size));
+            }
+          }
+        }
+        & > .mains {
+          padding: 20px;
+          background-color: var(--color-theme-background);
+          color: var(--color-theme-foreground);
+          & > .main {
+            display: none;
+            &.active {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+
     &.poll {
       padding: 0;
       margin-block-end: 0;

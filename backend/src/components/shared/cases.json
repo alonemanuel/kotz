@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_cases",
+  "info": {
+    "displayName": "cases"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "blocks"
+    }
+  }
+}

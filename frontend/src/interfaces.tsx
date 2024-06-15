@@ -17,6 +17,7 @@ export interface ArticleAttribute {
   author_img: any;
   url_title: string;
   color: string;
+  cases: any;
 }
 
 export interface Article {

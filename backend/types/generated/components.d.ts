@@ -24,6 +24,17 @@ export interface SharedAnswer0 extends Schema.Component {
   };
 }
 
+export interface SharedCases extends Schema.Component {
+  collectionName: 'components_shared_cases';
+  info: {
+    displayName: 'cases';
+  };
+  attributes: {
+    title: Attribute.String;
+    body: Attribute.Blocks;
+  };
+}
+
 export interface SharedDebate extends Schema.Component {
   collectionName: 'components_shared_debates';
   info: {
@@ -127,6 +138,7 @@ declare module '@strapi/types' {
     export interface Components {
       'shared.answer': SharedAnswer;
       'shared.answer0': SharedAnswer0;
+      'shared.cases': SharedCases;
       'shared.debate': SharedDebate;
       'shared.member': SharedMember;
       'shared.meta-social': SharedMetaSocial;
