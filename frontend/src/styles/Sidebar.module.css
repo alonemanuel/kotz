@@ -2,9 +2,7 @@
 
 .outer {
   display: flex;
-  height: calc(
-    100% - var(--ticker-height)
-  ); /* Adjust height to account for ticker */
+  height: calc(100% - var(--ticker-height));
   flex: 1;
 
   & > .nav {
@@ -92,9 +90,9 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-inline-start: 10px;
-
+        
         & .title {
+          padding-inline: 10px;
           flex: 1;
           text-align: center;
           font-weight: bold;

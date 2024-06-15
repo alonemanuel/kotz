@@ -1,5 +1,3 @@
-// Sidebar.tsx
-
 import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/Sidebar.module.css";
 import provocationStyles from "../styles/ProvocationPage.module.css";
@@ -341,6 +339,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
     entries: IntersectionObserverEntry[],
     index: number
   ) => {
+    console.log("eraerfer");
     const [entry] = entries;
     if (entry.isIntersecting) {
       panelRefs.current[index]?.classList.remove(styles.scrolled);
@@ -350,8 +349,13 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
   };
 
   useEffect(() => {
+    console.log("errorr?");
+    console.log(`articles: ${articles}`);
+    console.log(`panel refs: ${panelRefs.current.length}`);
     panelRefs.current.forEach((panel, index) => {
+      console.log("oooooo");
       if (panel) {
+        console.log(";asdfasdfs");
         const observer = new IntersectionObserver(
           (entries) => handleHeaderScroll(entries, index),
           { threshold: 0 }
@@ -363,50 +367,53 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
         return () => observer.disconnect();
       }
     });
-  }, [articles]);
+  }, [panelRefs, articles, activeIndices]);
 
-  const renderArticle = (article: Article, index: number) => (
-    <div
-      key={article.id}
-      ref={(el) => (panelRefs.current[index] = el)}
-      className={`${styles.articleOuter} ${
-        article.attributes.type == "popout" ? styles.popout : ""
-      } ${
-        (
-          isPortrait
-            ? activeArticleIndex === index
-            : activeIndices.includes(index)
-        )
-          ? styles.active
-          : ""
-      }`}
-      style={
-        {
-          "--theme-color": `${article.attributes.color}`,
-        } as React.CSSProperties
-      }
-    >
+  const renderArticle = (article: Article, index: number) => {
+    console.log('rendering')
+    return (
       <div
-        className={styles.topBar}
+        key={article.id}
+        ref={(el) => (panelRefs.current[index] = el)}
+        className={`${styles.articleOuter} ${
+          article.attributes.type == "popout" ? styles.popout : ""
+        } ${
+          (
+            isPortrait
+              ? activeArticleIndex === index
+              : activeIndices.includes(index)
+          )
+            ? styles.active
+            : ""
+        }`}
         style={
           {
             "--theme-color": `${article.attributes.color}`,
           } as React.CSSProperties
         }
       >
-        <div className={styles.title}>{article.attributes.title}</div>
         <div
-          className={styles.xButton}
-          onClick={() => closeArticle(index)}
-        ></div>
+          className={styles.topBar}
+          style={
+            {
+              "--theme-color": `${article.attributes.color}`,
+            } as React.CSSProperties
+          }
+        >
+          <div className={styles.title}>{article.attributes.title}</div>
+          <div
+            className={styles.xButton}
+            onClick={() => closeArticle(index)}
+          ></div>
+        </div>
+        <ArticleComponent
+          article={article}
+          terms={terms}
+          styles={provocationStyles}
+        />
       </div>
-      <ArticleComponent
-        article={article}
-        terms={terms}
-        styles={provocationStyles}
-      />
-    </div>
-  );
+    );
+  };
 
   return (
     <div className={styles.outer}>
