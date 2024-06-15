@@ -1,11 +1,8 @@
-// Sidebar.tsx
-
 import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/Sidebar.module.css";
 import provocationStyles from "../styles/ProvocationPage.module.css";
 import { Article, Term } from "../interfaces";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import * as C from "../constants";
 import JsonBlocksContent from "../JsonBlocksContent";
 import ArticleComponent from "../ArticleComponent";
 import { useOpenArticle } from "../OpenArticleContext";
@@ -15,15 +12,6 @@ interface SidebarProps {
   articles: Article[];
   terms: Term[];
 }
-
-const getRandomColor = () => {
-  const letters = "0123456789ABCDEF";
-  let color = "#";
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-};
 
 function debounce(func: any, wait: number) {
   let timeout: any;
@@ -56,7 +44,7 @@ function useResizeObservers(refs: any, dependency: number | null) {
       );
     }, 1000);
 
-    const resizeObservers = refs.current.map((ref: any, index: number) => {
+    const resizeObservers = refs.current.map((ref: any) => {
       const observer = new ResizeObserver(() => {
         handleResize();
         setTimeout(() => {
@@ -97,6 +85,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
     null
   );
   const [lastOpenedIndex, setLastOpenedIndex] = useState<number | null>(null);
+
   const accordionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const dimensions = useResizeObservers(accordionRefs, activeIndices.length);
 
@@ -257,6 +246,10 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
       return newIndices;
     });
 
+    console.log('asdfasdfdsfsdfs');
+    console.log(`active: ${lastOpenedIndex}`);
+    setActiveArticleIndex(-1);
+
     if (activeIndices.length === 1) {
       navigate(`/provocation`, { replace: false });
     }
@@ -345,6 +338,48 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
     }
   };
 
+  const renderArticle = (article: Article, index: number) => (
+    <div
+      key={article.id}
+      ref={(el) => (panelRefs.current[index] = el)}
+      className={`${styles.articleOuter} ${
+        article.attributes.type == "popout" ? styles.popout : ""
+      } ${
+        (
+          isPortrait
+            ? activeArticleIndex === index
+            : activeIndices.includes(index)
+        )
+          ? styles.active
+          : ""
+      }`}
+      style={
+        {
+          "--theme-color": `${article.attributes.color}`,
+        } as React.CSSProperties
+      }
+    >
+      <div
+        className={styles.topBar}
+        style={
+          {
+            "--theme-color": `${article.attributes.color}`,
+          } as React.CSSProperties
+        }
+      >
+        <div
+          className={styles.xButton}
+          onClick={() => closeArticle(index)}
+        ></div>
+      </div>
+      <ArticleComponent
+        article={article}
+        terms={terms}
+        styles={provocationStyles}
+      />
+    </div>
+  );
+
   return (
     <div className={styles.outer}>
       <div className={styles.nav}>
@@ -379,70 +414,10 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
         onTouchMove={handleTouchMove}
       >
         {isPortrait
-          ? articles.map((article, index) => (
-              <div
-                key={article.id}
-                ref={(el) => (panelRefs.current[index] = el)}
-                className={`${styles.articleOuter}`}
-                style={
-                  {
-                    "--theme-color": `${article.attributes.color}`,
-                  } as React.CSSProperties
-                }
-              >
-                <div
-                  className={styles.topBar}
-                  style={
-                    {
-                      "--theme-color": `${article.attributes.color}`,
-                    } as React.CSSProperties
-                  }
-                >
-                  <div
-                    className={styles.xButton}
-                    onClick={() => closeArticle(index)}
-                  ></div>
-                </div>
-                <ArticleComponent
-                  article={article}
-                  terms={terms}
-                  styles={provocationStyles}
-                />
-              </div>
-            ))
+          ? articles.map((article, index) => renderArticle(article, index))
           : activeIndices.map((activeIndex) => {
               const article = articles[activeIndex];
-              return (
-                <div
-                  key={article.id}
-                  ref={(el) => (panelRefs.current[activeIndex] = el)}
-                  className={`${styles.articleOuter}`}
-                  style={
-                    {
-                      "--theme-color": `${article.attributes.color}`,
-                    } as React.CSSProperties
-                  }
-                >
-                  <div
-                    className={styles.topBar}
-                    style={
-                      {
-                        "--theme-color": `${article.attributes.color}`,
-                      } as React.CSSProperties
-                    }
-                  >
-                    <div
-                      className={styles.xButton}
-                      onClick={() => closeArticle(activeIndex)}
-                    ></div>
-                  </div>
-                  <ArticleComponent
-                    article={article}
-                    terms={terms}
-                    styles={provocationStyles}
-                  />
-                </div>
-              );
+              return renderArticle(article, activeIndex);
             })}
         <div
           className={`${styles.toTop} ${isScrolled ? styles.scrolled : ``}`}

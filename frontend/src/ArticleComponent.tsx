@@ -1,3 +1,5 @@
+// ArticleComponent.tsx
+
 import React, { useEffect, useState } from "react";
 import JsonBlocksContent from "./JsonBlocksContent";
 import { Article, Term } from "./interfaces";
@@ -8,6 +10,7 @@ import PollContent from "./PollContent";
 import StandardContent from "./StandardContent";
 import InterviewContent from "./InterviewContent";
 import CasesContent from "./CasesContent";
+import PopoutContent from "./PopoutContent";
 
 interface ArticleComponentProps {
   article: Article;
@@ -105,14 +108,11 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
                 />
               );
             case "cases":
-              return (
-                <CasesContent
-                  content={attr?.cases}
-                  styles={styles}
-                />
-              );
+              return <CasesContent content={attr?.cases} styles={styles} />;
             case "debate":
               return <DebateContent content={attr?.debate} />;
+            case "popout":
+              return <PopoutContent content={attr?.cases} styles={styles} />;
             case "poll":
               return (
                 <PollContent

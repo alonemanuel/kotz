@@ -1,6 +1,10 @@
+/* Sidebar.module.css */
+
 .outer {
   display: flex;
-  height: calc(100% - var(--ticker-height)); /* Adjust height to account for ticker */
+  height: calc(
+    100% - var(--ticker-height)
+  ); /* Adjust height to account for ticker */
   flex: 1;
 
   & > .nav {
@@ -47,6 +51,34 @@
     & > .articleOuter {
       flex: 1;
       overflow: hidden;
+
+      &.popout {
+        z-index: 5;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin-block: 7vh;
+        margin-inline: 7vw;
+        backdrop-filter: blur(20px);
+        outline: var(--border-size) solid black;
+        justify-content: center;
+        align-items: center;
+        display: none;
+        min-width: auto;
+
+        &.active {
+          display: unset;
+        }
+
+        & > .topBar {
+          & > .xButton {
+            display: flex;
+          }
+        }
+
+      }
 
       &.notActive {
         display: none;
