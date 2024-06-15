@@ -70,6 +70,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::provocation-term.provocation-term"
+    },
+    "cases": {
+      "displayName": "cases",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.cases"
     }
   }
 }
