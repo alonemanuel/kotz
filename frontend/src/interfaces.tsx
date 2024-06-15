@@ -16,6 +16,7 @@ export interface ArticleAttribute {
   long_author_about: ContentBlock[];
   author_img: any;
   url_title: string;
+  color: string;
 }
 
 export interface Article {
