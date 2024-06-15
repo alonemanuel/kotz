@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-06-15T10:54:18.291Z"
+    "x-generation-date": "2024-06-15T13:55:27.409Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -6043,6 +6043,12 @@
                   ],
                   "example": "string or id"
                 }
+              },
+              "cases": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SharedCasesComponent"
+                }
               }
             }
           }
@@ -6825,6 +6831,12 @@
               }
             }
           },
+          "cases": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SharedCasesComponent"
+            }
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -6893,6 +6905,18 @@
           "meta": {
             "type": "object"
           }
+        }
+      },
+      "SharedCasesComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "title": {
+            "type": "string"
+          },
+          "body": {}
         }
       },
       "ProvocationTermRequest": {

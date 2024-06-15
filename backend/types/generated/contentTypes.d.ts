@@ -1027,6 +1027,7 @@ export interface ApiProvocationItemProvocationItem
       'oneToMany',
       'api::provocation-term.provocation-term'
     >;
+    cases: Attribute.Component<'shared.cases', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
