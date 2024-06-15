@@ -339,6 +339,20 @@
     transition-property: background-color, color;
     margin-block-end: 8em;
 
+    & > main {
+      & > .cases {
+        outline: var(--border-size) solid black;
+        & > .tabs {
+          & > .tab {
+          }
+        }
+        & > .mains {
+          & > .main {
+          }
+        }
+      }
+    }
+
     &.poll {
       padding: 0;
       margin-block-end: 0;

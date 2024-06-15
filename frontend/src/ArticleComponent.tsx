@@ -7,6 +7,7 @@ import DebateContent from "./DebateContent";
 import PollContent from "./PollContent";
 import StandardContent from "./StandardContent";
 import InterviewContent from "./InterviewContent";
+import CasesContent from "./CasesContent";
 
 interface ArticleComponentProps {
   article: Article;
@@ -28,6 +29,9 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
       break;
     case "interview":
       classType = styles.interview;
+      break;
+    case "cases":
+      classType = styles.cases;
       break;
     case "poll":
       classType = styles.poll;
@@ -95,6 +99,14 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
             case "interview":
               return (
                 <InterviewContent
+                  content={attr?.body}
+                  terms={articleTerms}
+                  styles={styles}
+                />
+              );
+            case "cases":
+              return (
+                <CasesContent
                   content={attr?.body}
                   terms={articleTerms}
                   styles={styles}
