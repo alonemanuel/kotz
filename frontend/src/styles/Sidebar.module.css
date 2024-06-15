@@ -77,7 +77,6 @@
             display: flex;
           }
         }
-
       }
 
       &.notActive {
@@ -91,7 +90,20 @@
         background-color: var(--theme-color);
         outline: var(--border-size) solid black;
         display: flex;
-        justify-content: end;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px;
+
+        & .title {
+          flex: 1;
+          text-align: center;
+          font-size: 18px;
+          font-weight: bold;
+          color: white;
+          opacity: 0;
+          scale: 0.5;
+          transition: all 0.1s ease-in-out;
+        }
 
         & > .xButton {
           height: 100%;
@@ -121,6 +133,11 @@
             transform: rotate(-45deg);
           }
         }
+      }
+
+      &.scrolled .topBar .title {
+        opacity: 1;
+        scale: 1;
       }
 
       & > article {
@@ -182,7 +199,6 @@
 /* Portrait */
 @media (max-aspect-ratio: 1) {
   .outer {
-    /* flex-direction: column; */
     .nav {
       flex: none;
       max-width: 10vw;

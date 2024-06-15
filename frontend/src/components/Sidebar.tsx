@@ -5,7 +5,6 @@ import styles from "../styles/Sidebar.module.css";
 import provocationStyles from "../styles/ProvocationPage.module.css";
 import { Article, Term } from "../interfaces";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import JsonBlocksContent from "../JsonBlocksContent";
 import ArticleComponent from "../ArticleComponent";
 import { useOpenArticle } from "../OpenArticleContext";
 import topArrowImg from "../images/other/up-arrow.svg";
@@ -46,7 +45,7 @@ function useResizeObservers(refs: any, dependency: number | null) {
       );
     }, 1000);
 
-    const resizeObservers = refs.current.map((ref: any) => {
+    const resizeObservers = refs.current.map((ref: any, index: number) => {
       const observer = new ResizeObserver(() => {
         handleResize();
         setTimeout(() => {
@@ -248,8 +247,6 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
       return newIndices;
     });
 
-    console.log("asdfasdfdsfsdfs");
-    console.log(`active: ${lastOpenedIndex}`);
     setActiveArticleIndex(-1);
 
     if (activeIndices.length === 1) {
@@ -340,6 +337,34 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
     }
   };
 
+  const handleHeaderScroll = (
+    entries: IntersectionObserverEntry[],
+    index: number
+  ) => {
+    const [entry] = entries;
+    if (entry.isIntersecting) {
+      panelRefs.current[index]?.classList.remove(styles.scrolled);
+    } else {
+      panelRefs.current[index]?.classList.add(styles.scrolled);
+    }
+  };
+
+  useEffect(() => {
+    panelRefs.current.forEach((panel, index) => {
+      if (panel) {
+        const observer = new IntersectionObserver(
+          (entries) => handleHeaderScroll(entries, index),
+          { threshold: 0 }
+        );
+        const titleElement = panel.querySelector("header > hgroup > h1");
+        if (titleElement) {
+          observer.observe(titleElement);
+        }
+        return () => observer.disconnect();
+      }
+    });
+  }, [articles]);
+
   const renderArticle = (article: Article, index: number) => (
     <div
       key={article.id}
@@ -369,6 +394,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
           } as React.CSSProperties
         }
       >
+        <div className={styles.title}>{article.attributes.title}</div>
         <div
           className={styles.xButton}
           onClick={() => closeArticle(index)}
