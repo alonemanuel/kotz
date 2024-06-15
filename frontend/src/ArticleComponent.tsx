@@ -1,3 +1,5 @@
+// ArticleComponent.tsx
+
 import React, { useEffect, useState } from "react";
 import JsonBlocksContent from "./JsonBlocksContent";
 import { Article, Term } from "./interfaces";
