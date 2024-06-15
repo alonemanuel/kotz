@@ -246,6 +246,10 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
       return newIndices;
     });
 
+    console.log('asdfasdfdsfsdfs');
+    console.log(`active: ${lastOpenedIndex}`);
+    setActiveArticleIndex(-1);
+
     if (activeIndices.length === 1) {
       navigate(`/provocation`, { replace: false });
     }

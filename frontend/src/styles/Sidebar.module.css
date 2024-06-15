@@ -66,10 +66,18 @@
         justify-content: center;
         align-items: center;
         display: none;
+        min-width: auto;
 
         &.active {
           display: unset;
         }
+
+        & > .topBar {
+          & > .xButton {
+            display: flex;
+          }
+        }
+
       }
 
       &.notActive {
