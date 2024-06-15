@@ -995,6 +995,88 @@ export interface ApiPollPoll extends Schema.CollectionType {
   };
 }
 
+export interface ApiProvocationItemProvocationItem
+  extends Schema.CollectionType {
+  collectionName: 'provocation_items';
+  info: {
+    singularName: 'provocation-item';
+    pluralName: 'provocation-items';
+    displayName: 'Provocation Item';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    subtitle: Attribute.String;
+    author: Attribute.String;
+    body: Attribute.Blocks;
+    lead: Attribute.Text;
+    author_about: Attribute.Text;
+    author_img: Attribute.Media;
+    order: Attribute.Integer & Attribute.DefaultTo<0>;
+    color: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
+    long_author_about: Attribute.Blocks;
+    url_title: Attribute.String;
+    type: Attribute.Enumeration<['standard', 'interview', 'cases', 'popout']> &
+      Attribute.DefaultTo<'standard'>;
+    provocation_terms: Attribute.Relation<
+      'api::provocation-item.provocation-item',
+      'oneToMany',
+      'api::provocation-term.provocation-term'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::provocation-item.provocation-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::provocation-item.provocation-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProvocationTermProvocationTerm
+  extends Schema.CollectionType {
+  collectionName: 'provocation_terms';
+  info: {
+    singularName: 'provocation-term';
+    pluralName: 'provocation-terms';
+    displayName: 'Provocation Term';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    body: Attribute.Blocks;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::provocation-term.provocation-term',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::provocation-term.provocation-term',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiQuestionQuestion extends Schema.CollectionType {
   collectionName: 'questions';
   info: {
@@ -1140,6 +1222,8 @@ declare module '@strapi/types' {
       'api::issue.issue': ApiIssueIssue;
       'api::item-article.item-article': ApiItemArticleItemArticle;
       'api::poll.poll': ApiPollPoll;
+      'api::provocation-item.provocation-item': ApiProvocationItemProvocationItem;
+      'api::provocation-term.provocation-term': ApiProvocationTermProvocationTerm;
       'api::question.question': ApiQuestionQuestion;
       'api::team.team': ApiTeamTeam;
       'api::term.term': ApiTermTerm;
