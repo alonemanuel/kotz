@@ -21,6 +21,10 @@
 /* NEW CSS */
 /* NEW CSS */
 
+.provocationLayout {
+  display: none;
+}
+
 /* ProvocationPage.module.css */
 .provocationPage {
   width: 100vw;
