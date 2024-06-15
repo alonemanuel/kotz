@@ -65,6 +65,11 @@
         outline: var(--border-size) solid black;
         justify-content: center;
         align-items: center;
+        display: none;
+
+        &.active {
+          display: unset;
+        }
       }
 
       &.notActive {
