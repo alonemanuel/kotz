@@ -1040,6 +1040,38 @@ export interface ApiProvocationItemProvocationItem
   };
 }
 
+export interface ApiProvocationTermProvocationTerm
+  extends Schema.CollectionType {
+  collectionName: 'provocation_terms';
+  info: {
+    singularName: 'provocation-term';
+    pluralName: 'provocation-terms';
+    displayName: 'Provocation Term';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    body: Attribute.Blocks;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::provocation-term.provocation-term',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::provocation-term.provocation-term',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiQuestionQuestion extends Schema.CollectionType {
   collectionName: 'questions';
   info: {
@@ -1186,6 +1218,7 @@ declare module '@strapi/types' {
       'api::item-article.item-article': ApiItemArticleItemArticle;
       'api::poll.poll': ApiPollPoll;
       'api::provocation-item.provocation-item': ApiProvocationItemProvocationItem;
+      'api::provocation-term.provocation-term': ApiProvocationTermProvocationTerm;
       'api::question.question': ApiQuestionQuestion;
       'api::team.team': ApiTeamTeam;
       'api::term.term': ApiTermTerm;

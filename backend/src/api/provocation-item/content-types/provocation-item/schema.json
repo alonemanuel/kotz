@@ -65,6 +65,11 @@
         "popout"
       ],
       "default": "standard"
+    },
+    "provocation_terms": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::provocation-term.provocation-term"
     }
   }
 }
