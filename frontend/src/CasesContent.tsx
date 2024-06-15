@@ -11,9 +11,9 @@ const CasesContent: React.FC<{
   const [activeTab, setActiveTab] = useState(0);
 
   const cases = [
-    { title: "case 0", body: "lorem ipsum 0" },
-    { title: "case 1", body: "lorem ipsum 1" },
-    { title: "case 2", body: "lorem ipsum 2" },
+    { title: "מקרה 0", body: "lorem ipsum 0" },
+    { title: "מקרה 1", body: "lorem ipsum 1" },
+    { title: "מקרה 2", body: "lorem ipsum 2" },
   ];
 
   const handleTabClick = (index: number) => {

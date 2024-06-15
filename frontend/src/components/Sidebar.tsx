@@ -384,6 +384,11 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
                 key={article.id}
                 ref={(el) => (panelRefs.current[index] = el)}
                 className={`${styles.articleOuter}`}
+                style={
+                  {
+                    "--theme-color": `${article.attributes.color}`,
+                  } as React.CSSProperties
+                }
               >
                 <div
                   className={styles.topBar}
@@ -412,6 +417,11 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
                   key={article.id}
                   ref={(el) => (panelRefs.current[activeIndex] = el)}
                   className={`${styles.articleOuter}`}
+                  style={
+                    {
+                      "--theme-color": `${article.attributes.color}`,
+                    } as React.CSSProperties
+                  }
                 >
                   <div
                     className={styles.topBar}
