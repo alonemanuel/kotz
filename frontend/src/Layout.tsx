@@ -1,3 +1,5 @@
+// Layout.tsx
+
 import React, { ReactNode, useEffect, useState } from "react";
 import KotzFab from "./KotzFab";
 import KotzIcon from "./components/KotzIcon2";
@@ -12,9 +14,10 @@ import { OpenArticleProvider, useOpenArticle } from "./OpenArticleContext";
 
 interface LayoutProps {
   children: ReactNode;
+  className?: string;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ children, className }) => {
   const navigate = useNavigate();
   const handleKotzClick = () => {
     navigate("/");
@@ -50,7 +53,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     >
       {/* Common element across all pages */}
       {
-        <nav className={styles.layoutNav}>
+        <nav className={`${styles.layoutNav} ${className}`}>
           <hgroup>
             <h3 onClick={() => navigate("/")}>קוץ</h3>
             <h1 onClick={() => navigate("/")}>01</h1>

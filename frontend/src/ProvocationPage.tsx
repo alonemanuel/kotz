@@ -1,4 +1,4 @@
-// CensorshipPage.tsx
+// ProvocationPage.tsx
 import React, { useEffect, useState } from "react";
 import styles from "./styles/ProvocationPage.module.css";
 import Sidebar from "./components/Sidebar";
@@ -34,7 +34,7 @@ const ProvocationPage: React.FC = () => {
 
   return (
     <OpenArticleProvider>
-      <Layout>
+      <Layout className={styles.provocationLayout}>
         <div className={styles.provocationPage}>
           <Sidebar articles={articlesStrapi} terms={termsStrapi} />
           <div className={styles.ticker}>
