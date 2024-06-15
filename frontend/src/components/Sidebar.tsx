@@ -16,6 +16,15 @@ interface SidebarProps {
   terms: Term[];
 }
 
+const getRandomColor = () => {
+  const letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
+
 function debounce(func: any, wait: number) {
   let timeout: any;
 
@@ -352,6 +361,11 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
                 : ""
             }`}
             onClick={() => toggleAccordion(index)}
+            style={
+              {
+                "--theme-color": `${article.attributes.color}`,
+              } as React.CSSProperties
+            }
           >
             {article.attributes.title}
           </div>
@@ -371,7 +385,14 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
                 ref={(el) => (panelRefs.current[index] = el)}
                 className={`${styles.articleOuter}`}
               >
-                <div className={styles.topBar}>
+                <div
+                  className={styles.topBar}
+                  style={
+                    {
+                      "--theme-color": `${article.attributes.color}`,
+                    } as React.CSSProperties
+                  }
+                >
                   <div
                     className={styles.xButton}
                     onClick={() => closeArticle(index)}
@@ -392,7 +413,14 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
                   ref={(el) => (panelRefs.current[activeIndex] = el)}
                   className={`${styles.articleOuter}`}
                 >
-                  <div className={styles.topBar}>
+                  <div
+                    className={styles.topBar}
+                    style={
+                      {
+                        "--theme-color": `${article.attributes.color}`,
+                      } as React.CSSProperties
+                    }
+                  >
                     <div
                       className={styles.xButton}
                       onClick={() => closeArticle(activeIndex)}

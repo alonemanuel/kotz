@@ -17,7 +17,7 @@ const ProvocationPage: React.FC = () => {
     ).then((response: any) => response.json());
 
     const fetchTerms = fetch(
-      `${C.API_BASE_URL}${C.PROVOCATION_TERMS_ENDPOINT}?${C.API_SORT_ASCENDING}&${C.API_POPULATE_DEEP}`
+      `${C.API_BASE_URL}${C.PROVOCATION_TERMS_ENDPOINT}?${C.API_POPULATE_DEEP}`
     ).then((response: any) => response.json());
 
     Promise.all([fetchArticles, fetchTerms])
