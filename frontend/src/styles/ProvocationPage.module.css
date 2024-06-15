@@ -367,8 +367,8 @@
             &.active {
               background-color: var(--color-theme-background);
               color: var(--color-theme-foreground);
-              padding-bottom: 16px;
-              margin-bottom: -3px;
+              padding-bottom: calc(var(--padding) + (var(--border-size) * 2));
+              margin-bottom: calc(-1 * var(--border-size));
             }
           }
         }
