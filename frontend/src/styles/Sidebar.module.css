@@ -6,33 +6,7 @@
     100% - var(--ticker-height)
   ); /* Adjust height to account for ticker */
   flex: 1;
-  .popout {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
 
-    & > .popoutContent {
-      background: white;
-      width: 80%;
-      height: 80%;
-      position: relative;
-
-      & > .popoutClose {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 24px;
-        cursor: pointer;
-      }
-    }
-  }
   & > .nav {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     height: 100%;
@@ -77,6 +51,21 @@
     & > .articleOuter {
       flex: 1;
       overflow: hidden;
+
+      &.popout {
+        z-index: 5;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin-block: 7vh;
+        margin-inline: 7vw;
+        backdrop-filter: blur(20px);
+        outline: var(--border-size) solid black;
+        justify-content: center;
+        align-items: center;
+      }
 
       &.notActive {
         display: none;
