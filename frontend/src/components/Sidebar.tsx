@@ -1,5 +1,3 @@
-// Sidebar.tsx
-
 import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/Sidebar.module.css";
 import provocationStyles from "../styles/ProvocationPage.module.css";
@@ -88,6 +86,8 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
     null
   );
   const [lastOpenedIndex, setLastOpenedIndex] = useState<number | null>(null);
+  const [popoutArticle, setPopoutArticle] = useState<Article | null>(null);
+
   const accordionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const dimensions = useResizeObservers(accordionRefs, activeIndices.length);
 
@@ -204,41 +204,44 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
   }, [urlSuffix, setOpen, articles, location]);
 
   const toggleAccordion = (index: number) => {
-    setActiveIndices((prevIndices) => {
-      const isArticleOpen = prevIndices.includes(index);
-      let newIndices = isArticleOpen
-        ? prevIndices.filter((i) => i !== index)
-        : [index, ...prevIndices];
-      if (newIndices.length > 3) {
-        newIndices.pop();
-      }
-      return newIndices;
-    });
-    setOpen(true);
-
-    if (!activeIndices.includes(index)) {
-      const normalizedTitle = normalizeTitle(articles[index].attributes.title);
-      const normalizedUrl = normalizeTitle(
-        articles[index].attributes.url_title
-      );
-
-      const newUrlSuffix = normalizedUrl ? normalizedUrl : normalizedTitle;
-      navigate(`/provocation/${newUrlSuffix}`, { replace: false });
-    } else if (activeIndices.length === 1) {
-      navigate(`/provocation`, { replace: false });
-    }
-
-    // Scroll to the selected article if in portrait mode
-    if (isPortrait) {
-      panelRefs.current[index]?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-        inline: "nearest",
-      });
-      setActiveArticleIndex(index);
-      setLastOpenedIndex(index);
+    const article = articles[index];
+    if (article.attributes.type === "popout") {
+      setPopoutArticle(article);
     } else {
-      setLastOpenedIndex(index);
+      setActiveIndices((prevIndices) => {
+        const isArticleOpen = prevIndices.includes(index);
+        let newIndices = isArticleOpen
+          ? prevIndices.filter((i) => i !== index)
+          : [index, ...prevIndices];
+        if (newIndices.length > 3) {
+          newIndices.pop();
+        }
+        return newIndices;
+      });
+      setOpen(true);
+
+      if (!activeIndices.includes(index)) {
+        const normalizedTitle = normalizeTitle(article.attributes.title);
+        const normalizedUrl = normalizeTitle(article.attributes.url_title);
+
+        const newUrlSuffix = normalizedUrl ? normalizedUrl : normalizedTitle;
+        navigate(`/provocation/${newUrlSuffix}`, { replace: false });
+      } else if (activeIndices.length === 1) {
+        navigate(`/provocation`, { replace: false });
+      }
+
+      // Scroll to the selected article if in portrait mode
+      if (isPortrait) {
+        panelRefs.current[index]?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest",
+        });
+        setActiveArticleIndex(index);
+        setLastOpenedIndex(index);
+      } else {
+        setLastOpenedIndex(index);
+      }
     }
   };
 
@@ -251,6 +254,10 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
     if (activeIndices.length === 1) {
       navigate(`/provocation`, { replace: false });
     }
+  };
+
+  const closePopout = () => {
+    setPopoutArticle(null);
   };
 
   const normalizeTitle = (title: string | undefined) => {
@@ -442,6 +449,20 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
           <img className={styles.topArrow} src={topArrowImg} alt="top" />
         </div>
       </div>
+      {popoutArticle && (
+        <div className={styles.popout}>
+          <div className={styles.popoutContent}>
+            <div className={styles.popoutClose} onClick={closePopout}>
+              ×
+            </div>
+            <ArticleComponent
+              article={popoutArticle}
+              terms={terms}
+              styles={provocationStyles}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
