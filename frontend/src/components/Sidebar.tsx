@@ -370,7 +370,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
   }, [panelRefs, articles, activeIndices]);
 
   const renderArticle = (article: Article, index: number) => {
-    console.log('rendering')
+    console.log("rendering");
     return (
       <div
         key={article.id}
