@@ -708,7 +708,7 @@
 
     & > h1 {
       margin-block: 2em 0.5em;
-      color: var(--color-green);
+      color: var(--theme-color);
       font-family: var(--ff-david-vc);
       font-style: italic;
       font-size: 1.58rem; /* var(--fs-600); */

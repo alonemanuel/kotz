@@ -19,7 +19,7 @@
       background-color: var(--color-theme-background);
       cursor: pointer;
       padding: 10px;
-      font-size: 18px;
+      font-size: 28px;
       color: #333;
       flex-grow: 1;
       transition: all 0.1s ease-out;
@@ -105,7 +105,7 @@
           scale: 0.5;
           transition: all 0.1s ease-in-out;
           font-family: var(--ff-leon);
-          font-size: 18px;
+          font-size: 20px;
           white-space: nowrap;
           text-overflow: ellipsis;
           overflow: hidden;
@@ -221,7 +221,7 @@
       }
 
       .navItem {
-        display: block;
+        /* display: block; */
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
