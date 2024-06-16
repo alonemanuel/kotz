@@ -878,13 +878,21 @@
   }
 }
 
-/* Mobile */
+/* Portrait */
 @media (max-aspect-ratio: 1) {
   .provocationPage {
     & article {
       padding: 1em;
       padding-top: 4em;
       padding-inline-end: 0;
+
+      & > header {
+        & > hgroup {
+          & h1 {
+            font-size: clamp(2em, 15vw, 5em);
+          }
+        }
+      }
 
       & > main {
         max-width: 60ch;
