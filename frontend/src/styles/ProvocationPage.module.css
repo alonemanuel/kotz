@@ -607,7 +607,7 @@
         display: flex;
         flex-flow: column nowrap;
         max-width: 99%;
-        gap: 0em;
+        gap: 1em;
 
         & h1 {
           font-family: var(--ff-leon);
