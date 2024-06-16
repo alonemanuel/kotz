@@ -115,9 +115,14 @@ const IssuesComponent = () => {
           <div
             key={index}
             className={`${styles.gridItem} ${
-              !issue.is_published ? styles.unpublished : styles.published
+              !(issue.is_published || issue.number === devPreviewIssue)
+                ? styles.unpublished
+                : styles.published
             }`}
-            onClick={() => issue.is_published && handleBoxClick(issue.path)}
+            onClick={() =>
+              (issue.is_published || issue.number === devPreviewIssue) &&
+              handleBoxClick(issue.path)
+            }
           >
             <div className={styles.imgSizer}>
               <div className={styles.imgContainer}>
