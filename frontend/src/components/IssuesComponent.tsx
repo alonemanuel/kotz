@@ -17,6 +17,7 @@ import kotzImg7 from "../images/kotz7.svg";
 import kotzImg8 from "../images/kotz8.svg";
 import kotzImg9 from "../images/kotz9.svg";
 
+const devPreviewIssue = 2;
 const SvgPathToNode = ({ issue, index }: any) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const [viewBox, setViewBox] = useState({ x: 0, y: 0, width: 0, height: 0 });
@@ -69,7 +70,7 @@ const IssuesComponent = () => {
 
   const navigate = useNavigate();
   const kotsimages = [
-    kotzImgWhite,
+    kotzImg2,
     kotzImg2,
     kotzImg3,
     kotzImg4,
@@ -89,7 +90,16 @@ const IssuesComponent = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        setIssues(data.data.map((issue: any) => issue.attributes));
+        const fetchedIssues = data.data.map((issue: any) => issue.attributes);
+
+        // Reorder to ensure issue with number: 2 is first
+        const reorderedIssues = fetchedIssues.sort((a: Issue, b: Issue) => {
+          if (a.number === devPreviewIssue) return -1;
+          if (b.number === devPreviewIssue) return 1;
+          return a.number - b.number;
+        });
+
+        setIssues(reorderedIssues);
       })
       .catch((error) => console.error(`Error fetching data: ${error}`));
   }, []);
@@ -111,7 +121,9 @@ const IssuesComponent = () => {
           >
             <div className={styles.imgSizer}>
               <div className={styles.imgContainer}>
-                {issue?.svg_path && issue?.inner_image ? (
+                {(issue?.has_preview || issue.number === devPreviewIssue) &&
+                issue?.svg_path &&
+                issue?.inner_image ? (
                   <SvgPathToNode issue={issue} index={index} />
                 ) : (
                   <img src={kotsimages[index]} alt={issue.name} />
@@ -119,7 +131,7 @@ const IssuesComponent = () => {
               </div>
               <span className={styles.prompt}>אל הגיליון</span>
             </div>
-            {issue.has_preview && (
+            {(issue?.has_preview || issue.number === devPreviewIssue) && (
               <div className={styles.details}>
                 <hgroup>
                   <div className={styles.issueNumber}>
@@ -134,7 +146,7 @@ const IssuesComponent = () => {
                 </hgroup>
                 <div className={styles.about}>{issue.about}</div>
                 <div className={styles.guests}>
-                  <JsonBlocksContent content={issue.guests} styles={styles}/>
+                  <JsonBlocksContent content={issue.guests} styles={styles} />
                 </div>
               </div>
             )}
