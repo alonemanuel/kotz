@@ -121,7 +121,9 @@ const IssuesComponent = () => {
           >
             <div className={styles.imgSizer}>
               <div className={styles.imgContainer}>
-                {issue?.has_preview && issue?.svg_path && issue?.inner_image ? (
+                {(issue?.has_preview || issue.number === devPreviewIssue) &&
+                issue?.svg_path &&
+                issue?.inner_image ? (
                   <SvgPathToNode issue={issue} index={index} />
                 ) : (
                   <img src={kotsimages[index]} alt={issue.name} />
@@ -129,7 +131,7 @@ const IssuesComponent = () => {
               </div>
               <span className={styles.prompt}>אל הגיליון</span>
             </div>
-            {issue.has_preview && (
+            {(issue?.has_preview || issue.number === devPreviewIssue) && (
               <div className={styles.details}>
                 <hgroup>
                   <div className={styles.issueNumber}>
