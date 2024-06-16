@@ -77,12 +77,7 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
     <article className={classType}>
       <header>
         <hgroup>
-          {wrappedTitle && (
-            <h1
-              className={styles.title}
-              dangerouslySetInnerHTML={{ __html: wrappedTitle }}
-            />
-          )}
+          {attr.title && <h1 className={styles.title}>{attr.title}</h1>}
           {attr.author && <h3>{attr.author}</h3>}
           {attr.subtitle && <h2>{attr.subtitle}</h2>}
         </hgroup>

@@ -610,7 +610,7 @@
         gap: 0em;
 
         & h1 {
-          font-family: var(--ff-kotz-display);
+          font-family: var(--ff-leon);
           /* font-feature-settings: "ss01"; */
           /* font-size: var(--fs-800); */
           line-height: 0.9em;
