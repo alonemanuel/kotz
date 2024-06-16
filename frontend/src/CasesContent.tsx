@@ -9,6 +9,8 @@ const CasesContent: React.FC<{
 }> = ({ content, styles }) => {
   const [activeTab, setActiveTab] = useState(0);
 
+
+  
   const cases = [
     { title: "מקרה 0", body: "lorem ipsum 0" },
     { title: "מקרה 1", body: "lorem ipsum 1" },
@@ -20,7 +22,7 @@ const CasesContent: React.FC<{
   };
 
   return (
-    <main className={styles.cases}>
+    <main className={styles.casesOuter}>
       <JsonBlocksContent content={content} type="cases" styles={styles} />
       <div className={styles.cases}>
         <div className={styles.tabs}>

@@ -345,46 +345,50 @@
     margin-block-end: 8em;
 
     & > main {
-      & > .cases {
-        outline: var(--border-size) solid black;
-        color: white;
-        background-color: black;
-        display: flex;
-        flex-flow: column;
-        --padding: 10px;
-        & > .tabs {
-          font-family: var(--ff-david-vc);
-          font-weight: 700;
+      &.casesOuter {
+        max-width: 100%;
+        margin-inline: 2em;
+        & > .cases {
+          outline: var(--border-size) solid black;
+          color: white;
+          background-color: black;
           display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: var(--border-size);
-          & > .tab {
+          flex-flow: column;
+          --padding: 10px;
+          & > .tabs {
+            font-family: var(--ff-david-vc);
+            font-weight: 700;
             display: flex;
             justify-content: center;
-            padding: var(--padding);
-            cursor: pointer;
-            flex: 1;
-            background-color: var(--theme-color);
-            transition: all 0.05s ease-out;
+            align-items: center;
+            gap: var(--border-size);
+            & > .tab {
+              display: flex;
+              justify-content: center;
+              padding: var(--padding);
+              cursor: pointer;
+              flex: 1;
+              background-color: var(--theme-color);
+              transition: all 0.05s ease-out;
 
-            margin-bottom: var(--border-size);
-            &.active {
-              background-color: var(--color-theme-background);
-              color: var(--color-theme-foreground);
-              padding-bottom: calc(var(--padding) + (var(--border-size) * 2));
-              margin-bottom: calc(-1 * var(--border-size));
+              margin-bottom: var(--border-size);
+              &.active {
+                background-color: var(--color-theme-background);
+                color: var(--color-theme-foreground);
+                padding-bottom: calc(var(--padding) + (var(--border-size) * 2));
+                margin-bottom: calc(-1 * var(--border-size));
+              }
             }
           }
-        }
-        & > .mains {
-          padding: 20px;
-          background-color: var(--color-theme-background);
-          color: var(--color-theme-foreground);
-          & > .main {
-            display: none;
-            &.active {
-              display: block;
+          & > .mains {
+            padding: 20px;
+            background-color: var(--color-theme-background);
+            color: var(--color-theme-foreground);
+            & > .main {
+              display: none;
+              &.active {
+                display: block;
+              }
             }
           }
         }
@@ -744,7 +748,8 @@
       }
     }
 
-    & > p {
+    & > p,
+    & > .cases p {
       font: var(--font-kotz-500);
       font-weight: 500;
       line-height: 1.77rem;
