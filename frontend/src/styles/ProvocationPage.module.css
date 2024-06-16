@@ -329,7 +329,7 @@
 
   & article {
     max-width: 100%;
-    padding: 2em;
+    padding: 1em;
     color: var(--color-theme-foreground);
     display: flex;
     flex-flow: column nowrap;
