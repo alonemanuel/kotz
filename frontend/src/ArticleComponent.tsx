@@ -103,6 +103,7 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
                 />
               );
             case "cases":
+              console.log('hihih')
               return <CasesContent content={attr?.cases} styles={styles} />;
             case "debate":
               return <DebateContent content={attr?.debate} />;

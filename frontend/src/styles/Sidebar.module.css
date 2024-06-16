@@ -164,6 +164,7 @@
       & > article {
         height: 100%;
         overflow: auto;
+        padding-block-end: 8em;
       }
     }
 
