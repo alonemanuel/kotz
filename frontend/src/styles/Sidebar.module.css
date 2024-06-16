@@ -1,3 +1,5 @@
+/* Sidebar.module.css */
+
 .outer {
   display: flex;
   height: calc(100% - var(--ticker-height));
@@ -14,6 +16,7 @@
     background-color: black;
     padding: var(--border-size);
     padding-inline-end: 0;
+    overflow: hidden; /* Add this line */
 
     & .navItem {
       background-color: var(--color-theme-background);
@@ -32,6 +35,18 @@
       &:hover,
       &.activeNavItem {
         background-color: var(--theme-color);
+
+        & .navContent {
+          display: inline-block;
+          /* padding-top: 100%; */
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: start;
+          &:hover {
+            animation: navAnimation 3s ease-in infinite; /* Add animation */
+          }
+        }
       }
     }
   }
@@ -39,17 +54,17 @@
   & > .articles {
     display: flex;
     flex-direction: row-reverse;
-    flex: 3; /* Allow articles to take remaining space */
+    flex: 3;
     gap: var(--border-size);
     background-color: black;
     padding: var(--border-size);
     width: 100%;
     overflow: hidden;
-    
+
     &:empty {
       display: none;
     }
-    
+
     & > .articleOuter {
       flex: 1;
       overflow: hidden;
@@ -188,6 +203,15 @@
         pointer-events: all;
       }
     }
+  }
+}
+
+@keyframes navAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
   }
 }
 

@@ -339,7 +339,6 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
     entries: IntersectionObserverEntry[],
     index: number
   ) => {
-    console.log("eraerfer");
     const [entry] = entries;
     if (entry.isIntersecting) {
       panelRefs.current[index]?.classList.remove(styles.scrolled);
@@ -349,13 +348,8 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
   };
 
   useEffect(() => {
-    console.log("errorr?");
-    console.log(`articles: ${articles}`);
-    console.log(`panel refs: ${panelRefs.current.length}`);
     panelRefs.current.forEach((panel, index) => {
-      console.log("oooooo");
       if (panel) {
-        console.log(";asdfasdfs");
         const observer = new IntersectionObserver(
           (entries) => handleHeaderScroll(entries, index),
           { threshold: 0 }
@@ -370,7 +364,6 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
   }, [panelRefs, articles, activeIndices]);
 
   const renderArticle = (article: Article, index: number) => {
-    console.log("rendering");
     return (
       <div
         key={article.id}
@@ -437,7 +430,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
               } as React.CSSProperties
             }
           >
-            {article.attributes.title}
+            <div className={styles.navContent}>{article.attributes.title}</div>
           </div>
         ))}
       </div>
