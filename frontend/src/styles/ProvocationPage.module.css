@@ -763,6 +763,12 @@
         color: var(--theme-color);
       }
 
+      & u {
+        background-color: var(--theme-color);
+        color: var(--color-theme-background);
+
+      }
+
       & i {
         font-family: var(--ff-narkis-yair);
         font-size: 1.4rem;
