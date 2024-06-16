@@ -121,7 +121,7 @@ const IssuesComponent = () => {
           >
             <div className={styles.imgSizer}>
               <div className={styles.imgContainer}>
-                {issue?.svg_path && issue?.inner_image ? (
+                {issue?.has_preview && issue?.svg_path && issue?.inner_image ? (
                   <SvgPathToNode issue={issue} index={index} />
                 ) : (
                   <img src={kotsimages[index]} alt={issue.name} />
