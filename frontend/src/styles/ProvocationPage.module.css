@@ -639,13 +639,11 @@
 
         & h3 {
           font-family: var(--ff-narkis-yair);
-          color: var(--color-green);
+          background-color: var(--color-green);
+          color: var(--color-theme-background);
+          width: fit-content;
+          padding-inline: 0.1em;
           font-size: 1.5rem;
-
-          &::before {
-            content: ">";
-            margin-inline-end: 0.5em;
-          }
         }
       }
 
@@ -766,7 +764,6 @@
       & u {
         background-color: var(--theme-color);
         color: var(--color-theme-background);
-
       }
 
       & i {
