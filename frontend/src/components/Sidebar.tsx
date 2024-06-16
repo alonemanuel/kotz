@@ -3,7 +3,6 @@ import styles from "../styles/Sidebar.module.css";
 import provocationStyles from "../styles/ProvocationPage.module.css";
 import { Article, Term } from "../interfaces";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import JsonBlocksContent from "../JsonBlocksContent";
 import ArticleComponent from "../ArticleComponent";
 import { useOpenArticle } from "../OpenArticleContext";
 import topArrowImg from "../images/other/up-arrow.svg";
@@ -44,7 +43,7 @@ function useResizeObservers(refs: any, dependency: number | null) {
       );
     }, 1000);
 
-    const resizeObservers = refs.current.map((ref: any) => {
+    const resizeObservers = refs.current.map((ref: any, index: number) => {
       const observer = new ResizeObserver(() => {
         handleResize();
         setTimeout(() => {
@@ -246,8 +245,6 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
       return newIndices;
     });
 
-    console.log('asdfasdfdsfsdfs');
-    console.log(`active: ${lastOpenedIndex}`);
     setActiveArticleIndex(-1);
 
     if (activeIndices.length === 1) {
@@ -338,29 +335,57 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
     }
   };
 
-  const renderArticle = (article: Article, index: number) => (
-    <div
-      key={article.id}
-      ref={(el) => (panelRefs.current[index] = el)}
-      className={`${styles.articleOuter} ${
-        article.attributes.type == "popout" ? styles.popout : ""
-      } ${
-        (
-          isPortrait
-            ? activeArticleIndex === index
-            : activeIndices.includes(index)
-        )
-          ? styles.active
-          : ""
-      }`}
-      style={
-        {
-          "--theme-color": `${article.attributes.color}`,
-        } as React.CSSProperties
+  const handleHeaderScroll = (
+    entries: IntersectionObserverEntry[],
+    index: number
+  ) => {
+    console.log("eraerfer");
+    const [entry] = entries;
+    if (entry.isIntersecting) {
+      panelRefs.current[index]?.classList.remove(styles.scrolled);
+    } else {
+      panelRefs.current[index]?.classList.add(styles.scrolled);
+    }
+  };
+
+  useEffect(() => {
+    console.log("errorr?");
+    console.log(`articles: ${articles}`);
+    console.log(`panel refs: ${panelRefs.current.length}`);
+    panelRefs.current.forEach((panel, index) => {
+      console.log("oooooo");
+      if (panel) {
+        console.log(";asdfasdfs");
+        const observer = new IntersectionObserver(
+          (entries) => handleHeaderScroll(entries, index),
+          { threshold: 0 }
+        );
+        const titleElement = panel.querySelector("header > hgroup > h1");
+        if (titleElement) {
+          observer.observe(titleElement);
+        }
+        return () => observer.disconnect();
       }
-    >
+    });
+  }, [panelRefs, articles, activeIndices]);
+
+  const renderArticle = (article: Article, index: number) => {
+    console.log('rendering')
+    return (
       <div
-        className={styles.topBar}
+        key={article.id}
+        ref={(el) => (panelRefs.current[index] = el)}
+        className={`${styles.articleOuter} ${
+          article.attributes.type == "popout" ? styles.popout : ""
+        } ${
+          (
+            isPortrait
+              ? activeArticleIndex === index
+              : activeIndices.includes(index)
+          )
+            ? styles.active
+            : ""
+        }`}
         style={
           {
             "--theme-color": `${article.attributes.color}`,
@@ -368,17 +393,27 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
         }
       >
         <div
-          className={styles.xButton}
-          onClick={() => closeArticle(index)}
-        ></div>
+          className={styles.topBar}
+          style={
+            {
+              "--theme-color": `${article.attributes.color}`,
+            } as React.CSSProperties
+          }
+        >
+          <div className={styles.title}>{article.attributes.title}</div>
+          <div
+            className={styles.xButton}
+            onClick={() => closeArticle(index)}
+          ></div>
+        </div>
+        <ArticleComponent
+          article={article}
+          terms={terms}
+          styles={provocationStyles}
+        />
       </div>
-      <ArticleComponent
-        article={article}
-        terms={terms}
-        styles={provocationStyles}
-      />
-    </div>
-  );
+    );
+  };
 
   return (
     <div className={styles.outer}>
