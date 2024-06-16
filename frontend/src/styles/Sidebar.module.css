@@ -46,6 +46,10 @@
     width: 100%;
     overflow: hidden;
     
+    &:empty {
+      display: none;
+    }
+    
     & > .articleOuter {
       flex: 1;
       overflow: hidden;

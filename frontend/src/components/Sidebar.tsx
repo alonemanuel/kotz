@@ -454,12 +454,14 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
               const article = articles[activeIndex];
               return renderArticle(article, activeIndex);
             })}
-        <div
-          className={`${styles.toTop} ${isScrolled ? styles.scrolled : ``}`}
-          onClick={() => scrollToTop(activeIndices[0])}
-        >
-          <img className={styles.topArrow} src={topArrowImg} alt="top" />
-        </div>
+        {isOpen && (
+          <div
+            className={`${styles.toTop} ${isScrolled ? styles.scrolled : ``}`}
+            onClick={() => scrollToTop(activeIndices[0])}
+          >
+            <img className={styles.topArrow} src={topArrowImg} alt="top" />
+          </div>
+        )}
       </div>
     </div>
   );
