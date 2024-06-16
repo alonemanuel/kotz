@@ -1,5 +1,3 @@
-/* Sidebar.module.css */
-
 .outer {
   display: flex;
   height: calc(100% - var(--ticker-height));
@@ -41,11 +39,17 @@
   & > .articles {
     display: flex;
     flex-direction: row-reverse;
-    flex: 3;
+    flex: 3; /* Allow articles to take remaining space */
     gap: var(--border-size);
     background-color: black;
     padding: var(--border-size);
-
+    width: 100%;
+    overflow: hidden;
+    
+    &:empty {
+      display: none;
+    }
+    
     & > .articleOuter {
       flex: 1;
       overflow: hidden;
@@ -90,7 +94,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        
+
         & .title {
           padding-inline: 10px;
           flex: 1;
@@ -192,8 +196,13 @@
   .outer {
     flex-direction: row;
 
+    & > .articles {
+      flex-direction: row;
+    }
+
     & > .nav {
       min-width: 100px;
+      overflow: hidden;
     }
   }
 }

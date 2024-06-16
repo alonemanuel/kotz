@@ -613,7 +613,7 @@
           font-family: var(--ff-leon);
           color: var(--theme-color);
           font-weight: 700;
-          font-size: 5em;
+          font-size: clamp(2em, 4vw, 5em);
           text-decoration: underline;
           text-underline-offset: 0.1em;
           text-shadow: -1px -1px 0 #000, 0 -1px 0 #000, 1px -1px 0 #000,
@@ -878,13 +878,21 @@
   }
 }
 
-/* Mobile */
+/* Portrait */
 @media (max-aspect-ratio: 1) {
   .provocationPage {
     & article {
       padding: 1em;
       padding-top: 4em;
       padding-inline-end: 0;
+
+      & > header {
+        & > hgroup {
+          & h1 {
+            font-size: clamp(2em, 15vw, 5em);
+          }
+        }
+      }
 
       & > main {
         max-width: 60ch;
