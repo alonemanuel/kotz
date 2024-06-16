@@ -90,7 +90,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        
+
         & .title {
           padding-inline: 10px;
           flex: 1;
@@ -191,7 +191,9 @@
 @media (min-aspect-ratio: 1) {
   .outer {
     flex-direction: row;
-
+    & > .articles {
+      flex-direction: row;
+    }
     & > .nav {
       min-width: 100px;
     }
