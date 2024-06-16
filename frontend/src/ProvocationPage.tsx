@@ -10,6 +10,16 @@ import { OpenArticleProvider } from "./OpenArticleContext";
 const ProvocationPage: React.FC = () => {
   const [articlesStrapi, setArticlesStrapi] = useState([]);
   const [termsStrapi, setTermsStrapi] = useState([]);
+  useEffect(() => {
+    // Force light theme
+    document.documentElement.setAttribute("data-theme", "light");
+
+    return () => {
+      // Reset theme to the saved preference when unmounting
+      const savedTheme = localStorage.getItem("theme") || "dark";
+      document.documentElement.setAttribute("data-theme", savedTheme);
+    };
+  }, []);
 
   useEffect(() => {
     const fetchArticles = fetch(
