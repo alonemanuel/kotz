@@ -6,6 +6,7 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 import ArticleComponent from "../ArticleComponent";
 import { useOpenArticle } from "../OpenArticleContext";
 import topArrowImg from "../images/other/up-arrow.svg";
+import tagImg from "../images/sandbox/tag_example.svg";
 
 interface SidebarProps {
   articles: Article[];
@@ -431,6 +432,9 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
             }
           >
             <div className={styles.navContent}>{article.attributes.title}</div>
+            <div className={styles.navTag}>
+              <img src={tagImg} alt="" />
+            </div>
           </div>
         ))}
       </div>
