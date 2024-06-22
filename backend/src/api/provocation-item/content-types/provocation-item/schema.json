@@ -76,6 +76,17 @@
       "type": "component",
       "repeatable": true,
       "component": "shared.cases"
+    },
+    "tag_icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "ticker_text": {
+      "type": "string"
     }
   }
 }
