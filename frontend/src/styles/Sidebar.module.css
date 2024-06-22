@@ -32,6 +32,24 @@
       white-space: nowrap;
       overflow: hidden;
 
+      & > .navTag {
+        opacity: 0;
+        scale: 0.5;
+        position: absolute;
+        transition: all 0.1s ease-out;
+        right: 0;
+      }
+
+      &:hover {
+        & > .navTag {
+          opacity: 1;
+          scale: 1;
+          position: absolute;
+          transition: all 0.1s ease-out;
+          right: 16px;
+        }
+      }
+
       &:hover,
       &.activeNavItem {
         background-color: var(--theme-color);

@@ -18,6 +18,8 @@ export interface ArticleAttribute {
   url_title: string;
   color: string;
   cases: any;
+  ticker_text: string;
+  tag_icon: any;
 }
 
 export interface Article {
