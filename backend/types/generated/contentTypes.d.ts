@@ -1028,6 +1028,8 @@ export interface ApiProvocationItemProvocationItem
       'api::provocation-term.provocation-term'
     >;
     cases: Attribute.Component<'shared.cases', true>;
+    tag_icon: Attribute.Media;
+    ticker_text: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
