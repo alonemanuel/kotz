@@ -3,7 +3,6 @@ import * as C from "../constants";
 import LoadingComponent from "./LoadingComponent";
 import { AboutUs } from "../types/aboutUs";
 import JsonBlocksContent from "../JsonBlocksContent";
-import JsonBlocks from "./json_block/JsonBlocks";
 import { Issue } from "../types/issue";
 import { useNavigate } from "react-router-dom";
 import styles from "../styles/KotzPage.module.css";
