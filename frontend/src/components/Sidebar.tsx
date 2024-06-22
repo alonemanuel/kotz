@@ -433,7 +433,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
           >
             <div className={styles.navContent}>{article.attributes.title}</div>
             <div className={styles.navTag}>
-              <img src={tagImg} alt="" />
+              <img src={article.attributes.tag_icon?.data ? article.attributes.tag_icon?.data?.attributes.url: tagImg} alt="" />
             </div>
           </div>
         ))}
