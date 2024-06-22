@@ -49,6 +49,7 @@
     overflow: hidden;
     position: relative;
     font-family: var(--ff-david-vc);
+    padding-bottom: var(--border-size);
 
     & > .tickerContent {
       display: inline-block;
@@ -58,6 +59,17 @@
       display: flex;
       align-items: center;
       justify-content: start;
+
+      & > .tickerItem.outerStar {
+        height: 100%;
+        padding-block: 4px;
+        
+        & > .starIcon {
+          height: 100%;
+          max-width: none;
+        }
+      }
+
       & > .tickerItem {
         display: inline-flex;
         align-items: center;

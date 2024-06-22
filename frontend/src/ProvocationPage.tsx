@@ -6,6 +6,7 @@ import { ItemArticle } from "./types/itemArticle";
 import Layout from "./Layout";
 import * as C from "./constants";
 import { OpenArticleProvider } from "./OpenArticleContext";
+import starIcon from "./images/sandbox/starVector.svg";
 
 const ProvocationPage: React.FC = () => {
   const [articlesStrapi, setArticlesStrapi] = useState([]);
@@ -50,10 +51,19 @@ const ProvocationPage: React.FC = () => {
           <div className={styles.ticker}>
             <div className={styles.tickerContent}>
               {articlesStrapi.map((article: any, index: number) => (
-                <span key={index} className={styles.tickerItem}>
-                  {article.attributes.ticker_text ? article.attributes.ticker_text : article.attributes.title}
-                  {index < articlesStrapi.length - 1 && ""}
-                </span>
+                <>
+                  <span key={index} className={styles.tickerItem}>
+                    {article.attributes.ticker_text
+                      ? article.attributes.ticker_text
+                      : article.attributes.title}
+                  </span>
+
+                  {index < articlesStrapi.length - 1 && (
+                    <span className={`${styles.tickerItem} ${styles.outerStar}`}>
+                      <img className={`${styles.starIcon}`} src={starIcon}></img>
+                    </span>
+                  )}
+                </>
               ))}
             </div>
           </div>
