@@ -1,11 +1,6 @@
 import React, { useRef, useState } from "react";
-import Paragraph from "./Paragraph";
-import BoldText from "./BoldText";
-import ItalicText from "./ItalicText";
-import { ContentBlock, ContentBlockChild } from "./interfaces";
-import ArticleBodyImage from "./ArticleBodyImage";
-import styles from "./styles/CensorshipPage.module.css";
 import JsonBlocksContent from "./JsonBlocksContent";
+import styles from "./styles/CensorshipPage.module.css";
 
 const DebateContent: React.FC<{ content?: any[] }> = ({ content }) => {
   const [activeDebate, setActiveDebate] = useState<number>(0);

@@ -63,7 +63,7 @@
       & > .tickerItem.outerStar {
         height: 100%;
         padding-block: 4px;
-        
+
         & > .starIcon {
           height: 100%;
           max-width: none;
@@ -677,6 +677,10 @@
       display: flex;
       flex-flow: column nowrap;
       width: max-content;
+
+      &.specialImage {
+        filter: blur(15px);
+      }
 
       & img {
         border-radius: 4px;

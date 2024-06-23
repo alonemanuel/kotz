@@ -30,6 +30,7 @@ const SongContent: React.FC<{
         url={block.image?.url}
         alt={block.image?.alternativeText}
         caption={block.image?.caption}
+        styles={styles}
       />
     );
   };
