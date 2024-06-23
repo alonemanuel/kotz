@@ -519,7 +519,7 @@
               }
 
               & .lead {
-                color: var(--color-green);
+                color: var(--theme-color);
                 font-weight: 500;
                 font-family: var(--ff-david-vc);
                 font-size: var(--fs-500);
@@ -688,7 +688,7 @@
       }
 
       & footer {
-        color: var(--color-green);
+        color: var(--theme-color);
         font-size: var(--fs-300);
         font-family: var(--ff-narkis-yair);
         text-align: left;
@@ -832,7 +832,7 @@
       line-height: 1.3em;
       letter-spacing: 0.7px;
       margin: 0;
-      color: #26bd6b;
+      color: var(--theme-color);
       text-align: center;
       font-size: 1.6em;
     }
@@ -840,7 +840,7 @@
 
   & hr {
     border: none;
-    border-top: 2px dotted var(--color-green);
+    border-top: 2px dotted var(--theme-color);
     border-bottom: none;
     margin: 2em auto;
     width: 100%;
