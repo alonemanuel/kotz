@@ -42,6 +42,9 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
     case "debate":
       classType = styles.debate;
       break;
+    case "popout":
+      classType = styles.popout;
+      break;
   }
 
   const [wrappedTitle, setWrappedTitle] = useState("");
@@ -109,7 +112,7 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
             case "debate":
               return <DebateContent content={attr?.debate} />;
             case "popout":
-              return <PopoutContent content={attr?.cases} styles={styles} />;
+              return <PopoutContent content={attr?.body} styles={styles} />;
             case "poll":
               return (
                 <PollContent

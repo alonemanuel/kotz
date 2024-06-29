@@ -408,6 +408,70 @@
     transition-property: background-color, color;
     margin-block-end: 8em;
 
+    &.popout {
+      flex-flow: row nowrap;
+      padding-block: 2.5em;
+
+      max-height: 100%;
+      min-height: auto;
+      height: auto !important;
+
+      & > hr {
+        display: none;
+      }
+
+      & header {
+        position: sticky;
+        top: 0;
+
+        & > hgroup {
+          align-items: center;
+
+          & > h1 {
+            font-family: var(--ff-leon);
+            color: var(--theme-color);
+            font-weight: 400;
+            text-decoration: none;
+            text-shadow: none;
+            color: black;
+            font-size: clamp(18px, 5em, 8vw);
+            text-align: end;
+            padding-block-end: 12px;
+            position: relative;
+
+            &::after {
+              content: "";
+              background: black;
+              position: absolute;
+              top: 100%;
+              left: 0;
+              height: 0.2em;
+              width: 50%;
+            }
+          }
+
+          & > h2 {
+            font-family: var(--ff-david-vc);
+            font-weight: 700;
+            text-align: end;
+          }
+
+          & > h3 {
+            display: none;
+          }
+        }
+
+        & .lead {
+          display: none;
+        }
+      }
+
+      & > main {
+        padding-inline: 1em;
+        height: 100%;
+      }
+    }
+
     & > main {
       &.casesOuter {
         max-width: 100%;
@@ -746,7 +810,7 @@
       height: 100%; */
       justify-content: center;
       align-items: center;
-      z-index: 1000; /* Ensure it appears above other content */
+      z-index: 10; /* Ensure it appears above other content */
       transition: all 0.3s ease-in-out;
       position: relative;
       max-height: 0px;
@@ -1038,6 +1102,62 @@
       padding: 1em;
       padding-top: 4em;
       padding-inline-end: 0;
+
+      &.popout {
+        flex-flow: column nowrap;
+        padding-block: 2.5em;
+        align-items: center;
+
+        & > hr {
+          display: none;
+        }
+
+        & header {
+          position: unset;
+
+          & > hgroup {
+            align-items: center;
+            justify-content: stretch;
+            padding-block-end: 2em;
+
+            & > h1 {
+              font-size: 5em;
+              text-align: unset;
+              position: relative;
+              padding-block-end: 0.5em;
+
+              &::after {
+                content: "";
+                background: black;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                height: 0.2em;
+                width: 50%;
+              }
+            }
+
+            & > h2 {
+              text-align: start;
+              max-width: none;
+              width: 100%;
+            }
+
+            & > h3 {
+              display: none;
+            }
+          }
+
+          & .lead {
+            display: none;
+          }
+        }
+
+        & > main {
+          padding-inline: 1em;
+          height: 100%;
+        }
+      }
 
       & > header {
         & > hgroup {
