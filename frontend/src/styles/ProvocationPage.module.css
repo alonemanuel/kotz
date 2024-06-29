@@ -412,9 +412,14 @@
       flex-flow: row nowrap;
       padding-block: 2.5em;
 
+      max-height: 100%;
+      min-height: auto;
+      height: auto !important;
+
       & > hr {
         display: none;
       }
+
       & header {
         position: sticky;
         top: 0;
@@ -429,10 +434,10 @@
             text-decoration: none;
             text-shadow: none;
             color: black;
-            font-size: 5em;
+            font-size: clamp(18px, 5em, 8vw);
             text-align: end;
             padding-block-end: 12px;
-            position: relative;          
+            position: relative;
 
             &::after {
               content: "";
@@ -463,6 +468,7 @@
 
       & > main {
         padding-inline: 1em;
+        height: 100%;
       }
     }
 
@@ -1096,6 +1102,62 @@
       padding: 1em;
       padding-top: 4em;
       padding-inline-end: 0;
+
+      &.popout {
+        flex-flow: column nowrap;
+        padding-block: 2.5em;
+        align-items: center;
+
+        & > hr {
+          display: none;
+        }
+
+        & header {
+          position: unset;
+
+          & > hgroup {
+            align-items: center;
+            justify-content: stretch;
+            padding-block-end: 2em;
+
+            & > h1 {
+              font-size: 5em;
+              text-align: unset;
+              position: relative;
+              padding-block-end: 0.5em;
+
+              &::after {
+                content: "";
+                background: black;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                height: 0.2em;
+                width: 50%;
+              }
+            }
+
+            & > h2 {
+              text-align: start;
+              max-width: none;
+              width: 100%;
+            }
+
+            & > h3 {
+              display: none;
+            }
+          }
+
+          & .lead {
+            display: none;
+          }
+        }
+
+        & > main {
+          padding-inline: 1em;
+          height: 100%;
+        }
+      }
 
       & > header {
         & > hgroup {
