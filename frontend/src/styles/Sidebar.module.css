@@ -96,7 +96,7 @@
       overflow: hidden;
 
       &.popout {
-        z-index: 5;
+        z-index: 20;
         position: fixed;
         top: 0;
         bottom: 0;
