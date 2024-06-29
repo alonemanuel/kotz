@@ -372,11 +372,13 @@
             font-weight: 700;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: stretch;
             gap: var(--border-size);
             & > .tab {
               display: flex;
               justify-content: center;
+              text-align: center;
+              align-items: center;
               padding: var(--padding);
               cursor: pointer;
               flex: 1;
