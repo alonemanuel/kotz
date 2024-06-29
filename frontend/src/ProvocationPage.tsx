@@ -53,6 +53,13 @@ const ProvocationPage: React.FC = () => {
         <div className={styles.provocationPage}>
           <Sidebar articles={articlesStrapi} terms={termsStrapi} />
           <div className={styles.bottomBar}>
+            <div className={styles.details}>
+              <hgroup>
+                <h3 onClick={() => navigate("/")}>קוץ</h3>
+                <h1 onClick={() => navigate("/")}>02</h1>
+                <h2>פרובוקציה</h2>
+              </hgroup>
+            </div>
             <div className={styles.ticker}>
               <div className={styles.tickerContent}>
                 {articlesStrapi.map((article: any, index: number) => (
