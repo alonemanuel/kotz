@@ -81,8 +81,9 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
           {attr.author && <h3>{attr.author}</h3>}
           {attr.subtitle && <h2>{attr.subtitle}</h2>}
         </hgroup>
-        <div>{attr.lead && <div className={styles.lead}>{attr.lead}</div>}</div>
+        {attr.lead && <div className={styles.lead}>{attr.lead}</div>}
       </header>
+      <hr />
       {(() => {
         if (attr.body) {
           switch (attr.type) {
