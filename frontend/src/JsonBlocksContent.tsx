@@ -1,11 +1,12 @@
-import React, { useRef } from "react";
-import ArticleBodyImage from "./ArticleBodyImage";
+import React, { useState, useEffect, useRef } from "react";
+import Paragraph from "./Paragraph";
 import BoldText from "./BoldText";
 import ItalicText from "./ItalicText";
-import Paragraph from "./Paragraph";
-import SongContent from "./SongContent";
-import UnderlineText from "./UnderlineText";
 import { ContentBlock, ContentBlockChild } from "./interfaces";
+import ArticleBodyImage from "./ArticleBodyImage";
+import UnderlineText from "./UnderlineText";
+import SongContent from "./SongContent";
+import styles from "./styles/ProvocationPage.module.css";
 
 const JsonBlocksContent: React.FC<{
   content?: ContentBlock[];
@@ -15,6 +16,8 @@ const JsonBlocksContent: React.FC<{
   styles: any;
 }> = ({ content, terms, song, type, styles }) => {
   const specialImageRef = useRef(false);
+  const [showImage, setShowImage] = useState(false);
+  const imageRef = useRef<HTMLDivElement>(null);
 
   const renderParagraph = (block: ContentBlock, index: number) => {
     return (
@@ -36,9 +39,17 @@ const JsonBlocksContent: React.FC<{
     };
 
     if (specialImageRef.current) {
-      specialImageRef.current = false; // Reset the special image ref after rendering
+      console.log(`kolorifo?`);
+      specialImageRef.current = false; // Reset the special image state after rendering
       return (
-        <ArticleBodyImage {...imageProps} className={styles.specialImage} />
+        <div
+          className={`${styles.specialImageContainer} ${
+            showImage ? styles.show : ""
+          }`}
+          ref={imageRef}
+        >
+          <ArticleBodyImage {...imageProps} className={styles.specialImage} />
+        </div>
       );
     }
 
@@ -159,7 +170,7 @@ const JsonBlocksContent: React.FC<{
       case "code":
         let codeText = block.children ? block.children[0].text : "";
         if (codeText === "תמונה") {
-          specialImageRef.current = true; // Set the special image ref
+          specialImageRef.current = true; // Set the special image state
         }
         return null;
     }
@@ -176,6 +187,35 @@ const JsonBlocksContent: React.FC<{
       return node.text;
     }
   };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            console.log(`fargil?`);
+            setShowImage(true);
+            setTimeout(() => {
+              setShowImage(false);
+            }, 4000);
+          }
+        });
+      },
+      {
+        threshold: 0.5, // Adjust this value as needed
+      }
+    );
+
+    if (imageRef.current) {
+      observer.observe(imageRef.current);
+    }
+
+    return () => {
+      if (imageRef.current) {
+        observer.unobserve(imageRef.current);
+      }
+    };
+  }, []);
 
   return (
     <>

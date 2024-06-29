@@ -670,6 +670,37 @@
       }
     }
 
+    & .specialImageContainer {
+      display: none; /* Initially hidden */
+      pointer-events: none;
+      display: flex;
+      opacity: 0;
+      /* position: fixed; */
+      top: 0;
+      left: 0;
+      width: 100%;
+      /* width: 100%;
+      height: 100%; */
+      justify-content: center;
+      align-items: center;
+      z-index: 1000; /* Ensure it appears above other content */
+      transition: all 0.3s ease-in-out;
+
+      
+      &.show {
+        display: flex; /* Show the container */
+        opacity: 1;
+      }
+
+      & img {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain; /* Ensure the image fits within the container */
+      }
+    }
+    
+    
+    
     & .bodyImage {
       max-width: calc(100% + 2em);
       margin: 2em 0;
@@ -677,10 +708,6 @@
       display: flex;
       flex-flow: column nowrap;
       width: max-content;
-
-      &.specialImage {
-        filter: blur(15px);
-      }
 
       & img {
         border-radius: 4px;
