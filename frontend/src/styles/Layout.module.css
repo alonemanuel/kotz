@@ -204,6 +204,10 @@
     & > .layoutNav {
       display: none;
     }
+
+    & > .kotzIcon {
+      display: none;
+    }
   }
 
   & .layoutNav {

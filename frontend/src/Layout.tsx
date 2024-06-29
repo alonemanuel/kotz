@@ -83,7 +83,10 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
       {/* This is where page-specific content will go */}
       {children}
 
-      <KotzIcon className={styles.kotzIcon} onClick={handleKotzClick} />
+      <KotzIcon
+        className={`${styles.kotzIcon} ${className}`}
+        onClick={handleKotzClick}
+      />
     </div>
   );
 };
