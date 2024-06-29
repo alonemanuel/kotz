@@ -894,11 +894,11 @@
       font: var(--font-kotz-500);
       font-weight: 600;
       line-height: 1.3em;
-      letter-spacing: 0.7px;
-      margin: 0;
+      letter-spacing: 0.5px;
+      margin-block: 1.5em;
       color: var(--theme-color);
-      text-align: center;
-      font-size: 1.6em;
+      font-size: 1.7em;
+
     }
   }
 
