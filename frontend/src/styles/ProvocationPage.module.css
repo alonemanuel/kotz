@@ -133,8 +133,18 @@
 /* Mobile */
 @media (max-aspect-ratio: 1) {
   .provocationPage {
-    & > .ticker {
-      display: none;
+    & > .bottomBar {
+      position: relative;
+      & > .kotzContainer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin-bottom: 12px;
+        filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+      }
+      & > .ticker {
+        display: none;
+      }
     }
   }
 
