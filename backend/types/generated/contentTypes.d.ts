@@ -512,6 +512,12 @@ export interface PluginContentReleasesRelease extends Schema.CollectionType {
   attributes: {
     name: Attribute.String & Attribute.Required;
     releasedAt: Attribute.DateTime;
+    scheduledAt: Attribute.DateTime;
+    timezone: Attribute.String;
+    status: Attribute.Enumeration<
+      ['ready', 'blocked', 'failed', 'done', 'empty']
+    > &
+      Attribute.Required;
     actions: Attribute.Relation<
       'plugin::content-releases.release',
       'oneToMany',
@@ -566,6 +572,7 @@ export interface PluginContentReleasesReleaseAction
       'manyToOne',
       'plugin::content-releases.release'
     >;
+    isEntryValid: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -838,7 +845,7 @@ export interface ApiDebateDebate extends Schema.CollectionType {
     author: Attribute.String;
     lead: Attribute.Text;
     body: Attribute.Blocks;
-    author_img: Attribute.Media;
+    author_img: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     order: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -877,7 +884,7 @@ export interface ApiIssueIssue extends Schema.CollectionType {
     is_published: Attribute.Boolean & Attribute.DefaultTo<false>;
     about: Attribute.Text;
     time: Attribute.String;
-    inner_image: Attribute.Media;
+    inner_image: Attribute.Media<'images'>;
     has_preview: Attribute.Boolean & Attribute.DefaultTo<false>;
     svg_path: Attribute.Text;
     createdAt: Attribute.DateTime;
@@ -913,16 +920,20 @@ export interface ApiItemArticleItemArticle extends Schema.CollectionType {
     title: Attribute.String;
     subtitle: Attribute.String;
     author: Attribute.String;
-    cover: Attribute.Media;
+    cover: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     cover_caption: Attribute.String;
     body: Attribute.Blocks;
     short_title: Attribute.String;
     lead: Attribute.Text;
     author_about: Attribute.Text;
-    outside_img_vertical: Attribute.Media;
-    author_img: Attribute.Media;
+    outside_img_vertical: Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    author_img: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     order: Attribute.Integer & Attribute.DefaultTo<0>;
-    outside_img_horizontal: Attribute.Media;
+    outside_img_horizontal: Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     terms: Attribute.Relation<
       'api::item-article.item-article',
       'oneToMany',
@@ -984,7 +995,7 @@ export interface ApiPollPoll extends Schema.CollectionType {
     order: Attribute.Integer & Attribute.DefaultTo<0>;
     question: Attribute.Text & Attribute.Required;
     answer: Attribute.Component<'shared.answer', true>;
-    cover: Attribute.Media;
+    cover: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1014,7 +1025,7 @@ export interface ApiProvocationItemProvocationItem
     body: Attribute.Blocks;
     lead: Attribute.Text;
     author_about: Attribute.Text;
-    author_img: Attribute.Media;
+    author_img: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     order: Attribute.Integer & Attribute.DefaultTo<0>;
     color: Attribute.String &
       Attribute.CustomField<'plugin::color-picker.color'>;
@@ -1028,7 +1039,7 @@ export interface ApiProvocationItemProvocationItem
       'api::provocation-term.provocation-term'
     >;
     cases: Attribute.Component<'shared.cases', true>;
-    tag_icon: Attribute.Media;
+    tag_icon: Attribute.Media<'images'>;
     ticker_text: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1098,8 +1109,8 @@ export interface ApiQuestionQuestion extends Schema.CollectionType {
     is_opinion: Attribute.Boolean & Attribute.DefaultTo<false>;
     wrong_percentage: Attribute.Integer;
     correct_percentage: Attribute.Integer;
-    img: Attribute.Media;
-    video: Attribute.Media;
+    img: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    video: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1157,7 +1168,7 @@ export interface ApiTermTerm extends Schema.CollectionType {
   attributes: {
     title: Attribute.String;
     definition: Attribute.Text;
-    img: Attribute.Media;
+    img: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     order: Attribute.Integer;
     body: Attribute.Blocks;
     createdAt: Attribute.DateTime;
