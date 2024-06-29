@@ -63,7 +63,7 @@
       & > .tickerItem.outerStar {
         height: 100%;
         padding-block: 4px;
-        
+
         & > .starIcon {
           height: 100%;
           max-width: none;
@@ -519,7 +519,7 @@
               }
 
               & .lead {
-                color: var(--color-green);
+                color: var(--theme-color);
                 font-weight: 500;
                 font-family: var(--ff-david-vc);
                 font-size: var(--fs-500);
@@ -670,6 +670,74 @@
       }
     }
 
+    & .specialImageContainer {
+      display: none; /* Initially hidden */
+      /* pointer-events: none; */
+      display: flex;
+      opacity: 0;
+      /* position: fixed; */
+      top: 0;
+      left: 0;
+      width: 100%;
+      /* width: 100%;
+      height: 100%; */
+      justify-content: center;
+      align-items: center;
+      z-index: 1000; /* Ensure it appears above other content */
+      transition: all 0.3s ease-in-out;
+      position: relative;
+      max-height: 0px;
+
+      & > .xButton {
+        height: 40px;
+        background-color: white;
+        outline: var(--border-size) solid black;
+        aspect-ratio: 1;
+        cursor: pointer;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        &::before,
+        &::after {
+          position: absolute;
+          content: "";
+          width: 100%;
+          height: 4px; /* Cross thickness */
+          background-color: black;
+        }
+
+        &::before {
+          transform: rotate(45deg);
+        }
+
+        &::after {
+          transform: rotate(-45deg);
+        }
+      }
+
+      &.show {
+        display: flex; /* Show the container */
+        opacity: 1;
+        max-height: 500px;
+
+        & img {
+          scale: 1;
+        }
+      }
+
+      & img {
+        scale: 0.5;
+        transition: all 0.2s ease-out;
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain; /* Ensure the image fits within the container */
+      }
+    }
+
     & .bodyImage {
       max-width: calc(100% + 2em);
       margin: 2em 0;
@@ -684,7 +752,7 @@
       }
 
       & footer {
-        color: var(--color-green);
+        color: var(--theme-color);
         font-size: var(--fs-300);
         font-family: var(--ff-narkis-yair);
         text-align: left;
@@ -828,7 +896,7 @@
       line-height: 1.3em;
       letter-spacing: 0.7px;
       margin: 0;
-      color: #26bd6b;
+      color: var(--theme-color);
       text-align: center;
       font-size: 1.6em;
     }
@@ -836,7 +904,7 @@
 
   & hr {
     border: none;
-    border-top: 2px dotted var(--color-green);
+    border-top: 2px dotted var(--theme-color);
     border-bottom: none;
     margin: 2em auto;
     width: 100%;

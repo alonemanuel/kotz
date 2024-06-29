@@ -92,6 +92,7 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
                   content={attr?.body}
                   terms={articleTerms}
                   song={attr?.song}
+                  styles={styles}
                 />
               );
             case "interview":
@@ -103,7 +104,6 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
                 />
               );
             case "cases":
-              console.log('hihih')
               return <CasesContent content={attr?.cases} styles={styles} />;
             case "debate":
               return <DebateContent content={attr?.debate} />;

@@ -1,20 +1,24 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Paragraph from "./Paragraph";
 import BoldText from "./BoldText";
 import ItalicText from "./ItalicText";
 import { ContentBlock, ContentBlockChild } from "./interfaces";
 import ArticleBodyImage from "./ArticleBodyImage";
-// import styles from "./styles/CensorshipPage.module.css";
 import UnderlineText from "./UnderlineText";
 import SongContent from "./SongContent";
+import styles from "./styles/ProvocationPage.module.css";
 
 const JsonBlocksContent: React.FC<{
   content?: ContentBlock[];
   terms?: any[];
   song?: any[];
   type?: string;
-  styles: any
-}> = ({ content, terms, song, type,styles }) => {
+  styles: any;
+}> = ({ content, terms, song, type, styles }) => {
+  const specialImageRef = useRef(false);
+  const [showImage, setShowImage] = useState(false);
+  const imageRef = useRef<HTMLDivElement>(null);
+
   const renderParagraph = (block: ContentBlock, index: number) => {
     return (
       <Paragraph key={index}>
@@ -26,14 +30,35 @@ const JsonBlocksContent: React.FC<{
   };
 
   const renderImage = (block: ContentBlock, index: number) => {
-    return (
-      <ArticleBodyImage
-        key={index}
-        url={block.image?.url}
-        alt={block.image?.alternativeText}
-        caption={block.image?.caption}
-      />
-    );
+    const imageProps = {
+      key: index,
+      url: block.image?.url,
+      alt: block.image?.alternativeText,
+      caption: block.image?.caption,
+      styles: styles,
+    };
+
+    if (specialImageRef.current) {
+      console.log(`kolorifo?`);
+      specialImageRef.current = false; // Reset the special image state after rendering
+      return (
+        <div
+          className={`${styles.specialImageContainer} ${
+            showImage ? styles.show : ""
+          }`}
+          ref={imageRef}
+        >
+          <div
+            className={styles.xButton}
+            onClick={() => setShowImage(false)}
+          ></div>
+
+          <ArticleBodyImage {...imageProps} className={styles.specialImage} />
+        </div>
+      );
+    }
+
+    return <ArticleBodyImage {...imageProps} />;
   };
 
   const renderHr = (index: number) => <hr key={index} />;
@@ -72,7 +97,7 @@ const JsonBlocksContent: React.FC<{
               .map((term: any, termIndex: number) => (
                 <div key={termIndex} className={styles.term}>
                   <h2>{term?.title}</h2>
-                  <JsonBlocksContent content={term?.body} styles={styles}/>
+                  <JsonBlocksContent content={term?.body} styles={styles} />
                 </div>
               ))}
           </section>
@@ -94,7 +119,7 @@ const JsonBlocksContent: React.FC<{
               .map((term: any, termIndex: number) => (
                 <div key={termIndex} className={styles.term}>
                   <h2>{term?.title}</h2>
-                  <JsonBlocksContent content={term?.body} styles={styles}/>
+                  <JsonBlocksContent content={term?.body} styles={styles} />
                 </div>
               ))}
           </section>
@@ -115,11 +140,6 @@ const JsonBlocksContent: React.FC<{
         {React.createElement(tag, null, block?.children?.[0].text)}
       </React.Fragment>
     );
-    // if (type === "interview") {
-    // } else {
-    //   return React.createElement(tag, null, block?.children?.[0].text);
-    // }
-    // return <Tag>{block?.children?.[0].text}</Tag>;
   };
 
   const renderContentBlock = (block: ContentBlock, index: number) => {
@@ -129,7 +149,7 @@ const JsonBlocksContent: React.FC<{
       case "image":
         return renderImage(block, index);
       case "heading":
-        const text = block.children ? block.children[0].text : "";
+        let text = block.children ? block.children[0].text : "";
         switch (block?.level) {
           case 6:
             if (text === "מילון") {
@@ -152,6 +172,12 @@ const JsonBlocksContent: React.FC<{
           default:
             return renderHeading(block, index, block?.level);
         }
+      case "code":
+        let codeText = block.children ? block.children[0].text : "";
+        if (codeText === "תמונה") {
+          specialImageRef.current = true; // Set the special image state
+        }
+        return null;
     }
   };
 
@@ -166,6 +192,35 @@ const JsonBlocksContent: React.FC<{
       return node.text;
     }
   };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            console.log(`fargil?`);
+            setShowImage(true);
+            setTimeout(() => {
+              // setShowImage(false);
+            }, 14000);
+          }
+        });
+      },
+      {
+        threshold: 0.5, // Adjust this value as needed
+      }
+    );
+
+    if (imageRef.current) {
+      observer.observe(imageRef.current);
+    }
+
+    return () => {
+      if (imageRef.current) {
+        observer.unobserve(imageRef.current);
+      }
+    };
+  }, []);
 
   return (
     <>

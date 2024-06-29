@@ -3,7 +3,6 @@ import * as C from "../constants";
 import LoadingComponent from "./LoadingComponent";
 import { AboutUs } from "../types/aboutUs";
 import JsonBlocksContent from "../JsonBlocksContent";
-import JsonBlocks from "./json_block/JsonBlocks";
 import bezalelImg from "../images/bezalel_logo_0.png";
 import runiImg from "../images/runi_logo_0.png";
 import KotzLogotype from "../images/kotz_logotype.svg";
