@@ -367,7 +367,14 @@
           display: flex;
           flex-flow: column;
           --padding: 10px;
+          max-height: 80vh;
+          overflow: scroll;
+
           & > .tabs {
+            position: sticky;
+            top: 0;
+            background-color: black;
+
             font-family: var(--ff-david-vc);
             font-weight: 700;
             display: flex;
@@ -390,8 +397,9 @@
               &.active {
                 background-color: var(--color-theme-background);
                 color: var(--color-theme-foreground);
-                padding-bottom: calc(var(--padding) + (var(--border-size) * 2));
+                /* padding-bottom: calc(var(--padding) + (var(--border-size) * 2)); */
                 margin-bottom: calc(-1 * var(--border-size));
+                margin-bottom: 0;
               }
             }
           }
