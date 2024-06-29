@@ -25,13 +25,13 @@
       font-size: 28px;
       color: #333;
       flex-grow: 1;
-      transition: all 0.1s ease-out;
       text-overflow: ellipsis;
       display: flex;
       align-items: center;
       white-space: nowrap;
       overflow: hidden;
       color: black;
+      transition: all 0.1s ease-out;
 
       & > .navTag {
         opacity: 0;
@@ -51,7 +51,14 @@
         }
       }
 
-      &:hover,
+      &:hover {
+        color: var(--theme-color);
+
+        &.activeNavItem {
+          color: unset;
+        }
+      }
+
       &.activeNavItem {
         background-color: var(--theme-color);
 
