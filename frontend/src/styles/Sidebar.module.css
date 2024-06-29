@@ -104,7 +104,6 @@
         left: 0;
         margin-block: 7vh;
         margin-inline: 7vw;
-        backdrop-filter: blur(20px);
         outline: var(--border-size) solid black;
         justify-content: center;
         align-items: center;

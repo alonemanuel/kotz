@@ -410,11 +410,15 @@
 
     &.popout {
       flex-flow: row nowrap;
+      padding-block: 2.5em;
 
       & > hr {
         display: none;
       }
       & header {
+        position: sticky;
+        top: 0;
+
         & > hgroup {
           align-items: center;
 
@@ -427,9 +431,9 @@
             color: black;
             font-size: 5em;
             text-align: end;
-            /* border-bottom: 0.2em solid black; */
             padding-block-end: 12px;
-            position: relative;
+            position: relative;          
+
             &::after {
               content: "";
               background: black;
