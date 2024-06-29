@@ -7,10 +7,14 @@ import Layout from "./Layout";
 import * as C from "./constants";
 import { OpenArticleProvider } from "./OpenArticleContext";
 import starIcon from "./images/sandbox/starVector.svg";
+import kotzCorner from "./images/kotz_provocation.svg";
+import { useNavigate } from "react-router-dom";
 
 const ProvocationPage: React.FC = () => {
   const [articlesStrapi, setArticlesStrapi] = useState([]);
   const [termsStrapi, setTermsStrapi] = useState([]);
+  const navigate = useNavigate();
+
   useEffect(() => {
     // Force light theme
     document.documentElement.setAttribute("data-theme", "light");
@@ -48,23 +52,35 @@ const ProvocationPage: React.FC = () => {
       <Layout className={styles.provocationLayout}>
         <div className={styles.provocationPage}>
           <Sidebar articles={articlesStrapi} terms={termsStrapi} />
-          <div className={styles.ticker}>
-            <div className={styles.tickerContent}>
-              {articlesStrapi.map((article: any, index: number) => (
-                <>
-                  <span key={index} className={styles.tickerItem}>
-                    {article.attributes.ticker_text
-                      ? article.attributes.ticker_text
-                      : article.attributes.title}
-                  </span>
-
-                  {index < articlesStrapi.length - 1 && (
-                    <span className={`${styles.tickerItem} ${styles.outerStar}`}>
-                      <img className={`${styles.starIcon}`} src={starIcon}></img>
+          <div className={styles.bottomBar}>
+            <div className={styles.ticker}>
+              <div className={styles.tickerContent}>
+                {articlesStrapi.map((article: any, index: number) => (
+                  <>
+                    <span key={index} className={styles.tickerItem}>
+                      {article.attributes.ticker_text
+                        ? article.attributes.ticker_text
+                        : article.attributes.title}
                     </span>
-                  )}
-                </>
-              ))}
+
+                    {index < articlesStrapi.length - 1 && (
+                      <span
+                        className={`${styles.tickerItem} ${styles.outerStar}`}
+                      >
+                        <img
+                          className={`${styles.starIcon}`}
+                          src={starIcon}
+                        ></img>
+                      </span>
+                    )}
+                  </>
+                ))}
+              </div>
+            </div>
+            <div className={styles.kotzContainer} onClick={() => navigate("/")}>
+              {/* <div className={styles.cornerKotz}> */}
+              <img className={`${styles.starIcon}`} src={kotzCorner}></img>
+              {/* </div> */}
             </div>
           </div>
         </div>
