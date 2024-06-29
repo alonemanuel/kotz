@@ -48,6 +48,11 @@ const JsonBlocksContent: React.FC<{
           }`}
           ref={imageRef}
         >
+          <div
+            className={styles.xButton}
+            onClick={() => setShowImage(false)}
+          ></div>
+
           <ArticleBodyImage {...imageProps} className={styles.specialImage} />
         </div>
       );
@@ -196,8 +201,8 @@ const JsonBlocksContent: React.FC<{
             console.log(`fargil?`);
             setShowImage(true);
             setTimeout(() => {
-              setShowImage(false);
-            }, 4000);
+              // setShowImage(false);
+            }, 14000);
           }
         });
       },
