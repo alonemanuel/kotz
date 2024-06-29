@@ -408,6 +408,10 @@
     transition-property: background-color, color;
     margin-block-end: 8em;
 
+    &.popout {
+      flex-flow: row nowrap;
+    }
+
     & > main {
       &.casesOuter {
         max-width: 100%;

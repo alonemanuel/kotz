@@ -8,10 +8,7 @@ const PopoutContent: React.FC<{ content: ContentBlock[]; styles: any }> = ({
 }) => {
   return (
     <main className={styles.standard}>
-      <JsonBlocksContent
-        content={content}
-        styles={styles}
-      />
+      <JsonBlocksContent content={content} type="popout" styles={styles} />
     </main>
   );
 };
