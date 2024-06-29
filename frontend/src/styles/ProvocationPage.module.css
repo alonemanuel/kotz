@@ -46,6 +46,64 @@
     background-color: white;
     gap: 2px;
 
+    & > .details {
+      display: flex;
+      flex-flow: row nowrap;
+      background-color: black;
+      color: white;
+
+      & > hgroup {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5em;
+        padding-inline: 0.7em;
+        color: var(--color-white);
+        font-size: 1.6rem;
+        font-family: var(--ff-david-vc);
+        cursor: default;
+
+        & > h1 {
+          font-family: "Alpha Bravo";
+          font-weight: 300;
+          color: var(--color-white);
+          letter-spacing: -1.1px;
+          font-size: 0.9em;
+        }
+
+        & h1, h2, h3 {
+          transition: all 0.1s ease-out;
+        }
+        
+        & h2,
+        h3 {
+          letter-spacing: 1.1px;
+          font-weight: 700;
+        }
+
+        & > h3 {
+          font-family: "DavidKotz";
+          font-feature-settings: "ss01" 1;
+          display: none;
+          transition: all 0.1s ease-out;
+        }
+
+        & h1,
+        h3 {
+          &:hover {
+            cursor: pointer;
+            color: yellow;
+            scale: 1.1;
+          }
+
+          &:active {
+            scale: 1.2;
+          }
+        }
+      }
+    }
+
     & > .kotzContainer {
       border-color: black;
       height: 100%;
@@ -84,7 +142,6 @@
     & > .ticker {
       height: var(--ticker-height);
       background-color: black;
-      height: var(--ticker-height);
       color: white;
       white-space: nowrap;
       overflow: hidden;
@@ -100,6 +157,7 @@
         display: flex;
         align-items: center;
         justify-content: start;
+        font-size: 1.2em;
 
         & > .tickerItem.outerStar {
           height: 100%;
@@ -142,6 +200,11 @@
         margin-bottom: 12px;
         filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
       }
+
+      & > .details {
+        display: none;
+      }
+
       & > .ticker {
         display: none;
       }
