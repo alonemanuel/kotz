@@ -410,6 +410,56 @@
 
     &.popout {
       flex-flow: row nowrap;
+
+      & > hr {
+        display: none;
+      }
+      & header {
+        & > hgroup {
+          align-items: center;
+
+          & > h1 {
+            font-family: var(--ff-leon);
+            color: var(--theme-color);
+            font-weight: 400;
+            text-decoration: none;
+            text-shadow: none;
+            color: black;
+            font-size: 5em;
+            text-align: end;
+            /* border-bottom: 0.2em solid black; */
+            padding-block-end: 12px;
+            position: relative;
+            &::after {
+              content: "";
+              background: black;
+              position: absolute;
+              top: 100%;
+              left: 0;
+              height: 0.2em;
+              width: 50%;
+            }
+          }
+
+          & > h2 {
+            font-family: var(--ff-david-vc);
+            font-weight: 700;
+            text-align: end;
+          }
+
+          & > h3 {
+            display: none;
+          }
+        }
+
+        & .lead {
+          display: none;
+        }
+      }
+
+      & > main {
+        padding-inline: 1em;
+      }
     }
 
     & > main {
