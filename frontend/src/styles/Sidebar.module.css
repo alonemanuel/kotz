@@ -283,6 +283,7 @@
       flex-direction: row;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
+      padding-inline-start: 0;
 
       .articleOuter {
         min-width: 100%;
