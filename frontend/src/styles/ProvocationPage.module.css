@@ -379,7 +379,8 @@
               justify-content: center;
               text-align: center;
               align-items: center;
-              padding: var(--padding);
+              padding-block: var(--padding);
+              padding-inline: 0.1em;
               cursor: pointer;
               flex: 1;
               background-color: var(--theme-color);
