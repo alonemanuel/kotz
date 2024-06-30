@@ -8,22 +8,20 @@ import { useOpenArticle } from "../OpenArticleContext";
 import topArrowImg from "../images/other/up-arrow.svg";
 import tagImg from "../images/sandbox/tag_example.svg";
 
+// Function to dynamically require all images from a directory
+const importAll = (r: any) => {
+  return r.keys().map(r);
+};
+
+// Import all images from the sandbox directory
+const homepageImages = importAll(
+  require.context("../images/homepage_images", false, /\.(png|jpe?g|svg)$/)
+);
+
 interface SidebarProps {
   articles: Article[];
   terms: Term[];
 }
-
-const homepageImages = [
-  tagImg,
-  tagImg,
-  tagImg,
-  tagImg,
-  tagImg,
-  tagImg,
-  tagImg,
-  tagImg,
-  tagImg,
-];
 
 function debounce(func: any, wait: number) {
   let timeout: any;
@@ -106,7 +104,6 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
       pos4 = 0;
 
     const dragMouseDown = (e: MouseEvent | TouchEvent) => {
-      
       e.preventDefault();
       // Determine whether the event is a touch event
       if (e.type === "touchstart" && e instanceof TouchEvent) {
@@ -125,7 +122,6 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
     };
 
     const elementDrag = (e: MouseEvent | TouchEvent) => {
-
       e.preventDefault();
       // Determine whether the event is a touch event
       if (e.type === "touchmove" && e instanceof TouchEvent) {
@@ -147,7 +143,6 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
     };
 
     const closeDragElement = () => {
-      
       // Stop moving when mouse button is released or touch ends
       document.onmouseup = null;
       document.ontouchend = null;
@@ -617,8 +612,8 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
         )}
       </div>
       <div className={styles.homepageImages} ref={homepageImagesRef}>
-        {homepageImages.map((imageSrc, index: number) => (
-          <div className={styles.homepageImage}>
+        {homepageImages.map((imageSrc: string, index: number) => (
+          <div key={index} className={styles.homepageImage}>
             <img src={imageSrc} alt="" />
           </div>
         ))}

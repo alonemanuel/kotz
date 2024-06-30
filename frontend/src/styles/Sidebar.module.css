@@ -13,16 +13,11 @@
     pointer-events: none;
 
     & > .homepageImage {
-      background-color: var(--color-theme-foreground);
-      color: var(--color-theme-background);
-      border-radius: 8px;
-      filter: drop-shadow(0 0 3px black);
+      filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.4));
+      width: clamp(80px, 20vw, 250px);
       display: flex;
       flex-flow: column nowrap;
-      width: 21ch;
-      padding: 0.5em;
       position: absolute;
-      gap: 0.5em;
       animation: floating var(--animation-duration, 5s) infinite ease-in-out
         var(--animation-delay, 0s);
       transform-origin: top left;

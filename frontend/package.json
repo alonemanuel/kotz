@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@types/snapsvg": "^0.5.8"
+    "@types/snapsvg": "^0.5.8",
+    "@types/webpack-env": "^1.18.5"
   }
 }
