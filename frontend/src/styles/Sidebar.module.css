@@ -5,6 +5,32 @@
   height: calc(100% - var(--ticker-height));
   flex: 1;
 
+  & > .homepageImages {
+    position: absolute;
+    left: 0;
+    width: 60vw;
+    height: 100vh;
+    pointer-events: none;
+
+    & > .homepageImage {
+      background-color: var(--color-theme-foreground);
+      color: var(--color-theme-background);
+      border-radius: 8px;
+      filter: drop-shadow(0 0 3px black);
+      display: flex;
+      flex-flow: column nowrap;
+      width: 21ch;
+      padding: 0.5em;
+      position: absolute;
+      gap: 0.5em;
+      animation: floating var(--animation-duration, 5s) infinite ease-in-out
+        var(--animation-delay, 0s);
+      transform-origin: top left;
+      transition: background-color 0.1s ease-out;
+      transition-property: background-color, color;
+    }
+  }
+
   & > .nav {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     height: 100%;
@@ -299,5 +325,26 @@
         }
       }
     }
+  }
+}
+
+@keyframes floating {
+  0% {
+    transform: translate(
+      var(--translate-x-start, 0px),
+      var(--translate-y-start, 0px)
+    );
+  }
+  50% {
+    transform: translate(
+      var(--translate-x-end, 0px),
+      var(--translate-y-end, 0px)
+    );
+  }
+  100% {
+    transform: translate(
+      var(--translate-x-start, 0px),
+      var(--translate-y-start, 0px)
+    );
   }
 }
