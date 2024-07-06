@@ -293,6 +293,11 @@
 /* Portrait */
 @media (max-aspect-ratio: 1) {
   .outer {
+
+    & > .homepageImages {
+      display: none;
+    }
+    
     .nav {
       flex: none;
       max-width: 10vw;
