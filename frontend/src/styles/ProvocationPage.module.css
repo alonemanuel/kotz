@@ -72,10 +72,12 @@
           font-size: 0.9em;
         }
 
-        & h1, h2, h3 {
+        & h1,
+        h2,
+        h3 {
           transition: all 0.1s ease-out;
         }
-        
+
         & h2,
         h3 {
           letter-spacing: 1.1px;
@@ -192,20 +194,21 @@
   .provocationPage {
     & > .bottomBar {
       position: relative;
+      --ticker-height: 38px;
       & > .kotzContainer {
-        position: absolute;
+        /* position: absolute;
         bottom: 0;
         left: 0;
-        margin-bottom: 12px;
+        margin-bottom: 12px; */
         filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
       }
 
       & > .details {
-        display: none;
+        /* display: none; */
       }
 
       & > .ticker {
-        display: none;
+        /* display: none; */
       }
     }
   }
