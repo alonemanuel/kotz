@@ -189,8 +189,8 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
         const htmlItem = item as HTMLElement;
         dragElement(htmlItem);
         getRandomPosition(htmlItem).then(({ x, y }) => {
-          htmlItem.style.top = `${y}px`;
-          htmlItem.style.left = `${x}px`;
+          htmlItem.style.setProperty('--top',`${y}px`);
+          htmlItem.style.setProperty('--left', `${x}px`);
 
           const animationDuration = Math.random() * 5 + 3; // Random duration between 3 and 8 seconds
           const animationDelay = Math.random() * 2; // Random delay up to 2 seconds
@@ -217,7 +217,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
         });
       });
     }
-  }, [isOpen]);
+  }, []);
 
   const navigate = useNavigate();
   const { urlSuffix } = useParams<{ urlSuffix: string }>();
@@ -611,7 +611,12 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
           </div>
         )}
       </div>
-      <div className={styles.homepageImages} ref={homepageImagesRef}>
+      <div
+        className={`${styles.homepageImages} ${
+          isOpen ? styles.isOpen : styles.isNotOpen
+        }`}
+        ref={homepageImagesRef}
+      >
         {homepageImages.map((imageSrc: string, index: number) => (
           <div key={index} className={styles.homepageImage}>
             <img src={imageSrc} alt="" />
