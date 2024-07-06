@@ -85,7 +85,6 @@
         & > h3 {
           font-family: "DavidKotz";
           font-feature-settings: "ss01" 1;
-          display: none;
           transition: all 0.1s ease-out;
         }
 
