@@ -5,6 +5,35 @@
   height: calc(100% - var(--ticker-height));
   flex: 1;
 
+  & > .homepageImages {
+    position: absolute;
+    left: 0;
+    width: 60vw;
+    height: 100vh;
+    pointer-events: none;
+
+    &.isOpen {
+      & > .homepageImage {
+        scale: 0;
+        opacity: 0;
+      }
+    }
+
+    & > .homepageImage {
+      filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.4));
+      width: clamp(80px, 20vw, 250px);
+      display: flex;
+      flex-flow: column nowrap;
+      position: absolute;
+      animation: floating var(--animation-duration, 5s) infinite ease-in-out
+        var(--animation-delay, 0s);
+      transform-origin: center center;
+      transition: all 0.2s ease-out;
+      top: var(--top);
+      left: var(--left);
+    }
+  }
+
   & > .nav {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     height: 100%;
@@ -264,6 +293,11 @@
 /* Portrait */
 @media (max-aspect-ratio: 1) {
   .outer {
+
+    & > .homepageImages {
+      display: none;
+    }
+    
     .nav {
       flex: none;
       max-width: 10vw;
@@ -299,5 +333,26 @@
         }
       }
     }
+  }
+}
+
+@keyframes floating {
+  0% {
+    transform: translate(
+      var(--translate-x-start, 0px),
+      var(--translate-y-start, 0px)
+    );
+  }
+  50% {
+    transform: translate(
+      var(--translate-x-end, 0px),
+      var(--translate-y-end, 0px)
+    );
+  }
+  100% {
+    transform: translate(
+      var(--translate-x-start, 0px),
+      var(--translate-y-start, 0px)
+    );
   }
 }
