@@ -189,8 +189,8 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
         const htmlItem = item as HTMLElement;
         dragElement(htmlItem);
         getRandomPosition(htmlItem).then(({ x, y }) => {
-          htmlItem.style.setProperty('--top',`${y}px`);
-          htmlItem.style.setProperty('--left', `${x}px`);
+          htmlItem.style.setProperty("--top", `${y}px`);
+          htmlItem.style.setProperty("--left", `${x}px`);
 
           const animationDuration = Math.random() * 5 + 3; // Random duration between 3 and 8 seconds
           const animationDelay = Math.random() * 2; // Random delay up to 2 seconds
@@ -421,31 +421,79 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
     textContentWidths.current = widths;
   }, [articles, isOpen]);
 
+  // Add scroll event listener to update active article based on scroll position
   useEffect(() => {
-    const handleScroll = () => {
+    console.log("leuk");
+    const handleScroll = (parent: any) => {
+      console.log("gorl");
       if (isPortrait) {
         const articleElements = panelRefs.current;
         const viewportHeight = window.innerHeight;
+        const parentRect = parent.getBoundingClientRect();
 
+        console.log(`len of: ${articleElements.length}`);
+        let found = false;
         for (let i = 0; i < articleElements.length; i++) {
           const el = articleElements[i];
-          const rect = el?.getBoundingClientRect();
+          if (
+            el &&
+            articles &&
+            articles[i] &&
+            articles[i].attributes &&
+            articles[i].attributes.type !== "popout"
+          ) {
+            // console.debug(`alon: articles: ${articles}`); // ALON REMOVE
+            const rect = el.getBoundingClientRect();
+            // console.log(`Element ${i} rect:`, rect);
+            // Check if child is within the visible area of the parent
+            const isVisible =
+              rect.left + rect.width / 2 >= parentRect.left &&
+              rect.right - rect.width / 2 <= parentRect.right;
+            // console.debug(`alon: is ${articles[i].attributes.title} visible? ${isVisible}`); // ALON REMOVE
 
-          if (rect && rect.top >= 0 && rect.top < viewportHeight / 2) {
-            setActiveArticleIndex(i);
-            setLastOpenedIndex(i);
-            break;
+            // if (rect.top >= 0 && rect.top < viewportHeight / 2) {
+            if (isVisible) {
+              console.log(`here with i ${articles[i].attributes.title}`);
+              setActiveArticleIndex(i);
+              setLastOpenedIndex(i);
+
+              const normalizedTitle = normalizeTitle(
+                articles[i].attributes.title
+              );
+              const normalizedUrl = normalizeTitle(
+                articles[i].attributes.url_title
+              );
+              const newUrlSuffix = normalizedUrl
+                ? normalizedUrl
+                : normalizedTitle;
+              navigate(`/provocation/${newUrlSuffix}`, { replace: false });
+
+              found = true;
+              break;
+            }
           }
+        }
+
+        if (!found) {
+          console.debug(`alon: not found`); // ALON REMOVE
+          // If no element is found in the viewport, reset the active article
+          setActiveArticleIndex(null);
+          setLastOpenedIndex(null);
         }
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    const articlesDiv = document.querySelector(`.${styles.articles}`);
+    if (articlesDiv) {
+      articlesDiv.addEventListener("scroll", () => handleScroll(articlesDiv));
+    }
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      if (articlesDiv) {
+        articlesDiv.removeEventListener("scroll", handleScroll);
+      }
     };
-  }, [isPortrait]);
+  }, [isPortrait, articles, navigate, styles.articles]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     const touch = e.touches[0];

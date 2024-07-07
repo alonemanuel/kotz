@@ -39,7 +39,6 @@ const JsonBlocksContent: React.FC<{
     };
 
     if (specialImageRef.current) {
-      console.log(`kolorifo?`);
       specialImageRef.current = false; // Reset the special image state after rendering
       return (
         <div
@@ -198,7 +197,6 @@ const JsonBlocksContent: React.FC<{
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log(`fargil?`);
             setShowImage(true);
             setTimeout(() => {
               // setShowImage(false);
