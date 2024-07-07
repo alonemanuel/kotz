@@ -424,7 +424,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
   // Add scroll event listener to update active article based on scroll position
   useEffect(() => {
     console.log("leuk");
-    const handleScroll = debounce((parent: any) => {
+    const handleScroll = (parent: any) => {
       console.log("gorl");
       if (isPortrait) {
         const articleElements = panelRefs.current;
@@ -481,7 +481,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
           setLastOpenedIndex(null);
         }
       }
-    }, 20);
+    };
 
     const articlesDiv = document.querySelector(`.${styles.articles}`);
     if (articlesDiv) {
