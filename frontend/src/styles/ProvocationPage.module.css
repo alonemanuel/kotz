@@ -195,6 +195,7 @@
     & > .bottomBar {
       position: relative;
       --ticker-height: 38px;
+      height: var(--ticker-height);
       & > .kotzContainer {
         /* position: absolute;
         bottom: 0;
@@ -205,10 +206,11 @@
 
       & > .details {
         /* display: none; */
+        flex-grow: 1;
       }
 
       & > .ticker {
-        /* display: none; */
+        display: none;
       }
     }
   }
