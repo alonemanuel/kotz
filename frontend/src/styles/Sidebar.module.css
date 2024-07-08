@@ -4,6 +4,375 @@
   display: flex;
   height: calc(100% - var(--ticker-height));
   flex: 1;
+}
+
+.outer > .homepageImages {
+  position: absolute;
+  left: 0;
+  width: 60vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.outer > .homepageImages.isOpen > .homepageImage {
+  scale: 0;
+  opacity: 0;
+}
+
+.outer > .homepageImages > .homepageImage {
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.4));
+  width: clamp(80px, 20vw, 250px);
+  display: flex;
+  flex-flow: column nowrap;
+  position: absolute;
+  animation: floating var(--animation-duration, 5s) infinite ease-in-out
+    var(--animation-delay, 0s);
+  transform-origin: center center;
+  transition: all 0.2s ease-out;
+  top: var(--top);
+  left: var(--left);
+}
+
+.outer > .nav {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1;
+  font-family: var(--ff-leon);
+  gap: var(--border-size);
+  background-color: black;
+  padding: var(--border-size);
+  padding-inline-end: 0;
+  overflow: hidden; /* Add this line */
+}
+
+.outer > .nav .navItem {
+  background-color: var(--color-theme-background);
+  cursor: pointer;
+  padding: 10px;
+  font-size: 28px;
+  color: #333;
+  flex-grow: 1;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  color: black;
+  transition: all 0.1s ease-out;
+  padding-block-end: 16px;
+}
+
+.outer > .nav .navItem > .navTag {
+  opacity: 0;
+  scale: 0.5;
+  position: absolute;
+  transition: all 0.1s ease-out;
+  right: 0;
+  pointer-events: none;
+}
+
+.outer > .nav .navItem:hover > .navTag {
+  opacity: 1;
+  scale: 1;
+  position: absolute;
+  transition: all 0.1s ease-out;
+  right: 16px;
+}
+
+.outer > .nav .navItem:hover {
+  color: var(--theme-color);
+}
+
+.outer > .nav .navItem:hover.activeNavItem {
+  color: unset;
+}
+
+.outer > .nav .navItem.activeNavItem {
+  background-color: var(--theme-color);
+}
+
+.outer > .nav .navItem.activeNavItem .navContent {
+  display: inline-block;
+  /* padding-top: 100%; */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.outer > .nav .navItem.activeNavItem .navContent:hover {
+  animation: navAnimation 3s ease-in infinite; /* Add animation */
+}
+
+.outer > .articles {
+  display: flex;
+  flex-direction: row-reverse;
+  flex: 3;
+  gap: var(--border-size);
+  background-color: black;
+  padding: var(--border-size);
+  width: 100%;
+  overflow: hidden;
+}
+
+.outer > .articles:empty {
+  display: none;
+}
+
+.outer > .articles > .articleOuter {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.outer > .articles > .articleOuter.popout {
+  z-index: 20;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin-block: 7vh;
+  margin-inline: 7vw;
+  outline: var(--border-size) solid black;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  min-width: auto;
+}
+
+.outer > .articles > .articleOuter.popout.active {
+  display: unset;
+}
+
+.outer > .articles > .articleOuter.popout > .topBar > .xButton {
+  display: flex;
+}
+
+.outer > .articles > .articleOuter.notActive {
+  display: none;
+}
+
+.outer > .articles > .articleOuter > .topBar {
+  position: sticky;
+  top: 0;
+  height: clamp(20px, 5dvh, 40px);
+  background-color: var(--theme-color);
+  outline: var(--border-size) solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.outer > .articles > .articleOuter > .topBar .title {
+  padding-inline: 10px;
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  opacity: 0;
+  scale: 0.5;
+  transition: all 0.1s ease-in-out;
+  font-family: var(--ff-leon);
+  font-size: 20px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.outer > .articles > .articleOuter > .topBar > .xButton {
+  height: 100%;
+  background-color: white;
+  outline: var(--border-size) solid black;
+  aspect-ratio: 1;
+  cursor: pointer;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  position: relative;
+}
+
+.outer > .articles > .articleOuter > .topBar > .xButton::before,
+.outer > .articles > .articleOuter > .topBar > .xButton::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 4px; /* Cross thickness */
+  background-color: black;
+}
+
+.outer > .articles > .articleOuter > .topBar > .xButton::before {
+  transform: rotate(45deg);
+}
+
+.outer > .articles > .articleOuter > .topBar > .xButton::after {
+  transform: rotate(-45deg);
+}
+
+.outer > .articles > .articleOuter.scrolled .topBar .title {
+  opacity: 1;
+  scale: 1;
+}
+
+.outer > .articles > .articleOuter > article {
+  height: 100%;
+  overflow: auto;
+  padding-block-end: 8em;
+}
+
+.outer > .articles .articleIsNotOpen ~ .toTop {
+  display: none;
+}
+
+.outer > .articles > .toTop {
+  position: absolute;
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 20px auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-theme-foreground);
+  box-shadow: 0px 1px 8px 2px rgb(0 0 0 / 3%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  opacity: 0;
+  transition: all 0.1s ease-in-out;
+  pointer-events: none;
+}
+
+.outer > .articles > .toTop > .topArrow {
+  filter: none;
+  margin-block-end: 2px;
+  filter: drop-shadow(0 0 3px black);
+}
+
+.outer > .articles > .toTop.scrolled {
+  opacity: 0.5;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+@keyframes navAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Landscape */
+@media (min-aspect-ratio: 1) {
+  .outer {
+    flex-direction: row;
+  }
+
+  .outer > .articles {
+    flex-direction: row;
+  }
+
+  .outer > .nav {
+    min-width: 100px;
+    overflow: hidden;
+  }
+}
+
+/* Portrait */
+@media (max-aspect-ratio: 1) {
+  .outer > .homepageImages {
+    display: none;
+  }
+
+  .outer .nav {
+    flex: none;
+    max-width: 10vw;
+    transition: all 0.3s ease-in-out;
+    padding-inline-end: var(--border-size);
+    outline: var(--border-size) solid black;
+  }
+
+  .outer .nav:hover {
+    max-width: 85vw; /* Adjust as needed */
+  }
+
+  .outer .nav .navItem {
+    /* display: block; */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .outer .articles {
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-inline-start: 0;
+  }
+
+  .outer .articles.articleOuter {
+    min-width: 100%;
+    scroll-snap-align: start;
+  }
+
+  .outer .articles.articleOuter > .topBar > .xButton {
+    display: none;
+  }
+}
+
+@keyframes floating {
+  0% {
+    transform: translate(
+      var(--translate-x-start, 0px),
+      var(--translate-y-start, 0px)
+    );
+  }
+  50% {
+    transform: translate(
+      var(--translate-x-end, 0px),
+      var(--translate-y-end, 0px)
+    );
+  }
+  100% {
+    transform: translate(
+      var(--translate-x-start, 0px),
+      var(--translate-y-start, 0px)
+    );
+  }
+}
+
+/* NEW */
+/* NEW */
+/* NEW */
+/* NEW */
+/* NEW */
+/* NEW */
+/* NEW */
+/* NEW */
+/* NEW */
+/* NEW */
+/* NEW */
+/* NEW */
+/* NEW */
+/* NEW */
+/* NEW */
+/* NEW */
+/* NEW */
+
+/* Sidebar.module.css */
+
+.outer {
+  display: flex;
+  height: calc(100% - var(--ticker-height));
+  flex: 1;
 
   & > .homepageImages {
     position: absolute;
@@ -294,11 +663,10 @@
 /* Portrait */
 @media (max-aspect-ratio: 1) {
   .outer {
-
     & > .homepageImages {
       display: none;
     }
-    
+
     .nav {
       flex: none;
       max-width: 10vw;
