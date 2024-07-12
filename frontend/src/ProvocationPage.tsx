@@ -47,6 +47,13 @@ const ProvocationPage: React.FC = () => {
     return <div>Loading...</div>;
   }
 
+  const handleTickerClick = (article: any) => {
+    const normalizedTitle = article.attributes.url_title
+      ?.toLowerCase()
+      .replace(/[^א-ת0-9a-z]+/g, "-");
+    navigate(`/provocation/${normalizedTitle}`, { replace: false });
+  };
+
   return (
     <OpenArticleProvider>
       <Layout className={styles.provocationLayout}>
@@ -64,7 +71,11 @@ const ProvocationPage: React.FC = () => {
               <div className={styles.tickerContent}>
                 {articlesStrapi.map((article: any, index: number) => (
                   <>
-                    <span key={index} className={styles.tickerItem}>
+                    <span
+                      key={index}
+                      className={styles.tickerItem}
+                      onClick={() => handleTickerClick(article)}
+                    >
                       {article.attributes.ticker_text
                         ? article.attributes.ticker_text
                         : article.attributes.title}
@@ -85,9 +96,7 @@ const ProvocationPage: React.FC = () => {
               </div>
             </div>
             <div className={styles.kotzContainer} onClick={() => navigate("/")}>
-              {/* <div className={styles.cornerKotz}> */}
               <img className={`${styles.starIcon}`} src={kotzCorner}></img>
-              {/* </div> */}
             </div>
           </div>
         </div>
