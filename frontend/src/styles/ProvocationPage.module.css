@@ -136,6 +136,17 @@
   font-size: 1.2em;
 }
 
+.provocationPage > .bottomBar > .ticker > .tickerContent > .tickerItem {
+  transition: all 0.1s ease-out;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+}
+
+.provocationPage > .bottomBar > .ticker > .tickerContent > .tickerItem:hover {
+  text-decoration-color: unset;
+}
+
 .provocationPage
   > .bottomBar
   > .ticker
@@ -1093,6 +1104,7 @@ h3 + .provocationPage main > p {
         align-items: center;
         justify-content: start;
         font-size: 1.2em;
+        cursor: pointer;
 
         & > .tickerItem.outerStar {
           height: 100%;
