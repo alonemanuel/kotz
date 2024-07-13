@@ -301,13 +301,14 @@
     z-index: 1;
     flex: none;
     max-width: var(--sidebar-max-width);
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in !important;
     padding-inline-end: var(--border-size);
     padding-inline-end: 0 !important;
     outline: var(--border-size) solid black;
   }
-
+  
   .outer .nav:hover {
+    transition: all 0.2s ease-out !important;
     max-width: 85vw; /* Adjust as needed */
   }
 
