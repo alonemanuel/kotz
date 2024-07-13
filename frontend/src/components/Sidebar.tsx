@@ -84,7 +84,30 @@ function useResizeObservers(refs: any, dependency: number | null) {
   return dimensions;
 }
 
+const getMaxArticles = (width: number) => {
+  console.debug(`alon: width: ${width}`); // ALON REMOVE
+  if (width >= 1250) return 3;
+  if (width >= 850) return 2;
+  return 1;
+};
 const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
+  const [maxArticles, setMaxArticles] = useState(
+    getMaxArticles(window.innerWidth)
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      const newMaxArticles = getMaxArticles(window.innerWidth);
+      setMaxArticles(newMaxArticles);
+      setActiveIndices((prevIndices) => prevIndices.slice(0, newMaxArticles));
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const { isOpen, setOpen } = useOpenArticle();
 
   const homepageImagesRef = useRef<HTMLDivElement>(null);
@@ -341,6 +364,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
           return newIndices;
         }
       });
+
       setOpen(true);
       setLastOpenedIndex(index);
     } else {
@@ -360,7 +384,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
       let newIndices = isArticleOpen
         ? prevIndices.filter((i) => i !== index)
         : [index, ...prevIndices];
-      if (newIndices.length > 3) {
+      if (newIndices.length > maxArticles) {
         newIndices.pop();
       }
       return newIndices;
@@ -656,7 +680,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
       >
         {isPortrait
           ? articles.map((article, index) => renderArticle(article, index))
-          : activeIndices.map((activeIndex) => {
+          : activeIndices.slice(0, maxArticles).map((activeIndex) => {
               const article = articles[activeIndex];
               return renderArticle(article, activeIndex);
             })}
