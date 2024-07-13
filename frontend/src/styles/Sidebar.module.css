@@ -108,7 +108,7 @@
   justify-content: start;
 }
 
-.outer > .nav .navItem.activeNavItem .navContent:hover {
+.outer > .nav .navItem .navContent:hover {
   animation: navAnimation 3s ease-in infinite; /* Add animation */
 }
 
