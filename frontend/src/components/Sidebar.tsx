@@ -84,7 +84,36 @@ function useResizeObservers(refs: any, dependency: number | null) {
   return dimensions;
 }
 
+const getMaxArticles = (width: number) => {
+  if (width >= 1250) return 3;
+  if (width >= 850) return 2;
+  return 1;
+};
 const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
+  const [maxArticles, setMaxArticles] = useState(
+    getMaxArticles(window.innerWidth)
+  );
+
+  const updateOpenArticlesProperty = (openArticles: number) => {
+    document.documentElement.style.setProperty(
+      "--open-articles",
+      openArticles.toString()
+    );
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      const newMaxArticles = getMaxArticles(window.innerWidth);
+      setMaxArticles(newMaxArticles);
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const { isOpen, setOpen } = useOpenArticle();
 
   const homepageImagesRef = useRef<HTMLDivElement>(null);
@@ -335,12 +364,13 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
           return prevIndices;
         } else {
           const newIndices = [index, ...prevIndices];
-          if (newIndices.length > 3) {
+          if (newIndices.length > maxArticles) {
             newIndices.pop();
           }
           return newIndices;
         }
       });
+
       setOpen(true);
       setLastOpenedIndex(index);
     } else {
@@ -348,6 +378,10 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
       setOpen(false);
     }
   }, [urlSuffix, setOpen, articles, location]);
+
+  useEffect(() => {
+    updateOpenArticlesProperty(activeIndices.length);
+  }, [activeIndices]);
 
   const toggleAccordion = (index: number) => {
     setIsNavClicked(true);
@@ -360,7 +394,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
       let newIndices = isArticleOpen
         ? prevIndices.filter((i) => i !== index)
         : [index, ...prevIndices];
-      if (newIndices.length > 3) {
+      if (newIndices.length > maxArticles) {
         newIndices.pop();
       }
       return newIndices;
@@ -656,7 +690,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
       >
         {isPortrait
           ? articles.map((article, index) => renderArticle(article, index))
-          : activeIndices.map((activeIndex) => {
+          : activeIndices.slice(0, maxArticles).map((activeIndex) => {
               const article = articles[activeIndex];
               return renderArticle(article, activeIndex);
             })}
