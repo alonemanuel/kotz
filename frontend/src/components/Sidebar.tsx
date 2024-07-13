@@ -85,7 +85,6 @@ function useResizeObservers(refs: any, dependency: number | null) {
 }
 
 const getMaxArticles = (width: number) => {
-  console.debug(`alon: width: ${width}`); // ALON REMOVE
   if (width >= 1250) return 3;
   if (width >= 850) return 2;
   return 1;
@@ -95,6 +94,13 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
     getMaxArticles(window.innerWidth)
   );
 
+  const updateOpenArticlesProperty = (openArticles: number) => {
+    document.documentElement.style.setProperty(
+      "--open-articles",
+      openArticles.toString()
+    );
+  };
+
   useEffect(() => {
     const handleResize = () => {
       const newMaxArticles = getMaxArticles(window.innerWidth);
@@ -103,6 +109,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
     };
 
     window.addEventListener("resize", handleResize);
+    handleResize();
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -372,6 +379,10 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
       setOpen(false);
     }
   }, [urlSuffix, setOpen, articles, location]);
+
+  useEffect(() => {
+    updateOpenArticlesProperty(activeIndices.length);
+  }, [activeIndices]);
 
   const toggleAccordion = (index: number) => {
     setIsNavClicked(true);

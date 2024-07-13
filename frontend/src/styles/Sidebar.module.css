@@ -284,6 +284,7 @@
 
   .outer > .articles {
     flex-direction: row;
+    flex: var(--open-articles) !important;
   }
 
   .outer > .nav {
