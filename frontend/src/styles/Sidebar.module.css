@@ -306,7 +306,11 @@
     padding-inline-end: 0 !important;
     outline: var(--border-size) solid black;
   }
-  
+
+  .nav.temporaryClosed {
+    max-width: var(--sidebar-max-width) !important;
+  }
+
   .outer .nav:hover {
     transition: all 0.2s ease-out !important;
     max-width: 85vw; /* Adjust as needed */

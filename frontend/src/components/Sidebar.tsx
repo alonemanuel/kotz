@@ -225,6 +225,8 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
   const { urlSuffix } = useParams<{ urlSuffix: string }>();
   const location = useLocation();
 
+  const [isNavClicked, setIsNavClicked] = useState(false);
+
   const [activeIndices, setActiveIndices] = useState<number[]>([]);
   const [isPortrait, setIsPortrait] = useState(
     window.innerHeight > window.innerWidth
@@ -348,6 +350,11 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
   }, [urlSuffix, setOpen, articles, location]);
 
   const toggleAccordion = (index: number) => {
+    setIsNavClicked(true);
+    setTimeout(() => {
+      setIsNavClicked(false);
+    }, 500);
+
     setActiveIndices((prevIndices) => {
       const isArticleOpen = prevIndices.includes(index);
       let newIndices = isArticleOpen
@@ -425,15 +432,12 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
 
   // Add scroll event listener to update active article based on scroll position
   useEffect(() => {
-    console.log("leuk");
     const handleScroll = (parent: any) => {
-      console.log("gorl");
       if (isPortrait) {
         const articleElements = panelRefs.current;
         const viewportHeight = window.innerHeight;
         const parentRect = parent.getBoundingClientRect();
 
-        console.log(`len of: ${articleElements.length}`);
         let found = false;
         for (let i = 0; i < articleElements.length; i++) {
           const el = articleElements[i];
@@ -605,7 +609,9 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
 
   return (
     <div className={styles.outer}>
-      <div className={styles.nav}>
+      <div
+        className={`${styles.nav} ${isNavClicked ? styles.temporaryClosed : ""}`}
+      >
         {articles.map((article, index) => (
           <div
             key={index}
