@@ -62,6 +62,9 @@
   color: black;
   transition: all 0.1s ease-out;
   padding-block-end: 16px;
+  position: relative !important;
+  overflow: visible !important;
+  /* width: fit-content !important; */
 }
 
 .outer > .nav .navItem > .navTag {
@@ -71,6 +74,9 @@
   transition: all 0.1s ease-out;
   right: 0;
   pointer-events: none;
+  left: 0 !important;
+  right: auto !important;
+  z-index: 1;
 }
 
 .outer > .nav .navItem:hover > .navTag {
@@ -102,7 +108,7 @@
   justify-content: start;
 }
 
-.outer > .nav .navItem.activeNavItem .navContent:hover {
+.outer > .nav .navItem .navContent:hover {
   animation: navAnimation 3s ease-in infinite; /* Add animation */
 }
 
@@ -324,6 +330,12 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    overflow: visible !important;
+    position: relative !important;
+  }
+
+  .outer > .nav > .navItem > .navTag {
+    display: none;
   }
 
   .outer .articles {
