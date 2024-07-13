@@ -610,7 +610,9 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
   return (
     <div className={styles.outer}>
       <div
-        className={`${styles.nav} ${isNavClicked ? styles.temporaryClosed : ""}`}
+        className={`${styles.nav} ${
+          isNavClicked ? styles.temporaryClosed : ""
+        }`}
       >
         {articles.map((article, index) => (
           <div
