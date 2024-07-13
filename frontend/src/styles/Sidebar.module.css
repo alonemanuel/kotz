@@ -326,6 +326,10 @@
     text-overflow: ellipsis;
   }
 
+  .outer > .nav .navItem > .navTag {
+    display: none;
+  }
+
   .outer .articles {
     /* position: sticky !important; */
     margin-right: var(--sidebar-max-width) !important;
