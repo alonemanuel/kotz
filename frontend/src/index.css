@@ -133,3 +133,10 @@ p {
   min-height: 100vh;
   min-height: 100dvh;
 }
+
+/* Portrait */
+@media (max-aspect-ratio: 1) {
+  :root {
+    --ticker-height: 38px;
+  }
+}

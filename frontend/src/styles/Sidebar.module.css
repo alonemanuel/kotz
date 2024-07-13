@@ -305,6 +305,9 @@
     padding-inline-end: var(--border-size);
     padding-inline-end: 0 !important;
     outline: var(--border-size) solid black;
+    padding-block-end: calc(
+      var(--ticker-height) + var(--border-size)
+    ) !important;
   }
 
   .nav.temporaryClosed {

@@ -185,8 +185,8 @@
 @media (max-aspect-ratio: 1) {
   .provocationPage > .bottomBar {
     position: relative;
-    --ticker-height: 38px;
     height: var(--ticker-height);
+    z-index: 1;
   }
 
   .provocationPage > .bottomBar > .kotzContainer {
