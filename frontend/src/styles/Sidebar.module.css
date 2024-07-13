@@ -297,8 +297,8 @@
   }
 
   .outer .nav {
-    position: absolute;
-    z-index: 1;
+    position: fixed !important;
+    z-index: 1 !important;
     flex: none;
     max-width: var(--sidebar-max-width);
     transition: all 0.2s ease-in !important;
@@ -320,8 +320,8 @@
   }
 
   .outer .articles {
-    position: absolute;
-    right: var(--sidebar-max-width);
+    /* position: sticky !important; */
+    margin-right: var(--sidebar-max-width) !important;
     flex-direction: row;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
