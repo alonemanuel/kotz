@@ -69,30 +69,58 @@ const ProvocationPage: React.FC = () => {
             </div>
             <div className={styles.ticker}>
               <div className={styles.tickerContent}>
-                {articlesStrapi.map((article: any, index: number) => (
-                  <>
-                    <span
-                      key={index}
-                      className={styles.tickerItem}
-                      onClick={() => handleTickerClick(article)}
-                    >
-                      {article.attributes.ticker_text
-                        ? article.attributes.ticker_text
-                        : article.attributes.title}
-                    </span>
-
-                    {index < articlesStrapi.length - 1 && (
+                <div className={`${styles.tickerChild} ${styles.firstTicker}`}>
+                  {articlesStrapi.map((article: any, index: number) => (
+                    <>
                       <span
-                        className={`${styles.tickerItem} ${styles.outerStar}`}
+                        key={index}
+                        className={styles.tickerItem}
+                        onClick={() => handleTickerClick(article)}
                       >
-                        <img
-                          className={`${styles.starIcon}`}
-                          src={starIcon}
-                        ></img>
+                        {article.attributes.ticker_text
+                          ? article.attributes.ticker_text
+                          : article.attributes.title}
                       </span>
-                    )}
-                  </>
-                ))}
+
+                      {index < articlesStrapi.length - 1 && (
+                        <span
+                          className={`${styles.tickerItem} ${styles.outerStar}`}
+                        >
+                          <img
+                            className={`${styles.starIcon}`}
+                            src={starIcon}
+                          ></img>
+                        </span>
+                      )}
+                    </>
+                  ))}
+                </div>
+                <div className={`${styles.tickerChild} ${styles.secondTicker}`}>
+                  {articlesStrapi.map((article: any, index: number) => (
+                    <>
+                      <span
+                        key={index}
+                        className={styles.tickerItem}
+                        onClick={() => handleTickerClick(article)}
+                      >
+                        {article.attributes.ticker_text
+                          ? article.attributes.ticker_text
+                          : article.attributes.title}
+                      </span>
+
+                      {index < articlesStrapi.length - 1 && (
+                        <span
+                          className={`${styles.tickerItem} ${styles.outerStar}`}
+                        >
+                          <img
+                            className={`${styles.starIcon}`}
+                            src={starIcon}
+                          ></img>
+                        </span>
+                      )}
+                    </>
+                  ))}
+                </div>
               </div>
             </div>
             <div className={styles.kotzContainer} onClick={() => navigate("/")}>

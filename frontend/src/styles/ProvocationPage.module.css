@@ -126,24 +126,73 @@
 }
 
 .provocationPage > .bottomBar > .ticker > .tickerContent {
-  display: inline-block;
-  padding-left: 100%;
-  animation: tickerAnimation 20s linear infinite;
+  display: inline-block !important;
+  width: fit-content !important;
+  animation: tickerAnimation 85s linear infinite;
   height: 100%;
-  display: flex;
+  justify-content: start;
+}
+
+.provocationPage > .bottomBar > .ticker > .tickerContent > .tickerChild {
+  /* display: inline !important; */
+  /* padding-left: 100%; */
+  height: 100%;
+  display: inline-flex !important;
   align-items: center;
   justify-content: start;
   font-size: 1.2em;
+  width: fit-content !important;
 }
 
-.provocationPage > .bottomBar > .ticker > .tickerContent > .tickerItem {
+.provocationPage
+  > .bottomBar
+  > .ticker
+  > .tickerContent
+  > .tickerChild.firstTicker {
+  left: 0%;
+  /* animation: swap 50s linear infinite; */
+  position: relative;
+}
+
+@keyframes swap {
+  0%,
+  50% {
+    left: 0%;
+  }
+  50.01%,
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes tickerAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+
+.provocationPage
+  > .bottomBar
+  > .ticker
+  > .tickerContent
+  > .tickerChild
+  > .tickerItem {
   transition: all 0.1s ease-out;
   cursor: pointer;
   text-decoration: underline;
+  text-underline-offset: 0.3em;
   text-decoration-color: transparent;
 }
 
-.provocationPage > .bottomBar > .ticker > .tickerContent > .tickerItem:hover {
+.provocationPage
+  > .bottomBar
+  > .ticker
+  > .tickerContent
+  > .tickerChild
+  > .tickerItem:hover {
   text-decoration-color: unset;
 }
 
@@ -151,6 +200,7 @@
   > .bottomBar
   > .ticker
   > .tickerContent
+  > .tickerChild
   > .tickerItem.outerStar {
   height: 100%;
   padding-block: 4px;
@@ -160,25 +210,22 @@
   > .bottomBar
   > .ticker
   > .tickerContent
+  > .tickerChild
   > .tickerItem.outerStar
   > .starIcon {
   height: 100%;
   max-width: none;
 }
 
-.provocationPage > .bottomBar > .ticker > .tickerContent > .tickerItem {
+.provocationPage
+  > .bottomBar
+  > .ticker
+  > .tickerContent
+  > .tickerChild
+  > .tickerItem {
   display: inline-flex;
   align-items: center;
   padding: 0 10px;
-}
-
-@keyframes tickerAnimation {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
 }
 
 /* Mobile */
@@ -1085,54 +1132,6 @@ h3 + .provocationPage main > p {
         width: 80%;
       }
     }
-
-    & > .ticker {
-      height: var(--ticker-height);
-      background-color: black;
-      color: white;
-      white-space: nowrap;
-      overflow: hidden;
-      position: relative;
-      font-family: var(--ff-david-vc);
-      padding-bottom: var(--border-size);
-
-      & > .tickerContent {
-        display: inline-block;
-        padding-left: 100%;
-        animation: tickerAnimation 20s linear infinite;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: start;
-        font-size: 1.2em;
-        cursor: pointer;
-
-        & > .tickerItem.outerStar {
-          height: 100%;
-          padding-block: 4px;
-
-          & > .starIcon {
-            height: 100%;
-            max-width: none;
-          }
-        }
-
-        & > .tickerItem {
-          display: inline-flex;
-          align-items: center;
-          padding: 0 10px;
-        }
-      }
-    }
-  }
-}
-
-@keyframes tickerAnimation {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
   }
 }
 
