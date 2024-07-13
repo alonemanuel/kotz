@@ -364,7 +364,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
           return prevIndices;
         } else {
           const newIndices = [index, ...prevIndices];
-          if (newIndices.length > 3) {
+          if (newIndices.length > maxArticles) {
             newIndices.pop();
           }
           return newIndices;
@@ -691,7 +691,6 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
         {isPortrait
           ? articles.map((article, index) => renderArticle(article, index))
           : activeIndices.slice(0, maxArticles).map((activeIndex) => {
-              console.debug(`alon: active index: ${activeIndex}`); // ALON REMOVE
               const article = articles[activeIndex];
               return renderArticle(article, activeIndex);
             })}
