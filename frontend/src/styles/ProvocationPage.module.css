@@ -868,7 +868,7 @@ h3 + .provocationPage main > p {
   .provocationPage article {
     padding: 1em;
     padding-top: 4em;
-    padding-inline-end: 0;
+    /* padding-inline-end: 0; */
   }
 
   .provocationPage article.popout {
@@ -933,6 +933,7 @@ h3 + .provocationPage main > p {
 
   .provocationPage article > main {
     max-width: 60ch;
+    /* padding-inline: 8px !important; */
   }
 
   .provocationPage footer > main {
@@ -2114,7 +2115,6 @@ h3 + .provocationPage main > p {
     & article {
       padding: 1em;
       padding-top: 4em;
-      padding-inline-end: 0;
 
       &.popout {
         flex-flow: column nowrap;

@@ -292,15 +292,27 @@
     display: none;
   }
 
+  .outer {
+    --sidebar-max-width: 10vw;
+  }
+
   .outer .nav {
+    position: fixed !important;
+    z-index: 1 !important;
     flex: none;
-    max-width: 10vw;
-    transition: all 0.3s ease-in-out;
+    max-width: var(--sidebar-max-width);
+    transition: all 0.2s ease-in !important;
     padding-inline-end: var(--border-size);
+    padding-inline-end: 0 !important;
     outline: var(--border-size) solid black;
   }
 
+  .nav.temporaryClosed {
+    max-width: var(--sidebar-max-width) !important;
+  }
+
   .outer .nav:hover {
+    transition: all 0.2s ease-out !important;
     max-width: 85vw; /* Adjust as needed */
   }
 
@@ -312,6 +324,8 @@
   }
 
   .outer .articles {
+    /* position: sticky !important; */
+    margin-right: var(--sidebar-max-width) !important;
     flex-direction: row;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
