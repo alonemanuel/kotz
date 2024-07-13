@@ -90,6 +90,17 @@ const getMaxArticles = (width: number) => {
   return 1;
 };
 const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
+  // Add touch class
+  document.documentElement.classList.toggle(
+    styles.touch,
+    "ontouchstart" in document.documentElement
+  );
+
+  document.documentElement.classList.toggle(
+    styles.noTouch,
+    !("ontouchstart" in document.documentElement)
+  );
+
   const [maxArticles, setMaxArticles] = useState(
     getMaxArticles(window.innerWidth)
   );
@@ -383,8 +394,40 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
     updateOpenArticlesProperty(activeIndices.length);
   }, [activeIndices]);
 
+  const handleNavDrag = (e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    const nav: HTMLDivElement | null = document.querySelector(`.${styles.nav}`);
+    if (!nav) return;
+
+    const startX = touch.clientX;
+
+    const onTouchMove = (e: TouchEvent) => {
+      const currentX = e.touches[0].clientX;
+      const deltaX = currentX - startX;
+      if (deltaX < 0) {
+        const newWidth = Math.min(-deltaX, window.innerWidth * 0.85);
+        nav.style.setProperty("--touch-max-width", `${newWidth}px`);
+      }
+    };
+
+    const onTouchEnd = () => {
+      const newMaxWidth =
+        nav.clientWidth > window.innerWidth * 0.425 ? "85vw" : "10vw";
+      nav.style.setProperty("--touch-max-width", newMaxWidth);
+      document.removeEventListener("touchmove", onTouchMove);
+      document.removeEventListener("touchend", onTouchEnd);
+    };
+
+    document.addEventListener("touchmove", onTouchMove);
+    document.addEventListener("touchend", onTouchEnd);
+  };
+
   const toggleAccordion = (index: number) => {
     setIsNavClicked(true);
+    const nav: HTMLDivElement | null = document.querySelector(`.${styles.nav}`);
+    if (!nav) return;
+
+    nav.style.setProperty("--touch-max-width", `10vw`);
     setTimeout(() => {
       setIsNavClicked(false);
     }, 500);
@@ -647,6 +690,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
         className={`${styles.nav} ${
           isNavClicked ? styles.temporaryClosed : ""
         }`}
+        onTouchStart={handleNavDrag}
       >
         {articles.map((article, index) => (
           <div

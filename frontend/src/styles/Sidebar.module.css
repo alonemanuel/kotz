@@ -315,6 +315,7 @@
     padding-block-end: calc(
       var(--ticker-height) + var(--border-size)
     ) !important;
+    --touch-max-width: var(--sidebar-max-width);
   }
 
   .nav.temporaryClosed {
@@ -323,7 +324,24 @@
 
   .outer .nav:hover {
     transition: all 0.2s ease-out !important;
-    max-width: 85vw; /* Adjust as needed */
+    max-width: min(
+      var(--touch-max-width),
+      85vw
+    ) !important; /* Adjust as needed */
+  }
+
+  .touch .outer .nav {
+    transition: none !important;
+    min-width: var(--sidebar-max-width) !important; /* Adjust as needed */
+    max-width: min(
+      var(--touch-max-width),
+      85vw
+    ) !important; /* Adjust as needed */
+  }
+
+  .touch .outer .nav:hover {
+    max-width: var(--touch-max-width) !important; /* Adjust as needed */
+    transition: none !important;
   }
 
   .outer .nav .navItem {
