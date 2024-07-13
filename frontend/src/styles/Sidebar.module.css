@@ -324,23 +324,19 @@
 
   .outer .nav:hover {
     transition: all 0.2s ease-out !important;
-    max-width: min(
-      var(--touch-max-width),
-      85vw
-    ) !important; /* Adjust as needed */
   }
 
   .touch .outer .nav {
     transition: none !important;
     min-width: var(--sidebar-max-width) !important; /* Adjust as needed */
+    max-width: 85vw !important; /* Adjust as needed */
+  }
+
+  .touch .outer .nav:hover {
     max-width: min(
       var(--touch-max-width),
       85vw
     ) !important; /* Adjust as needed */
-  }
-
-  .touch .outer .nav:hover {
-    max-width: var(--touch-max-width) !important; /* Adjust as needed */
     transition: none !important;
   }
 
