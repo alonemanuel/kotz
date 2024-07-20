@@ -50,7 +50,6 @@
 .outer > .nav .navItem {
   background-color: var(--color-theme-background);
   cursor: pointer;
-  padding: 10px;
   font-size: 28px;
   color: #333;
   flex-grow: 1;
@@ -61,10 +60,19 @@
   overflow: hidden;
   color: black;
   transition: all 0.1s ease-out;
-  padding-block-end: 16px;
-  position: static !important;
-  overflow: hidden !important;
+  padding: 0 !important;
+  padding-inline: 10px !important;
+  padding-block-end: 0 !important;
+  position: relative !important;
+  overflow: visible !important;
   /* width: fit-content !important; */
+}
+
+.outer > .nav .navItem .navContentContainer {
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .outer > .nav .navItem > .navTag {
@@ -345,8 +353,6 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    position: static !important;
-    overflow: hidden !important;
   }
 
   .outer > .nav > .navItem > .navTag {

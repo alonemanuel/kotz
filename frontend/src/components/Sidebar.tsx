@@ -715,7 +715,11 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
               } as React.CSSProperties
             }
           >
-            <div className={styles.navContent}>{article.attributes.title}</div>
+            <div className={styles.navContentContainer}>
+              <div className={styles.navContent}>
+                {article.attributes.title}
+              </div>
+            </div>
             {article.attributes.type !== "popout" && (
               <div className={styles.navTag}>
                 <img
