@@ -84,6 +84,7 @@
   color: var(--color-white);
   letter-spacing: -1.1px;
   font-size: 0.9em;
+  padding-block-start: 0.13em;
 }
 
 .provocationPage > .bottomBar > .details > hgroup h1,
