@@ -9,6 +9,7 @@ export interface ArticleAttribute {
   outside_img_vertical: any;
   outside_img_horizontal: any;
   terms: any;
+  provocation_terms: any;
   song: any;
   type: string;
   debate: any;

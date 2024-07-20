@@ -6,7 +6,6 @@ import { ContentBlock, ContentBlockChild } from "./interfaces";
 import ArticleBodyImage from "./ArticleBodyImage";
 import UnderlineText from "./UnderlineText";
 import SongContent from "./SongContent";
-import styles from "./styles/ProvocationPage.module.css";
 
 const JsonBlocksContent: React.FC<{
   content?: ContentBlock[];
@@ -92,7 +91,9 @@ const JsonBlocksContent: React.FC<{
           </header>
           <section>
             {terms
-              ?.map((term: any) => term.attributes)
+              ?.map((term: any) => {
+                return term.attributes;
+              })
               .map((term: any, termIndex: number) => (
                 <div key={termIndex} className={styles.term}>
                   <h2>{term?.title}</h2>

@@ -24,7 +24,9 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
   styles,
 }) => {
   const attr = article.attributes;
-  const articleTerms = attr.terms?.data;
+  const articleTerms = attr.terms
+    ? attr.terms?.data
+    : attr.provocation_terms?.data;
   let classType;
   switch (attr?.type) {
     case "standard":
