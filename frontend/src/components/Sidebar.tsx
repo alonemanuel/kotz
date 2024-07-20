@@ -211,15 +211,19 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
       const containerRect = container.getBoundingClientRect();
       const elementRect = element.getBoundingClientRect();
 
-      const containerWidth = containerRect.width - elementRect.width;
-      const containerHeight = containerRect.height - elementRect.height;
+      const containerWidth = containerRect.width - 1.5 * elementRect.width;
+      const containerHeight = containerRect.height - 1.5 * elementRect.height;
 
       const { newX, newY } = getNearRandomPosition(
         20,
         Math.random() * containerWidth,
         Math.random() * containerHeight
       );
-      return { x: newX, y: newY };
+
+      return {
+        x: elementRect.width / 2 + newX,
+        y: newY + elementRect.height / 2,
+      };
     }
     return { x: 0, y: 0 };
   };

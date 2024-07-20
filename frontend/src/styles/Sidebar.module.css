@@ -444,6 +444,7 @@
       transition: all 0.2s ease-out;
       top: var(--top);
       left: var(--left);
+      z-index: 1;
     }
   }
 
