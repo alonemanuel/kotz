@@ -131,6 +131,10 @@
   overflow: hidden;
 }
 
+.outer .articles.isNotOpen {
+  display: none;
+}
+
 .outer > .articles:empty {
   display: none;
 }
