@@ -62,8 +62,8 @@
   color: black;
   transition: all 0.1s ease-out;
   padding-block-end: 16px;
-  position: relative !important;
-  overflow: visible !important;
+  position: static !important;
+  overflow: hidden !important;
   /* width: fit-content !important; */
 }
 
@@ -345,8 +345,8 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    overflow: visible !important;
-    position: relative !important;
+    position: static !important;
+    overflow: hidden !important;
   }
 
   .outer > .nav > .navItem > .navTag {
