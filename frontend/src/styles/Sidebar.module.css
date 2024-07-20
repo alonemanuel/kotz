@@ -62,8 +62,8 @@
   color: black;
   transition: all 0.1s ease-out;
   padding-block-end: 16px;
-  position: relative !important;
-  overflow: visible !important;
+  position: static !important;
+  overflow: hidden !important;
   /* width: fit-content !important; */
 }
 
