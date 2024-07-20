@@ -345,8 +345,8 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    overflow: visible !important;
-    position: relative !important;
+    position: static !important;
+    overflow: hidden !important;
   }
 
   .outer > .nav > .navItem > .navTag {
