@@ -704,7 +704,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
         className={`${styles.nav} ${
           isNavClicked ? styles.temporaryClosed : ""
         }`}
-        onTouchStart={handleNavDrag}
+        // onTouchStart={handleNavDrag}
       >
         {articles.map((article, index) => (
           <div

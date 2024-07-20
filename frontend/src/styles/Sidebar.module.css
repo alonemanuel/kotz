@@ -330,7 +330,7 @@
     --touch-max-width: var(--sidebar-max-width);
   }
 
-  .nav.temporaryClosed {
+  .noTouch .nav.temporaryClosed {
     max-width: var(--sidebar-max-width) !important;
   }
 
@@ -339,22 +339,29 @@
   }
 
   .touch .outer .nav {
-    transition: none !important;
     min-width: var(--sidebar-max-width) !important; /* Adjust as needed */
-    max-width: 85vw !important; /* Adjust as needed */
+    transition: all 0.2s cubic-bezier(0.6, -0.28, 0.74, 0.05) !important;
   }
 
   .touch .outer .nav:hover {
-    max-width: min(
-      var(--touch-max-width),
-      85vw
-    ) !important; /* Adjust as needed */
-    transition: none !important;
+    max-width: var(--sidebar-max-width) !important; /* Adjust as needed */
+  }
+
+  .touch .outer .nav:active {
+    max-width: var(--sidebar-max-width) !important; /* Adjust as needed */
+  }
+
+  .touch .hamburgerClicked .outer .nav:hover {
+    max-width: 85vw !important; /* Adjust as needed */
+  }
+
+  .touch .hamburgerClicked .outer .nav:active {
+    max-width: 85vw !important; /* Adjust as needed */
   }
 
   .hamburgerClicked .outer .nav {
     max-width: 85vw !important; /* Adjust as needed */
-    transition: none !important;
+    /* transition: none !important; */
   }
 
   .outer .nav .navItem {
