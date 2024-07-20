@@ -131,10 +131,6 @@
   overflow: hidden;
 }
 
-.outer .articles.isNotOpen {
-  display: none;
-}
-
 .outer > .articles:empty {
   display: none;
 }
@@ -302,6 +298,10 @@
   .outer > .nav {
     min-width: 100px;
     overflow: hidden;
+  }
+
+  .outer .articles.isNotOpen {
+    display: none;
   }
 }
 

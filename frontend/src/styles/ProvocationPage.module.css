@@ -698,7 +698,10 @@
     4px 2px 0px black;
   /* text-stroke: black; */
   line-height: 0.9em;
-  margin-bottom: 0.2em;
+  padding-bottom: 0.2em;
+  padding-inline-start: 0.1em;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .provocationPage article header hgroup h2 {
@@ -949,7 +952,7 @@ h3 + .provocationPage main > p {
 }
 
 @media (max-width: 300px) {
-  .provocationPage > .bottomBar > .details > hgroup > h2  {
+  .provocationPage > .bottomBar > .details > hgroup > h2 {
     display: none;
   }
 }
@@ -1045,7 +1048,7 @@ h3 + .provocationPage main > p {
   }
 
   .provocationPage article > header > hgroup h1 {
-    font-size: clamp(2em, 15vw, 5em);
+    font-size: clamp(2em, 13vw, 5em) !important;
   }
 
   .provocationPage article > main {
