@@ -23,6 +23,41 @@
   gap: 2px;
 }
 
+.noTouch .provocationPage > .bottomBar > .hamburger {
+  display: none;
+}
+
+.provocationPage > .bottomBar > .hamburger {
+  display: flex;
+  width: 10vw;
+  min-width: 40px;
+  cursor: pointer;
+  background-color: black;
+  height: 100%;
+  padding: 2px;
+  align-items: center;
+  justify-content: center;
+}
+
+.provocationPage > .bottomBar > .hamburger > .burgerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  flex-flow: column nowrap;
+  aspect-ratio: 1;
+  gap: 4px;
+}
+
+.provocationPage > .bottomBar > .hamburger > .burgerWrapper .bar {
+  display: flex;
+  width: 80%;
+  max-height: 4px;
+  border-radius: 2px;
+  background-color: white;
+  flex: 1;
+}
+
 .provocationPage > .bottomBar > .details {
   display: flex;
   flex-flow: row nowrap;
@@ -87,7 +122,7 @@
   padding-inline: 1em;
   background-color: black;
   width: 15vw;
-  width: clamp(130px, 15vw, 180px);
+  width: clamp(100px, 30vw, 180px) !important;
   flex-shrink: 0;
   position: relative;
   overflow: visible;
@@ -896,8 +931,34 @@ h3 + .provocationPage main > p {
   font-weight: 700;
 }
 
+@media (max-width: 400px) {
+  .provocationPage > .bottomBar > .details {
+    justify-content: center;
+  }
+
+  .provocationPage > .bottomBar > .details > hgroup > h3 {
+    display: none;
+  }
+}
+
+@media (max-width: 330px) {
+  .provocationPage > .bottomBar > .details > hgroup > h1 {
+    display: none;
+  }
+}
+
+@media (max-width: 300px) {
+  .provocationPage > .bottomBar > .details > hgroup > h2  {
+    display: none;
+  }
+}
+
 /* Landscape */
 @media (min-aspect-ratio: 1) {
+  .provocationPage > .bottomBar > .hamburger {
+    display: none;
+  }
+
   .provocationPage {
     position: static;
     width: 100vw;
