@@ -697,7 +697,10 @@
     4px 2px 0px black;
   /* text-stroke: black; */
   line-height: 0.9em;
-  margin-bottom: 0.2em;
+  padding-bottom: 0.2em;
+  padding-inline-start: 0.1em;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .provocationPage article header hgroup h2 {
