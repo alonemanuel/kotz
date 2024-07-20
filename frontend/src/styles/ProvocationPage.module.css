@@ -23,6 +23,40 @@
   gap: 2px;
 }
 
+.noTouch .provocationPage > .bottomBar > .hamburger {
+  display: none;
+}
+
+.provocationPage > .bottomBar > .hamburger {
+  display: flex;
+  width: 10vw;
+  cursor: pointer;
+  background-color: black;
+  height: 100%;
+  padding: 2px;
+  align-items: center;
+  justify-content: center;
+}
+
+.provocationPage > .bottomBar > .hamburger > .burgerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  flex-flow: column nowrap;
+  aspect-ratio: 1;
+  gap: 4px;
+}
+
+.provocationPage > .bottomBar > .hamburger > .burgerWrapper .bar {
+  display: flex;
+  width: 80%;
+  max-height: 4px;
+  border-radius: 2px;
+  background-color: white;
+  flex: 1;
+}
+
 .provocationPage > .bottomBar > .details {
   display: flex;
   flex-flow: row nowrap;

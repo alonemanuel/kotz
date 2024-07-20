@@ -101,6 +101,16 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
     !("ontouchstart" in document.documentElement)
   );
 
+  document.documentElement.classList.toggle(
+    provocationStyles.touch,
+    "ontouchstart" in document.documentElement
+  );
+
+  document.documentElement.classList.toggle(
+    provocationStyles.noTouch,
+    !("ontouchstart" in document.documentElement)
+  );
+
   const [maxArticles, setMaxArticles] = useState(
     getMaxArticles(window.innerWidth)
   );

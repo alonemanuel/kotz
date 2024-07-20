@@ -352,6 +352,11 @@
     transition: none !important;
   }
 
+  .hamburgerClicked .outer .nav {
+    max-width: 85vw !important; /* Adjust as needed */
+    transition: none !important;
+  }
+
   .outer .nav .navItem {
     /* display: block; */
     white-space: nowrap;

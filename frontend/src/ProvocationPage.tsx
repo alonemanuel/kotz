@@ -1,6 +1,8 @@
 // ProvocationPage.tsx
 import React, { useEffect, useState } from "react";
 import styles from "./styles/ProvocationPage.module.css";
+import sidebarStyles from "./styles/Sidebar.module.css";
+
 import Sidebar from "./components/Sidebar";
 import { ItemArticle } from "./types/itemArticle";
 import Layout from "./Layout";
@@ -13,6 +15,13 @@ import { useNavigate } from "react-router-dom";
 const ProvocationPage: React.FC = () => {
   const [articlesStrapi, setArticlesStrapi] = useState([]);
   const [termsStrapi, setTermsStrapi] = useState([]);
+
+  const [isHamburgerClicked, setIsHamburgerClicked] = useState(false);
+
+  const hamburgerClick = () => {
+    setIsHamburgerClicked(!isHamburgerClicked);
+  };
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -57,9 +66,20 @@ const ProvocationPage: React.FC = () => {
   return (
     <OpenArticleProvider>
       <Layout className={styles.provocationLayout}>
-        <div className={styles.provocationPage}>
+        <div
+          className={`${styles.provocationPage} ${
+            isHamburgerClicked ? sidebarStyles.hamburgerClicked : ""
+          }`}
+        >
           <Sidebar articles={articlesStrapi} terms={termsStrapi} />
           <div className={styles.bottomBar}>
+            <div className={styles.hamburger} onClick={() => hamburgerClick()}>
+              <div className={styles.burgerWrapper}>
+                <div className={styles.bar}></div>
+                <div className={styles.bar}></div>
+                <div className={styles.bar}></div>
+              </div>
+            </div>
             <div className={styles.details}>
               <hgroup>
                 <h3 onClick={() => navigate("/")}>קוץ</h3>
