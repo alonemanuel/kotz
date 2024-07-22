@@ -114,7 +114,13 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
             case "debate":
               return <DebateContent content={attr?.debate} />;
             case "popout":
-              return <PopoutContent content={attr?.body} styles={styles} />;
+              return (
+                <PopoutContent
+                  attr={attr}
+                  content={attr?.body}
+                  styles={styles}
+                />
+              );
             case "poll":
               return (
                 <PollContent
@@ -125,7 +131,7 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
           }
         }
       })()}
-      {attr.long_author_about && (
+      {attr.long_author_about && attr.type !== "popout" && (
         <footer>
           <hr />
           <main>
