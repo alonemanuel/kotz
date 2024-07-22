@@ -408,34 +408,6 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
     updateOpenArticlesProperty(activeIndices.length);
   }, [activeIndices]);
 
-  const handleNavDrag = (e: React.TouchEvent) => {
-    const touch = e.touches[0];
-    const nav: HTMLDivElement | null = document.querySelector(`.${styles.nav}`);
-    if (!nav) return;
-
-    const startX = touch.clientX;
-
-    const onTouchMove = (e: TouchEvent) => {
-      const currentX = e.touches[0].clientX;
-      const deltaX = currentX - startX;
-      if (deltaX < 0) {
-        const newWidth = Math.min(-deltaX, window.innerWidth * 0.85);
-        nav.style.setProperty("--touch-max-width", `${newWidth}px`);
-      }
-    };
-
-    const onTouchEnd = () => {
-      const newMaxWidth =
-        nav.clientWidth > window.innerWidth * 0.425 ? "85vw" : "10vw";
-      nav.style.setProperty("--touch-max-width", newMaxWidth);
-      document.removeEventListener("touchmove", onTouchMove);
-      document.removeEventListener("touchend", onTouchEnd);
-    };
-
-    document.addEventListener("touchmove", onTouchMove);
-    document.addEventListener("touchend", onTouchEnd);
-  };
-
   const toggleAccordion = (index: number) => {
     setIsNavClicked(true);
     const nav: HTMLDivElement | null = document.querySelector(`.${styles.nav}`);
@@ -458,16 +430,20 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
     });
     setOpen(true);
 
-    if (!activeIndices.includes(index)) {
-      const normalizedTitle = normalizeTitle(articles[index].attributes.title);
-      const normalizedUrl = normalizeTitle(
-        articles[index].attributes.url_title
-      );
+    if (!isPortrait) {
+      if (!activeIndices.includes(index)) {
+        const normalizedTitle = normalizeTitle(
+          articles[index].attributes.title
+        );
+        const normalizedUrl = normalizeTitle(
+          articles[index].attributes.url_title
+        );
 
-      const newUrlSuffix = normalizedUrl ? normalizedUrl : normalizedTitle;
-      navigate(`/provocation/${newUrlSuffix}`, { replace: false });
-    } else if (activeIndices.length === 1) {
-      navigate(`/provocation`, { replace: false });
+        const newUrlSuffix = normalizedUrl ? normalizedUrl : normalizedTitle;
+        navigate(`/provocation/${newUrlSuffix}`, { replace: false });
+      } else if (activeIndices.length === 1) {
+        navigate(`/provocation`, { replace: false });
+      }
     }
 
     // Scroll to the selected article if in portrait mode
@@ -522,75 +498,83 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
   }, [articles, isOpen]);
 
   // Add scroll event listener to update active article based on scroll position
+
   useEffect(() => {
-    const handleScroll = (parent: any) => {
-      if (isPortrait) {
-        const articleElements = panelRefs.current;
-        const viewportHeight = window.innerHeight;
-        const parentRect = parent.getBoundingClientRect();
+    const handleScroll = (parent: any) =>
+      // console.debug(`alon: handle scroll is called`); // ALON REMOVE
+      debounce(() => {
+        // console.debug(`alon: going over func`); // ALON REMOVE
+        {
+          if (isPortrait) {
+            const articleElements = panelRefs.current;
+            const viewportHeight = window.innerHeight;
+            const parentRect = parent.getBoundingClientRect();
 
-        let found = false;
-        for (let i = 0; i < articleElements.length; i++) {
-          const el = articleElements[i];
-          if (
-            el &&
-            articles &&
-            articles[i] &&
-            articles[i].attributes &&
-            articles[i].attributes.type !== "popout"
-          ) {
-            // console.debug(`alon: articles: ${articles}`); // ALON REMOVE
-            const rect = el.getBoundingClientRect();
-            // console.log(`Element ${i} rect:`, rect);
-            // Check if child is within the visible area of the parent
-            const isVisible =
-              rect.left + rect.width / 2 >= parentRect.left &&
-              rect.right - rect.width / 2 <= parentRect.right;
-            // console.debug(`alon: is ${articles[i].attributes.title} visible? ${isVisible}`); // ALON REMOVE
+            let found = false;
+            for (let i = 0; i < articleElements.length; i++) {
+              const el = articleElements[i];
+              if (
+                el &&
+                articles &&
+                articles[i] &&
+                articles[i].attributes &&
+                articles[i].attributes.type !== "popout"
+              ) {
+                const rect = el.getBoundingClientRect();
+                // Check if child is within the visible area of the parent
+                const isVisible =
+                  rect.left + rect.width / 2 >= parentRect.left &&
+                  rect.right - rect.width / 2 <= parentRect.right;
 
-            // if (rect.top >= 0 && rect.top < viewportHeight / 2) {
-            if (isVisible) {
-              console.log(`here with i ${articles[i].attributes.title}`);
-              setActiveArticleIndex(i);
-              setLastOpenedIndex(i);
+                // if (rect.top >= 0 && rect.top < viewportHeight / 2) {
+                if (isVisible) {
+                  setActiveArticleIndex(i);
+                  setLastOpenedIndex(i);
 
-              const normalizedTitle = normalizeTitle(
-                articles[i].attributes.title
-              );
-              const normalizedUrl = normalizeTitle(
-                articles[i].attributes.url_title
-              );
-              const newUrlSuffix = normalizedUrl
-                ? normalizedUrl
-                : normalizedTitle;
-              navigate(`/provocation/${newUrlSuffix}`, { replace: false });
+                  const normalizedTitle = normalizeTitle(
+                    articles[i].attributes.title
+                  );
+                  const normalizedUrl = normalizeTitle(
+                    articles[i].attributes.url_title
+                  );
+                  const newUrlSuffix = normalizedUrl
+                    ? normalizedUrl
+                    : normalizedTitle;
 
-              found = true;
-              break;
+                  navigate(`/provocation/${newUrlSuffix}`, { replace: false });
+
+                  found = true;
+                  break;
+                }
+              }
+            }
+
+            if (!found) {
+              // If no element is found in the viewport, reset the active article
+              setActiveArticleIndex(null);
+              setLastOpenedIndex(null);
             }
           }
         }
-
-        if (!found) {
-          console.debug(`alon: not found`); // ALON REMOVE
-          // If no element is found in the viewport, reset the active article
-          setActiveArticleIndex(null);
-          setLastOpenedIndex(null);
-        }
-      }
-    };
+      }, 100);
 
     const articlesDiv = document.querySelector(`.${styles.articles}`);
+
+    let foo = () => {};
+
     if (articlesDiv) {
-      articlesDiv.addEventListener("scroll", () => handleScroll(articlesDiv));
+      foo = handleScroll(articlesDiv);
+      articlesDiv.addEventListener("scroll", foo, {
+        once: false,
+      });
     }
 
     return () => {
       if (articlesDiv) {
-        articlesDiv.removeEventListener("scroll", handleScroll);
+        articlesDiv.removeEventListener("scroll", foo);
       }
     };
-  }, [isPortrait, articles, navigate, styles.articles]);
+  }, [articles]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     const touch = e.touches[0];
@@ -602,6 +586,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
+    console.debug(`alon: touch move??`); // ALON REMOVE
     const touch = e.touches[0];
     const touchStartX = Number(
       panelRefs.current[0]?.getAttribute("data-touch-start-x")
@@ -704,7 +689,6 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
         className={`${styles.nav} ${
           isNavClicked ? styles.temporaryClosed : ""
         }`}
-        // onTouchStart={handleNavDrag}
       >
         {articles.map((article, index) => (
           <div
@@ -749,8 +733,6 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
         className={`${styles.articles} ${
           isOpen ? styles.isOpen : styles.isNotOpen
         }`}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
       >
         {isPortrait
           ? articles.map((article, index) => renderArticle(article, index))
