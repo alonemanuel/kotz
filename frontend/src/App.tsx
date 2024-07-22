@@ -10,9 +10,8 @@ import KotzPage from "./KotzPage";
 import FakePage from "./FakePage";
 import CensorshipPage from "./CensorshipPage";
 import "./styles/App.css";
-import ComingSoon from "./components/ComingSoon";
-import Accordion from "./components/Accordion";
 import { initializeGA, trackPageView } from "./analytics";
+import ProvocationPage from "./ProvocationPage";
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -25,9 +24,10 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<KotzPage />} />
         <Route path="/censorship" element={<CensorshipPage />} />
+        <Route path="/provocation" element={<ProvocationPage />} />
         <Route path="/fake" element={<FakePage />} />
         <Route path="/censorship/:urlSuffix" element={<CensorshipPage />} />
-        {/* <Route path="/" element={<ComingSoon />} /> */}
+        <Route path="/provocation/:urlSuffix" element={<ProvocationPage />} />
       </Routes>
     </>
   );

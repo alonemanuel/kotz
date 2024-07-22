@@ -3,7 +3,6 @@ import * as C from "../constants";
 import LoadingComponent from "./LoadingComponent";
 import { AboutUs } from "../types/aboutUs";
 import JsonBlocksContent from "../JsonBlocksContent";
-import JsonBlocks from "./json_block/JsonBlocks";
 import bezalelImg from "../images/bezalel_logo_0.png";
 import runiImg from "../images/runi_logo_0.png";
 import KotzLogotype from "../images/kotz_logotype.svg";
@@ -50,7 +49,7 @@ const AboutComponent = () => {
           <h2>{about.subtitle}</h2>
         </header>
         <div className={styles.aboutBody}>
-          <JsonBlocksContent content={about.body} />
+          <JsonBlocksContent content={about.body} styles={styles} />
         </div>
         <div className={styles.aboutCaption}>[{about.body_caption}]</div>
       </main>

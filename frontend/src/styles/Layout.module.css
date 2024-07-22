@@ -1,8 +1,18 @@
+/* Layout.module.css */
+
 .layout {
   display: flex;
   flex-flow: row nowrap;
   height: 100vh;
   height: 100dvh;
+}
+
+.layout.provocationLayout > .layoutNav {
+  display: none;
+}
+
+.layout.provocationLayout > .kotzIcon {
+  display: none;
 }
 
 .layout .layoutNav {
@@ -42,16 +52,15 @@
     transform: none;
     letter-spacing: 1.1px;
   }
-  
+
   .layout.isOpen {
     flex-direction: row-reverse;
   }
-  
+
   .layout.isOpen .layoutNav h3 {
     display: none;
   }
 }
-
 
 .kotzIcon {
   position: fixed;
@@ -198,6 +207,16 @@
   flex-flow: row nowrap;
   height: 100vh;
   height: 100dvh;
+
+  &.provocationLayout {
+    & > .layoutNav {
+      display: none;
+    }
+
+    & > .kotzIcon {
+      display: none;
+    }
+  }
 
   & .layoutNav {
     position: static;

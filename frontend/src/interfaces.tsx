@@ -9,6 +9,7 @@ export interface ArticleAttribute {
   outside_img_vertical: any;
   outside_img_horizontal: any;
   terms: any;
+  provocation_terms: any;
   song: any;
   type: string;
   debate: any;
@@ -16,6 +17,10 @@ export interface ArticleAttribute {
   long_author_about: ContentBlock[];
   author_img: any;
   url_title: string;
+  color: string;
+  cases: any;
+  ticker_text: string;
+  tag_icon: any;
 }
 
 export interface Article {

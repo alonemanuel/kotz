@@ -10,6 +10,7 @@
   --ff-narkis-yair: "NarkisYair";
   --ff-hadassa: "Hadassa";
   --ff-greta: "Greta";
+  --ff-leon: "Leon";
 
   --fs-xl: clamp(3.5rem, 12vw + 1rem, 12rem);
   --fs-800: 9rem;
@@ -29,6 +30,9 @@
   --color-dark-green: #43885b;
 
   --typo-indent: 3em;
+
+  --ticker-height: 48px;
+  --border-size: 3px;
 
   font-size: 15px;
 
@@ -128,4 +132,11 @@ p {
 #root {
   min-height: 100vh;
   min-height: 100dvh;
+}
+
+/* Portrait */
+@media (max-aspect-ratio: 1) {
+  :root {
+    --ticker-height: 38px;
+  }
 }

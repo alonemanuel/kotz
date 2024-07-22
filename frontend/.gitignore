@@ -25,5 +25,3 @@ yarn-error.log*
 full_documentation.json
 .env
 .env.development
-src/CensorshipPage.tsx
-src/components/IssuesComponent.tsx

@@ -1,20 +1,21 @@
-import React, { useRef, useState } from "react";
-import Paragraph from "./Paragraph";
-import BoldText from "./BoldText";
-import ItalicText from "./ItalicText";
-import { ContentBlock, ContentBlockChild } from "./interfaces";
-import ArticleBodyImage from "./ArticleBodyImage";
-import styles from "./styles/CensorshipPage.module.css";
+import React from "react";
 import JsonBlocksContent from "./JsonBlocksContent";
+import { ContentBlock } from "./interfaces";
 
-const StandardContent: React.FC<{ content: ContentBlock[]; terms: any[]; song: any[]}> = ({
-  content,
-  terms,
-  song,
-}) => {
+const StandardContent: React.FC<{
+  content: ContentBlock[];
+  terms: any[];
+  song: any[];
+  styles: any;
+}> = ({ content, terms, song, styles }) => {
   return (
     <main className={styles.standard}>
-      <JsonBlocksContent content={content} terms={terms} song={song}/>
+      <JsonBlocksContent
+        content={content}
+        terms={terms}
+        song={song}
+        styles={styles}
+      />
     </main>
   );
 };
