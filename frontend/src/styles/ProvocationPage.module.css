@@ -265,7 +265,7 @@
 }
 
 /* Mobile */
-@media (max-aspect-ratio: 1) {
+@media (max-aspect-ratio: 1), (orientation: portrait) {
   .provocationPage > .bottomBar {
     position: relative;
     height: var(--ticker-height);
@@ -958,7 +958,7 @@ h3 + .provocationPage main > p {
 }
 
 /* Landscape */
-@media (min-aspect-ratio: 1) {
+@media (min-aspect-ratio: 1), (orientation: landscape) {
   .provocationPage > .bottomBar > .hamburger {
     display: none;
   }
@@ -984,7 +984,7 @@ h3 + .provocationPage main > p {
 }
 
 /* Portrait */
-@media (max-aspect-ratio: 1) {
+@media (max-aspect-ratio: 1), (orientation: portrait) {
   .provocationPage article {
     padding: 1em;
     padding-top: 4em;
@@ -1209,7 +1209,7 @@ h3 + .provocationPage main > p {
 }
 
 /* Mobile */
-@media (max-aspect-ratio: 1) {
+@media (max-aspect-ratio: 1), (orientation: portrait) {
   .provocationPage {
     & > .bottomBar {
       position: relative;
@@ -2161,7 +2161,7 @@ h3 + .provocationPage main > p {
   }
 }
 /* Landscape */
-@media (min-aspect-ratio: 1) {
+@media (min-aspect-ratio: 1), (orientation: landscape) {
   .provocationPage {
     position: static;
     width: 100vw;
@@ -2182,7 +2182,7 @@ h3 + .provocationPage main > p {
 }
 
 /* Portrait */
-@media (max-aspect-ratio: 1) {
+@media (max-aspect-ratio: 1), (orientation: portrait) {
   .provocationPage {
     & article {
       padding: 1em;
