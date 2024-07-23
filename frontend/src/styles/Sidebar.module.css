@@ -285,7 +285,7 @@
 }
 
 /* Landscape */
-@media (min-aspect-ratio: 1) {
+@media (min-aspect-ratio: 1), (orientation: landscape) {
   .outer {
     flex-direction: row;
   }
@@ -306,7 +306,7 @@
 }
 
 /* Portrait */
-@media (max-aspect-ratio: 1) {
+@media (max-aspect-ratio: 1), (orientation: portrait) {
   .outer > .homepageImages {
     display: none;
   }
@@ -712,7 +712,7 @@
 }
 
 /* Landscape */
-@media (min-aspect-ratio: 1) {
+@media (min-aspect-ratio: 1), (orientation: landscape) {
   .outer {
     flex-direction: row;
 
@@ -728,7 +728,7 @@
 }
 
 /* Portrait */
-@media (max-aspect-ratio: 1) {
+@media (max-aspect-ratio: 1), (orientation: portrait) {
   .outer {
     & > .homepageImages {
       display: none;
