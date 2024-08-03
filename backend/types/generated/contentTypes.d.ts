@@ -865,6 +865,78 @@ export interface ApiDebateDebate extends Schema.CollectionType {
   };
 }
 
+export interface ApiFakeItemFakeItem extends Schema.CollectionType {
+  collectionName: 'fake_items';
+  info: {
+    singularName: 'fake-item';
+    pluralName: 'fake-items';
+    displayName: 'Fake Item';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    subtitle: Attribute.String;
+    author: Attribute.String;
+    body: Attribute.Blocks;
+    lead: Attribute.Text;
+    author_about: Attribute.Text;
+    order: Attribute.Integer & Attribute.DefaultTo<0>;
+    long_author_about: Attribute.Blocks;
+    url_title: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::fake-item.fake-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::fake-item.fake-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFakeTermFakeTerm extends Schema.CollectionType {
+  collectionName: 'fake_terms';
+  info: {
+    singularName: 'fake-term';
+    pluralName: 'fake-terms';
+    displayName: 'Fake Term';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    definition: Attribute.Text;
+    order: Attribute.Integer & Attribute.DefaultTo<0>;
+    body: Attribute.Blocks;
+    img: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::fake-term.fake-term',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::fake-term.fake-term',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiIssueIssue extends Schema.CollectionType {
   collectionName: 'issues';
   info: {
@@ -1233,6 +1305,8 @@ declare module '@strapi/types' {
       'plugin::i18n.locale': PluginI18NLocale;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::debate.debate': ApiDebateDebate;
+      'api::fake-item.fake-item': ApiFakeItemFakeItem;
+      'api::fake-term.fake-term': ApiFakeTermFakeTerm;
       'api::issue.issue': ApiIssueIssue;
       'api::item-article.item-article': ApiItemArticleItemArticle;
       'api::poll.poll': ApiPollPoll;
