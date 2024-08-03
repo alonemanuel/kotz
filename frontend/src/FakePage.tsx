@@ -10,6 +10,7 @@ import Layout from "./Layout";
 import Questionnaire from "./questionnaire";
 import * as C from "./constants";
 import { OpenArticleProvider } from "./OpenArticleContext";
+import FakeContainer from "./components/FakeContainer";
 
 const images = [kabarImg, kabarImg, kabarImg, kabarImg, kabarImg, kabarImg];
 
@@ -46,7 +47,7 @@ const FakePage: React.FC = () => {
     <OpenArticleProvider>
       <Layout>
         <div className={styles.fakePage}>
-          <Accordion articles={articlesStrapi} terms={termsStrapi} />
+          <FakeContainer articles={articlesStrapi} terms={termsStrapi} />
         </div>
       </Layout>
     </OpenArticleProvider>
