@@ -1,5 +1,5 @@
-/* CensorshipPage.module.css */
-.censorshipPage {
+/* FakePage.module.css */
+.fakePage {
   width: 100vw;
   width: 100dvw;
   overflow: hidden;
@@ -95,7 +95,7 @@
   }
 }
 
-.censorshipPage .songs {
+.fakePage .songs {
   display: flex;
   flex-flow: column nowrap;
   background-color: var(--color-theme-foreground);
@@ -118,7 +118,7 @@
   transition: background-color 0.1s ease-out;
   transition-property: background-color, color;
 
-  .censorshipPage .songs .borderContainer {
+  .fakePage .songs .borderContainer {
     display: flex;
     flex-flow: column nowrap;
     gap: 2em;
@@ -126,7 +126,7 @@
     padding-top: 0;
   }
 
-  .censorshipPage .songs h1 {
+  .fakePage .songs h1 {
     font-family: var(--ff-hadassa);
     font-weight: 900;
     font-style: normal;
@@ -134,29 +134,29 @@
     margin: 0;
   }
 
-  .censorshipPage .songs section {
+  .fakePage .songs section {
     display: flex;
     flex-flow: column nowrap;
     gap: 1em;
     line-height: 1;
   }
-  .censorshipPage .songs section .song .separator {
+  .fakePage .songs section .song .separator {
     margin-block-end: 0.5em;
   }
 
-  .censorshipPage .songs section .song p {
+  .fakePage .songs section .song p {
     line-height: 1;
   }
-  .censorshipPage .songs section .song p + p {
+  .fakePage .songs section .song p + p {
     margin-block-start: 0.2em;
   }
 
-  .censorshipPage .songs section .song p + .separator {
+  .fakePage .songs section .song p + .separator {
     margin-block-start: 2em;
   }
 }
 
-.censorshipPage .terms {
+.fakePage .terms {
   display: flex;
   flex-flow: column nowrap;
   background-color: var(--color-dark-green);
@@ -171,7 +171,7 @@
   max-height: 40vh;
   width: 100%;
 }
-.censorshipPage .terms .borderContainer {
+.fakePage .terms .borderContainer {
   display: flex;
   flex-flow: column nowrap;
   gap: 2em;
@@ -182,7 +182,7 @@
   margin-top: 2em;
 }
 
-.censorshipPage .terms h1 {
+.fakePage .terms h1 {
   font-family: var(--ff-hadassa);
   font-weight: 900;
   font-size: 1.5rem;
@@ -191,18 +191,18 @@
   margin: 0;
 }
 
-.censorshipPage .interview .terms h1::before {
+.fakePage .interview .terms h1::before {
   content: "";
   display: none;
 }
 
-.censorshipPage .terms section {
+.fakePage .terms section {
   display: flex;
   flex-flow: column nowrap;
   gap: 1em;
   line-height: 1;
 }
-.censorshipPage .terms section .term h2 {
+.fakePage .terms section .term h2 {
   font-size: 1.5rem;
   font-weight: 900;
   display: inline;
@@ -210,7 +210,7 @@
   margin-inline-end: 0.5em;
 }
 
-.censorshipPage .terms section .term p {
+.fakePage .terms section .term p {
   display: inline;
   font-family: "Narkissim";
   font-weight: 300;
@@ -218,12 +218,12 @@
   line-height: 1;
 }
 
-.censorshipPage .terms section .term p > u {
+.fakePage .terms section .term p > u {
   text-decoration: 2px dotted underline;
   text-underline-offset: 0.2em;
 }
 
-.censorshipPage article {
+.fakePage article {
   max-width: 100%;
   padding: 2em;
   color: var(--color-theme-foreground);
@@ -240,27 +240,27 @@
   margin-block-end: 8em;
 }
 
-.censorshipPage article.poll {
+.fakePage article.poll {
   padding: 0;
   margin-block-end: 0;
 }
 
-.censorshipPage article.poll > main {
+.fakePage article.poll > main {
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
 }
-.censorshipPage article.poll > main > .polls {
+.fakePage article.poll > main > .polls {
   height: 100%;
 }
 
-.censorshipPage article main .debates {
+.fakePage article main .debates {
   position: relative;
   display: flex;
   /* margin-inline: -0.2em; */
 }
 
-.censorshipPage article main .debates .debate {
+.fakePage article main .debates .debate {
   position: absolute;
   background-color: var(--color-white);
   color: var(--color-black);
@@ -277,35 +277,35 @@
   gap: 1em;
 }
 
-.censorshipPage article main .debates .debate.active {
+.fakePage article main .debates .debate.active {
   z-index: 1;
 }
 
-.censorshipPage article main .debates .debate.active header ::after {
+.fakePage article main .debates .debate.active header ::after {
   content: "<";
 }
 
-.censorshipPage article main .debates .debate.active:active {
+.fakePage article main .debates .debate.active:active {
   transform: translate(-4px, -4px);
 }
 
-.censorshipPage article main .debates .debate:not(.active) {
+.fakePage article main .debates .debate:not(.active) {
   top: 0;
   right: 150px;
 }
-.censorshipPage article main .debates .debate:not(.active):hover {
+.fakePage article main .debates .debate:not(.active):hover {
   transform: translate(-4px, -4px);
 }
 
-.censorshipPage article main .debates .debate:not(.active):active {
+.fakePage article main .debates .debate:not(.active):active {
   transform: translate(-8px, -8px);
 }
 
-.censorshipPage article main .debates .debate:nth-child(odd) {
+.fakePage article main .debates .debate:nth-child(odd) {
   background-color: rgb(203, 203, 203);
 }
 
-.censorshipPage article main .debates .debate header {
+.fakePage article main .debates .debate header {
   display: flex;
   flex-flow: row nowrap;
   justify-content: end;
@@ -316,39 +316,39 @@
   padding-block: 0.3em 0.4em;
 }
 
-.censorshipPage article main .debates .debate header ::after {
+.fakePage article main .debates .debate header ::after {
   content: ">";
   margin-inline-start: 1em;
 }
 
-.censorshipPage article main .debates .debate header img {
+.fakePage article main .debates .debate header img {
   height: 20px;
   width: 20px;
   border-radius: 50%;
 }
 
-.censorshipPage article main .debates .debate header h1 {
+.fakePage article main .debates .debate header h1 {
   font-family: var(--ff-greta);
   font-size: var(--fs-500);
   font-weight: 600;
 }
 
-.censorshipPage article main .debates .debate main {
+.fakePage article main .debates .debate main {
   margin: 1em 0.2em;
 }
-.censorshipPage article main .debates .debate main > .start {
+.fakePage article main .debates .debate main > .start {
   display: flex;
   flex-flow: column nowrap;
   gap: 0.5em;
   align-items: flex-end;
 }
-.censorshipPage article main .debates .debate main > .start img {
+.fakePage article main .debates .debate main > .start img {
   height: 80px;
   width: 80px;
   border-radius: 50%;
 }
 
-.censorshipPage article main .debates .debate main > .start .lead {
+.fakePage article main .debates .debate main > .start .lead {
   color: var(--color-green);
   font-weight: 500;
   font-family: var(--ff-david-vc);
@@ -357,17 +357,17 @@
   margin-block-end: 2em;
 }
 
-.censorshipPage article main .debates .debate main > .start .lead .authorName {
+.fakePage article main .debates .debate main > .start .lead .authorName {
   font-family: var(--ff-greta);
   margin-inline-end: 0.5em;
   font-size: 1.15em;
 }
 
-.censorshipPage article main .debates .debate .body {
+.fakePage article main .debates .debate .body {
   color: var(--color-black);
 }
 
-.censorshipPage article .polls {
+.fakePage article .polls {
   display: flex;
   flex-flow: column nowrap;
   gap: 2em;
@@ -379,7 +379,7 @@
   position: relative;
   min-width: 20vw;
 }
-.censorshipPage article .polls > h1 {
+.fakePage article .polls > h1 {
   font-family: var(--ff-kotz-display);
   font-weight: 600;
   font-style: italic;
@@ -389,11 +389,11 @@
   margin: 0.2em;
   /* font-size: 10vw; */
 }
-.censorshipPage article .polls > h1 .altGlyph {
+.fakePage article .polls > h1 .altGlyph {
   font-feature-settings: "ss01" 1;
 }
 
-.censorshipPage article .polls main {
+.fakePage article .polls main {
   display: flex;
   flex-flow: column nowrap;
   gap: 1em;
@@ -401,7 +401,7 @@
   width: 100%;
   height: 100%;
 }
-.censorshipPage article .polls main section {
+.fakePage article .polls main section {
   background-color: var(--color-theme-foreground);
   color: var(--color-theme-background);
   border-radius: 8px;
@@ -419,13 +419,13 @@
   transition-property: background-color, color;
 }
 
-.censorshipPage article .polls main section h1 {
+.fakePage article .polls main section h1 {
   text-align: end;
   direction: ltr;
   font-size: var(--fs-400);
 }
 
-.censorshipPage article .polls main section p {
+.fakePage article .polls main section p {
   font-weight: 700;
   line-height: 1.1;
   font-family: var(--ff-david-vc);
@@ -434,23 +434,23 @@
   margin: 0;
 }
 
-.censorshipPage article header {
+.fakePage article header {
   display: flex;
   flex-flow: column nowrap;
   gap: 4em;
 }
 
-.censorshipPage article .poll header {
+.fakePage article .poll header {
   display: none;
 }
 
-.censorshipPage article header hgroup {
+.fakePage article header hgroup {
   display: flex;
   flex-flow: column nowrap;
   max-width: 99%;
   gap: 0em;
 }
-.censorshipPage article header hgroup h1 {
+.fakePage article header hgroup h1 {
   font-family: var(--ff-kotz-display);
   /* font-feature-settings: "ss01"; */
   font-size: var(--fs-800);
@@ -458,11 +458,11 @@
   color: var(--color-green);
   margin-bottom: 0.2em;
 }
-.censorshipPage article header hgroup h1.title .altGlyph {
+.fakePage article header hgroup h1.title .altGlyph {
   font-feature-settings: "ss01" 1;
 }
 
-.censorshipPage article header hgroup h2 {
+.fakePage article header hgroup h2 {
   font-family: var(--ff-narkis-yair);
   font-size: 1.5rem;
   line-height: 1.7rem;
@@ -470,21 +470,21 @@
   max-width: 450px;
 }
 
-.censorshipPage article header hgroup h3 {
+.fakePage article header hgroup h3 {
   font-family: var(--ff-narkis-yair);
   color: var(--color-green);
   font-size: 1.5rem;
 }
-.censorshipPage article header hgroup h3::before {
+.fakePage article header hgroup h3::before {
   content: ">";
   margin-inline-end: 0.5em;
 }
 
-.censorshipPage article header .lead {
+.fakePage article header .lead {
   font: var(--font-kotz-500);
 }
 
-.censorshipPage article .bodyImage {
+.fakePage article .bodyImage {
   max-width: calc(100% + 2em);
   margin: 2em 0;
   margin-inline-start: -2em;
@@ -492,12 +492,12 @@
   flex-flow: column nowrap;
   width: max-content;
 }
-.censorshipPage article .bodyImage img {
+.fakePage article .bodyImage img {
   border-radius: 4px;
   width: 100%;
 }
 
-.censorshipPage article .bodyImage footer {
+.fakePage article .bodyImage footer {
   color: var(--color-green);
   font-size: var(--fs-300);
   font-family: var(--ff-narkis-yair);
@@ -506,25 +506,25 @@
   width: 100%;
 }
 
-.censorshipPage figure {
+.fakePage figure {
   display: flex;
   flex-flow: column nowrap;
 }
-.censorshipPage figure img {
+.fakePage figure img {
   /* height: 17em; */
   /* width: auto; */
 }
 
-.censorshipPage figure figcaption {
+.fakePage figure figcaption {
   font-family: var(--ff-narkis-yair);
   font-size: var(--fs-300);
 }
 
-.censorshipPage main > .h1Spacer {
+.fakePage main > .h1Spacer {
   height: 2em;
 }
 
-.censorshipPage main > h1 {
+.fakePage main > h1 {
   margin-block: 2em 0.5em;
   color: var(--color-green);
   font-family: var(--ff-david-vc);
@@ -533,7 +533,7 @@
   letter-spacing: 1px;
 }
 
-.censorshipPage main.interview h1 {
+.fakePage main.interview h1 {
   line-height: 1em;
   font-family: var(--ff-greta);
   font-style: italic;
@@ -544,7 +544,7 @@
   margin-block-end: 0;
 }
 
-.censorshipPage main.interview h1::before {
+.fakePage main.interview h1::before {
   content: "";
   background-image: url(../images/other/paragraph-vector.svg);
   background-size: contain;
@@ -557,31 +557,31 @@
   background-position: center center;
 }
 
-.censorshipPage main > p {
+.fakePage main > p {
   font: var(--font-kotz-500);
   font-weight: 500;
   line-height: 1.77rem;
   letter-spacing: 0.7px;
   margin: 0;
 }
-.censorshipPage main > p:not(:first-child) {
+.fakePage main > p:not(:first-child) {
   text-indent: var(--typo-indent);
 }
 
-.censorshipPage main > p b {
+.fakePage main > p b {
   color: #26bd6b;
 }
 
-.censorshipPage main > p i {
+.fakePage main > p i {
   font-family: var(--ff-narkis-yair);
   font-size: 1.4rem;
 }
 
-.censorshipPage main .interview p {
+.fakePage main .interview p {
   text-indent: 0;
 }
 
-.censorshipPage main .interview p::before {
+.fakePage main .interview p::before {
   content: "";
   display: inline-block;
   height: 0.7em;
@@ -591,7 +591,7 @@
   transition: background-color 0.1s ease-out;
 }
 
-.censorshipPage main > h3 {
+.fakePage main > h3 {
   font: var(--font-kotz-500);
   font-weight: 600;
   line-height: 1.3em;
@@ -602,76 +602,76 @@
   font-size: 1.6em;
 }
 
-.censorshipPage hr {
+.fakePage hr {
   border: none;
   border-top: 2px dotted var(--color-green);
   border-bottom: none;
   margin: 2em auto;
   width: 100%;
 }
-.censorshipPage + .h1Spacer {
+.fakePage + .h1Spacer {
   height: 0;
 }
 
-.censorshipPage footer {
+.fakePage footer {
   font-family: var(--ff-narkis-yair);
   font-size: 1.4rem;
 }
-.censorshipPage footer > main {
+.fakePage footer > main {
   display: flex;
   flex-flow: row nowrap;
   gap: 1em;
 }
-.censorshipPage footer > main > .imageContainer {
+.fakePage footer > main > .imageContainer {
   flex: 1;
 }
-.censorshipPage footer > main > .imageContainer > img {
+.fakePage footer > main > .imageContainer > img {
   border-radius: 50%;
 }
 
-.censorshipPage footer > main > .textBody {
+.fakePage footer > main > .textBody {
   display: flex;
   flex-flow: column nowrap;
   flex: 4;
 }
-.censorshipPage footer > main > .textBody > h1 {
+.fakePage footer > main > .textBody > h1 {
   font-family: inherit;
   font-weight: 700;
 }
 
 /* Landscape */
 @media (min-aspect-ratio: 1), (orientation: landscape) {
-  .censorshipPage {
+  .fakePage {
     position: static;
     width: 100vw;
     height: 100vh;
     height: 100dvh;
   }
 
-  .censorshipPage article > main .debates > .debate > main {
+  .fakePage article > main .debates > .debate > main {
     margin: 1em 1.5em;
   }
 }
 
 /* Mobile */
 @media (max-aspect-ratio: 1), (orientation: portrait) {
-  .censorshipPage article {
+  .fakePage article {
     padding: 1em;
     padding-top: 4em;
     padding-inline-end: 0;
   }
-  .censorshipPage article > main {
+  .fakePage article > main {
     max-width: 60ch;
   }
 
-  .censorshipPage article .poll main {
+  .fakePage article .poll main {
     max-width: none;
   }
 
-  .censorshipPage footer > main {
+  .fakePage footer > main {
     flex-direction: column;
   }
-  .censorshipPage footer > main .imageContainer > img {
+  .fakePage footer > main .imageContainer > img {
     max-width: 30%;
   }
 }
@@ -700,7 +700,7 @@
 /* NEW CSS */
 
 /* FakePage.module.css */
-.censorshipPage {
+.fakePage {
   width: 100vw;
   width: 100dvw;
   overflow: hidden;
@@ -805,7 +805,7 @@
   }
 }
 
-.censorshipPage {
+.fakePage {
   & .songs {
     display: flex;
     flex-flow: column nowrap;
@@ -1266,21 +1266,21 @@
   }
 }
 
-.censorshipPage figure {
+.fakePage figure {
   display: flex;
   flex-flow: column nowrap;
 }
-.censorshipPage figure img {
+.fakePage figure img {
   /* height: 17em; */
   /* width: auto; */
 }
 
-.censorshipPage figure figcaption {
+.fakePage figure figcaption {
   font-family: var(--ff-narkis-yair);
   font-size: var(--fs-300);
 }
 
-.censorshipPage {
+.fakePage {
   & main {
     & > .h1Spacer {
       height: 2em;
@@ -1435,7 +1435,7 @@
 }
 /* Landscape */
 @media (min-aspect-ratio: 1) {
-  .censorshipPage {
+  .fakePage {
     position: static;
     width: 100vw;
     height: 100vh;
@@ -1456,7 +1456,7 @@
 
 /* Mobile */
 @media (max-aspect-ratio: 1) {
-  .censorshipPage {
+  .fakePage {
     & article {
       padding: 1em;
       padding-top: 4em;
