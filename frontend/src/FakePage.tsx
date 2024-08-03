@@ -19,6 +19,10 @@ const FakePage: React.FC = () => {
   const [termsStrapi, setTermsStrapi] = useState([]);
   const baseUrl = C.API_BASE_URL;
 
+  console.debug(`alon: stules: ${styles}`); // ALON REMOVE
+  console.log(styles);
+  console.debug(`alon: clasdfasdf ${styles.fakeLayout}`); // ALON REMOVE
+
   useEffect(() => {
     const fetchArticles = fetch(
       `${C.API_BASE_URL}${C.FAKE_ITEMS_ENDPOINT}?sort[0]=order:asc&populate=deep`
@@ -45,7 +49,7 @@ const FakePage: React.FC = () => {
 
   return (
     <OpenArticleProvider>
-      <Layout>
+      <Layout className={styles.fakeLayout}>
         <div className={styles.fakePage}>
           <FakeContainer articles={articlesStrapi} terms={termsStrapi} />
         </div>

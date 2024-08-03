@@ -18,6 +18,8 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children, className }) => {
+  console.debug(`alon: classname: ${className}`); // ALON REMOVE
+  
   const navigate = useNavigate();
   const handleKotzClick = () => {
     navigate("/");

@@ -16,6 +16,13 @@ const ProvocationPage: React.FC = () => {
   const [articlesStrapi, setArticlesStrapi] = useState([]);
   const [termsStrapi, setTermsStrapi] = useState([]);
 
+  
+  console.debug(`alon: stules: ${styles}`); // ALON REMOVE
+  console.log(styles);
+  console.debug(`alon: clasdfasdf ${styles.provocationLayout}`); // ALON REMOVE
+
+  
+  
   const [isHamburgerClicked, setIsHamburgerClicked] = useState(false);
 
   const hamburgerClick = () => {

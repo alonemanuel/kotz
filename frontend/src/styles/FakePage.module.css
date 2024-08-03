@@ -1,4 +1,14 @@
 /* FakePage.module.css */
+
+.alonalonalon {
+  height: 100%;
+}
+
+.fakeLayout {
+  display: none;
+}
+
+
 .fakePage {
   width: 100vw;
   width: 100dvw;
@@ -698,6 +708,10 @@
 /* NEW CSS */
 /* NEW CSS */
 /* NEW CSS */
+
+.fakeLayout {
+  display: none;
+}
 
 /* FakePage.module.css */
 .fakePage {
