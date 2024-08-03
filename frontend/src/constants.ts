@@ -7,7 +7,9 @@ export const ABOUT_US_ENDPOINT = "/about-us";
 export const ISSUES_ENDPOINT = "/issues";
 export const ITEM_ARTICLES_ENDPOINT = "/item-articles";
 export const PROVOCATION_ITEMS_ENDPOINT = "/provocation-items";
+export const FAKE_ITEMS_ENDPOINT = "/fake-items";
 export const TERMS_ENDPOINT = "/terms";
 export const PROVOCATION_TERMS_ENDPOINT = "/provocation-terms";
+export const FAKE_TERMS_ENDPOINT = "/fake-terms";
 
 export const BLOCK_PARAGRAPH = "paragraph";

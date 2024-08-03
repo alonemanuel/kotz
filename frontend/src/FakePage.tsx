@@ -20,12 +20,12 @@ const FakePage: React.FC = () => {
 
   useEffect(() => {
     const fetchArticles = fetch(
-      `${C.API_BASE_URL}${C.ITEM_ARTICLES_ENDPOINT}?sort[0]=order:asc&populate=deep`
+      `${C.API_BASE_URL}${C.FAKE_ITEMS_ENDPOINT}?sort[0]=order:asc&populate=deep`
     ).then((response: any) => {
       return response.json();
     });
     const fetchTerms = fetch(
-      `${C.API_BASE_URL}${C.TERMS_ENDPOINT}?${C.API_SORT_ASCENDING}&${C.API_POPULATE_DEEP}`
+      `${C.API_BASE_URL}${C.FAKE_TERMS_ENDPOINT}?${C.API_SORT_ASCENDING}&${C.API_POPULATE_DEEP}`
     ).then((response: any) => {
       return response.json();
     });
