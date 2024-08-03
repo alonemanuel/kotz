@@ -16,7 +16,7 @@ import kotzImg7 from "../images/kotz7.svg";
 import kotzImg8 from "../images/kotz8.svg";
 import kotzImg9 from "../images/kotz9.svg";
 
-const devPreviewIssue = 2;
+const devPreviewIssue = 3;
 const SvgPathToNode = ({ issue, index }: any) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const [viewBox, setViewBox] = useState({ x: 0, y: 0, width: 0, height: 0 });

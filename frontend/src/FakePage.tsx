@@ -1,60 +1,156 @@
-// FakePage.tsx
-import React, { useState } from "react";
-import styles from "./FakePage.module.css";
-import KotzFab from "./KotzFab";
-import kabarImg from "./images/kabar.jpg";
+// ProvocationPage.tsx
+import React, { useEffect, useState } from "react";
+import styles from "./styles/ProvocationPage.module.css";
+import sidebarStyles from "./styles/Sidebar.module.css";
 
-const images = [kabarImg, kabarImg, kabarImg, kabarImg, kabarImg, kabarImg];
+import Sidebar from "./components/Sidebar";
+import { ItemArticle } from "./types/itemArticle";
+import Layout from "./Layout";
+import * as C from "./constants";
+import { OpenArticleProvider } from "./OpenArticleContext";
+import starIcon from "./images/sandbox/starVector.svg";
+import kotzCorner from "./images/kotz_provocation.svg";
+import { useNavigate } from "react-router-dom";
 
-const FakePage: React.FC = () => {
-  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
-    null
-  );
+const ProvocationPage: React.FC = () => {
+  const [articlesStrapi, setArticlesStrapi] = useState([]);
+  const [termsStrapi, setTermsStrapi] = useState([]);
 
-  const scrollToTop = (index: number) => {
-    const element = document.querySelector(`[data-index="${index}]`);
-    element?.scrollIntoView({ behavior: "smooth", block: "start" });
+  const [isHamburgerClicked, setIsHamburgerClicked] = useState(false);
+
+  const hamburgerClick = () => {
+    setIsHamburgerClicked(!isHamburgerClicked);
   };
 
-  const handleImageClick = (index: number): void => {
-    if (index === selectedImageIndex) {
-      setSelectedImageIndex(null);
-    } else {
-      setSelectedImageIndex(index);
-    }
+  const navigate = useNavigate();
 
-    scrollToTop(index);
-    // Additional logic to scroll the clicked item to the top can be implemented here
+  useEffect(() => {
+    // Force light theme
+    document.documentElement.setAttribute("data-theme", "light");
+
+    return () => {
+      // Reset theme to the saved preference when unmounting
+      const savedTheme = localStorage.getItem("theme") || "dark";
+      document.documentElement.setAttribute("data-theme", savedTheme);
+    };
+  }, []);
+
+  useEffect(() => {
+    const fetchArticles = fetch(
+      `${C.API_BASE_URL}${C.PROVOCATION_ITEMS_ENDPOINT}?sort[0]=order:asc&populate=deep`
+    ).then((response: any) => response.json());
+
+    const fetchTerms = fetch(
+      `${C.API_BASE_URL}${C.PROVOCATION_TERMS_ENDPOINT}?${C.API_POPULATE_DEEP}`
+    ).then((response: any) => response.json());
+
+    Promise.all([fetchArticles, fetchTerms])
+      .then(([articlesData, termsData]) => {
+        setArticlesStrapi(articlesData?.data);
+        setTermsStrapi(termsData?.data);
+      })
+      .catch((error) => console.error("error fetching data", error));
+  }, []);
+
+  if (!articlesStrapi) {
+    return <div>Loading...</div>;
+  }
+
+  const handleTickerClick = (article: any) => {
+    const normalizedTitle = article.attributes.url_title
+      ?.toLowerCase()
+      .replace(/[^א-ת0-9a-z]+/g, "-");
+    navigate(`/provocation/${normalizedTitle}`, { replace: false });
   };
 
   return (
-    <div className={styles.fakePage}>
-      {images.map((imgSrc, index) => (
+    <OpenArticleProvider>
+      <Layout className={styles.provocationLayout}>
         <div
-          data-index={index}
-          key={index}
-          className={`${styles.imageBar} ${
-            selectedImageIndex === index ? styles.show : ""
+          className={`${styles.provocationPage} ${
+            isHamburgerClicked ? sidebarStyles.hamburgerClicked : ""
           }`}
-          onClick={() => handleImageClick(index)}
         >
-          <div className={styles.imgCont}>
-            <img
-              className={styles.imageImg}
-              src={imgSrc}
-              alt={`Item ${index + 1}`}
-            />
-          </div>
-          <div className={`${styles.articleContainer}`}>
-            <div className={styles.headerImage}>
-              hello image!!! very much very much
+          <Sidebar articles={articlesStrapi} terms={termsStrapi} />
+          <div className={styles.bottomBar}>
+            <div className={styles.hamburger} onClick={() => hamburgerClick()}>
+              <div className={styles.burgerWrapper}>
+                <div className={styles.bar}></div>
+                <div className={styles.bar}></div>
+                <div className={styles.bar}></div>
+              </div>
+            </div>
+            <div className={styles.details}>
+              <hgroup>
+                <h3 onClick={() => navigate("/")}>קוץ</h3>
+                <h1 onClick={() => navigate("/")}>02</h1>
+                <h2>פרובוקציה</h2>
+              </hgroup>
+            </div>
+            <div className={styles.ticker}>
+              <div className={styles.tickerContent}>
+                <div className={`${styles.tickerChild} ${styles.firstTicker}`}>
+                  {articlesStrapi.map((article: any, index: number) => (
+                    <>
+                      <span
+                        key={index}
+                        className={styles.tickerItem}
+                        onClick={() => handleTickerClick(article)}
+                      >
+                        {article.attributes.ticker_text
+                          ? article.attributes.ticker_text
+                          : article.attributes.title}
+                      </span>
+
+                      {index < articlesStrapi.length - 1 && (
+                        <span
+                          className={`${styles.tickerItem} ${styles.outerStar}`}
+                        >
+                          <img
+                            className={`${styles.starIcon}`}
+                            src={starIcon}
+                          ></img>
+                        </span>
+                      )}
+                    </>
+                  ))}
+                </div>
+                <div className={`${styles.tickerChild} ${styles.secondTicker}`}>
+                  {articlesStrapi.map((article: any, index: number) => (
+                    <>
+                      <span
+                        key={index}
+                        className={styles.tickerItem}
+                        onClick={() => handleTickerClick(article)}
+                      >
+                        {article.attributes.ticker_text
+                          ? article.attributes.ticker_text
+                          : article.attributes.title}
+                      </span>
+
+                      {index < articlesStrapi.length - 1 && (
+                        <span
+                          className={`${styles.tickerItem} ${styles.outerStar}`}
+                        >
+                          <img
+                            className={`${styles.starIcon}`}
+                            src={starIcon}
+                          ></img>
+                        </span>
+                      )}
+                    </>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className={styles.kotzContainer} onClick={() => navigate("/")}>
+              <img className={`${styles.starIcon}`} src={kotzCorner}></img>
             </div>
           </div>
         </div>
-      ))}
-      <KotzFab />
-    </div>
+      </Layout>
+    </OpenArticleProvider>
   );
 };
 
-export default FakePage;
+export default ProvocationPage;
