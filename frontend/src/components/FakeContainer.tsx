@@ -1,5 +1,5 @@
 import React, { RefObject, useEffect, useRef, useState } from "react";
-import styles from "../styles/Accordion.module.css";
+import styles from "../styles/FakeContainer.module.css";
 import fakeStyles from "../styles/FakePage.module.css";
 import { ItemArticle } from "../types/itemArticle";
 import { Article, Term } from "../interfaces";
