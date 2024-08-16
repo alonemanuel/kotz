@@ -274,20 +274,6 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                 } as React.CSSProperties
               }
             >
-              <div className={styles.bgContainer}>
-                <div
-                  className={styles.bgContent}
-                  style={
-                    attr.outside_img_vertical?.data &&
-                    attr.outside_img_horizontal?.data &&
-                    ({
-                      "--outside-img-horizontal-url": `url(${attr.outside_img_horizontal?.data?.attributes.url})`,
-                      "--outside-img-vertical-url": `url(${attr.outside_img_vertical?.data?.attributes.url})`,
-                    } as React.CSSProperties)
-                  }
-                ></div>
-                <div className={styles.bgSpacer}></div>
-              </div>
 
               {(attr.author || attr.title) && (
                 <div className={styles.textContent}>

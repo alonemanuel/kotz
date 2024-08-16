@@ -176,21 +176,15 @@
 
 .accordionContainer .accordion .textContent {
   align-items: center;
-  /* width: 100%; */
+  width: 100%;
   display: flex;
   flex-flow: row nowrap;
-  position: absolute;
-  bottom: auto;
-  left: 0;
   padding: 0.4em;
   color: var(--color-theme-foreground);
   transition: background-color 0.2s ease-out;
   transition-property: background-color, color;
 }
 
-.accordionContainer .accordion .active .textContent {
-  right: 0;
-}
 .accordionContainer .accordion .active .textContent > hr {
   border: none;
   border-top: 2px dotted var(--color-green);
@@ -247,25 +241,9 @@
     margin-left: 100%;
   }
 
-  .accordionContainer .accordion .textContent {
-    height: 100%;
-    text-align: end;
-    justify-content: end;
-    /* max-width: 90%; */
-    flex-wrap: wrap;
-  }
-  .accordionContainer .accordion .articleIsOpen .textContent {
-    /* max-width: 85%; */
-    text-align: start;
-    justify-content: start;
-  }
-
   .accordionContainer .accordion .textContent h1 {
     font-family: var(--ff-narkis-yair);
     font-size: var(--fs-400);
-
-    /* alon: why is this? */
-    /* mix-blend-mode: darken; */
     line-height: 1em;
   }
 
@@ -343,14 +321,6 @@
     left: auto;
     transition: background-color 0.1s ease-out;
     transition-property: background-color, color;
-  }
-  .accordionContainer .accordion .active .textContent {
-    position: relative;
-    color: var(--color-theme-foreground);
-  }
-
-  .accordionContainer .accordion .active .textContent h2::before {
-    content: none;
   }
 
   .accordionContainer .accordion .textContent .articleIsNotOpen h2::before {
