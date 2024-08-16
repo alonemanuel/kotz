@@ -234,35 +234,25 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
   }, [articles, isOpen]); // Rerun effect when articles changes
 
   return (
-    <>
+    <div
+      className={`${styles.fakeContainer} ${
+        isOpen ? styles.isOpen : styles.isNotOpen
+      }`}
+    >
       <div className={styles.topBar}>
         <div className={styles.issueName}>קוץ - 03 פייק</div>
         <div className={styles.kotzIcon}>icon</div>
       </div>
-      <div
-        className={`${styles.accordionContainer} ${
-          isOpen ? styles.isOpen : styles.isNotOpen
-        }`}
-      >
-        {articles.map((article, index) => {
-          const attr = article.attributes;
+      <div className={styles.bodyContainer}>
+        <div
+          className={`${styles.accordionContainer} ${
+            isOpen ? styles.isOpen : styles.isNotOpen
+          }`}
+        >
+          {articles.map((article, index) => {
+            const attr = article.attributes;
 
-          return (
-            <React.Fragment key={article.id}>
-              <div
-                ref={(el) => (panelRefs.current[index] = el)} // Assign refs to panels
-                className={`${styles.panel}  
-              ${activeIndex === index ? styles.active : ""}`}
-              >
-                <section className={styles.articleWrapper}>
-                  <ArticleComponent
-                    key={article.id}
-                    article={article}
-                    terms={terms}
-                    styles={fakeStyles}
-                  />
-                </section>
-              </div>
+            return (
               <div
                 ref={(el) => (accordionRefs.current[index] = el)} // Assign refs to accordion
                 className={`${styles.accordion}  ${
@@ -290,17 +280,45 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                   </div>
                 )}
               </div>
-            </React.Fragment>
-          );
-        })}
+            );
+          })}
+
+          <div
+            className={`${styles.toTop} ${isScrolled ? styles.scrolled : ``}`}
+            onClick={() => scrollToTop()}
+          >
+            <img className={styles.topArrow} src={topArrowImg} alt="top" />
+          </div>
+        </div>
+
         <div
-          className={`${styles.toTop} ${isScrolled ? styles.scrolled : ``}`}
-          onClick={() => scrollToTop()}
+          className={`${styles.articlesContainer} ${
+            isOpen ? styles.isOpen : styles.isNotOpen
+          }`}
         >
-          <img className={styles.topArrow} src={topArrowImg} alt="top" />
+          {articles.map((article, index) => {
+            const attr = article.attributes;
+
+            return (
+              <div
+                ref={(el) => (panelRefs.current[index] = el)} // Assign refs to panels
+                className={`${styles.panel}  
+              ${activeIndex === index ? styles.active : ""}`}
+              >
+                <section className={styles.articleWrapper}>
+                  <ArticleComponent
+                    key={article.id}
+                    article={article}
+                    terms={terms}
+                    styles={fakeStyles}
+                  />
+                </section>
+              </div>
+            );
+          })}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

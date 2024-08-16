@@ -1,10 +1,47 @@
+.fakeContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+}
+
+.fakeContainer.isOpen {
+}
+
 .topBar {
   height: 10vh;
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  background-color: #F79BA6;
+  background-color: #f79ba6;
+}
+
+.bodyContainer {
+  /* height: 100%; */
+  flex-grow: 1;
+  display: flex;
+  flex-flow: row nowrap;
+  overflow: hidden;
+}
+
+.accordionContainer {
+  background-color: green;
+  overflow: hidden;
+  /* flex-grow: ; */
+}
+
+.accordionContainer .accordion {
+  overflow: hidden;
+  /* flex-grow: ; */
+}
+
+.accordionContainer .accordion .textContent {
+  overflow: hidden;
+  /* flex-grow: ; */
+}
+
+.articlesContainer {
+  background-color: purple;
 }
 
 .topBar .issueName {
@@ -12,7 +49,7 @@
 
   display: flex;
   background-color: black;
-  color: #F79BA6;
+  color: #f79ba6;
   padding: 16px;
   font-family: var(--ff-haim-cond);
   font-size: 30px;
@@ -22,6 +59,13 @@
 
 .topBar .kotzIcon {
   width: 70px;
+}
+
+.accordionContainer.isOpen {
+}
+
+.accordionContainer.isOpen .accordion {
+  width: 15vw;
 }
 
 .accordion {
@@ -118,7 +162,6 @@
   text-decoration: underline 2px;
   text-underline-offset: 3px;
 }
-
 
 .accordionContainer {
   display: flex;

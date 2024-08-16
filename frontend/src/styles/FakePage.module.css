@@ -1,4 +1,8 @@
 /* FakePage.module.css */
+.fakePage.isOpen {
+  background-color: orange;
+}
+
 
 .alonalonalon {
   height: 100%;

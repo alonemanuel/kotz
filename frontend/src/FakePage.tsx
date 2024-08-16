@@ -11,6 +11,7 @@ import Questionnaire from "./questionnaire";
 import * as C from "./constants";
 import { OpenArticleProvider } from "./OpenArticleContext";
 import FakeContainer from "./components/FakeContainer";
+import { useOpenArticle } from "./OpenArticleContext";
 
 const images = [kabarImg, kabarImg, kabarImg, kabarImg, kabarImg, kabarImg];
 
@@ -18,6 +19,9 @@ const FakePage: React.FC = () => {
   const [articlesStrapi, setArticlesStrapi] = useState([]);
   const [termsStrapi, setTermsStrapi] = useState([]);
   const baseUrl = C.API_BASE_URL;
+
+  const { isOpen, setOpen } = useOpenArticle();
+
 
   console.debug(`alon: stules: ${styles}`); // ALON REMOVE
   console.log(styles);
@@ -47,10 +51,13 @@ const FakePage: React.FC = () => {
     return <div>Loading...</div>;
   }
 
+  setOpen(true);
+  console.debug(`alon: is open? ${isOpen}`); // ALON REMOVE
+  
   return (
     <OpenArticleProvider>
       <Layout className={styles.fakeLayout}>
-        <div className={styles.fakePage}>
+        <div className={`${styles.fakePage} ${isOpen ? styles.isOpen : ''}` }>
           <FakeContainer articles={articlesStrapi} terms={termsStrapi} />
         </div>
       </Layout>
