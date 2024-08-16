@@ -871,6 +871,7 @@ export interface ApiFakeItemFakeItem extends Schema.CollectionType {
     singularName: 'fake-item';
     pluralName: 'fake-items';
     displayName: 'Fake Item';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -885,6 +886,9 @@ export interface ApiFakeItemFakeItem extends Schema.CollectionType {
     order: Attribute.Integer & Attribute.DefaultTo<0>;
     long_author_about: Attribute.Blocks;
     url_title: Attribute.String;
+    color: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
+    icon: Attribute.Media<'images'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
