@@ -5,7 +5,7 @@
 }
 
 .fakeLayout {
-  display: none;
+  display: none !important;
 }
 
 
