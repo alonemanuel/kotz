@@ -4,7 +4,8 @@
   "info": {
     "singularName": "fake-item",
     "pluralName": "fake-items",
-    "displayName": "Fake Item"
+    "displayName": "Fake Item",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -38,6 +39,18 @@
     },
     "url_title": {
       "type": "string"
+    },
+    "color": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
