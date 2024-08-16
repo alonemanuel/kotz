@@ -1,3 +1,29 @@
+.topBar {
+  height: 10vh;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #F79BA6;
+}
+
+.topBar .issueName {
+  height: 100%;
+
+  display: flex;
+  background-color: black;
+  color: #F79BA6;
+  padding: 16px;
+  font-family: var(--ff-haim-cond);
+  font-size: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.topBar .kotzIcon {
+  width: 70px;
+}
+
 .accordion {
   background-color: var(--theme-color);
   color: black;
@@ -92,6 +118,7 @@
   text-decoration: underline 2px;
   text-underline-offset: 3px;
 }
+
 
 .accordionContainer {
   display: flex;
@@ -192,8 +219,8 @@
 }
 
 .accordionContainer .accordion .textContent h1 {
-  font-family: var(--ff-david-vc);
-  font-size: var(--fs-500);
+  font-family: var(--ff-haim-cond);
+  font-size: 14vw;
   font-weight: 700;
 }
 
@@ -237,8 +264,6 @@
   }
 
   .accordionContainer .accordion .textContent h1 {
-    font-family: var(--ff-narkis-yair);
-    font-size: var(--fs-400);
     line-height: 1em;
   }
 
@@ -277,7 +302,6 @@
     top: auto;
     display: flex;
     flex-flow: column nowrap;
-    font-size: var(--fs-400);
     max-width: 21ch;
     min-width: 15ch;
     padding-left: 3px;

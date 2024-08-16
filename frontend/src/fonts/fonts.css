@@ -139,3 +139,15 @@
   font-weight: 400;
 }
 
+@font-face {
+  font-family: "HaimCondensed";
+  src: url("./haim_hagilda/HaimG-Condensed.woff2") format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Haim";
+  src: url("./haim_hagilda/HaimG-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+

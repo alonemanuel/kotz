@@ -234,67 +234,73 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
   }, [articles, isOpen]); // Rerun effect when articles changes
 
   return (
-    <div
-      className={`${styles.accordionContainer} ${
-        isOpen ? styles.isOpen : styles.isNotOpen
-      }`}
-    >
-      {articles.map((article, index) => {
-        const attr = article.attributes;
-
-        return (
-          <React.Fragment key={article.id}>
-            <div
-              ref={(el) => (panelRefs.current[index] = el)} // Assign refs to panels
-              className={`${styles.panel}  
-          ${activeIndex === index ? styles.active : ""}`}
-            >
-              <section className={styles.articleWrapper}>
-                <ArticleComponent
-                  key={article.id}
-                  article={article}
-                  terms={terms}
-                  styles={fakeStyles}
-                />
-              </section>
-            </div>
-            <div
-              ref={(el) => (accordionRefs.current[index] = el)} // Assign refs to accordion
-              className={`${styles.accordion}  ${
-                activeIndex === index ? styles.active : ""
-              } ${isOpen ? styles.articleIsOpen : styles.articleIsNotOpen}`}
-              onClick={() => toggleAccordion(index)}
-              onMouseEnter={() => potentiallyHideKotzIcon(index)}
-              onTouchStart={() => potentiallyHideKotzIcon(index)}
-              onMouseLeave={() => showKotzIcon()}
-              style={
-                {
-                  "--theme-color": `${
-                    article.attributes.color
-                      ? article.attributes.color
-                      : "black"
-                  }`,
-                } as React.CSSProperties
-              }
-            >
-              {(attr.author || attr.title) && (
-                <div className={styles.textContent}>
-                  {attr.title && <h1>{attr.title}</h1>}
-                  {attr.author && <h2>{attr.author}</h2>}
-                  {attr.author_about && <h3>{attr.author_about}</h3>}
-                </div>
-              )}
-            </div>
-          </React.Fragment>
-        );
-      })}
-      <div
-        className={`${styles.toTop} ${isScrolled ? styles.scrolled : ``}`}
-        onClick={() => scrollToTop()}
-      >
-        <img className={styles.topArrow} src={topArrowImg} alt="top" />
+    <>
+      <div className={styles.topBar}>
+        <div className={styles.issueName}>קוץ - 03 פייק</div>
+        <div className={styles.kotzIcon}>icon</div>
       </div>
-    </div>
+      <div
+        className={`${styles.accordionContainer} ${
+          isOpen ? styles.isOpen : styles.isNotOpen
+        }`}
+      >
+        {articles.map((article, index) => {
+          const attr = article.attributes;
+
+          return (
+            <React.Fragment key={article.id}>
+              <div
+                ref={(el) => (panelRefs.current[index] = el)} // Assign refs to panels
+                className={`${styles.panel}  
+              ${activeIndex === index ? styles.active : ""}`}
+              >
+                <section className={styles.articleWrapper}>
+                  <ArticleComponent
+                    key={article.id}
+                    article={article}
+                    terms={terms}
+                    styles={fakeStyles}
+                  />
+                </section>
+              </div>
+              <div
+                ref={(el) => (accordionRefs.current[index] = el)} // Assign refs to accordion
+                className={`${styles.accordion}  ${
+                  activeIndex === index ? styles.active : ""
+                } ${isOpen ? styles.articleIsOpen : styles.articleIsNotOpen}`}
+                onClick={() => toggleAccordion(index)}
+                onMouseEnter={() => potentiallyHideKotzIcon(index)}
+                onTouchStart={() => potentiallyHideKotzIcon(index)}
+                onMouseLeave={() => showKotzIcon()}
+                style={
+                  {
+                    "--theme-color": `${
+                      article.attributes.color
+                        ? article.attributes.color
+                        : "black"
+                    }`,
+                  } as React.CSSProperties
+                }
+              >
+                {(attr.author || attr.title) && (
+                  <div className={styles.textContent}>
+                    {attr.title && <h1>{attr.title}</h1>}
+                    {attr.author && <h2>{attr.author}</h2>}
+                    {attr.author_about && <h3>{attr.author_about}</h3>}
+                  </div>
+                )}
+              </div>
+            </React.Fragment>
+          );
+        })}
+        <div
+          className={`${styles.toTop} ${isScrolled ? styles.scrolled : ``}`}
+          onClick={() => scrollToTop()}
+        >
+          <img className={styles.topArrow} src={topArrowImg} alt="top" />
+        </div>
+      </div>
+    </>
   );
 };
 
