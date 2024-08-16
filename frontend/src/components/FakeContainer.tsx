@@ -269,12 +269,14 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
               onMouseLeave={() => showKotzIcon()}
               style={
                 {
-                  "--outside-img-margin-top": `-${textContentHeights.current[index]}px`,
-                  "--outside-img-margin-left": `${textContentWidths.current[index]}px`,
+                  "--theme-color": `${
+                    article.attributes.color
+                      ? article.attributes.color
+                      : "black"
+                  }`,
                 } as React.CSSProperties
               }
             >
-
               {(attr.author || attr.title) && (
                 <div className={styles.textContent}>
                   {attr.title && <h1>{attr.title}</h1>}

@@ -1,5 +1,6 @@
 .accordion {
-  color: var(--color-theme-foreground);
+  background-color: var(--theme-color);
+  color: black;
   cursor: pointer;
   width: 100%;
   border: none;
@@ -142,9 +143,6 @@
 .accordionContainer .accordion {
   display: flex;
   position: relative;
-  color: var(--color-black);
-
-  background-color: var(--color-theme-background);
   transition: background-color 0.2s ease-out;
   transition-property: background-color, color;
 }
@@ -180,9 +178,6 @@
   display: flex;
   flex-flow: row nowrap;
   padding: 0.4em;
-  color: var(--color-theme-foreground);
-  transition: background-color 0.2s ease-out;
-  transition-property: background-color, color;
 }
 
 .accordionContainer .accordion .active .textContent > hr {
