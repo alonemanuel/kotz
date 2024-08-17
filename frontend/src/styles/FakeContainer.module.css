@@ -87,6 +87,19 @@
   padding: 0.8em;
   background-color: var(--theme-color);
   height: 100%;
+  cursor: pointer;
+}
+
+.topBarIcons .topBarIcon.active .textContent {
+  display: none;
+}
+
+.topBarIcons .topBarIcon.active .textContent {
+  display: flex;
+}
+
+.topBarIcons .topBarIcon.active .textContent h2 {
+  display: flex;
 }
 
 .topBarIcons .topBarIcon .articleIconWrapper {
