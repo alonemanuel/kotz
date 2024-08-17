@@ -450,6 +450,7 @@
   flex-flow: column nowrap;
   gap: 4em;
   position: sticky;
+  top: 0;
   color: black;
 }
 
@@ -496,6 +497,7 @@
 }
 
 .fakePage article header .lead {
+  display: none;
   font: var(--font-kotz-500);
 }
 
