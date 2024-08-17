@@ -73,12 +73,30 @@
 .topBarIcons {
   display: none;
   flex-flow: row nowrap;
-  gap: 1em;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1
+  ;
 }
 
 .topBarIcons .topBarIcon {
   display: flex;
   flex-flow: row nowrap;
+  flex-grow: 1;
+  padding: 0.8em;
+  background-color: var(--theme-color);
+  height: 100%;
+}
+
+.topBarIcons .topBarIcon .articleIconWrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  flex-grow: 1;
+}
+
+.topBarIcons .topBarIcon .articleIconWrapper .articleIcon {
+  flex-grow: 1;
 }
 
 .topBarIcons .topBarIcon .textContent h1,
