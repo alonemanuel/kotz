@@ -352,6 +352,10 @@
     height: 100%;
   }
 
+  .isOpen .accordionContainer {
+    display: none;
+  }
+
   .accordionContainer .accordion .textContent {
     flex-flow: row nowrap;
   }
