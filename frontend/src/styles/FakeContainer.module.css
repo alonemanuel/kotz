@@ -66,6 +66,27 @@
   display: none;
 }
 
+.topBarIcons {
+  display: none;
+}
+
+.topBarIcons {
+  display: none;
+  flex-flow: row nowrap;
+  gap: 1em;
+}
+
+.topBarIcons .topBarIcon {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.topBarIcons .topBarIcon .textContent h1,
+.topBarIcons .topBarIcon .textContent h2,
+.topBarIcons .topBarIcon .textContent h3 {
+  display: none;
+}
+
 .articlesContainer {
   display: flex;
   background-color: purple;
@@ -355,6 +376,10 @@
 
   .isOpen .accordionContainer {
     display: none;
+  }
+
+  .isOpen .topBarIcons {
+    display: flex;
   }
 
   .accordionContainer .accordion .textContent {

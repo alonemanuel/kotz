@@ -248,6 +248,46 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
           קוץ - 03 פייק
         </div>
         <div className={styles.kotzIcon}>icon</div>
+        <div
+          className={`${styles.topBarIcons} ${
+            isOpen ? styles.isOpen : styles.isNotOpen
+          }`}
+        >
+          {articles.map((article, index) => {
+            const attr = article.attributes;
+
+            return (
+              <div
+                ref={(el) => (accordionRefs.current[index] = el)} // Assign refs to accordion
+                className={`${styles.topBarIcon}  ${
+                  activeIndex === index ? styles.active : ""
+                } ${isOpen ? styles.articleIsOpen : styles.articleIsNotOpen}`}
+                onClick={() => toggleAccordion(index)}
+                style={
+                  {
+                    "--theme-color": `${
+                      article.attributes.color
+                        ? article.attributes.color
+                        : "black"
+                    }`,
+                  } as React.CSSProperties
+                }
+              >
+                {(attr.author || attr.title) && (
+                  <div className={styles.textContent}>
+                    {attr.title && <h1>{attr.title}</h1>}
+                    {attr.author && <h2>{attr.author}</h2>}
+                    {attr.author_about && <h3>{attr.author_about}</h3>}
+                  </div>
+                )}
+                <div className={styles.articleIconWrapper}>
+                  <img src={articleIcon} className={styles.articleIcon}></img>
+                </div>
+              </div>
+            );
+          })}
+
+        </div>
       </div>
       <div className={styles.bodyContainer}>
         <div
@@ -292,12 +332,6 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
             );
           })}
 
-          <div
-            className={`${styles.toTop} ${isScrolled ? styles.scrolled : ``}`}
-            onClick={() => scrollToTop()}
-          >
-            <img className={styles.topArrow} src={topArrowImg} alt="top" />
-          </div>
         </div>
 
         <div
@@ -332,8 +366,16 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                   />
                 </section>
               </div>
+              
             );
           })}
+          
+          {/* <div
+            className={`${styles.toTop} ${isScrolled ? styles.scrolled : ``}`}
+            onClick={() => scrollToTop()}
+          >
+            <img className={styles.topArrow} src={topArrowImg} alt="top" />
+          </div> */}
         </div>
       </div>
     </div>
