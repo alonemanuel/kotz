@@ -3,7 +3,6 @@
   background-color: orange;
 }
 
-
 .alonalonalon {
   height: 100%;
 }
@@ -11,7 +10,6 @@
 .fakeLayout {
   display: none !important;
 }
-
 
 .fakePage {
   width: 100vw;
@@ -239,16 +237,14 @@
 
 .fakePage article {
   max-width: 100%;
-  padding: 2em;
-  color: var(--color-theme-foreground);
+  color: black;
   display: flex;
   flex-flow: column nowrap;
   gap: 2em;
-  padding-top: 4em;
   cursor: default;
   min-height: 100vh;
   min-height: 100dvh;
-  background-color: var(--color-theme-background);
+  background-color: white;
   transition: background-color 0.1s ease-out;
   transition-property: background-color, color;
   margin-block-end: 8em;
@@ -449,9 +445,12 @@
 }
 
 .fakePage article header {
+  background-color: var(--theme-color);
   display: flex;
   flex-flow: column nowrap;
   gap: 4em;
+  position: sticky;
+  color: black;
 }
 
 .fakePage article .poll header {
@@ -465,12 +464,12 @@
   gap: 0em;
 }
 .fakePage article header hgroup h1 {
-  font-family: var(--ff-kotz-display);
+  font-family: var(--ff-haim);
   /* font-feature-settings: "ss01"; */
   font-size: var(--fs-800);
   line-height: 0.9em;
-  color: var(--color-green);
   margin-bottom: 0.2em;
+  color: black;
 }
 .fakePage article header hgroup h1.title .altGlyph {
   font-feature-settings: "ss01" 1;
@@ -670,8 +669,6 @@
 /* Mobile */
 @media (max-aspect-ratio: 1), (orientation: portrait) {
   .fakePage article {
-    padding: 1em;
-    padding-top: 4em;
     padding-inline-end: 0;
   }
   .fakePage article > main {

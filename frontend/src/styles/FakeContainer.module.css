@@ -26,7 +26,7 @@
 
 .accordionContainer {
   background-color: green;
-  overflow: hidden;
+  /* overflow: hidden; */
   /* flex-grow: ; */
 }
 
@@ -38,6 +38,31 @@
 .accordionContainer .accordion .textContent {
   overflow: hidden;
   /* flex-grow: ; */
+}
+
+.accordionContainer.isOpen .accordion {
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+}
+
+.accordionContainer .accordion .articleIconWrapper {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.accordionContainer .accordion .articleIconWrapper .articleIcon {
+  flex-grow: 1;
+}
+
+.accordionContainer.isOpen .accordion .articleIconWrapper {
+  display: flex;
+}
+
+.accordionContainer.isOpen .accordion .textContent {
+  display: none;
 }
 
 .articlesContainer {

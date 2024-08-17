@@ -12,6 +12,7 @@ import ArticleComponent from "../ArticleComponent";
 import { useOpenArticle } from "../OpenArticleContext";
 import userEvent from "@testing-library/user-event";
 import topArrowImg from "../images/other/up-arrow.svg";
+import articleIcon from "../images/sandbox/iconFake.png";
 
 interface AccordionProps {
   // articles: Item[];
@@ -279,6 +280,10 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                     {attr.author_about && <h3>{attr.author_about}</h3>}
                   </div>
                 )}
+                <div className={styles.articleIconWrapper}>
+                <img src ={articleIcon} className={styles.articleIcon}></img>
+
+                </div>
               </div>
             );
           })}
@@ -304,6 +309,15 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                 ref={(el) => (panelRefs.current[index] = el)} // Assign refs to panels
                 className={`${styles.panel}  
               ${activeIndex === index ? styles.active : ""}`}
+                style={
+                  {
+                    "--theme-color": `${
+                      article.attributes.color
+                        ? article.attributes.color
+                        : "black"
+                    }`,
+                  } as React.CSSProperties
+                }
               >
                 <section className={styles.articleWrapper}>
                   <ArticleComponent
