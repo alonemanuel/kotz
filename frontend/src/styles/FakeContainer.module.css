@@ -88,6 +88,8 @@
   background-color: var(--theme-color);
   height: 100%;
   cursor: pointer;
+  align-items: center;
+  justify-content: center;
 }
 
 .topBarIcons .topBarIcon.active .textContent {
@@ -100,6 +102,8 @@
 
 .topBarIcons .topBarIcon.active .textContent h2 {
   display: flex;
+  font-family: var(--ff-narkis-yair);
+  line-height: 0.9em;
 }
 
 .topBarIcons .topBarIcon .articleIconWrapper {
