@@ -241,7 +241,12 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
       }`}
     >
       <div className={styles.topBar}>
-        <div className={styles.issueName}>קוץ - 03 פייק</div>
+        <div
+          onClick={() => toggleAccordion(activeIndex ?? 0)}
+          className={styles.issueName}
+        >
+          קוץ - 03 פייק
+        </div>
         <div className={styles.kotzIcon}>icon</div>
       </div>
       <div className={styles.bodyContainer}>
@@ -281,8 +286,7 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                   </div>
                 )}
                 <div className={styles.articleIconWrapper}>
-                <img src ={articleIcon} className={styles.articleIcon}></img>
-
+                  <img src={articleIcon} className={styles.articleIcon}></img>
                 </div>
               </div>
             );

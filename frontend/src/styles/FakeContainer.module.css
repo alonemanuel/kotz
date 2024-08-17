@@ -72,7 +72,7 @@
 
 .topBar .issueName {
   height: 100%;
-
+  cursor: pointer;
   display: flex;
   background-color: black;
   color: #f79ba6;
@@ -359,7 +359,7 @@
   .accordionContainer .accordion .textContent h1 {
     font-size: 4em;
   }
-  
+
   .accordionContainer .accordion {
     flex-grow: 1;
     overflow: hidden;
