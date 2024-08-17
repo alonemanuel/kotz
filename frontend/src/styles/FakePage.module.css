@@ -458,8 +458,9 @@
 }
 
 .fakePage article header hgroup {
+  flex-flow: column-reverse nowrap;
+  padding: 1em 0.4em;
   display: flex;
-  flex-flow: column nowrap;
   max-width: 99%;
   gap: 0em;
 }
@@ -484,6 +485,7 @@
 }
 
 .fakePage article header hgroup h3 {
+  display: none;
   font-family: var(--ff-narkis-yair);
   color: var(--color-green);
   font-size: 1.5rem;
