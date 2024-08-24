@@ -339,10 +339,31 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                         ))}
                       </>
                     )}
+                    <span
+                      className={`${styles.titleWord} ${styles.titleIcon}`}
+                      onClick={() => toggleAccordion(index)}
+                      onMouseEnter={() => potentiallyHideKotzIcon(index)}
+                      onTouchStart={() => potentiallyHideKotzIcon(index)}
+                      onMouseLeave={() => showKotzIcon()}
+                      style={
+                        {
+                          "--theme-color": `${
+                            article.attributes.color
+                              ? article.attributes.color
+                              : "black"
+                          }`,
+                        } as React.CSSProperties
+                      }
+                    >
+                      <img
+                        src={articleIcon}
+                        className={styles.articleIcon}
+                      ></img>
+                    </span>
                     {attr.subtitle && (
                       <span
-                      className={`${styles.titleWord} ${styles.subtitle}`}
-                      onClick={() => toggleAccordion(index)}
+                        className={`${styles.titleWord} ${styles.subtitle}`}
+                        onClick={() => toggleAccordion(index)}
                         onMouseEnter={() => potentiallyHideKotzIcon(index)}
                         onTouchStart={() => potentiallyHideKotzIcon(index)}
                         onMouseLeave={() => showKotzIcon()}
@@ -357,8 +378,7 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                         }
                       >
                         <span className={styles.innerSubtitle}>
-                        {attr.subtitle}
-
+                          {attr.subtitle}
                         </span>
                       </span>
                     )}
