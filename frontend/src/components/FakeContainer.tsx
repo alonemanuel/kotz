@@ -310,36 +310,61 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
             const attr = article.attributes;
 
             return (
-              <div
-                ref={(el) => (accordionRefs.current[index] = el)} // Assign refs to accordion
-                className={`${styles.accordion}  ${
-                  activeIndex === index ? styles.active : ""
-                } ${isOpen ? styles.articleIsOpen : styles.articleIsNotOpen}`}
-                onClick={() => toggleAccordion(index)}
-                onMouseEnter={() => potentiallyHideKotzIcon(index)}
-                onTouchStart={() => potentiallyHideKotzIcon(index)}
-                onMouseLeave={() => showKotzIcon()}
-                style={
-                  {
-                    "--theme-color": `${
-                      article.attributes.color
-                        ? article.attributes.color
-                        : "black"
-                    }`,
-                  } as React.CSSProperties
-                }
-              >
+              <>
                 {(attr.author || attr.title) && (
-                  <div className={styles.textContent}>
-                    {attr.title && <h1>{attr.title}</h1>}
-                    {attr.subtitle && <h2>{attr.subtitle}</h2>}
-                    {attr.author_about && <h3>{attr.author_about}</h3>}
-                  </div>
+                  <>
+                    {attr.title && (
+                      // <h1>
+                      <>
+                        {attr.title.split(" ").map((word, i) => (
+                          <span
+                            className={`${styles.titleWord} ${styles.title}`}
+                            key={i}
+                            onClick={() => toggleAccordion(index)}
+                            onMouseEnter={() => potentiallyHideKotzIcon(index)}
+                            onTouchStart={() => potentiallyHideKotzIcon(index)}
+                            onMouseLeave={() => showKotzIcon()}
+                            style={
+                              {
+                                "--theme-color": `${
+                                  article.attributes.color
+                                    ? article.attributes.color
+                                    : "black"
+                                }`,
+                              } as React.CSSProperties
+                            }
+                          >
+                            {word}{" "}
+                          </span>
+                        ))}
+                      </>
+                    )}
+                    {attr.subtitle && (
+                      <span
+                      className={`${styles.titleWord} ${styles.subtitle}`}
+                      onClick={() => toggleAccordion(index)}
+                        onMouseEnter={() => potentiallyHideKotzIcon(index)}
+                        onTouchStart={() => potentiallyHideKotzIcon(index)}
+                        onMouseLeave={() => showKotzIcon()}
+                        style={
+                          {
+                            "--theme-color": `${
+                              article.attributes.color
+                                ? article.attributes.color
+                                : "black"
+                            }`,
+                          } as React.CSSProperties
+                        }
+                      >
+                        <span className={styles.innerSubtitle}>
+                        {attr.subtitle}
+
+                        </span>
+                      </span>
+                    )}
+                  </>
                 )}
-                <div className={styles.articleIconWrapper}>
-                  <img src={articleIcon} className={styles.articleIcon}></img>
-                </div>
-              </div>
+              </>
             );
           })}
         </div>

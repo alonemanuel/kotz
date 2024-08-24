@@ -4,6 +4,11 @@
   height: 100%;
 }
 
+.accordionContainer {
+  display: flex;
+  flex-flow: row wrap;
+}
+
 .fakeContainer.isOpen {
 }
 
@@ -14,6 +19,47 @@
   align-items: center;
   background-color: #e45d59;
   /* height: 10vh; */
+}
+
+.titleWord {
+  background-color: var(--theme-color);
+  display: flex;
+  flex-flow: row wrap;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 3vw;
+  line-height: 1;
+  padding: 0 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: start;
+
+  cursor: pointer;
+}
+
+.accordionContainer .title {
+  font-family: var(--ff-haim-cond), var(--ff-futura);
+  font-size: clamp(0px, min(12vw, 15vh), 100px);
+  font-weight: 400;
+  line-height: 0.4;
+  padding-block-end: 0.2em;
+  letter-spacing: -1.2px;
+}
+
+.accordionContainer .subtitle {
+  font-family: var(--ff-narkis-yair);
+  font-size: clamp(14px, min(2.2vh, 2.2vw), 18px);
+  line-height: 0.9;
+  text-wrap: balance;
+  overflow: hidden;
+}
+
+.accordionContainer .innerSubtitle {
+  max-width: 32ch;
 }
 
 .bodyContainer {
@@ -76,8 +122,7 @@
   height: 100%;
   align-items: center;
   justify-content: center;
-  flex-grow: 1
-  ;
+  flex-grow: 1;
 }
 
 .topBarIcons .topBarIcon {
@@ -136,11 +181,10 @@
   position: relative;
   cursor: pointer;
 }
-  
+
 .topBar .backArrow {
   display: none;
   height: 100%;
-
 }
 
 .topBar .backArrow img {
@@ -159,13 +203,12 @@
   right: 0;
   margin: auto;
   padding: 8px;
-
 }
 
 .isOpen .topBar .issueName {
   visibility: hidden;
 }
-  
+
 .topBar .issueName {
   height: 100%;
   cursor: pointer;
@@ -306,13 +349,6 @@
   text-underline-offset: 3px;
 }
 
-.accordionContainer {
-  display: flex;
-  flex-flow: column nowrap;
-  flex-grow: 1;
-  transition: all 0.1s ease-out;
-}
-
 .accordionContainer > .toTop {
   position: absolute;
   z-index: 3;
@@ -393,29 +429,8 @@
   padding: 0.4em;
 }
 
-.accordionContainer .accordion .active .textContent > hr {
-  border: none;
-  border-top: 2px dotted var(--color-green);
-  border-bottom: none;
-  margin: 1em auto;
-  width: 100%;
-}
 .accordionContainer .accordion .active .textContent > hr + .h1Spacer {
   height: 0;
-}
-
-.accordionContainer .accordion .textContent h1 {
-  font-family: var(--ff-haim-cond), var(--ff-futura);
-  font-size: 9vw;
-  font-weight: 400;
-}
-
-.accordionContainer .accordion .textContent h2 {
-  font-family: var(--ff-narkis-yair);
-  font-size: var(--fs-400);
-  line-height: 1;
-  max-width: 20ch;
-  overflow: hidden;
 }
 
 .accordionContainer .accordion .textContent h3 {
@@ -463,7 +478,6 @@
 /* Landscape */
 @media (min-aspect-ratio: 1), (orientation: landscape) {
   .accordionContainer {
-    flex-direction: column !important;
     display: flex;
     width: 100%;
     height: 100%;
@@ -482,6 +496,7 @@
   }
 
   .accordionContainer .accordion .textContent h1 {
+    line-height: 0.7;
     font-size: 4em;
   }
 
