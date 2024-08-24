@@ -125,6 +125,7 @@
 .articlesContainer {
   display: flex;
   background-color: purple;
+  flex-grow: 1;
 }
 
 .topBar .nameCorner {
@@ -139,6 +140,7 @@
 .topBar .backArrow {
   display: none;
   height: 100%;
+
 }
 
 .topBar .backArrow img {
@@ -248,6 +250,7 @@
   max-height: 100vh; /* Adjust as needed for your content */
   max-height: 100dvh;
   align-items: start;
+  flex-grow: 1;
 }
 
 .panel.active {
@@ -262,6 +265,7 @@
   justify-content: center;
   flex-shrink: 0;
   z-index: 2;
+  flex-grow: 1;
 }
 
 .panel section.articleWrapper aside {
@@ -542,6 +546,23 @@
     overflow-y: scroll;
     max-height: 100%;
     /* padding-inline: 16px; */
+  }
+
+  .isOpen .topBar {
+    height: 10vh;
+    max-height: 70px;
+  }
+
+  .isOpen .topBar .kotzIcon {
+    padding: 8px;
+  }
+
+  .isOpen .topBar .issueName {
+    display: none;
+  }
+
+  .isOpen .topBar .backArrow {
+    position: static;
   }
 }
 
