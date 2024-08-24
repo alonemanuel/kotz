@@ -247,7 +247,6 @@
   overflow-y: scroll;
   max-height: 100vh; /* Adjust as needed for your content */
   max-height: 100dvh;
-  max-width: 100%;
   align-items: start;
 }
 
@@ -535,13 +534,11 @@
 
   .panel {
     height: 100%;
-    max-width: 0;
     padding-inline: 0;
   }
 
   .panel.active {
     /* Adjust as needed for your content */
-    max-width: clamp(45ch, 60vw, 90ch);
     overflow-y: scroll;
     max-height: 100%;
     /* padding-inline: 16px; */
