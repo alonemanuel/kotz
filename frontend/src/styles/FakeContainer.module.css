@@ -133,6 +133,7 @@
   background-color: black;
   color: #f79ba6;
   position: relative;
+  cursor: pointer;
 }
   
 .topBar .backArrow {
@@ -199,6 +200,7 @@
   width: auto;
   height: 100%;
   padding: 12px;
+  cursor: pointer;
 }
 
 .topBar .kotzIcon img {

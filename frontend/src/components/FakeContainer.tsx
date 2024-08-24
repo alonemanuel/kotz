@@ -244,20 +244,20 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
     >
       <div className={styles.topBar}>
         <div className={styles.nameCorner}>
-          <div className={styles.backArrow}>
+          <div
+            className={styles.backArrow}
+            onClick={() => toggleAccordion(activeIndex ?? 0)}
+          >
             <img src={backArrow} />
           </div>
-          <div
-            onClick={() => toggleAccordion(activeIndex ?? 0)}
-            className={styles.issueName}
-          >
+          <div className={styles.issueName}>
             <h1>
               קוץ <span className={styles.dash}>—</span>
             </h1>
             <h2>03 פייק</h2>
           </div>
         </div>
-        <div className={styles.kotzIcon}>
+        <div className={styles.kotzIcon} onClick={() => navigate("/")}>
           <img src={fakeIcon} />
         </div>
         <div
