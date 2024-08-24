@@ -348,10 +348,8 @@
   font-family: var(--ff-narkis-yair);
   font-size: var(--fs-400);
   line-height: 1;
-}
-.accordionContainer .accordion .textContent h2::before {
-  content: ">";
-  margin-inline: 0.5em;
+  max-width: 20ch;
+  overflow: hidden;
 }
 
 .accordionContainer .accordion .textContent h3 {
@@ -385,10 +383,6 @@
 
   .accordionContainer .accordion .textContent h1 {
     line-height: 0.7em;
-  }
-
-  .accordionContainer .accordion .textContent h2 {
-    white-space: nowrap;
   }
 
   .accordionContainer .accordion .textContent h3 {

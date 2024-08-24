@@ -291,10 +291,6 @@
   z-index: 1;
 }
 
-.fakePage article main .debates .debate.active header ::after {
-  content: "<";
-}
-
 .fakePage article main .debates .debate.active:active {
   transform: translate(-4px, -4px);
 }
@@ -324,11 +320,6 @@
   border: none;
   border-bottom: 2px dotted var(--color-black);
   padding-block: 0.3em 0.4em;
-}
-
-.fakePage article main .debates .debate header ::after {
-  content: ">";
-  margin-inline-start: 1em;
 }
 
 .fakePage article main .debates .debate header img {
@@ -490,10 +481,6 @@
   font-family: var(--ff-narkis-yair);
   color: var(--color-green);
   font-size: 1.5rem;
-}
-.fakePage article header hgroup h3::before {
-  content: ">";
-  margin-inline-end: 0.5em;
 }
 
 .fakePage article header .lead {

@@ -321,7 +321,7 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                 {(attr.author || attr.title) && (
                   <div className={styles.textContent}>
                     {attr.title && <h1>{attr.title}</h1>}
-                    {attr.author && <h2>{attr.author}</h2>}
+                    {attr.subtitle && <h2>{attr.subtitle}</h2>}
                     {attr.author_about && <h3>{attr.author_about}</h3>}
                   </div>
                 )}
