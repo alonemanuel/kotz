@@ -891,6 +891,8 @@ export interface ApiFakeItemFakeItem extends Schema.CollectionType {
     icon: Attribute.Media<'images'>;
     type: Attribute.Enumeration<['standard', 'interview', 'video']> &
       Attribute.DefaultTo<'standard'>;
+    author_img: Attribute.Media<'images'>;
+    body_img: Attribute.Media<'images'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

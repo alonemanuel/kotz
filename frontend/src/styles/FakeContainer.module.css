@@ -1,0 +1,637 @@
+.fakeContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+}
+
+.fakeContainer.isOpen {
+}
+
+.topBar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e45d59;
+  /* height: 10vh; */
+}
+
+.bodyContainer {
+  /* height: 100%; */
+  flex-grow: 1;
+  display: flex;
+  flex-flow: row nowrap;
+  overflow: hidden;
+  background-color: white;
+}
+
+.accordionContainer {
+  background-color: green;
+  /* overflow: hidden; */
+  /* flex-grow: ; */
+}
+
+.accordionContainer .accordion {
+  overflow: hidden;
+  /* flex-grow: ; */
+}
+
+.accordionContainer .accordion .textContent {
+  overflow: hidden;
+  /* flex-grow: ; */
+}
+
+.accordionContainer.isOpen .accordion {
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+}
+
+.accordionContainer .accordion .articleIconWrapper {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.accordionContainer .accordion .articleIconWrapper .articleIcon {
+  flex-grow: 1;
+}
+
+.accordionContainer.isOpen .accordion .articleIconWrapper {
+  display: flex;
+}
+
+.accordionContainer.isOpen .accordion .textContent {
+  display: none;
+}
+
+.topBarIcons {
+  display: none;
+}
+
+.topBarIcons {
+  display: none;
+  flex-flow: row nowrap;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1
+  ;
+}
+
+.topBarIcons .topBarIcon {
+  display: flex;
+  flex-flow: row nowrap;
+  flex-grow: 1;
+  padding: 0.8em;
+  background-color: var(--theme-color);
+  height: 100%;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.topBarIcons .topBarIcon.active .textContent {
+  display: none;
+}
+
+.topBarIcons .topBarIcon.active .textContent {
+  display: flex;
+}
+
+.topBarIcons .topBarIcon.active .textContent h2 {
+  display: flex;
+  font-family: var(--ff-narkis-yair);
+  line-height: 0.9em;
+}
+
+.topBarIcons .topBarIcon .articleIconWrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  flex-grow: 1;
+}
+
+.topBarIcons .topBarIcon .articleIconWrapper .articleIcon {
+  flex-grow: 1;
+}
+
+.topBarIcons .topBarIcon .textContent h1,
+.topBarIcons .topBarIcon .textContent h2,
+.topBarIcons .topBarIcon .textContent h3 {
+  display: none;
+}
+
+.articlesContainer {
+  display: flex;
+  background-color: purple;
+  flex-grow: 1;
+}
+
+.topBar .nameCorner {
+  display: flex;
+  height: 100%;
+  background-color: black;
+  color: #f79ba6;
+  position: relative;
+  cursor: pointer;
+}
+  
+.topBar .backArrow {
+  display: none;
+  height: 100%;
+
+}
+
+.topBar .backArrow img {
+  height: 100%;
+  width: auto;
+}
+
+.isOpen .topBar .backArrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  padding: 8px;
+
+}
+
+.isOpen .topBar .issueName {
+  visibility: hidden;
+}
+  
+.topBar .issueName {
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  flex-flow: column nowrap;
+  font-family: var(--ff-haim-cond);
+  font-size: 30px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0.4em;
+  padding-block: 0.2em;
+  padding-inline-end: 1.2em;
+  line-height: 1.2;
+}
+
+.topBar .issueName h1 {
+  font-family: var(--ff-david-vc);
+  font-weight: 700;
+}
+
+.topBar .issueName h1 .dash {
+  font-family: var(--ff-narkis-yair);
+  font-size: 0.8em;
+  font-weight: 700;
+}
+
+.topBar .issueName h2 {
+  font-family: var(--ff-narkis-yair);
+  font-weight: 400;
+  font-size: 0.6em;
+}
+
+.topBar .kotzIcon {
+  width: auto;
+  height: 100%;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.topBar .kotzIcon img {
+  height: 100%;
+}
+
+.accordionContainer.isOpen {
+}
+
+.accordionContainer.isOpen .accordion {
+  width: 15vw;
+}
+
+.accordion {
+  background-color: var(--theme-color);
+  color: black;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  text-align: right;
+  outline: none;
+  font-size: var(--fs-600);
+  font-family: var(--ff-david-vc);
+  font-weight: 500;
+
+  flex-grow: 1;
+
+  transition: color 0.1s ease-out;
+}
+
+.accordion.active {
+  top: 0;
+  position: sticky;
+}
+
+.panel {
+  background-color: var(--color-theme-background);
+  color: var(--color-theme-foreground);
+  font-size: 20px;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  transition-property: background-color, color, max-height, max-width, padding;
+  display: none;
+  overflow-y: scroll;
+  max-height: 100vh; /* Adjust as needed for your content */
+  max-height: 100dvh;
+  align-items: start;
+  flex-grow: 1;
+}
+
+.panel.active {
+  display: flex;
+}
+
+.panel section.articleWrapper {
+  max-width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: start;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 2;
+  flex-grow: 1;
+}
+
+.panel section.articleWrapper aside {
+  background-color: #4b875c;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1em;
+  padding: 2em;
+  line-height: 1em;
+  margin-inline: -18px;
+}
+
+.panel section.articleWrapper aside h1 {
+  font: bold 1em/1em "Hadassa";
+}
+
+.panel section.articleWrapper aside main {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1em;
+  padding-inline-start: 1em;
+}
+
+.panel section.articleWrapper aside main article h1 {
+  font: bold 1em/1em "Hadassa";
+  display: inline-block;
+  margin-inline-end: 1em;
+}
+
+.panel section.articleWrapper aside main article p {
+  display: inline;
+  font: normal 0.8em "DavidVC";
+}
+.panel section.articleWrapper aside main article p a {
+  font: unset;
+  color: unset;
+  text-decoration: underline 2px;
+  text-underline-offset: 3px;
+}
+
+.accordionContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  flex-grow: 1;
+  transition: all 0.1s ease-out;
+}
+
+.accordionContainer > .toTop {
+  position: absolute;
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 20px auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-theme-foreground);
+
+  /* filter: drop-shadow(0 0 3px black); */
+  box-shadow: 0px 1px 8px 2px rgb(0 0 0 / 3%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  opacity: 0;
+  transition: all 0.1s ease-in-out;
+  pointer-events: none;
+}
+.accordionContainer .articleIsNotOpen ~ .toTop {
+  display: none;
+}
+
+.accordionContainer > .toTop.scrolled {
+  opacity: 0.5;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.accordionContainer > .toTop > .topArrow {
+  filter: none;
+  margin-block-end: 2px;
+  filter: drop-shadow(0 0 3px black);
+  /* width: 80%; */
+}
+
+.accordionContainer .accordion {
+  display: flex;
+  position: relative;
+  transition: background-color 0.2s ease-out;
+  transition-property: background-color, color;
+}
+.accordionContainer .accordion:hover .bgContent {
+  margin-left: var(--outside-img-margin-left, 400px);
+  margin-top: auto;
+}
+
+.accordionContainer .accordion .bgContent {
+  position: absolute;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  background-image: var(
+    --outside-img-horizontal-url,
+    url(../images/tiger0.png)
+  );
+
+  height: 100%;
+  width: 100%;
+  flex-grow: 1;
+  left: 0;
+
+  z-index: 1;
+
+  transition: all 0.25s ease-out;
+}
+
+.accordionContainer .accordion .textContent {
+  align-items: center;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 0.4em;
+}
+
+.accordionContainer .accordion .active .textContent > hr {
+  border: none;
+  border-top: 2px dotted var(--color-green);
+  border-bottom: none;
+  margin: 1em auto;
+  width: 100%;
+}
+.accordionContainer .accordion .active .textContent > hr + .h1Spacer {
+  height: 0;
+}
+
+.accordionContainer .accordion .textContent h1 {
+  font-family: var(--ff-haim-cond), var(--ff-futura);
+  font-size: 9vw;
+  font-weight: 400;
+}
+
+.accordionContainer .accordion .textContent h2 {
+  font-family: var(--ff-narkis-yair);
+  font-size: var(--fs-400);
+  line-height: 1;
+  max-width: 20ch;
+  overflow: hidden;
+}
+
+.accordionContainer .accordion .textContent h3 {
+  color: var(--color-green);
+  font-family: var(--ff-narkis-yair);
+  font-size: var(--fs-400);
+  line-height: 1.1;
+  display: none;
+}
+
+/* Portrait */
+@media (max-aspect-ratio: 1), (orientation: portrait) {
+  .accordionContainer .accordion {
+    overflow: auto;
+  }
+  .accordionContainer.active .accordion {
+    color: var(--color-theme-foreground);
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    height: 2.5em;
+    overflow: visible;
+  }
+  .accordionContainer.articleIsOpen:not(.active) .accordion {
+    display: none;
+  }
+
+  .accordionContainer .accordion .active .bgContent {
+    margin-left: 100%;
+  }
+
+  .accordionContainer .accordion .textContent h1 {
+    line-height: 0.7em;
+  }
+
+  .accordionContainer .accordion .textContent h3 {
+    display: none;
+  }
+
+  .accordionContainer .accordion .textContent > hr {
+    display: none;
+  }
+}
+
+/* Landscape */
+@media (min-aspect-ratio: 1), (orientation: landscape) {
+  .accordionContainer {
+    flex-direction: column !important;
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+
+  .isOpen .accordionContainer {
+    display: none;
+  }
+
+  .isOpen .topBarIcons {
+    display: flex;
+  }
+
+  .accordionContainer .accordion .textContent {
+    flex-flow: row nowrap;
+  }
+
+  .accordionContainer .accordion .textContent h1 {
+    font-size: 4em;
+  }
+
+  .accordionContainer .accordion {
+    flex-grow: 1;
+    overflow: hidden;
+    height: 100%;
+    width: auto;
+    writing-mode: sideways-lr;
+    /* color: transparent; */
+  }
+
+  .accordionContainer.active .accordion {
+    top: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    max-width: 21ch;
+    min-width: 15ch;
+    padding-left: 3px;
+  }
+
+  .accordionContainer .accordion:hover .bgContent {
+    margin-left: auto;
+  }
+
+  .accordionContainer .accordion:hover .isNotOpen .bgContent {
+    margin-top: var(--outside-img-margin-top, 0px);
+  }
+
+  .accordionContainer .accordion:hover .isOpen .bgContent {
+    margin-top: var(--outside-img-margin-top, 0px);
+  }
+
+  .accordionContainer .accordion .bgContent {
+    background-image: var(
+      --outside-img-vertical-url,
+      url(../images/tiger0.png)
+    );
+  }
+
+  .accordionContainer .accordion .active .bgContent {
+    position: relative;
+    max-height: 37%;
+    /* width: auto; */
+  }
+
+  .accordionContainer .accordion .textContent .articleIsNotOpen h2::before {
+    margin-inline-start: 0;
+  }
+
+  .accordionContainer .accordion .textContent .isOpen h3 {
+    display: unset;
+  }
+
+  .panel {
+    height: 100%;
+    padding-inline: 0;
+  }
+
+  .panel.active {
+    /* Adjust as needed for your content */
+    overflow-y: scroll;
+    max-height: 100%;
+    /* padding-inline: 16px; */
+  }
+
+  .isOpen .topBar {
+    height: 10vh;
+    max-height: 70px;
+  }
+
+  .isOpen .topBar .kotzIcon {
+    padding: 8px ;
+  }
+
+  .isOpen .topBar .issueName {
+    display: none;
+  }
+
+  .isOpen .topBar .backArrow {
+    position: static;
+  }
+}
+
+/* No Hover */
+/* Portrait */
+.touch .accordionContainer > .accordion.articleIsNotOpen:hover .bgContent {
+  margin-left: auto;
+}
+
+.touch .accordionContainer > .accordion > .bgContainer {
+  white-space: nowrap;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: end;
+  z-index: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.touch .accordionContainer > .accordion > .bgContainer > .bgSpacer {
+  display: inline-block;
+  height: 100%;
+  width: 90%;
+  .active & {
+    display: none;
+  }
+}
+
+.touch .accordionContainer > .accordion > .bgContainer > .bgContent {
+  /* position: absolute; */
+  position: static;
+  display: inline-block !important;
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  background-image: var(
+    --outside-img-horizontal-url,
+    url(../images/tiger0.png)
+  );
+
+  height: 100%;
+  width: 100%;
+  flex-grow: 1;
+  left: 0;
+
+  z-index: 1;
+
+  transition: all 0.25s ease-out;
+}
+
+.touch .accordionContainer > .accordion > .active .bgContainer {
+  position: absolute;
+}
+
+/* Landscape */
+@media (min-aspect-ratio: 1), (orientation: landscape) {
+  .touch .accordionContainer > .accordion.articleIsNotOpen:active .bgContent {
+    margin-top: auto;
+  }
+  .touch .accordionContainer > .accordion > .bgContainer {
+    white-space: normal;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .touch .accordionContainer > .accordion > .bgContainer > .bgSpacer {
+    width: 100%;
+    height: 80%;
+  }
+}
