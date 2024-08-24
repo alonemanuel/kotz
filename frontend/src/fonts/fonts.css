@@ -157,3 +157,9 @@
   font-weight: 400;
 }
 
+@font-face {
+  font-family: "Futura";
+  src: url("./futura/FuturaStd-CondensedBold.woff2") format("woff2");
+  font-weight: 400;
+}
+
