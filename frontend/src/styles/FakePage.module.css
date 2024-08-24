@@ -460,7 +460,7 @@
   font-family: var(--ff-haim);
   /* font-feature-settings: "ss01"; */
   font-size: var(--fs-800);
-  line-height: 0.9em;
+  line-height: 0.8em;
   margin-bottom: 0.2em;
   color: black;
 }
@@ -581,7 +581,8 @@
 }
 
 .fakePage main > p b {
-  color: #26bd6b;
+  background-color: var(--theme-color);
+  font-weight: 700;
 }
 
 .fakePage main > p i {
@@ -615,11 +616,7 @@
 }
 
 .fakePage hr {
-  border: none;
-  border-top: 2px dotted var(--color-green);
-  border-bottom: none;
-  margin: 2em auto;
-  width: 100%;
+  display: none;
 }
 .fakePage + .h1Spacer {
   height: 0;
