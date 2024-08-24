@@ -476,6 +476,14 @@
   max-width: 450px;
 }
 
+.fakePage article header hgroup h2::before {
+  content: "[ ";
+}
+
+.fakePage article header hgroup h2::after {
+  content: " ]";
+}
+
 .fakePage article header hgroup h3 {
   display: none;
   font-family: var(--ff-narkis-yair);
