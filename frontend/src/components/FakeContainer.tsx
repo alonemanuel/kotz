@@ -14,6 +14,7 @@ import userEvent from "@testing-library/user-event";
 import topArrowImg from "../images/other/up-arrow.svg";
 import articleIcon from "../images/sandbox/iconFake.png";
 import fakeIcon from "../images/fake-icon.png";
+import backArrow from "../images/back-arrow.png";
 
 interface AccordionProps {
   // articles: Item[];
@@ -242,14 +243,19 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
       }`}
     >
       <div className={styles.topBar}>
-        <div
-          onClick={() => toggleAccordion(activeIndex ?? 0)}
-          className={styles.issueName}
-        >
-          <h1>
-            קוץ <span className={styles.dash}>—</span>
-          </h1>
-          <h2>03 פייק</h2>
+        <div className={styles.nameCorner}>
+          <div className={styles.backArrow}>
+            <img src={backArrow} />
+          </div>
+          <div
+            onClick={() => toggleAccordion(activeIndex ?? 0)}
+            className={styles.issueName}
+          >
+            <h1>
+              קוץ <span className={styles.dash}>—</span>
+            </h1>
+            <h2>03 פייק</h2>
+          </div>
         </div>
         <div className={styles.kotzIcon}>
           <img src={fakeIcon} />

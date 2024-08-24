@@ -13,6 +13,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: #e45d59;
+  /* height: 10vh; */
 }
 
 .bodyContainer {
@@ -126,13 +127,47 @@
   background-color: purple;
 }
 
+.topBar .nameCorner {
+  display: flex;
+  height: 100%;
+  background-color: black;
+  color: #f79ba6;
+  position: relative;
+}
+  
+.topBar .backArrow {
+  display: none;
+  height: 100%;
+}
+
+.topBar .backArrow img {
+  height: 100%;
+  width: auto;
+}
+
+.isOpen .topBar .backArrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  padding: 8px;
+
+}
+
+.isOpen .topBar .issueName {
+  visibility: hidden;
+}
+  
 .topBar .issueName {
   height: 100%;
   cursor: pointer;
   display: flex;
   flex-flow: column nowrap;
-  background-color: black;
-  color: #f79ba6;
   font-family: var(--ff-haim-cond);
   font-size: 30px;
   justify-content: center;
