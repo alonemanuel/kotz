@@ -43,7 +43,7 @@
 
 .accordionContainer .title {
   font-family: var(--ff-haim-cond), var(--ff-futura);
-  font-size: clamp(0px, min(12vw, 15vh), 100px);
+  font-size: clamp(0px, min(9vw, 14vh), 100px);
   font-weight: 400;
   line-height: 0.4;
   padding-block-end: 0.2em;
