@@ -340,8 +340,8 @@
 
 .accordionContainer .accordion .textContent h1 {
   font-family: var(--ff-haim-cond);
-  font-size: 14vw;
-  font-weight: 700;
+  font-size: 9vw;
+  font-weight: 400;
 }
 
 .accordionContainer .accordion .textContent h2 {

@@ -151,3 +151,9 @@
   font-weight: 400;
 }
 
+@font-face {
+  font-family: "HaimTzar";
+  src: url("./haim_vc/VC_Haim-Tzar.woff2") format("woff2");
+  font-weight: 400;
+}
+
