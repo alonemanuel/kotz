@@ -8,12 +8,11 @@
 }
 
 .topBar {
-  height: 10vh;
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  background-color: #f79ba6;
+  background-color: #e45d59;
 }
 
 .bodyContainer {
@@ -131,17 +130,44 @@
   height: 100%;
   cursor: pointer;
   display: flex;
+  flex-flow: column nowrap;
   background-color: black;
   color: #f79ba6;
-  padding: 16px;
   font-family: var(--ff-haim-cond);
   font-size: 30px;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding: 0.4em;
+  padding-block: 0.2em;
+  padding-inline-end: 1.2em;
+  line-height: 1.2;
+}
+
+.topBar .issueName h1 {
+  font-family: var(--ff-david-vc);
+  font-weight: 700;
+}
+
+.topBar .issueName h1 .dash {
+  font-family: var(--ff-narkis-yair);
+  font-size: 0.8em;
+  font-weight: 700;
+}
+
+.topBar .issueName h2 {
+  font-family: var(--ff-narkis-yair);
+  font-weight: 400;
+  font-size: 0.6em;
 }
 
 .topBar .kotzIcon {
-  width: 70px;
+  width: auto;
+  height: 100%;
+  padding: 12px;
+}
+
+.topBar .kotzIcon img {
+  height: 100%;
 }
 
 .accordionContainer.isOpen {

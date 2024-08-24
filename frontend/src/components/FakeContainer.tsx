@@ -13,6 +13,7 @@ import { useOpenArticle } from "../OpenArticleContext";
 import userEvent from "@testing-library/user-event";
 import topArrowImg from "../images/other/up-arrow.svg";
 import articleIcon from "../images/sandbox/iconFake.png";
+import fakeIcon from "../images/fake-icon.png";
 
 interface AccordionProps {
   // articles: Item[];
@@ -245,9 +246,14 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
           onClick={() => toggleAccordion(activeIndex ?? 0)}
           className={styles.issueName}
         >
-          קוץ - 03 פייק
+          <h1>
+            קוץ <span className={styles.dash}>—</span>
+          </h1>
+          <h2>03 פייק</h2>
         </div>
-        <div className={styles.kotzIcon}>icon</div>
+        <div className={styles.kotzIcon}>
+          <img src={fakeIcon} />
+        </div>
         <div
           className={`${styles.topBarIcons} ${
             isOpen ? styles.isOpen : styles.isNotOpen
@@ -286,7 +292,6 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
               </div>
             );
           })}
-
         </div>
       </div>
       <div className={styles.bodyContainer}>
@@ -331,7 +336,6 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
               </div>
             );
           })}
-
         </div>
 
         <div
@@ -366,10 +370,9 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                   />
                 </section>
               </div>
-              
             );
           })}
-          
+
           {/* <div
             className={`${styles.toTop} ${isScrolled ? styles.scrolled : ``}`}
             onClick={() => scrollToTop()}
