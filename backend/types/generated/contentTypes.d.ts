@@ -889,6 +889,8 @@ export interface ApiFakeItemFakeItem extends Schema.CollectionType {
     color: Attribute.String &
       Attribute.CustomField<'plugin::color-picker.color'>;
     icon: Attribute.Media<'images'>;
+    type: Attribute.Enumeration<['standard', 'interview', 'video']> &
+      Attribute.DefaultTo<'standard'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -46,11 +46,21 @@
       "customField": "plugin::color-picker.color"
     },
     "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
+      ]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "standard",
+        "interview",
+        "video"
       ],
-      "type": "media",
-      "multiple": false
+      "default": "standard"
     }
   }
 }
