@@ -107,67 +107,6 @@
   }
 }
 
-.fakePage .songs {
-  display: flex;
-  flex-flow: column nowrap;
-  background-color: var(--color-theme-foreground);
-  color: var(--color-theme-background);
-  font-family: var(--ff-narkis-yair);
-  padding: 0 2em;
-
-  margin: 2em 0;
-  margin-inline-start: -2em;
-  position: relative;
-  overflow: auto;
-  max-height: 40vh;
-  width: 100%;
-
-  background-image: url(../images/other/song_bg.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-
-  transition: background-color 0.1s ease-out;
-  transition-property: background-color, color;
-
-  .fakePage .songs .borderContainer {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 2em;
-    padding: 2em 1em;
-    padding-top: 0;
-  }
-
-  .fakePage .songs h1 {
-    font-family: var(--ff-hadassa);
-    font-weight: 900;
-    font-style: normal;
-    color: var(--color-black);
-    margin: 0;
-  }
-
-  .fakePage .songs section {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 1em;
-    line-height: 1;
-  }
-  .fakePage .songs section .song .separator {
-    margin-block-end: 0.5em;
-  }
-
-  .fakePage .songs section .song p {
-    line-height: 1;
-  }
-  .fakePage .songs section .song p + p {
-    margin-block-start: 0.2em;
-  }
-
-  .fakePage .songs section .song p + .separator {
-    margin-block-start: 2em;
-  }
-}
-
 .fakePage .terms {
   display: flex;
   flex-flow: column nowrap;
@@ -272,7 +211,7 @@
 .fakePage article header hgroup h1 {
   font-family: var(--ff-haim);
   /* font-feature-settings: "ss01"; */
-  font-size: 6em;
+  font-size: clamp(3em, min(10vw, 12vh), 25em);
   line-height: 0.8em;
   color: black;
 }
