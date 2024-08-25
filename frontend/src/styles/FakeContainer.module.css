@@ -58,8 +58,17 @@
   overflow: hidden;
 }
 
+
+
 .accordionContainer .innerSubtitle {
   max-width: 32ch;
+}
+
+@media (max-aspect-ratio: 1), (orientation: portrait) {
+  .accordionContainer .innerSubtitle {
+    max-width: 23ch;
+  }
+  
 }
 
 .accordionContainer .titleIcon {
