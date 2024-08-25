@@ -454,6 +454,7 @@
   .accordionContainer .accordion {
     overflow: auto;
   }
+
   .accordionContainer.active .accordion {
     color: var(--color-theme-foreground);
     position: absolute;
@@ -462,6 +463,37 @@
     height: 2.5em;
     overflow: visible;
   }
+  
+  .accordionContainer.isOpen {
+    flex-flow: column nowrap;
+  }
+
+  .accordionContainer .accordion {
+    display: none;
+  }
+
+  .accordionContainer.isOpen .accordion {
+    display: flex;
+    padding: 8px;
+    overflow: hidden;
+  }
+    
+  
+  .accordionContainer.isOpen .titleWord {
+    display: none;
+  }
+
+  .accordionContainer.isOpen .articleIconWrapper {
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .accordionContainer.isOpen .articleIconWrapper .articleIcon {
+    flex-grow: 0;
+    height: 100%;
+  }
+  
+  
   .accordionContainer.articleIsOpen:not(.active) .accordion {
     display: none;
   }
