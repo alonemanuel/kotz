@@ -21,6 +21,7 @@ export interface ArticleAttribute {
   cases: any;
   ticker_text: string;
   tag_icon: any;
+  icon: any;
 }
 
 export interface Article {

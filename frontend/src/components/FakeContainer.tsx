@@ -293,7 +293,14 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                   </div>
                 )}
                 <div className={styles.articleIconWrapper}>
-                  <img src={articleIcon} className={styles.articleIcon}></img>
+                  <img
+                    src={
+                      article.attributes.icon?.data
+                        ? article.attributes.icon?.data?.attributes.url
+                        : articleIcon
+                    }
+                    className={styles.articleIcon}
+                  ></img>
                 </div>
               </div>
             );
@@ -331,7 +338,14 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                   }
                 >
                   <div className={styles.articleIconWrapper}>
-                    <img src={articleIcon} className={styles.articleIcon}></img>
+                    <img
+                      src={
+                        article.attributes.icon?.data
+                          ? article.attributes.icon?.data?.attributes.url
+                          : articleIcon
+                      }
+                      className={styles.articleIcon}
+                    ></img>
                   </div>
                 </div>
 
@@ -385,7 +399,11 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                         }
                       >
                         <img
-                          src={articleIcon}
+                          src={
+                            article.attributes.icon?.data
+                              ? article.attributes.icon?.data?.attributes.url
+                              : articleIcon
+                          }
                           className={styles.articleIcon}
                         ></img>
                       </span>
