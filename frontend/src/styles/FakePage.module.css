@@ -186,7 +186,7 @@
   background-color: white;
   transition: background-color 0.1s ease-out;
   transition-property: background-color, color;
-  margin-block-end: 8em;
+  padding-block-end: 8em;
   width: 100%;
   flex-grow: 1;
 }
@@ -380,19 +380,24 @@
 .fakePage footer > main {
   display: flex;
   flex-flow: row nowrap;
-  gap: 1em;
+  /* gap: 1em; */
+  background-color: var(--theme-color);
+  margin: 40px clamp(0px, 14vw, 180px);
+  margin-inline-end: 0;
+  padding: 2em 1em;
 }
 .fakePage footer > main > .imageContainer {
-  flex: 1;
+  flex-shrink: 0;
+  margin-inline-end: 1em;
 }
 .fakePage footer > main > .imageContainer > img {
-  border-radius: 50%;
 }
 
 .fakePage footer > main > .textBody {
   display: flex;
   flex-flow: column nowrap;
   flex: 4;
+  max-width: 56ch;
 }
 .fakePage footer > main > .textBody > h1 {
   font-family: inherit;
