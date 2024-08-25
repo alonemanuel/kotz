@@ -68,8 +68,6 @@
   flex-grow: 1;
 }
 
-
-
 .bodyContainer {
   /* height: 100%; */
   flex-grow: 1;
@@ -448,6 +446,9 @@
   line-height: 1.1;
   display: none;
 }
+.accordionContainer .accordion {
+  display: none;
+}
 
 /* Portrait */
 @media (max-aspect-ratio: 1), (orientation: portrait) {
@@ -463,13 +464,9 @@
     height: 2.5em;
     overflow: visible;
   }
-  
+
   .accordionContainer.isOpen {
     flex-flow: column nowrap;
-  }
-
-  .accordionContainer .accordion {
-    display: none;
   }
 
   .accordionContainer.isOpen .accordion {
@@ -477,8 +474,7 @@
     padding: 8px;
     overflow: hidden;
   }
-    
-  
+
   .accordionContainer.isOpen .titleWord {
     display: none;
   }
@@ -487,13 +483,12 @@
     height: 100%;
     overflow: hidden;
   }
-  
+
   .accordionContainer.isOpen .articleIconWrapper .articleIcon {
     flex-grow: 0;
     height: 100%;
   }
-  
-  
+
   .accordionContainer.articleIsOpen:not(.active) .accordion {
     display: none;
   }
