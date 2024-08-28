@@ -289,9 +289,11 @@
 
 .fakePage main > h1 {
   margin-block: 2em 0.5em;
-  color: var(--color-green);
-  font-family: var(--ff-david-vc);
-  font-style: italic;
+  color: black;
+  background-color: var(--theme-color);
+  width: max-content;
+  padding-inline: 8px;
+  font-family: var(--ff-narkis-yair);
   font-size: 1.58rem; /* var(--fs-600); */
   letter-spacing: 1px;
 }
