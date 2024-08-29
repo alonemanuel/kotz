@@ -387,6 +387,7 @@
   margin: 40px clamp(0px, 14vw, 180px);
   margin-inline-end: 0;
   padding: 2em 1em;
+  justify-content: flex-end;
 }
 .fakePage footer > main > .imageContainer {
   flex-shrink: 0;
