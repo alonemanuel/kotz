@@ -309,6 +309,18 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
             isOpen ? styles.isOpen : styles.isNotOpen
           }`}
         >
+          <div className={`${styles.issueName} ${styles.titleWord}`}>
+            <h1>
+              קוץ <span className={styles.dash}>—</span>
+            </h1>
+            <h2>03 פייק</h2>
+          </div>
+          <div
+            className={`${styles.kotzIcon} ${styles.titleWord}`}
+            onClick={() => navigate("/")}
+          >
+            <img src={fakeIcon} />
+          </div>
           {articles.map((article, index) => {
             const attr = article.attributes;
 
@@ -429,7 +441,9 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                                   ? article.attributes.color
                                   : "black"
                               }`,
-                              "--max-chars": `${Math.ceil(attr.subtitle.length / 2.8)}ch`,
+                              "--max-chars": `${Math.ceil(
+                                attr.subtitle.length / 2.8
+                              )}ch`,
                             } as React.CSSProperties
                           }
                         >
