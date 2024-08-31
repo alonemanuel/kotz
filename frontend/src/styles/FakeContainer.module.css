@@ -74,8 +74,8 @@
 .accordionContainer .titleIcon {
   /* height: 100%; */
   width: 8vw;
-  max-width: 60px;
-  min-width: 30px;
+  max-width: 80px;
+  min-width: 50px;
   flex-grow: 0;
 }
 
