@@ -423,10 +423,26 @@
 }
 
 .videoFooter {
-  min-height: 40px;
+  /* min-height: 40px; */
   width: 100%;
   background-color: var(--theme-color);
   flex-grow: 1;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.videoFooter *:first-child {
+  font-family: var(--ff-haim-cond);
+  font-size: 86px;
+  line-height: 0.5;
+  padding-bottom: 0.15em;
+}
+
+.videoFooter *:last-child {
+  font-family: var(--ff-narkis-yair);
 }
 
 .videoContainer {
@@ -472,5 +488,3 @@
     max-width: 30%;
   }
 }
-
-

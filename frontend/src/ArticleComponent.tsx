@@ -133,7 +133,12 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
               );
             case "video":
               // return <VideoContent content={attr?.video_url} />;
-              return <VideoContent content={'https://www.youtube.com/embed/VOkSFZuP3qs'} />;
+              return (
+                <VideoContent
+                  body={attr?.body}
+                  videoUrl={"https://www.youtube.com/embed/VOkSFZuP3qs"}
+                />
+              );
           }
         }
       })()}
