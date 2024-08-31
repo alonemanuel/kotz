@@ -202,20 +202,6 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
     return title?.toLowerCase().replace(/[^א-ת0-9a-z]+/g, "-");
   };
 
-  const potentiallyHideKotzIcon = (index: number) => {
-    const ARTICLES_HIDDEN_BY_KOTZ_ICON = 2;
-    if (index >= articles.length - ARTICLES_HIDDEN_BY_KOTZ_ICON) {
-      // Make kotz icon opacity 0 when clicking the last two articles
-      document.documentElement.setAttribute("kotz-icon-is-hiding", "true");
-    } else {
-      document.documentElement.setAttribute("kotz-icon-is-hiding", "false");
-    }
-  };
-
-  const showKotzIcon = () => {
-    document.documentElement.setAttribute("kotz-icon-is-hiding", "false");
-  };
-
   useEffect(() => {
     if (!isOpen) {
       setActiveIndex(null);
@@ -324,9 +310,6 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                     activeIndex === index ? styles.active : ""
                   } ${isOpen ? styles.articleIsOpen : styles.articleIsNotOpen}`}
                   onClick={() => toggleAccordion(index)}
-                  onMouseEnter={() => potentiallyHideKotzIcon(index)}
-                  onTouchStart={() => potentiallyHideKotzIcon(index)}
-                  onMouseLeave={() => showKotzIcon()}
                   style={
                     {
                       "--theme-color": `${
@@ -366,13 +349,6 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                                     className={`${styles.titleWord} ${styles.title}`}
                                     key={i}
                                     onClick={() => toggleAccordion(index)}
-                                    onMouseEnter={() =>
-                                      potentiallyHideKotzIcon(index)
-                                    }
-                                    onTouchStart={() =>
-                                      potentiallyHideKotzIcon(index)
-                                    }
-                                    onMouseLeave={() => showKotzIcon()}
                                     style={
                                       {
                                         "--theme-color": `${
@@ -391,13 +367,6 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                                   className={`${styles.titleWord} ${styles.title}`}
                                   key={i}
                                   onClick={() => toggleAccordion(index)}
-                                  onMouseEnter={() =>
-                                    potentiallyHideKotzIcon(index)
-                                  }
-                                  onTouchStart={() =>
-                                    potentiallyHideKotzIcon(index)
-                                  }
-                                  onMouseLeave={() => showKotzIcon()}
                                   style={
                                     {
                                       "--theme-color": `${
@@ -416,9 +385,6 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                       <span
                         className={`${styles.titleWord} ${styles.titleIcon}`}
                         onClick={() => toggleAccordion(index)}
-                        onMouseEnter={() => potentiallyHideKotzIcon(index)}
-                        onTouchStart={() => potentiallyHideKotzIcon(index)}
-                        onMouseLeave={() => showKotzIcon()}
                         style={
                           {
                             "--theme-color": `${
@@ -442,9 +408,6 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                         <span
                           className={`${styles.titleWord} ${styles.subtitle}`}
                           onClick={() => toggleAccordion(index)}
-                          onMouseEnter={() => potentiallyHideKotzIcon(index)}
-                          onTouchStart={() => potentiallyHideKotzIcon(index)}
-                          onMouseLeave={() => showKotzIcon()}
                           style={
                             {
                               "--theme-color": `${
