@@ -177,9 +177,9 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
       );
 
       const urlSuffix = normalizedUrl ? normalizedUrl : normalizedTitle;
-      navigate(`/censorship/${urlSuffix}`, { replace: false });
+      navigate(`/borders/${urlSuffix}`, { replace: false });
     } else {
-      navigate(`/censorship`, { replace: false });
+      navigate(`/borders`, { replace: false });
     }
 
     // If the accordion is being opened, scroll it into view
