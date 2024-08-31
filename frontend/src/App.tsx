@@ -12,6 +12,7 @@ import CensorshipPage from "./CensorshipPage";
 import "./styles/App.css";
 import { initializeGA, trackPageView } from "./analytics";
 import ProvocationPage from "./ProvocationPage";
+import BordersPage from "./BordersPage";
 
 const App: React.FC = () => {
   useEffect(() => {

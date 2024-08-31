@@ -13,7 +13,7 @@ import { OpenArticleProvider } from "./OpenArticleContext";
 
 const images = [kabarImg, kabarImg, kabarImg, kabarImg, kabarImg, kabarImg];
 
-const CensorshipPage: React.FC = () => {
+const BordersPage: React.FC = () => {
   const [articlesStrapi, setArticlesStrapi] = useState([]);
   const [termsStrapi, setTermsStrapi] = useState([]);
   const baseUrl = C.API_BASE_URL;
@@ -53,4 +53,4 @@ const CensorshipPage: React.FC = () => {
   );
 };
 
-export default CensorshipPage;
+export default BordersPage;
