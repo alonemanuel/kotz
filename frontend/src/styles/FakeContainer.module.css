@@ -62,7 +62,7 @@ justify-content: center;
   font-family: var(--ff-narkis-yair);
   font-size: clamp(14px, min(2.2vh, 2.2vw), 18px);
   line-height: 0.9;
-  text-wrap: balance;
+  /* text-wrap: balance; */
   overflow: hidden;
 }
 
@@ -80,9 +80,13 @@ justify-content: center;
 .accordionContainer .titleIcon {
   /* height: 100%; */
   width: 8vw;
-  max-width: 80px;
+  max-width: 150px;
   min-width: 50px;
   flex-grow: 0;
+}
+
+.accordionContainer .titleIcon img {
+  flex-grow: 1;
 }
 
 .bodyContainer {
@@ -273,6 +277,7 @@ justify-content: center;
 .accordionContainer .issueName h1 {
   font-family: var(--ff-david-vc);
   font-weight: 700;
+  font-size: 24px;
 }
 
 .topBar .issueName h1 .dash,
@@ -316,6 +321,7 @@ justify-content: center;
 .accordionContainer .kotzIcon img {
   flex-grow: 1;
   min-width: 80px;
+
 }
 
 .topBar .kotzIcon img {
