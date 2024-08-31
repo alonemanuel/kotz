@@ -429,6 +429,7 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                                   ? article.attributes.color
                                   : "black"
                               }`,
+                              "--max-chars": `${Math.ceil(attr.subtitle.length / 2.8)}ch`,
                             } as React.CSSProperties
                           }
                         >
