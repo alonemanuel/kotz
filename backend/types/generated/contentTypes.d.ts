@@ -831,6 +831,46 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
   };
 }
 
+export interface ApiBordersItemBordersItem extends Schema.CollectionType {
+  collectionName: 'borders_items';
+  info: {
+    singularName: 'borders-item';
+    pluralName: 'borders-items';
+    displayName: 'Borders Item';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    subtitle: Attribute.String;
+    author: Attribute.String;
+    body: Attribute.Blocks;
+    author_about: Attribute.Text;
+    author_img: Attribute.Media<'images'>;
+    order: Attribute.Integer;
+    type: Attribute.Enumeration<['standard', 'interview']> &
+      Attribute.DefaultTo<'standard'>;
+    url_title: Attribute.String;
+    long_author_about: Attribute.Blocks;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::borders-item.borders-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::borders-item.borders-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiDebateDebate extends Schema.CollectionType {
   collectionName: 'debates';
   info: {
@@ -1312,6 +1352,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::about-us.about-us': ApiAboutUsAboutUs;
+      'api::borders-item.borders-item': ApiBordersItemBordersItem;
       'api::debate.debate': ApiDebateDebate;
       'api::fake-item.fake-item': ApiFakeItemFakeItem;
       'api::fake-term.fake-term': ApiFakeTermFakeTerm;

@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "borders_items",
+  "info": {
+    "singularName": "borders-item",
+    "pluralName": "borders-items",
+    "displayName": "Borders Item"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "body": {
+      "type": "blocks"
+    },
+    "author_about": {
+      "type": "text"
+    },
+    "author_img": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "order": {
+      "type": "integer"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "standard",
+        "interview"
+      ],
+      "default": "standard"
+    },
+    "url_title": {
+      "type": "string"
+    },
+    "long_author_about": {
+      "type": "blocks"
+    }
+  }
+}
