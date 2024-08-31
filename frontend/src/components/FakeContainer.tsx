@@ -353,33 +353,64 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                   {(attr.author || attr.title) && (
                     <>
                       {attr.title && (
-                        // <h1>
                         <>
-                          {attr.title.split(" ").map((word, i) => (
-                            <span
-                              className={`${styles.titleWord} ${styles.title}`}
-                              key={i}
-                              onClick={() => toggleAccordion(index)}
-                              onMouseEnter={() =>
-                                potentiallyHideKotzIcon(index)
-                              }
-                              onTouchStart={() =>
-                                potentiallyHideKotzIcon(index)
-                              }
-                              onMouseLeave={() => showKotzIcon()}
-                              style={
-                                {
-                                  "--theme-color": `${
-                                    article.attributes.color
-                                      ? article.attributes.color
-                                      : "black"
-                                  }`,
-                                } as React.CSSProperties
-                              }
-                            >
-                              {word}{" "}
-                            </span>
-                          ))}
+                          {attr.title
+                            .split(" ")
+                            .map((word) => /[a-zA-Z]/.test(word))
+                            .some(Boolean)
+                            ? attr.title
+                                .split(" ")
+                                .reverse()
+                                .map((word, i) => (
+                                  <span
+                                    className={`${styles.titleWord} ${styles.title}`}
+                                    key={i}
+                                    onClick={() => toggleAccordion(index)}
+                                    onMouseEnter={() =>
+                                      potentiallyHideKotzIcon(index)
+                                    }
+                                    onTouchStart={() =>
+                                      potentiallyHideKotzIcon(index)
+                                    }
+                                    onMouseLeave={() => showKotzIcon()}
+                                    style={
+                                      {
+                                        "--theme-color": `${
+                                          article.attributes.color
+                                            ? article.attributes.color
+                                            : "black"
+                                        }`,
+                                      } as React.CSSProperties
+                                    }
+                                  >
+                                    {word}{" "}
+                                  </span>
+                                ))
+                            : attr.title.split(" ").map((word, i) => (
+                                <span
+                                  className={`${styles.titleWord} ${styles.title}`}
+                                  key={i}
+                                  onClick={() => toggleAccordion(index)}
+                                  onMouseEnter={() =>
+                                    potentiallyHideKotzIcon(index)
+                                  }
+                                  onTouchStart={() =>
+                                    potentiallyHideKotzIcon(index)
+                                  }
+                                  onMouseLeave={() => showKotzIcon()}
+                                  style={
+                                    {
+                                      "--theme-color": `${
+                                        article.attributes.color
+                                          ? article.attributes.color
+                                          : "black"
+                                      }`,
+                                    } as React.CSSProperties
+                                  }
+                                >
+                                  {word}{" "}
+                                </span>
+                              ))}
                         </>
                       )}
                       <span
