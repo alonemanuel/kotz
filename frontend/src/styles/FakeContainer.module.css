@@ -313,6 +313,10 @@ justify-content: center;
   padding-inline: 24px;
 }
 
+.accordionContainer .issueName h1 {
+  font-size: 42px;
+}
+
 .accordionContainer .kotzIcon {
   height: auto;
   padding: 2px 32px;
