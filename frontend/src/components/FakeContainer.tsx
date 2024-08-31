@@ -83,6 +83,16 @@ function useResizeObservers(refs: any, dependency: number | null) {
   return dimensions;
 }
 const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
+  const [randomIndices, setRandomIndices] = useState<number[]>([]);
+
+  useEffect(() => {
+    const indices = articles.map((article) => {
+      const words = article.attributes.title.split(" ");
+      return Math.floor(Math.random() * (words.length + 1));
+    });
+    setRandomIndices(indices);
+  }, [articles]);
+
   // Add touch class
   document.documentElement.classList.toggle(
     styles.touch,
@@ -337,73 +347,67 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                     <>
                       {attr.title && (
                         <>
-                          {attr.title
-                            .split(" ")
-                            .map((word) => /[a-zA-Z]/.test(word))
-                            .some(Boolean)
-                            ? attr.title
-                                .split(" ")
-                                .reverse()
-                                .map((word, i) => (
-                                  <span
-                                    className={`${styles.titleWord} ${styles.title}`}
-                                    key={i}
-                                    onClick={() => toggleAccordion(index)}
-                                    style={
-                                      {
-                                        "--theme-color": `${
-                                          article.attributes.color
-                                            ? article.attributes.color
-                                            : "black"
-                                        }`,
-                                      } as React.CSSProperties
-                                    }
-                                  >
-                                    {word}{" "}
-                                  </span>
-                                ))
-                            : attr.title.split(" ").map((word, i) => (
-                                <span
-                                  className={`${styles.titleWord} ${styles.title}`}
-                                  key={i}
-                                  onClick={() => toggleAccordion(index)}
-                                  style={
-                                    {
-                                      "--theme-color": `${
-                                        article.attributes.color
-                                          ? article.attributes.color
-                                          : "black"
-                                      }`,
-                                    } as React.CSSProperties
-                                  }
-                                >
-                                  {word}{" "}
-                                </span>
-                              ))}
+                          {attr.title && (
+                            <>
+                              {(() => {
+                                const words = attr.title.split(" ");
+                                const hasEnglish = words
+                                  .map((word) => /[a-zA-Z]/.test(word))
+                                  .some(Boolean);
+                                const reversedWords = hasEnglish
+                                  ? words.reverse()
+                                  : words;
+                                const randomIndex = randomIndices[index]; // Use precomputed random index
+
+                                return reversedWords.map((word, i) => (
+                                  <React.Fragment key={i}>
+                                    {i === randomIndex && (
+                                      <span
+                                        className={`${styles.titleWord} ${styles.titleIcon}`}
+                                        onClick={() => toggleAccordion(index)}
+                                        style={
+                                          {
+                                            "--theme-color": `${
+                                              article.attributes.color
+                                                ? article.attributes.color
+                                                : "black"
+                                            }`,
+                                          } as React.CSSProperties
+                                        }
+                                      >
+                                        <img
+                                          src={
+                                            article.attributes.icon?.data
+                                              ? article.attributes.icon?.data
+                                                  ?.attributes.url
+                                              : articleIcon
+                                          }
+                                          className={styles.articleIcon}
+                                        ></img>
+                                      </span>
+                                    )}
+                                    <span
+                                      className={`${styles.titleWord} ${styles.title}`}
+                                      onClick={() => toggleAccordion(index)}
+                                      style={
+                                        {
+                                          "--theme-color": `${
+                                            article.attributes.color
+                                              ? article.attributes.color
+                                              : "black"
+                                          }`,
+                                        } as React.CSSProperties
+                                      }
+                                    >
+                                      {word}{" "}
+                                    </span>
+                                  </React.Fragment>
+                                ));
+                              })()}
+                            </>
+                          )}
                         </>
                       )}
-                      <span
-                        className={`${styles.titleWord} ${styles.titleIcon}`}
-                        onClick={() => toggleAccordion(index)}
-                        style={
-                          {
-                            "--theme-color": `${
-                              article.attributes.color
-                                ? article.attributes.color
-                                : "black"
-                            }`,
-                          } as React.CSSProperties
-                        }
-                      >
-                        <img
-                          src={
-                            article.attributes.icon?.data
-                              ? article.attributes.icon?.data?.attributes.url
-                              : articleIcon
-                          }
-                          className={styles.articleIcon}
-                        ></img>
-                      </span>
                       {attr.subtitle && (
                         <span
                           className={`${styles.titleWord} ${styles.subtitle}`}
