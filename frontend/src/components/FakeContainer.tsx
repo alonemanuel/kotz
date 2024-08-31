@@ -359,11 +359,44 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                                   : words;
                                 const randomIndex = randomIndices[index]; // Use precomputed random index
 
-                                return reversedWords.map((word, i) => (
-                                  <React.Fragment key={i}>
-                                    {i === randomIndex && (
+                                return reversedWords.map((word, i) => {
+                                  const isEnglishWord = /[a-zA-Z]/.test(word);
+
+                                  return (
+                                    <React.Fragment key={i}>
+                                      {i === randomIndex && (
+                                        <span
+                                          className={`${styles.titleWord} ${styles.titleIcon}`}
+                                          onClick={() => toggleAccordion(index)}
+                                          style={
+                                            {
+                                              "--theme-color": `${
+                                                article.attributes.color
+                                                  ? article.attributes.color
+                                                  : "black"
+                                              }`,
+                                            } as React.CSSProperties
+                                          }
+                                        >
+                                          <img
+                                            src={
+                                              article.attributes.icon?.data
+                                                ? article.attributes.icon?.data
+                                                    ?.attributes.url
+                                                : articleIcon
+                                            }
+                                            className={styles.articleIcon}
+                                          ></img>
+                                        </span>
+                                      )}
                                       <span
-                                        className={`${styles.titleWord} ${styles.titleIcon}`}
+                                        className={`${styles.titleWord} ${
+                                          styles.title
+                                        } ${
+                                          isEnglishWord
+                                            ? styles.englishWord
+                                            : ""
+                                        }`}
                                         onClick={() => toggleAccordion(index)}
                                         style={
                                           {
@@ -375,34 +408,11 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                                           } as React.CSSProperties
                                         }
                                       >
-                                        <img
-                                          src={
-                                            article.attributes.icon?.data
-                                              ? article.attributes.icon?.data
-                                                  ?.attributes.url
-                                              : articleIcon
-                                          }
-                                          className={styles.articleIcon}
-                                        ></img>
+                                        {word}{" "}
                                       </span>
-                                    )}
-                                    <span
-                                      className={`${styles.titleWord} ${styles.title}`}
-                                      onClick={() => toggleAccordion(index)}
-                                      style={
-                                        {
-                                          "--theme-color": `${
-                                            article.attributes.color
-                                              ? article.attributes.color
-                                              : "black"
-                                          }`,
-                                        } as React.CSSProperties
-                                      }
-                                    >
-                                      {word}{" "}
-                                    </span>
-                                  </React.Fragment>
-                                ));
+                                    </React.Fragment>
+                                  );
+                                });
                               })()}
                             </>
                           )}
