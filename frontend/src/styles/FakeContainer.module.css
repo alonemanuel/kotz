@@ -145,13 +145,19 @@
 .topBarIcons .topBarIcon {
   display: flex;
   flex-flow: row nowrap;
-  flex-grow: 1;
-  padding: 0.8em;
+  padding: 0.1em;
   background-color: var(--theme-color);
   height: 100%;
   cursor: pointer;
   align-items: center;
   justify-content: center;
+  aspect-ratio: 1;
+}
+
+.topBarIcons .topBarIcon.active {
+  flex-grow: 1;
+  aspect-ratio: unset;
+  align-items: normal;
 }
 
 .topBarIcons .topBarIcon.active .textContent {
@@ -160,6 +166,9 @@
 
 .topBarIcons .topBarIcon.active .textContent {
   display: flex;
+  padding-inline: 0.4em;
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
 .topBarIcons .topBarIcon.active .textContent h2 {
@@ -167,6 +176,7 @@
   font-family: var(--ff-narkis-yair);
   line-height: 0.9em;
   margin-inline-end: 0.5em;
+  align-items: center;
 }
 
 .topBarIcons .topBarIcon .articleIconWrapper {
@@ -177,6 +187,14 @@
 
 .topBarIcons .topBarIcon .articleIconWrapper .articleIcon {
   flex-grow: 1;
+}
+
+.topBarIcons .topBarIcon.active .articleIconWrapper {
+  max-height: 100%;
+}
+
+.topBarIcons .topBarIcon.active .articleIconWrapper .articleIcon {
+  flex-grow: 0;
 }
 
 .topBarIcons .topBarIcon .textContent h1,
