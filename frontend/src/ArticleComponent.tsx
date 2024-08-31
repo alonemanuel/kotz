@@ -11,6 +11,7 @@ import StandardContent from "./StandardContent";
 import InterviewContent from "./InterviewContent";
 import CasesContent from "./CasesContent";
 import PopoutContent from "./PopoutContent";
+import VideoContent from "./VideoContent";
 
 interface ArticleComponentProps {
   article: Article;
@@ -47,6 +48,8 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
     case "popout":
       classType = styles.popout;
       break;
+    case "video":
+      classType = styles.video;
   }
 
   const [wrappedTitle, setWrappedTitle] = useState("");
@@ -128,6 +131,9 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
                   cover={attr?.poll?.cover}
                 />
               );
+            case "video":
+              // return <VideoContent content={attr?.video_url} />;
+              return <VideoContent content={'https://www.youtube.com/embed/VOkSFZuP3qs'} />;
           }
         }
       })()}

@@ -22,6 +22,7 @@ export interface ArticleAttribute {
   ticker_text: string;
   tag_icon: any;
   icon: any;
+  video_url: any;
 }
 
 export interface Article {
