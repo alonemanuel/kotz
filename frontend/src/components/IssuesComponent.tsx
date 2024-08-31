@@ -16,7 +16,7 @@ import kotzImg7 from "../images/kotz7.svg";
 import kotzImg8 from "../images/kotz8.svg";
 import kotzImg9 from "../images/kotz9.svg";
 
-const devPreviewIssue = 3;
+const devPreviewIssues = [3, 4, 5, 6];
 const SvgPathToNode = ({ issue, index }: any) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const [viewBox, setViewBox] = useState({ x: 0, y: 0, width: 0, height: 0 });
@@ -93,8 +93,8 @@ const IssuesComponent = () => {
 
         // Reorder to ensure issue with number: 2 is first
         const reorderedIssues = fetchedIssues.sort((a: Issue, b: Issue) => {
-          if (a.number === devPreviewIssue) return -1;
-          if (b.number === devPreviewIssue) return 1;
+          if (devPreviewIssues.includes(a.number)) return -1;
+          if (devPreviewIssues.includes(b.number)) return 1;
           return a.number - b.number;
         });
 
@@ -114,18 +114,19 @@ const IssuesComponent = () => {
           <div
             key={index}
             className={`${styles.gridItem} ${
-              !(issue.is_published || issue.number === devPreviewIssue)
+              !(issue.is_published || devPreviewIssues.includes(issue.number))
                 ? styles.unpublished
                 : styles.published
             }`}
             onClick={() =>
-              (issue.is_published || issue.number === devPreviewIssue) &&
+              (issue.is_published || devPreviewIssues.includes(issue.number)) &&
               handleBoxClick(issue.path)
             }
           >
             <div className={styles.imgSizer}>
               <div className={styles.imgContainer}>
-                {(issue?.has_preview || issue.number === devPreviewIssue) &&
+                {(issue?.has_preview ||
+                  devPreviewIssues.includes(issue.number)) &&
                 issue?.svg_path &&
                 issue?.inner_image ? (
                   <SvgPathToNode issue={issue} index={index} />
@@ -135,7 +136,8 @@ const IssuesComponent = () => {
               </div>
               <span className={styles.prompt}>אל הגיליון</span>
             </div>
-            {(issue?.has_preview || issue.number === devPreviewIssue) && (
+            {(issue?.has_preview ||
+              devPreviewIssues.includes(issue.number)) && (
               <div className={styles.details}>
                 <hgroup>
                   <div className={styles.issueNumber}>
