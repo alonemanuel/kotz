@@ -30,6 +30,7 @@ const App: React.FC = () => {
         <Route path="/borders" element={<BordersPage />} />
         <Route path="/censorship/:urlSuffix" element={<CensorshipPage />} />
         <Route path="/provocation/:urlSuffix" element={<ProvocationPage />} />
+        <Route path="/fake/:urlSuffix" element={<FakePage />} />
         <Route path="/borders/:urlSuffix" element={<BordersPage />} />
       </Routes>
     </>
