@@ -46,7 +46,11 @@ const CensorshipPage: React.FC = () => {
     <OpenArticleProvider>
       <Layout>
         <div className={styles.censorshipPage}>
-          <Accordion articles={articlesStrapi} terms={termsStrapi} />
+          <Accordion
+            articles={articlesStrapi}
+            terms={termsStrapi}
+            path="censorship"
+          />
         </div>
       </Layout>
     </OpenArticleProvider>

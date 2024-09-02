@@ -17,6 +17,7 @@ interface AccordionProps {
   // articles: Item[];
   articles: Article[];
   terms: Term[];
+  path: string;
 }
 
 function debounce(func: any, wait: number) {
@@ -79,7 +80,7 @@ function useResizeObservers(refs: any, dependency: number | null) {
 
   return dimensions;
 }
-const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
+const Accordion: React.FC<AccordionProps> = ({ articles, terms, path }) => {
   // Add touch class
   document.documentElement.classList.toggle(
     styles.touch,
@@ -177,9 +178,9 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
       );
 
       const urlSuffix = normalizedUrl ? normalizedUrl : normalizedTitle;
-      navigate(`/borders/${urlSuffix}`, { replace: false });
+      navigate(`/${path}/${urlSuffix}`, { replace: false });
     } else {
-      navigate(`/borders`, { replace: false });
+      navigate(`/${path}`, { replace: false });
     }
 
     // If the accordion is being opened, scroll it into view
