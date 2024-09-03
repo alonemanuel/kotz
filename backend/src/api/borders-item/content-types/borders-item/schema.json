@@ -4,7 +4,8 @@
   "info": {
     "singularName": "borders-item",
     "pluralName": "borders-items",
-    "displayName": "Borders Item"
+    "displayName": "Borders Item",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -27,11 +28,12 @@
       "type": "text"
     },
     "author_img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "order": {
       "type": "integer"
@@ -49,6 +51,20 @@
     },
     "long_author_about": {
       "type": "blocks"
+    },
+    "outside_img_vertical": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "outside_img_horizontal": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

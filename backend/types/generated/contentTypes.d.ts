@@ -837,6 +837,7 @@ export interface ApiBordersItemBordersItem extends Schema.CollectionType {
     singularName: 'borders-item';
     pluralName: 'borders-items';
     displayName: 'Borders Item';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -853,6 +854,8 @@ export interface ApiBordersItemBordersItem extends Schema.CollectionType {
       Attribute.DefaultTo<'standard'>;
     url_title: Attribute.String;
     long_author_about: Attribute.Blocks;
+    outside_img_vertical: Attribute.Media<'images'>;
+    outside_img_horizontal: Attribute.Media<'images'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
