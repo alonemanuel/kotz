@@ -95,6 +95,15 @@
   }
 }
 
+.borders.censorshipPage .songs {
+  background-image: url(../images/other/song_bg_border.png);
+  background-color: var(--color-theme-background);
+  color: black;
+  max-height: none;
+  background-size: 70%;
+  background-repeat: repeat;
+}
+
 .censorshipPage .songs {
   display: flex;
   flex-flow: column nowrap;
@@ -117,43 +126,47 @@
 
   transition: background-color 0.1s ease-out;
   transition-property: background-color, color;
+}
 
-  .censorshipPage .songs .borderContainer {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 2em;
-    padding: 2em 1em;
-    padding-top: 0;
-  }
+.censorshipPage .songs .borderContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2em;
+  padding: 2em 1em;
+  padding-top: 0;
+}
 
-  .censorshipPage .songs h1 {
-    font-family: var(--ff-hadassa);
-    font-weight: 900;
-    font-style: normal;
-    color: var(--color-black);
-    margin: 0;
-  }
+.censorshipPage .songs h1 {
+  font-family: var(--ff-hadassa);
+  font-weight: 900;
+  font-style: normal;
+  color: var(--color-black);
+  margin: 0;
+}
 
-  .censorshipPage .songs section {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 1em;
-    line-height: 1;
-  }
-  .censorshipPage .songs section .song .separator {
-    margin-block-end: 0.5em;
-  }
+.censorshipPage .songs section {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1em;
+  line-height: 1;
+}
+.censorshipPage .songs section .song .separator {
+  margin-block-end: 0.5em;
+}
 
-  .censorshipPage .songs section .song p {
-    line-height: 1;
-  }
-  .censorshipPage .songs section .song p + p {
-    margin-block-start: 0.2em;
-  }
+.censorshipPage .songs section .song p {
+  line-height: 1;
+}
 
-  .censorshipPage .songs section .song p + .separator {
-    margin-block-start: 2em;
-  }
+.borders.censorshipPage .songs section .song p {
+  line-height: 1.3;
+}
+.censorshipPage .songs section .song p + p {
+  margin-block-start: 0.2em;
+}
+
+.censorshipPage .songs section .song p + .separator {
+  margin-block-start: 2em;
 }
 
 .censorshipPage .terms {
@@ -604,10 +617,10 @@
 }
 
 .borders.censorshipPage main > p b {
-    padding-block: 0.02em 0.1em;
-    border: 2px solid black;
-    color: black;
-    padding-inline: 0.1em;
+  padding-block: 0.02em 0.1em;
+  border: 2px solid black;
+  color: black;
+  padding-inline: 0.1em;
 }
 
 .censorshipPage main > p i {
@@ -634,7 +647,7 @@
 
 .borders.censorshipPage main > p u::before {
   display: none;
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   right: -1px;
@@ -646,12 +659,11 @@
   z-index: -1;
 
   box-shadow: inset 0 -6px 0 #bf80f0;
-
 }
 
 .borders.censorshipPage main > p u::after {
   display: none;
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   right: 0;
