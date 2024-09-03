@@ -552,6 +552,18 @@
   font-style: normal;
 }
 
+.borders.censorshipPage main > h2 {
+  color: black;
+  font-family: var(--ff-narkis-yair);
+  font-size: 1.58rem; /* var(--fs-600); */
+}
+
+.borders.censorshipPage main > h2::before {
+  content: "——————";
+  padding-inline-end: 0.8em;
+  font-weight: 700;
+}
+
 .censorshipPage main.interview h1 {
   line-height: 1em;
   font-family: var(--ff-greta);
@@ -1364,6 +1376,7 @@
       }
 
       h1 + &,
+      h2 + &,
       .terms + & {
         text-indent: 0 !important;
       }
