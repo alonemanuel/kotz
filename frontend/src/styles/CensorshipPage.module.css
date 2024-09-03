@@ -580,9 +580,19 @@
   color: #26bd6b;
 }
 
+.borders.censorshipPage main > p b {
+  color: var(--color-theme-background);
+  background-color: var(--color-theme-foreground);
+  padding-block: 0.15em 0.2em;
+}
+
 .censorshipPage main > p i {
   font-family: var(--ff-narkis-yair);
   font-size: 1.4rem;
+}
+
+.borders.censorshipPage main > p i {
+  letter-spacing: 0.4em;
 }
 
 .censorshipPage main .interview p {
