@@ -893,6 +893,8 @@ export interface ApiFakeItemFakeItem extends Schema.CollectionType {
       Attribute.DefaultTo<'standard'>;
     author_img: Attribute.Media<'images'>;
     body_img: Attribute.Media<'images'>;
+    outside_img_vertical: Attribute.Media<'images'>;
+    outside_img_horizontal: Attribute.Media<'images'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

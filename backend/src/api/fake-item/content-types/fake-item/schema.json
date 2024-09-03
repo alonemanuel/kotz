@@ -63,13 +63,29 @@
       "default": "standard"
     },
     "author_img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "body_img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "outside_img_vertical": {
       "allowedTypes": [
         "images"
       ],
       "type": "media",
       "multiple": false
     },
-    "body_img": {
+    "outside_img_horizontal": {
       "allowedTypes": [
         "images"
       ],
