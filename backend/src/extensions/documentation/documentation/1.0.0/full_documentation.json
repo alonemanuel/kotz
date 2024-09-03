@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-09-03T16:18:58.978Z"
+    "x-generation-date": "2024-09-03T18:44:14.299Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1072,6 +1072,12 @@
                   }
                 ],
                 "example": "string or id"
+              },
+              "song": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SharedSongComponent"
+                }
               }
             }
           }
@@ -2053,6 +2059,12 @@
               }
             }
           },
+          "song": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SharedSongComponent"
+            }
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -2120,6 +2132,21 @@
           },
           "meta": {
             "type": "object"
+          }
+        }
+      },
+      "SharedSongComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "title": {
+            "type": "string"
+          },
+          "body": {},
+          "author": {
+            "type": "string"
           }
         }
       },
@@ -8486,21 +8513,6 @@
             }
           },
           "body": {}
-        }
-      },
-      "SharedSongComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "title": {
-            "type": "string"
-          },
-          "body": {},
-          "author": {
-            "type": "string"
-          }
         }
       },
       "PollRequest": {

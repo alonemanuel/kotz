@@ -856,6 +856,7 @@ export interface ApiBordersItemBordersItem extends Schema.CollectionType {
     long_author_about: Attribute.Blocks;
     outside_img_vertical: Attribute.Media<'images'>;
     outside_img_horizontal: Attribute.Media<'images'>;
+    song: Attribute.Component<'shared.song', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
