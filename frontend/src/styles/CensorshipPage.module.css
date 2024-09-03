@@ -604,9 +604,10 @@
 }
 
 .borders.censorshipPage main > p b {
-  color: var(--color-theme-background);
-  background-color: var(--color-theme-foreground);
-  padding-block: 0.15em 0.2em;
+    padding-block: 0.02em 0.1em;
+    border: 2px solid black;
+    color: black;
+    padding-inline: 0.1em;
 }
 
 .censorshipPage main > p i {
