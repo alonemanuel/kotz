@@ -641,12 +641,12 @@
   background-color: #e7b7a2;
 }
 
-.borders.censorshipPage main > p s {
+.borders.censorshipPage main.interview > p s {
   background-color: #bbd682;
 }
 
-.borders.censorshipPage main > p s,
-.borders.censorshipPage main > p code {
+.borders.censorshipPage main.interview > p s,
+.borders.censorshipPage main.interview > p code {
   outline: 1px solid black;
   padding: 0.1em 0.2em;
   font-family: var(--ff-narkis-yair);
