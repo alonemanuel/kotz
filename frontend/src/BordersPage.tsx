@@ -45,7 +45,7 @@ const BordersPage: React.FC = () => {
   return (
     <OpenArticleProvider>
       <Layout>
-        <div className={styles.censorshipPage}>
+        <div className={`${styles.censorshipPage} ${styles.borders}`}>
           <Accordion articles={articlesStrapi} terms={termsStrapi} path='borders'/>
         </div>
       </Layout>

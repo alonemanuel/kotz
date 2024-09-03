@@ -238,7 +238,7 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms, path }) => {
     <div
       className={`${styles.accordionContainer} ${
         isOpen ? styles.isOpen : styles.isNotOpen
-      }`}
+      } ${path === "borders" ? styles.borders : styles.censorship}`}
     >
       {articles.map((article, index) => {
         const attr = article.attributes;

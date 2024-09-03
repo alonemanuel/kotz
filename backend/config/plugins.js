@@ -11,6 +11,13 @@ module.exports = ({ env }) => ({
             defaultDepth: 3, // Default is 5
         }
     },
+    'strapi-plugin-import-export-entries': {
+        config: {
+            formLimit: "256mb", // modify form body
+            jsonLimit: "256mb", // modify JSON body
+            textLimit: "256mb" // modify text body
+        }
+    },
     upload: {
         config: {
             provider: 'aws-s3',

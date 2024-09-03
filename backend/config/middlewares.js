@@ -5,6 +5,9 @@ module.exports = [
   {
     name: 'strapi::security',
     config: {
+      formLimit: "256mb", // modify form body
+      jsonLimit: "256mb", // modify JSON body
+      textLimit: "256mb", // modify text body
       contentSecurityPolicy: {
         useDefaults: true,
         directives: {
