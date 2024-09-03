@@ -637,6 +637,10 @@
   letter-spacing: 0.4em;
 }
 
+.borders.censorshipPage main.interview > p i {
+  letter-spacing: 0;
+}
+
 .borders.censorshipPage main > p code {
   background-color: #e7b7a2;
 }
