@@ -154,6 +154,11 @@
   font-weight: 700;
 }
 
+.bordersLayout .layoutNav hgroup h2 {
+  font-family: var(--ff-discordia);
+  letter-spacing: 0.4em !important;
+}
+
 .layoutNav hgroup h3 {
   font-family: "DavidKotz";
   font-feature-settings: "ss01" 1;

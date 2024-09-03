@@ -19,7 +19,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children, className }) => {
   console.debug(`alon: classname: ${className}`); // ALON REMOVE
-  
+
   const navigate = useNavigate();
   const handleKotzClick = () => {
     navigate("/");
@@ -58,8 +58,10 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
         <nav className={`${styles.layoutNav} ${className}`}>
           <hgroup>
             <h3 onClick={() => navigate("/")}>קוץ</h3>
-            <h1 onClick={() => navigate("/")}>01</h1>
-            <h2>צנזורה</h2>
+            <h1 onClick={() => navigate("/")}>
+              {className === styles.bordersLayout ? "04" : "01"}
+            </h1>
+            <h2>{className === styles.bordersLayout ? "גבולות" : "צנזורה"}</h2>
           </hgroup>
           <button className={styles.changeTheme} onClick={toggleTheme}>
             <div
