@@ -643,6 +643,17 @@
   font-size: 1.6em;
 }
 
+.borders.censorshipPage main > h3 {
+  color: black;
+  outline: #ff5c16 dashed 3px;
+  letter-spacing: 0;
+  font-family: var(--ff-discordia);
+  font-weight: 700;
+  padding: 0.5em;
+  margin: 1em;
+  text-align: start;
+}
+
 .censorshipPage hr {
   border: none;
   border-top: 2px dotted var(--color-green);
