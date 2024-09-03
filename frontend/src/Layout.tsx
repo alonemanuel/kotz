@@ -49,7 +49,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
 
   return (
     <div
-      className={`${styles.layout} ${
+      className={`${styles.layout} ${className} ${
         isOpen ? styles.isOpen : styles.isNotOpen
       }`}
     >

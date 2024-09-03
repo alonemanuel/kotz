@@ -7,6 +7,11 @@
   height: 100dvh;
 }
 
+.bordersLayout.layout {
+  --color-green: #FF5C16;
+  --color-theme-foreground: #FF5C16;
+}
+
 .layout.fakeLayout > .layoutNav {
   display: none;
 }
@@ -29,6 +34,10 @@
   margin: 0;
   justify-content: start;
   padding: 0.5em 0.5em;
+}
+
+.bordersLayout.layout .layoutNav {
+  background-color: #EBE1D8;
 }
 
 .layout .layoutNav hgroup {
@@ -111,6 +120,7 @@
   transition: background-color 0.2s ease-out;
   transition-property: background-color, color;
 }
+
 .layoutNav hgroup {
   display: flex;
   flex-flow: column nowrap;
@@ -122,6 +132,11 @@
   font-family: var(--ff-david-vc);
   cursor: default;
 }
+
+.borders.layoutNav hgroup {
+  color: var(--color-green);
+}
+
 .layoutNav hgroup h1 {
   font-family: "Alpha Bravo";
   font-weight: 300;

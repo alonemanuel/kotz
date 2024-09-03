@@ -10,6 +10,7 @@ import Layout from "./Layout";
 import Questionnaire from "./questionnaire";
 import * as C from "./constants";
 import { OpenArticleProvider } from "./OpenArticleContext";
+import layoutStyles from "./styles/Layout.module.css";
 
 const images = [kabarImg, kabarImg, kabarImg, kabarImg, kabarImg, kabarImg];
 
@@ -44,9 +45,13 @@ const BordersPage: React.FC = () => {
 
   return (
     <OpenArticleProvider>
-      <Layout>
+      <Layout className={layoutStyles.bordersLayout}>
         <div className={`${styles.censorshipPage} ${styles.borders}`}>
-          <Accordion articles={articlesStrapi} terms={termsStrapi} path='borders'/>
+          <Accordion
+            articles={articlesStrapi}
+            terms={termsStrapi}
+            path="borders"
+          />
         </div>
       </Layout>
     </OpenArticleProvider>

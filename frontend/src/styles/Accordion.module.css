@@ -100,9 +100,11 @@
 }
 
 .borders.accordionContainer {
-  --color-theme-background: #FFF9D7;
-}
+  --color-theme-background: #fff9d7;
+  --color-theme-foreground: black;
+  --color-green: #FF5C16;
 
+}
 
 .accordionContainer > .toTop {
   position: absolute;
