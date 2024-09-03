@@ -1072,6 +1072,12 @@
                   }
                 ],
                 "example": "string or id"
+              },
+              "song": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SharedSongComponent"
+                }
               }
             }
           }
@@ -2053,6 +2059,12 @@
               }
             }
           },
+          "song": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SharedSongComponent"
+            }
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -2120,6 +2132,21 @@
           },
           "meta": {
             "type": "object"
+          }
+        }
+      },
+      "SharedSongComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "title": {
+            "type": "string"
+          },
+          "body": {},
+          "author": {
+            "type": "string"
           }
         }
       },
@@ -8486,21 +8513,6 @@
             }
           },
           "body": {}
-        }
-      },
-      "SharedSongComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "title": {
-            "type": "string"
-          },
-          "body": {},
-          "author": {
-            "type": "string"
-          }
         }
       },
       "PollRequest": {

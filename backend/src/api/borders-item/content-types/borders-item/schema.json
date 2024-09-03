@@ -53,18 +53,25 @@
       "type": "blocks"
     },
     "outside_img_vertical": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "outside_img_horizontal": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "song": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.song"
     }
   }
 }
