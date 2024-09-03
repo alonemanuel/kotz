@@ -461,6 +461,8 @@
 
 .borders.censorshipPage article header hgroup h1 {
   color: #FF5C16;
+  font-family: var(--ff-discordia);
+  font-style: italic;
 }
 
 
