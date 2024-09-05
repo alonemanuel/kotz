@@ -1,6 +1,7 @@
 // ProvocationPage.tsx
 import React, { useEffect, useState } from "react";
 import styles from "./styles/ProvocationPage.module.css";
+import layoutStyles from "./styles/Layout.module.css";
 import sidebarStyles from "./styles/Sidebar.module.css";
 
 import Sidebar from "./components/Sidebar";
@@ -16,13 +17,10 @@ const ProvocationPage: React.FC = () => {
   const [articlesStrapi, setArticlesStrapi] = useState([]);
   const [termsStrapi, setTermsStrapi] = useState([]);
 
-  
   console.debug(`alon: stules: ${styles}`); // ALON REMOVE
   console.log(styles);
   console.debug(`alon: clasdfasdf ${styles.provocationLayout}`); // ALON REMOVE
 
-  
-  
   const [isHamburgerClicked, setIsHamburgerClicked] = useState(false);
 
   const hamburgerClick = () => {
@@ -72,7 +70,7 @@ const ProvocationPage: React.FC = () => {
 
   return (
     <OpenArticleProvider>
-      <Layout className={styles.provocationLayout}>
+      <Layout className={layoutStyles.provocationLayout}>
         <div
           className={`${styles.provocationPage} ${
             isHamburgerClicked ? sidebarStyles.hamburgerClicked : ""

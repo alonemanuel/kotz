@@ -121,6 +121,10 @@
   transition-property: background-color, color;
 }
 
+.layout.provocationLayout .layoutNav {
+  /* display: none; */
+}
+
 .layoutNav hgroup {
   display: flex;
   flex-flow: column nowrap;

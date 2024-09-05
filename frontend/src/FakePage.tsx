@@ -1,6 +1,7 @@
 // FakePage.tsx
 import React, { useEffect, useState } from "react";
 import styles from "./styles/FakePage.module.css";
+import layoutStyles from "./styles/Layout.module.css";
 import KotzFab from "./KotzFab";
 import kabarImg from "./images/kabar.jpg";
 import kav300Img from "./images/kav_300_0.png";
@@ -25,7 +26,7 @@ const FakePage: React.FC = () => {
 
   console.debug(`alon: stules: ${styles}`); // ALON REMOVE
   console.log(styles);
-  console.debug(`alon: clasdfasdf ${styles.fakeLayout}`); // ALON REMOVE
+  console.debug(`alon: clasdfasdf ${layoutStyles.fakeLayout}`); // ALON REMOVE
 
   useEffect(() => {
     const fetchArticles = fetch(
@@ -56,7 +57,7 @@ const FakePage: React.FC = () => {
   
   return (
     <OpenArticleProvider>
-      <Layout className={styles.fakeLayout}>
+      <Layout className={layoutStyles.fakeLayout}>
         <div className={`${styles.fakePage} ${isOpen ? styles.isOpen : ''}` }>
           <FakeContainer articles={articlesStrapi} terms={termsStrapi} />
         </div>
