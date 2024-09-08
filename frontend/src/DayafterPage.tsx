@@ -42,11 +42,11 @@ const DayafterPage: React.FC = () => {
 
   useEffect(() => {
     const fetchArticles = fetch(
-      `${C.API_BASE_URL}${C.PROVOCATION_ITEMS_ENDPOINT}?sort[0]=order:asc&populate=deep`
+      `${C.API_BASE_URL}${C.DAYAFTER_ITEMS_ENDPOINT}?sort[0]=order:asc&populate=deep`
     ).then((response: any) => response.json());
 
     const fetchTerms = fetch(
-      `${C.API_BASE_URL}${C.PROVOCATION_TERMS_ENDPOINT}?${C.API_POPULATE_DEEP}`
+      `${C.API_BASE_URL}${C.DAYAFTER_TERMS_ENDPOINT}?${C.API_POPULATE_DEEP}`
     ).then((response: any) => response.json());
 
     Promise.all([fetchArticles, fetchTerms])

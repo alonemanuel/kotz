@@ -9,8 +9,10 @@ export const ITEM_ARTICLES_ENDPOINT = "/item-articles";
 export const PROVOCATION_ITEMS_ENDPOINT = "/provocation-items";
 export const FAKE_ITEMS_ENDPOINT = "/fake-items";
 export const BORDERS_ITEMS_ENDPOINT = "/borders-items";
+export const DAYAFTER_ITEMS_ENDPOINT = "/dayafter-items";
 export const TERMS_ENDPOINT = "/terms";
 export const PROVOCATION_TERMS_ENDPOINT = "/provocation-terms";
+export const DAYAFTER_TERMS_ENDPOINT = "/dayafter-terms";
 export const FAKE_TERMS_ENDPOINT = "/fake-terms";
 
 export const BLOCK_PARAGRAPH = "paragraph";
