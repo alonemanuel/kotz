@@ -17,10 +17,6 @@ const DayafterPage: React.FC = () => {
   const [articlesStrapi, setArticlesStrapi] = useState([]);
   const [termsStrapi, setTermsStrapi] = useState([]);
 
-  console.debug(`alon: stules: ${styles}`); // ALON REMOVE
-  console.log(styles);
-  console.debug(`alon: clasdfasdf ${styles.provocationLayout}`); // ALON REMOVE
-
   const [isHamburgerClicked, setIsHamburgerClicked] = useState(false);
 
   const hamburgerClick = () => {
@@ -70,9 +66,11 @@ const DayafterPage: React.FC = () => {
 
   return (
     <OpenArticleProvider>
-      <Layout className={layoutStyles.provocationLayout}>
+      <Layout
+        className={`${layoutStyles.provocationLayout} ${layoutStyles.dayafterLayout}`}
+      >
         <div
-          className={`${styles.provocationPage} ${
+          className={`${styles.provocationPage} ${styles.dayafterPage} ${
             isHamburgerClicked ? sidebarStyles.hamburgerClicked : ""
           }`}
         >

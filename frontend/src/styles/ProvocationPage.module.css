@@ -8,6 +8,10 @@
   flex-flow: column nowrap;
 }
 
+.dayafterPage.provocationPage * {
+  background-color: red ;
+}
+
 .provocationPage > .bottomBar {
   border-color: black;
   display: flex;
