@@ -13,6 +13,7 @@ import "./styles/App.css";
 import { initializeGA, trackPageView } from "./analytics";
 import ProvocationPage from "./ProvocationPage";
 import BordersPage from "./BordersPage";
+import DayafterPage from "./DayafterPage";
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -28,10 +29,12 @@ const App: React.FC = () => {
         <Route path="/provocation" element={<ProvocationPage />} />
         <Route path="/fake" element={<FakePage />} />
         <Route path="/borders" element={<BordersPage />} />
+        <Route path="/thedayafter" element={<DayafterPage />} />
         <Route path="/censorship/:urlSuffix" element={<CensorshipPage />} />
         <Route path="/provocation/:urlSuffix" element={<ProvocationPage />} />
         <Route path="/fake/:urlSuffix" element={<FakePage />} />
         <Route path="/borders/:urlSuffix" element={<BordersPage />} />
+        <Route path="/thedayafter/:urlSuffix" element={<DayafterPage />} />
       </Routes>
     </>
   );
