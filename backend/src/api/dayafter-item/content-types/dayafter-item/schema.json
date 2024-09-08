@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dayafter_items",
+  "info": {
+    "singularName": "dayafter-item",
+    "pluralName": "dayafter-items",
+    "displayName": "Dayafter Item"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "body": {
+      "type": "blocks"
+    },
+    "lead": {
+      "type": "text"
+    },
+    "author_about": {
+      "type": "text"
+    },
+    "author_img": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "order": {
+      "type": "integer",
+      "default": 1
+    },
+    "color": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    },
+    "long_author_about": {
+      "type": "blocks"
+    },
+    "url_title": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "standard",
+        "interview"
+      ]
+    },
+    "tag_icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "ticker_text": {
+      "type": "string"
+    }
+  }
+}

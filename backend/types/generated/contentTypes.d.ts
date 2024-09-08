@@ -875,6 +875,50 @@ export interface ApiBordersItemBordersItem extends Schema.CollectionType {
   };
 }
 
+export interface ApiDayafterItemDayafterItem extends Schema.CollectionType {
+  collectionName: 'dayafter_items';
+  info: {
+    singularName: 'dayafter-item';
+    pluralName: 'dayafter-items';
+    displayName: 'Dayafter Item';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    subtitle: Attribute.String;
+    author: Attribute.String;
+    body: Attribute.Blocks;
+    lead: Attribute.Text;
+    author_about: Attribute.Text;
+    author_img: Attribute.Media<'images'>;
+    order: Attribute.Integer & Attribute.DefaultTo<1>;
+    color: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
+    long_author_about: Attribute.Blocks;
+    url_title: Attribute.String;
+    type: Attribute.Enumeration<['standard', 'interview']>;
+    tag_icon: Attribute.Media<'images'>;
+    ticker_text: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::dayafter-item.dayafter-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::dayafter-item.dayafter-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiDebateDebate extends Schema.CollectionType {
   collectionName: 'debates';
   info: {
@@ -1359,6 +1403,7 @@ declare module '@strapi/types' {
       'plugin::i18n.locale': PluginI18NLocale;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::borders-item.borders-item': ApiBordersItemBordersItem;
+      'api::dayafter-item.dayafter-item': ApiDayafterItemDayafterItem;
       'api::debate.debate': ApiDebateDebate;
       'api::fake-item.fake-item': ApiFakeItemFakeItem;
       'api::fake-term.fake-term': ApiFakeTermFakeTerm;
