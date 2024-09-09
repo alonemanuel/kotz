@@ -670,10 +670,12 @@
 .dayafter.provocationPage article header {
   background-color: var(--theme-color);
   padding: 10px;
+  color: white;
 }
 
 .dayafter.provocationPage article main {
   padding: 10px;
+  color: var(--theme-color);
 }
 
 .provocationPage article header {
