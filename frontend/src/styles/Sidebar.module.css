@@ -102,6 +102,10 @@
   color: var(--theme-color);
 }
 
+.dayafter.outer > .nav .navItem {
+  color: var(--theme-color);
+}
+
 .outer > .nav .navItem:hover.activeNavItem {
   color: unset;
 }
