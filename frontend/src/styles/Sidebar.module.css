@@ -9,6 +9,10 @@
 .dayafter.outer {
 }
 
+.dayafter.outer > .homepageImages {
+  display: none;
+}
+
 .outer > .homepageImages {
   position: absolute;
   left: 0;
@@ -177,6 +181,10 @@
   display: unset;
 }
 
+.dayafter.outer > .articles > .articleOuter.popout > .topBar > .xButton {
+  display: none;
+}
+  
 .outer > .articles > .articleOuter.popout > .topBar > .xButton {
   display: flex;
 }
