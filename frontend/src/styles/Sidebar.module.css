@@ -241,6 +241,10 @@
   padding-block-end: 8em;
 }
 
+.dayafter.outer > .articles > .articleOuter > article {
+  background-color: var(--theme-color);
+}
+
 .outer > .articles .articleIsNotOpen ~ .toTop {
   display: none;
 }
