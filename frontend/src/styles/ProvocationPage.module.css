@@ -673,12 +673,12 @@
 
 .dayafter.provocationPage article header {
   background-color: var(--theme-color);
-  padding: 10px;
+  padding: 24px;
   color: white;
 }
 
 .dayafter.provocationPage article main {
-  padding: 10px;
+  padding: 24px;
   color: var(--theme-color);
 }
 
@@ -719,6 +719,7 @@
 
 .dayafter.provocationPage article header hgroup h1 {
   font-size: 64px !important;
+  padding-inline-start: 0;
 }
   
 .provocationPage article header hgroup h1 {
