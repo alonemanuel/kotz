@@ -711,6 +711,10 @@
   padding-top: 20px;
 }
 
+.dayafter.provocationPage article header hgroup h1 {
+  font-size: 64px !important;
+}
+  
 .provocationPage article header hgroup h1 {
   font-family: var(--ff-leon);
   color: var(--theme-color);
