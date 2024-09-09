@@ -813,6 +813,8 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
     credit_tagline: Attribute.Text;
     fonts: Attribute.Blocks;
     copyright_tag: Attribute.Text;
+    alt_color: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

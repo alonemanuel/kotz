@@ -15,6 +15,7 @@
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
     "x-generation-date": "2024-09-09T15:57:50.134Z"
+    "x-generation-date": "2024-09-09T16:33:39.421Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -130,6 +131,9 @@
               },
               "fonts": {},
               "copyright_tag": {
+                "type": "string"
+              },
+              "alt_color": {
                 "type": "string"
               }
             }
@@ -920,6 +924,9 @@
           },
           "fonts": {},
           "copyright_tag": {
+            "type": "string"
+          },
+          "alt_color": {
             "type": "string"
           },
           "createdAt": {
