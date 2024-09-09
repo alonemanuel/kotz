@@ -411,6 +411,7 @@
 
   .dayafter.outer .nav {
     padding-block-end: 0;
+    outline: none;
   }
     
   .outer .nav {
