@@ -76,7 +76,7 @@ const ProvocationPage: React.FC = () => {
             isHamburgerClicked ? sidebarStyles.hamburgerClicked : ""
           }`}
         >
-          <Sidebar articles={articlesStrapi} terms={termsStrapi} />
+          <Sidebar articles={articlesStrapi} terms={termsStrapi} path={'provocation'} />
           <div className={styles.bottomBar}>
             <div className={styles.hamburger} onClick={() => hamburgerClick()}>
               <div className={styles.burgerWrapper}>

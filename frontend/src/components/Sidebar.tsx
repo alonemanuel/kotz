@@ -9,6 +9,7 @@ import ArticleComponent from "../ArticleComponent";
 import { useOpenArticle } from "../OpenArticleContext";
 import topArrowImg from "../images/other/up-arrow.svg";
 import tagImg from "../images/sandbox/tag_example.svg";
+import { path } from "snapsvg";
 
 // Function to dynamically require all images from a directory
 const importAll = (r: any) => {
@@ -23,6 +24,7 @@ const homepageImages = importAll(
 interface SidebarProps {
   articles: Article[];
   terms: Term[];
+  path: any;
 }
 
 function debounce(func: any, wait: number) {
@@ -89,7 +91,7 @@ const getMaxArticles = (width: number) => {
   if (width >= 850) return 2;
   return 1;
 };
-const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
+const Sidebar: React.FC<SidebarProps> = ({ articles, terms, path }) => {
   // Add touch class
   document.documentElement.classList.toggle(
     styles.touch,
@@ -440,9 +442,9 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
         );
 
         const newUrlSuffix = normalizedUrl ? normalizedUrl : normalizedTitle;
-        navigate(`/provocation/${newUrlSuffix}`, { replace: false });
+        navigate(`/${path}/${newUrlSuffix}`, { replace: false });
       } else if (activeIndices.length === 1) {
-        navigate(`/provocation`, { replace: false });
+        navigate(`/${path}`, { replace: false });
       }
     }
 
@@ -469,7 +471,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
     setActiveArticleIndex(-1);
 
     if (activeIndices.length === 1) {
-      navigate(`/provocation`, { replace: false });
+      navigate(`/${path}`, { replace: false });
     }
   };
 
@@ -541,7 +543,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
                     ? normalizedUrl
                     : normalizedTitle;
 
-                  navigate(`/provocation/${newUrlSuffix}`, { replace: false });
+                  navigate(`/${path}/${newUrlSuffix}`, { replace: false });
 
                   found = true;
                   break;
