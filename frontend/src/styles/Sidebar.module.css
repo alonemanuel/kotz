@@ -45,9 +45,23 @@
 }
 
 .dayafter.outer > .nav .navItem.bottomNav {
-  /* background-color: brown; */
   font-size: 36px;
 }
+
+.dayafter.outer > .nav .navItem.bottomNav .issueName {
+  font-size: 28px;
+  color: white;
+  font-family: "DavidKotz";
+  font-feature-settings: "ss01" 1;
+  margin-inline-end: 12px;
+}
+
+.dayafter.outer > .nav .navItem.bottomNav .issueDetails {
+  font-family: var(--ff-david-vc);
+  font-weight: 700;
+  font-size: 24px;
+}
+
 /* 
 .dayafter.outer > .nav::after {
   content: "hello!";
