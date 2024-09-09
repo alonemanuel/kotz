@@ -87,12 +87,17 @@ function useResizeObservers(refs: any, dependency: number | null) {
   return dimensions;
 }
 
-const getMaxArticles = (width: number) => {
-  if (width >= 1250) return 3;
-  if (width >= 850) return 2;
-  return 1;
-};
 const Sidebar: React.FC<SidebarProps> = ({ articles, terms, path }) => {
+  const getMaxArticles = (width: number) => {
+    if (path === "thedayafter") {
+      return 1;
+    }
+  
+    if (width >= 1250) return 3;
+    if (width >= 850) return 2;
+    return 1;
+  };
+  
   // Add touch class
   document.documentElement.classList.toggle(
     styles.touch,
@@ -687,7 +692,11 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms, path }) => {
   };
 
   return (
-    <div className={`${styles.outer} ${path === "thedayafter" ? styles.dayafter : styles.provocation}`}>
+    <div
+      className={`${styles.outer} ${
+        path === "thedayafter" ? styles.dayafter : styles.provocation
+      }`}
+    >
       <div
         className={`${styles.nav} ${
           isNavClicked ? styles.temporaryClosed : ""
