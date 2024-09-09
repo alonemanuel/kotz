@@ -71,6 +71,11 @@
   
 } */
 
+.dayafter.outer > .nav {
+  gap: 0;
+  padding: 0;
+}
+
 .outer > .nav {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   height: 100%;
@@ -182,6 +187,11 @@
   animation: navAnimation 3s ease-in infinite; /* Add animation */
 }
 
+.dayafter.outer > .articles {
+  padding: 0;
+  gap: 0;
+}
+  
 .outer > .articles {
   display: flex;
   flex-direction: row-reverse;
@@ -236,6 +246,10 @@
   display: none;
 }
 
+.dayafter.outer > .articles > .articleOuter > .topBar {
+  outline: none;
+}
+  
 .outer > .articles > .articleOuter > .topBar {
   position: sticky;
   top: 0;
