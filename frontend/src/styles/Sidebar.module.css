@@ -44,6 +44,19 @@
   font-family: var(--ff-dayafter);
 }
 
+.dayafter.outer > .nav .navItem.bottomNav {
+  /* background-color: brown; */
+  font-size: 36px;
+}
+/* 
+.dayafter.outer > .nav::after {
+  content: "hello!";
+  width: 100%;
+  height: 30px;
+  color: var(--active-theme-color);
+  
+} */
+
 .outer > .nav {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   height: 100%;

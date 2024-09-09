@@ -767,6 +767,27 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms, path }) => {
             )}
           </div>
         ))}
+        <div
+          className={`${styles.navItem} ${styles.bottomNav}`}
+          style={
+            {
+              "--active-theme-color": `${
+                articles[
+                  isPortrait ? activeArticleIndex ?? -1 : activeIndices[0]
+                ]?.attributes.color ?? "purple"
+              }`,
+              "--active-alt-color": `${
+                articles[
+                  isPortrait ? activeArticleIndex ?? -1 : activeIndices[0]
+                ]?.attributes.alt_color ?? "yellow"
+              }`,
+              "--theme-color": `red`,
+              "--alt-color": `green`,
+            } as React.CSSProperties
+          }
+        >
+          קוץ
+        </div>
       </div>
       <div
         className={`${styles.articles} ${
