@@ -11,7 +11,7 @@
 .dayafter.provocationPage > .bottomBar {
   display: none;
 }
-  
+
 .provocationPage > .bottomBar {
   border-color: black;
   display: flex;
@@ -699,7 +699,7 @@
 .dayafter.provocationPage article header hgroup {
   gap: 0.5em;
 }
-  
+
 .provocationPage article header hgroup {
   display: flex;
   flex-flow: column nowrap;
@@ -721,7 +721,7 @@
   font-size: 64px !important;
   padding-inline-start: 0;
 }
-  
+
 .provocationPage article header hgroup h1 {
   font-family: var(--ff-leon);
   color: var(--theme-color);
@@ -753,7 +753,7 @@
   font-family: var(--ff-david-vc);
   color: var(--theme-color);
 }
-  
+
 .provocationPage article header hgroup h3 {
   font-family: var(--ff-narkis-yair);
   background-color: var(--theme-color);
@@ -910,8 +910,10 @@ h3 + .provocationPage main > p {
 
 .dayafter.provocationPage main > p b {
   background-color: var(--alt-color);
+  padding-block: 0.2em 0.1em;
+  padding-inline: 0.2em;
 }
-  
+
 .provocationPage main > p b {
   color: var(--theme-color);
 }
