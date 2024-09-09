@@ -90,6 +90,10 @@
   align-items: center;
 }
 
+.dayafter.outer > .nav .navItem > .navTag {
+  display: none;
+}
+
 .outer > .nav .navItem > .navTag {
   opacity: 0;
   scale: 0.5;
