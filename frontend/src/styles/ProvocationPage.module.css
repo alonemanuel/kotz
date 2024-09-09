@@ -696,6 +696,10 @@
   gap: 4em;
 }
 
+.dayafter.provocationPage article header hgroup {
+  gap: 0.5em;
+}
+  
 .provocationPage article header hgroup {
   display: flex;
   flex-flow: column nowrap;
@@ -709,6 +713,8 @@
   text-decoration: none;
   text-shadow: none;
   padding-top: 20px;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 .dayafter.provocationPage article header hgroup h1 {
