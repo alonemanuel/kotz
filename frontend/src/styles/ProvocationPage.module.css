@@ -744,6 +744,7 @@
 .dayafter.provocationPage article header hgroup h3 {
   background-color: var(--alt-color);
   font-family: var(--ff-david-vc);
+  color: var(--theme-color);
 }
   
 .provocationPage article header hgroup h3 {
