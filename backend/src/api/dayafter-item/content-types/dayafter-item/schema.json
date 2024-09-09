@@ -4,7 +4,8 @@
   "info": {
     "singularName": "dayafter-item",
     "pluralName": "dayafter-items",
-    "displayName": "Dayafter Item"
+    "displayName": "Dayafter Item",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -30,11 +31,12 @@
       "type": "text"
     },
     "author_img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "order": {
       "type": "integer",
@@ -59,14 +61,20 @@
       ]
     },
     "tag_icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "ticker_text": {
       "type": "string"
+    },
+    "alt_color": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
     }
   }
 }

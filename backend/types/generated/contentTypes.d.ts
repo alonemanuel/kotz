@@ -883,6 +883,7 @@ export interface ApiDayafterItemDayafterItem extends Schema.CollectionType {
     singularName: 'dayafter-item';
     pluralName: 'dayafter-items';
     displayName: 'Dayafter Item';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -903,6 +904,8 @@ export interface ApiDayafterItemDayafterItem extends Schema.CollectionType {
     type: Attribute.Enumeration<['standard', 'interview']>;
     tag_icon: Attribute.Media<'images'>;
     ticker_text: Attribute.String;
+    alt_color: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
