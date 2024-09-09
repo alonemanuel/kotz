@@ -20,7 +20,7 @@ interface ArticleComponentProps {
 }
 
 export function removeSpecialChars(x: any) {
-  return x.replace(/[_;'˂~*&^]/g, "");
+  return x.replace(/[_;'˂~*&^]/g, " ");
 }
 
 
