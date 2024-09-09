@@ -695,6 +695,8 @@
   font-family: var(--ff-frankg);
   color: white;
   text-decoration: none;
+  text-shadow: none;
+  
 }
 
 .provocationPage article header hgroup h1 {
