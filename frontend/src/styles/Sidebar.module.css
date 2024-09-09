@@ -36,6 +36,10 @@
   left: var(--left);
 }
 
+.dayafter.outer > .nav {
+  font-family: var(--ff-dayafter);
+}
+
 .outer > .nav {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   height: 100%;
@@ -50,6 +54,10 @@
   overflow: hidden; /* Add this line */
 }
 
+.dayafter.outer > .nav .navItem {
+  font-size: 56px;
+}
+  
 .outer > .nav .navItem {
   background-color: var(--color-theme-background);
   cursor: pointer;

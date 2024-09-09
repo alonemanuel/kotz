@@ -7,7 +7,7 @@
 
 @font-face {
   font-family: "DavidVC";
-  src: url("./david_bezalel/VC_david-Medium.woff") format("woff");
+  src: url("./david_bezalel/VC_david-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
 }
@@ -87,13 +87,15 @@
 
 @font-face {
   font-family: "Greta";
-  src: url("./greta_text_hagilda/GretaTextH+L-MediumItalic+.woff2") format("woff2");
+  src: url("./greta_text_hagilda/GretaTextH+L-MediumItalic+.woff2")
+    format("woff2");
   font-weight: 500;
   font-style: italic;
 }
 @font-face {
   font-family: "Greta";
-  src: url("./greta_text_hagilda/GretaTextH+L-RegularItalic.woff2") format("woff2");
+  src: url("./greta_text_hagilda/GretaTextH+L-RegularItalic.woff2")
+    format("woff2");
   font-weight: 400;
   font-style: italic;
 }
@@ -111,13 +113,15 @@
 
 @font-face {
   font-family: "KotzText";
-  src: url("./shira_saar/Shira_Saar_text-Medium_Green-SVG.woff2") format("woff2");
+  src: url("./shira_saar/Shira_Saar_text-Medium_Green-SVG.woff2")
+    format("woff2");
   font-weight: 500;
 }
 
 @font-face {
   font-family: "Alpha Bravo";
-  src: url("./shira_saar/Shira_Saar_text-Medium_Green-SVG.woff2") format("woff2");
+  src: url("./shira_saar/Shira_Saar_text-Medium_Green-SVG.woff2")
+    format("woff2");
   font-weight: 500;
 }
 
@@ -163,7 +167,6 @@
   font-weight: 400;
 }
 
-
 @font-face {
   font-family: "Discordia";
   src: url("./discordia/Discordia-Bold.woff2") format("woff2");
@@ -183,4 +186,18 @@
   src: url("./discordia/Discordia-Italic.woff2") format("woff2");
   font-weight: 400;
   font-style: italic;
+}
+
+@font-face {
+  font-family: "Dayafter";
+  src: url("./dayafter/thedayaftertomorrow-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FrankG";
+  src: url("./frankg/FrankG-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
 }
