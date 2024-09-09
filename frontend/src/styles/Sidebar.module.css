@@ -146,6 +146,10 @@
   right: 16px;
 }
 
+.dayafter.outer > .nav .navItem:hover {
+  color: var(--active-theme-color);
+}
+  
 .outer > .nav .navItem:hover {
   color: var(--theme-color);
 }
