@@ -19,6 +19,11 @@ interface ArticleComponentProps {
   styles: any;
 }
 
+export function removeSpecialChars(x: any) {
+  return x.replace(/[_;'˂~*&^]/g, "");
+}
+
+
 const ArticleComponent: React.FC<ArticleComponentProps> = ({
   article,
   terms,
@@ -81,11 +86,14 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
     }
   }, [attr.title]); // Dependency array ensures this runs only if attr.title changes
 
+
   return (
     <article className={classType}>
       <header>
         <hgroup>
-          {attr.title && <h1 className={styles.title}>{attr.title}</h1>}
+          {attr.title && (
+            <h1 className={styles.title}>{removeSpecialChars(attr.title)}</h1>
+          )}
           {attr.author && <h3>{attr.author}</h3>}
           {attr.tag_icon && (
             <div className={styles.leadImg}>

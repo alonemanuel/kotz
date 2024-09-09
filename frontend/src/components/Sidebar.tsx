@@ -6,7 +6,7 @@ import provocationStyles from "../styles/ProvocationPage.module.css";
 import dayafterStyles from "../styles/DayafterPage.module.css";
 import { Article, Term } from "../interfaces";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import ArticleComponent from "../ArticleComponent";
+import ArticleComponent, { removeSpecialChars } from "../ArticleComponent";
 import { useOpenArticle } from "../OpenArticleContext";
 import topArrowImg from "../images/other/up-arrow.svg";
 import tagImg from "../images/sandbox/tag_example.svg";
@@ -677,7 +677,9 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms, path }) => {
             } as React.CSSProperties
           }
         >
-          <div className={styles.title}>{article.attributes.title}</div>
+          <div className={styles.title}>
+            {removeSpecialChars(article.attributes.title)}
+          </div>
           <div
             className={styles.xButton}
             onClick={() => closeArticle(index)}
