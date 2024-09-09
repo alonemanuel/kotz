@@ -928,6 +928,14 @@ h3 + .provocationPage main > p {
   font-size: 1.4rem;
 }
 
+.dayafter.provocationPage main > h3 {
+  font-family: var(--ff-dayafter);
+  font-size: 90px;
+  line-height: 0.8;
+  font-weight: 400;
+  margin-block: 80px;
+}
+  
 .provocationPage main > h3 {
   font: var(--font-kotz-500);
   font-weight: 600;
