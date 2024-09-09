@@ -272,7 +272,7 @@
 }
 
 .dayafter.outer > .articles > .articleOuter > article {
-  background-color: var(--theme-color);
+  padding: 0;
 }
 
 .outer > .articles .articleIsNotOpen ~ .toTop {

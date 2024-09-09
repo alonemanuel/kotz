@@ -667,6 +667,15 @@
   display: block;
 }
 
+.dayafter.provocationPage article header {
+  background-color: var(--theme-color);
+  padding: 10px;
+}
+
+.dayafter.provocationPage article main {
+  padding: 10px;
+}
+
 .provocationPage article header {
   display: flex;
   flex-flow: column nowrap;
