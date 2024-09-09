@@ -665,6 +665,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms, path }) => {
         style={
           {
             "--theme-color": `${article.attributes.color}`,
+            "--alt-color": `${article.attributes.alt_color}`,
           } as React.CSSProperties
         }
       >
@@ -718,6 +719,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms, path }) => {
             style={
               {
                 "--theme-color": `${article.attributes.color}`,
+                "--alt-color": `${article.attributes.alt_color}`,
               } as React.CSSProperties
             }
           >

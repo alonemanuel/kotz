@@ -18,6 +18,7 @@ export interface ArticleAttribute {
   author_img: any;
   url_title: string;
   color: string;
+  alt_color: string;
   cases: any;
   ticker_text: string;
   tag_icon: any;

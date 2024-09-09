@@ -120,6 +120,12 @@
 
 .dayafter.outer > .nav .navItem {
   color: var(--theme-color);
+  background-color: var(--alt-color);
+}
+
+.dayafter.outer > .nav .navItem.activeNavItem {
+  color: var(--theme-color);
+  background-color: var(--alt-color);
 }
 
 .outer > .nav .navItem:hover.activeNavItem {
