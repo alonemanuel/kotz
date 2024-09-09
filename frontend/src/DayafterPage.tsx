@@ -70,7 +70,7 @@ const DayafterPage: React.FC = () => {
         className={`${layoutStyles.provocationLayout} ${layoutStyles.dayafterLayout}`}
       >
         <div
-          className={`${styles.provocationPage} ${styles.dayafterPage} ${
+          className={`${styles.provocationPage} ${styles.dayafter} ${
             isHamburgerClicked ? sidebarStyles.hamburgerClicked : ""
           }`}
         >
