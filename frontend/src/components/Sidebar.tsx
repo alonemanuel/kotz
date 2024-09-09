@@ -92,12 +92,12 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms, path }) => {
     if (path === "thedayafter") {
       return 1;
     }
-  
+
     if (width >= 1250) return 3;
     if (width >= 850) return 2;
     return 1;
   };
-  
+
   // Add touch class
   document.documentElement.classList.toggle(
     styles.touch,
@@ -692,6 +692,9 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms, path }) => {
     );
   };
 
+  console.debug(`alon: articles: alonaiiii`); // ALON REMOVE
+  console.log(articles);
+
   return (
     <div
       className={`${styles.outer} ${
@@ -702,6 +705,18 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms, path }) => {
         className={`${styles.nav} ${
           isNavClicked ? styles.temporaryClosed : ""
         }`}
+        style={
+          {
+            "--active-theme-color": `${
+              articles[isPortrait ? activeArticleIndex ?? 0 : activeIndices[0]]
+                ?.attributes.color
+            }`,
+            "--active-alt-color": `${
+              articles[isPortrait ? activeArticleIndex ?? 0 : activeIndices[0]]
+                ?.attributes.alt_color
+            }`,
+          } as React.CSSProperties
+        }
       >
         {articles.map((article, index) => (
           <div
