@@ -325,6 +325,7 @@
 
 .dayafter.outer > .articles > .articleOuter > article {
   padding: 0;
+  margin-top: -40px;
 }
 
 .outer > .articles .articleIsNotOpen ~ .toTop {
