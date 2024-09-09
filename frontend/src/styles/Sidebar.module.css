@@ -6,6 +6,9 @@
   flex: 1;
 }
 
+.dayafter.outer {
+}
+
 .outer > .homepageImages {
   position: absolute;
   left: 0;

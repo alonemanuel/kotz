@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/Sidebar.module.css";
 import provocationStyles from "../styles/ProvocationPage.module.css";
+import dayafterStyles from "../styles/DayafterPage.module.css";
 import { Article, Term } from "../interfaces";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import ArticleComponent from "../ArticleComponent";
@@ -686,7 +687,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms, path }) => {
   };
 
   return (
-    <div className={styles.outer}>
+    <div className={`${styles.outer} ${path === "thedayafter" ? styles.dayafter : styles.provocation}`}>
       <div
         className={`${styles.nav} ${
           isNavClicked ? styles.temporaryClosed : ""
