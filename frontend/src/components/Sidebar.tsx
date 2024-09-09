@@ -708,11 +708,11 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms, path }) => {
         style={
           {
             "--active-theme-color": `${
-              articles[isPortrait ? activeArticleIndex ?? 0 : activeIndices[0]]
+              articles[isPortrait ? activeArticleIndex ?? -1 : activeIndices[0]]
                 ?.attributes.color
             }`,
             "--active-alt-color": `${
-              articles[isPortrait ? activeArticleIndex ?? 0 : activeIndices[0]]
+              articles[isPortrait ? activeArticleIndex ?? -1 : activeIndices[0]]
                 ?.attributes.alt_color
             }`,
           } as React.CSSProperties
@@ -733,6 +733,16 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms, path }) => {
             onClick={() => toggleAccordion(index)}
             style={
               {
+                "--active-theme-color": `${
+                  articles[
+                    isPortrait ? activeArticleIndex ?? -1 : activeIndices[0]
+                  ]?.attributes.color ?? article.attributes.color
+                }`,
+                "--active-alt-color": `${
+                  articles[
+                    isPortrait ? activeArticleIndex ?? -1 : activeIndices[0]
+                  ]?.attributes.alt_color ?? article.attributes.alt_color
+                }`,
                 "--theme-color": `${article.attributes.color}`,
                 "--alt-color": `${article.attributes.alt_color}`,
               } as React.CSSProperties
