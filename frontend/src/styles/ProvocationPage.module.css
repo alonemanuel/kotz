@@ -908,6 +908,10 @@ h3 + .provocationPage main > p {
   text-indent: 0 !important;
 }
 
+.dayafter.provocationPage main > p b {
+  background-color: var(--alt-color);
+}
+  
 .provocationPage main > p b {
   color: var(--theme-color);
 }
