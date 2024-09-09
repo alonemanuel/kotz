@@ -262,6 +262,11 @@
   flex-shrink: 0;
 }
 
+.dayafter.outer > .articles > .articleOuter > .topBar .title {
+  font-family: var(--ff-david-vc);
+  font-weight: 700;
+}
+  
 .outer > .articles > .articleOuter > .topBar .title {
   padding-inline: 10px;
   flex: 1;
