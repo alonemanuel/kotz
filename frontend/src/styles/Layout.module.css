@@ -7,10 +7,6 @@
   height: 100dvh;
 }
 
-.dayafterLayout.layout {
-  filter: blur(2px);
-}
-
 .bordersLayout.layout {
   --color-green: #FF5C16;
   --color-theme-foreground: #FF5C16;
