@@ -89,6 +89,11 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
           {attr.author && <h3>{attr.author}</h3>}
           {attr.subtitle && <h2>{attr.subtitle}</h2>}
         </hgroup>
+        {attr.tag_icon && (
+          <div className={styles.leadImg}>
+            <img src={attr.tag_icon?.data?.attributes.url} />
+          </div>
+        )}
         {attr.lead && <div className={styles.lead}>{attr.lead}</div>}
       </header>
       <hr />
@@ -132,12 +137,7 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
                 />
               );
             case "video":
-              return (
-                <VideoContent
-                  body={attr?.body}
-                  videoUrl={attr?.author}
-                />
-              );
+              return <VideoContent body={attr?.body} videoUrl={attr?.author} />;
           }
         }
       })()}

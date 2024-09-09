@@ -678,6 +678,14 @@
   color: var(--theme-color);
 }
 
+.provocationPage article .leadImg {
+  display: none;
+}
+
+.dayafter.provocationPage article .leadImg {
+  display: flex;
+}
+
 .provocationPage article header {
   display: flex;
   flex-flow: column nowrap;
