@@ -191,7 +191,7 @@
   display: unset;
 }
 
-.dayafter.outer > .articles > .articleOuter.popout > .topBar > .xButton {
+.dayafter.outer > .articles > .articleOuter .topBar .xButton {
   display: none;
 }
   
