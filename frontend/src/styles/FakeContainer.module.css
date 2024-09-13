@@ -828,11 +828,25 @@ justify-content: center;
 
 @media (max-width: 300px) and (max-height: 450px) {
   .accordionContainer {
-    font-size: 18px;
+    font-size: 32px;
   }
   
   .accordionContainer .subtitle {
+    font-size: 11px;
+    display: none;
+  }
+  
+  .accordionContainer .issueName h1 {
+    font-size: 16px;
+  }
+
+  .accordionContainer .issueName h2 {
     font-size: 12px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    min-width: 35px;
+    max-width: 35px;
   }
 }
 
@@ -926,15 +940,384 @@ justify-content: center;
 }
 
 
-/* 
-@media (max-width: 800px) {
+/* NEW */
+
+@media (min-width: 0px) and (max-width: 300px) and (min-height: 0px) and (max-height: 500px) {
   .accordionContainer {
-    font-size: 72px;
+    font-size: 18px;
+  }
+  
+  .accordionContainer .subtitle {
+    display: none;
+  }
+  
+  .accordionContainer .issueName {
+    padding: 4px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 14px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 12px;
+  }
+
+  .accordionContainer .kotzIcon {
+    padding: 4px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    width: 20px;
   }
 }
 
-@media (max-width: 600px) {
+@media (min-width: 0px) and (max-width: 300px) and (min-height: 500px) and (max-height: 700px) {
   .accordionContainer {
-    font-size: 64px;
+    font-size: 20px;
   }
-} */
+  
+  .accordionContainer .subtitle {
+    display: none;
+  }
+  
+  .accordionContainer .issueName {
+    padding: 4px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 14px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 12px;
+  }
+
+  .accordionContainer .kotzIcon {
+    padding: 4px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    width: 20px;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 300px) and (min-height: 700px) and (max-height: 3000px) {
+  .accordionContainer {
+    font-size: 24px;
+  }
+  
+  .accordionContainer .subtitle {
+    display: none;
+  }
+  
+  .accordionContainer .issueName {
+    padding: 4px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 14px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 12px;
+  }
+
+  .accordionContainer .kotzIcon {
+    padding: 4px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    width: 20px;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 600px) and (min-height: 0px) and (max-height: 500px) {
+  .accordionContainer {
+    font-size: 22px;
+  }
+  
+  .accordionContainer .subtitle {
+    display: none;
+  }
+  
+  .accordionContainer .issueName {
+    padding: 4px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 14px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 12px;
+  }
+
+  .accordionContainer .kotzIcon {
+    padding: 4px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    width: 22px;
+    max-width: 22px;
+    min-width: 22px;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 600px) and (min-height: 500px) and (max-height: 1000px) {
+  .accordionContainer {
+    font-size: 38px;
+  }
+  
+  .accordionContainer .subtitle {
+    display: none;
+  }
+  
+  .accordionContainer .issueName {
+    padding: 4px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 14px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 12px;
+  }
+
+  .accordionContainer .kotzIcon {
+    padding: 4px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    width: 38px;
+    max-width: 38px;
+    min-width: 38px;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 600px) and (min-height: 1000px) and (max-height: 5000px) {
+  .accordionContainer {
+    font-size: 38px;
+  }
+  
+  .accordionContainer .subtitle {
+    display: none;
+  }
+  
+  .accordionContainer .issueName {
+    padding: 4px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 14px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 12px;
+  }
+
+  .accordionContainer .kotzIcon {
+    padding: 4px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    width: 38px;
+    max-width: 38px;
+    min-width: 38px;
+  }
+}
+
+
+
+@media (min-width: 600px) and (max-width: 1000px) and (min-height: 0px) and (max-height: 500px) {
+  .accordionContainer {
+    font-size: 42px;
+  }
+  
+  .accordionContainer .subtitle {
+    display: none;
+  }
+  
+  .accordionContainer .issueName {
+    padding: 4px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 18px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 14px;
+  }
+
+  .accordionContainer .kotzIcon {
+    padding: 4px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    width: 36px;
+    max-width: 36px;
+    min-width: 36px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1000px) and (min-height: 500px) and (max-height: 1000px) {
+  .accordionContainer {
+    font-size: 48px;
+  }
+  
+  .accordionContainer .subtitle {
+    display: none;
+  }
+  
+  .accordionContainer .issueName {
+    padding: 4px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 18px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 14px;
+  }
+
+  .accordionContainer .kotzIcon {
+    padding: 4px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    width: 42px;
+    max-width: 42px;
+    min-width: 42px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1000px) and (min-height: 1000px) and (max-height: 5000px) {
+  .accordionContainer {
+    font-size: 48px;
+  }
+  
+  .accordionContainer .subtitle {
+    display: none;
+  }
+  
+  .accordionContainer .issueName {
+    padding: 4px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 18px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 14px;
+  }
+
+  .accordionContainer .kotzIcon {
+    padding: 4px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    width: 42px;
+    max-width: 42px;
+    min-width: 42px;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1500px) and (min-height: 0px) and (max-height: 500px) {
+  .accordionContainer {
+    font-size: 48px;
+  }
+  
+  .accordionContainer .subtitle {
+    display: none;
+  }
+  
+  .accordionContainer .issueName {
+    padding: 4px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 24px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 18px;
+  }
+
+  .accordionContainer .kotzIcon {
+    padding: 4px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    width: 46px;
+    max-width: 46px;
+    min-width: 46px;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1500px) and (min-height: 500px) and (max-height: 800px) {
+  .accordionContainer {
+    font-size: 68px;
+  }
+  
+  .accordionContainer .subtitle {
+    display: none;
+  }
+  
+  .accordionContainer .issueName {
+    padding: 4px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 24px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 18px;
+  }
+
+  .accordionContainer .kotzIcon {
+    padding: 4px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    width: 46px;
+    max-width: 46px;
+    min-width: 46px;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1500px) and (min-height: 800px) and (max-height: 5000px) {
+  .accordionContainer {
+    font-size: 68px;
+  }
+  
+  .accordionContainer .subtitle {
+    /* display: none; */
+  }
+  
+  .accordionContainer .issueName {
+    padding: 4px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 24px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 18px;
+  }
+
+  .accordionContainer .kotzIcon {
+    padding: 4px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    width: 46px;
+    max-width: 46px;
+    min-width: 46px;
+  }
+}
