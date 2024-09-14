@@ -220,6 +220,7 @@ justify-content: center;
   display: flex;
   background-color: purple;
   flex-grow: 1;
+  overflow: hidden;
 }
 
 .topBar .nameCorner {
