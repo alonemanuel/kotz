@@ -150,7 +150,7 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
           }
         }
       })()}
-      {attr.long_author_about && attr.author_img && attr.type !== "popout" && (
+      {attr.long_author_about && attr.author_img?.data && attr.type !== "popout" && (
         <footer>
           <hr />
           <main>
