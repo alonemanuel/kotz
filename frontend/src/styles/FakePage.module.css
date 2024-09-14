@@ -207,7 +207,7 @@
 .fakePage article header hgroup h1 {
   font-family: var(--ff-haim);
   /* font-feature-settings: "ss01"; */
-  font-size: clamp(3em, min(10vw, 12vh), 25em);
+  font-size: clamp(1.5em, min(10vw, 12vh), 25em);
   line-height: 0.8em;
   color: black;
 }
@@ -217,8 +217,8 @@
 
 .fakePage article header hgroup h2 {
   font-family: var(--ff-narkis-yair);
-  font-size: 1.5rem;
-  line-height: 1.7rem;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
 
   max-width: 450px;
 }
