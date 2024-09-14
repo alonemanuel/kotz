@@ -184,6 +184,12 @@ justify-content: center;
   /* flex-shrink: 0; */
 }
 
+@media (max-width: 1400px) {
+  .topBarIcons .topBarIcon.active .textContent {
+    display: none;
+  }
+}
+
 .topBarIcons .topBarIcon.active .textContent h2 {
   display: flex;
   font-family: var(--ff-narkis-yair);
