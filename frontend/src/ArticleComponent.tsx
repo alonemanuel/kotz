@@ -145,11 +145,12 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
                 />
               );
             case "video":
+              console.debug(`alon: here?`); // ALON REMOVE
               return <VideoContent body={attr?.body} videoUrl={attr?.author} />;
           }
         }
       })()}
-      {attr.long_author_about && attr.type !== "popout" && (
+      {attr.long_author_about && attr.author_img && attr.type !== "popout" && (
         <footer>
           <hr />
           <main>
