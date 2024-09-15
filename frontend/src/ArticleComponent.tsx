@@ -102,9 +102,9 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
           )}
           {attr.subtitle && <h2>{attr.subtitle}</h2>}
         </hgroup>
-        {attr.lead && <div className={styles.lead}>{attr.lead}</div>}
       </header>
       <hr />
+        {attr.lead && <div className={styles.lead}>{attr.lead}</div>}
       {(() => {
         if (attr.body) {
           switch (attr.type) {
