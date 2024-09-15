@@ -23,7 +23,6 @@ export function removeSpecialChars(x: any) {
   return x.replace(/[_;'׳˂~*&^]/g, " ");
 }
 
-
 const ArticleComponent: React.FC<ArticleComponentProps> = ({
   article,
   terms,
@@ -86,9 +85,11 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
     }
   }, [attr.title]); // Dependency array ensures this runs only if attr.title changes
 
-
   return (
     <article className={classType}>
+      <div className={styles.bodyImageWrapper}>
+        <img src={attr.body_img?.data?.attributes.url} />
+      </div>
       <header>
         <hgroup>
           {attr.title && (
@@ -104,7 +105,7 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
         </hgroup>
       </header>
       <hr />
-        {attr.lead && <div className={styles.lead}>{attr.lead}</div>}
+      {attr.lead && <div className={styles.lead}>{attr.lead}</div>}
       {(() => {
         if (attr.body) {
           switch (attr.type) {
@@ -150,30 +151,32 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
           }
         }
       })()}
-      {attr.long_author_about && attr.author_img?.data && attr.type !== "popout" && (
-        <footer>
-          <hr />
-          <main>
-            {attr.author_img && (
-              <div className={styles.imageContainer}>
-                <img
-                  src={attr.author_img?.data?.attributes.url}
-                  alt={attr.author}
-                />
-              </div>
-            )}
-            <div className={styles.textBody}>
-              {attr.author && <h1>{attr.author}</h1>}
-              {attr.long_author_about && (
-                <JsonBlocksContent
-                  content={attr.long_author_about}
-                  styles={styles}
-                />
+      {attr.long_author_about &&
+        attr.author_img?.data &&
+        attr.type !== "popout" && (
+          <footer>
+            <hr />
+            <main>
+              {attr.author_img && (
+                <div className={styles.imageContainer}>
+                  <img
+                    src={attr.author_img?.data?.attributes.url}
+                    alt={attr.author}
+                  />
+                </div>
               )}
-            </div>
-          </main>
-        </footer>
-      )}
+              <div className={styles.textBody}>
+                {attr.author && <h1>{attr.author}</h1>}
+                {attr.long_author_about && (
+                  <JsonBlocksContent
+                    content={attr.long_author_about}
+                    styles={styles}
+                  />
+                )}
+              </div>
+            </main>
+          </footer>
+        )}
     </article>
   );
 };

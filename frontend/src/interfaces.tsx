@@ -24,6 +24,7 @@ export interface ArticleAttribute {
   tag_icon: any;
   icon: any;
   video_url: any;
+  body_img: any;
 }
 
 export interface Article {
