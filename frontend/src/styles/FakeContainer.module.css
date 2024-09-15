@@ -10,6 +10,18 @@
   font-size: clamp(0px, min(9vw, 12vh), 100px);
 }
 
+.accordionContainer::after {
+  content: "";
+  background-color: black;
+  flex-grow: 1;
+}
+
+.accordionContainer .titleWord:nth-last-child(1),
+.accordionContainer .titleWord:nth-last-child(2)
+ {
+  flex-grow: 0;
+}
+
 .fakeContainer.isOpen {
 }
 
@@ -201,11 +213,12 @@ justify-content: center;
 .topBarIcons .topBarIcon .articleIconWrapper {
   display: flex;
   flex-flow: row nowrap;
-  flex-grow: 1;
+  /* flex-grow: 1; */
 }
 
 .topBarIcons .topBarIcon .articleIconWrapper .articleIcon {
   flex-grow: 1;
+  max-height: 60px;
 }
 
 .topBarIcons .topBarIcon.active .articleIconWrapper {
