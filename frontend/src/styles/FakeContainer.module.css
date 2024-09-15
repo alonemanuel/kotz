@@ -594,6 +594,10 @@ justify-content: center;
     display: none;
   }
 
+  .accordionContainer.isOpen::after {
+    display: none;
+  }
+
   .accordionContainer.isOpen .articleIconWrapper {
     height: 100%;
     overflow: hidden;

@@ -205,7 +205,8 @@
   gap: 0em;
 }
 .fakePage article header hgroup h1 {
-  font-family: var(--ff-haim);
+  font-family: var(--ff-haim-cond);
+  font-weight: 700;
   /* font-feature-settings: "ss01"; */
   font-size: clamp(1.5em, min(10vw, 12vh), 25em);
   line-height: 0.8em;
