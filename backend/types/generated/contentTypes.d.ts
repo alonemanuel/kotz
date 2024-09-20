@@ -988,6 +988,11 @@ export interface ApiFakeItemFakeItem extends Schema.CollectionType {
     body_img: Attribute.Media<'images'>;
     outside_img_vertical: Attribute.Media<'images'>;
     outside_img_horizontal: Attribute.Media<'images'>;
+    terms: Attribute.Relation<
+      'api::fake-item.fake-item',
+      'oneToMany',
+      'api::fake-term.fake-term'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

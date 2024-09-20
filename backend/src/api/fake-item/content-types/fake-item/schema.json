@@ -79,18 +79,25 @@
       ]
     },
     "outside_img_vertical": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "outside_img_horizontal": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "terms": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fake-term.fake-term"
     }
   }
 }
