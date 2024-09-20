@@ -352,6 +352,27 @@
   letter-spacing: 0.4px;
   margin: 0;
 }
+
+.fakePage main > p a {
+  background-color: var(--theme-color);
+  color: black;
+  padding: 0.5em 1em;
+  font-weight: 700;
+  border-radius: 100px;
+  color: white;
+  letter-spacing: 2px;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
+  transition: all 0.2s ease-out;
+}
+
+.fakePage main > p a:hover {
+  filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.5));
+}
+
+.fakePage main > p a:active {
+  filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.5));
+}
+
 .fakePage main > p:not(:first-child) {
   text-indent: var(--typo-indent);
 }

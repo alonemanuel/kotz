@@ -8,6 +8,7 @@ import UnderlineText from "./UnderlineText";
 import SongContent from "./SongContent";
 import StrikethroughText from "./StrikethroughText";
 import CodeText from "./CodeText";
+import UrlText from "./UrlText";
 
 const JsonBlocksContent: React.FC<{
   content?: ContentBlock[];
@@ -194,6 +195,8 @@ const JsonBlocksContent: React.FC<{
       return <StrikethroughText key={index}>{node.text}</StrikethroughText>;
     } else if (node.code) {
       return <CodeText key={index}>{node.text}</CodeText>;
+    } else if (node.url) {
+      return <UrlText key={index}>{node}</UrlText>;
     } else {
       return node.text;
     }

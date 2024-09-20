@@ -59,6 +59,7 @@ export interface ContentBlockChild {
   underline?: boolean;
   strikethrough?: boolean;
   code?: boolean;
+  url?:string;
 }
 
 export interface ImageBlock {
