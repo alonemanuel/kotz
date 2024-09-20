@@ -199,7 +199,6 @@
   background-color: white;
   transition: background-color 0.1s ease-out;
   transition-property: background-color, color;
-  padding-block-end: 8em;
   width: 100%;
   flex-grow: 1;
 }
@@ -434,6 +433,8 @@
   padding: 2em 1em;
   justify-content: flex-start;
   z-index: 10;
+  margin-bottom: 0;
+  max-width: fit-content;
 }
 
 .fakePage footer > main > .imageContainer {
