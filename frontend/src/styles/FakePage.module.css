@@ -407,9 +407,10 @@
   line-height: 1.3em;
   letter-spacing: 0.7px;
   margin: 0;
-  color: #26bd6b;
+  color: var(--theme-color);
   text-align: center;
   font-size: 1.6em;
+  margin: 2em auto;
 }
 
 .fakePage hr {
