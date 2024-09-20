@@ -123,7 +123,7 @@
 .fakePage .terms {
   display: flex;
   flex-flow: column nowrap;
-  background-color: var(--color-dark-green);
+  background-color: var(--theme-color);
   color: var(--color-black);
   font-family: var(--ff-hadassa);
   padding: 0 2em;
