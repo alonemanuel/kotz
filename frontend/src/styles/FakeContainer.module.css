@@ -12,7 +12,7 @@
 
 .accordionContainer::after {
   content: "";
-  background-color: black;
+  background-color: #9EBDE9;
   flex-grow: 1;
 }
 
