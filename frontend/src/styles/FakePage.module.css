@@ -314,6 +314,13 @@
   letter-spacing: 1px;
 }
 
+.fakePage main h2 {
+  margin-block: 2em 0.5em;
+  font: var(--font-kotz-500);
+  font-weight: 600;
+  letter-spacing: 4px;
+}
+
 .fakePage main.interview h1 {
   line-height: 1em;
   font-family: var(--ff-greta);
@@ -342,7 +349,7 @@
   font: var(--font-kotz-500);
   font-weight: 500;
   line-height: 1.77rem;
-  letter-spacing: 0.7px;
+  letter-spacing: 0.4px;
   margin: 0;
 }
 .fakePage main > p:not(:first-child) {
