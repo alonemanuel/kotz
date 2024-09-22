@@ -156,6 +156,12 @@
 }
 
 @font-face {
+  font-family: "Haim";
+  src: url("./haim_hagilda/HaimG-Bold.woff2") format("woff2");
+  font-weight: 700;
+}
+
+@font-face {
   font-family: "HaimTzar";
   src: url("./haim_vc/VC_Haim-Tzar.woff2") format("woff2");
   font-weight: 400;
