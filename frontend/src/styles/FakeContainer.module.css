@@ -123,7 +123,7 @@
 }
 
 .accordionContainer {
-  background-color: #e45d59;
+  background-color: #9ebde9;
   /* overflow: hidden; */
   /* flex-grow: ; */
 }
@@ -334,6 +334,7 @@
   cursor: pointer;
   display: flex;
   flex-shrink: 0;
+  background-color: #E45D59;
 }
 
 .accordionContainer .issueName {
