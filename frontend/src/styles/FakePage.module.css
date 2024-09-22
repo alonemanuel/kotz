@@ -424,6 +424,7 @@
 .fakePage footer {
   font-family: var(--ff-narkis-yair);
   font-size: 1.4rem;
+
 }
 .fakePage footer > main {
   display: flex;
@@ -437,6 +438,7 @@
   z-index: 10;
   margin-bottom: 0;
   max-width: fit-content;
+  margin-right: 0;
 }
 
 .fakePage footer > main > .imageContainer {
