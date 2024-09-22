@@ -486,6 +486,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 8px;
+  align-items: start;
 }
 
 .videoFooter *:first-child {
