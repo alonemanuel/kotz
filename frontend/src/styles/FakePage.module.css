@@ -134,6 +134,7 @@
   overflow: auto;
   max-height: 40vh;
   width: 100%;
+  z-index: 0;
 }
 .fakePage .terms .borderContainer {
   display: flex;
@@ -211,6 +212,7 @@
   position: sticky;
   top: 0;
   color: black;
+  z-index: 1;
 }
 
 .fakePage article header hgroup {
