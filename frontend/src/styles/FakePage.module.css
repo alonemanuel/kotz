@@ -534,6 +534,8 @@
 
   .fakePage footer > main {
     flex-direction: column;
+    max-width: 100%;
+    margin-right: 0;
   }
   .fakePage footer > main .imageContainer > img {
     max-width: 30%;
