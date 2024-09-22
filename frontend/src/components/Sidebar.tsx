@@ -3,12 +3,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/Sidebar.module.css";
 import provocationStyles from "../styles/ProvocationPage.module.css";
+import dayafterStyles from "../styles/DayafterPage.module.css";
 import { Article, Term } from "../interfaces";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import ArticleComponent from "../ArticleComponent";
+import ArticleComponent, { removeSpecialChars } from "../ArticleComponent";
 import { useOpenArticle } from "../OpenArticleContext";
 import topArrowImg from "../images/other/up-arrow.svg";
 import tagImg from "../images/sandbox/tag_example.svg";
+import { path } from "snapsvg";
 
 // Function to dynamically require all images from a directory
 const importAll = (r: any) => {
@@ -23,6 +25,7 @@ const homepageImages = importAll(
 interface SidebarProps {
   articles: Article[];
   terms: Term[];
+  path: any;
 }
 
 function debounce(func: any, wait: number) {
@@ -84,12 +87,17 @@ function useResizeObservers(refs: any, dependency: number | null) {
   return dimensions;
 }
 
-const getMaxArticles = (width: number) => {
-  if (width >= 1250) return 3;
-  if (width >= 850) return 2;
-  return 1;
-};
-const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
+const Sidebar: React.FC<SidebarProps> = ({ articles, terms, path }) => {
+  const getMaxArticles = (width: number) => {
+    if (path === "thedayafter") {
+      return 1;
+    }
+
+    if (width >= 1250) return 3;
+    if (width >= 850) return 2;
+    return 1;
+  };
+
   // Add touch class
   document.documentElement.classList.toggle(
     styles.touch,
@@ -440,9 +448,9 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
         );
 
         const newUrlSuffix = normalizedUrl ? normalizedUrl : normalizedTitle;
-        navigate(`/provocation/${newUrlSuffix}`, { replace: false });
+        navigate(`/${path}/${newUrlSuffix}`, { replace: false });
       } else if (activeIndices.length === 1) {
-        navigate(`/provocation`, { replace: false });
+        navigate(`/${path}`, { replace: false });
       }
     }
 
@@ -469,7 +477,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
     setActiveArticleIndex(-1);
 
     if (activeIndices.length === 1) {
-      navigate(`/provocation`, { replace: false });
+      navigate(`/${path}`, { replace: false });
     }
   };
 
@@ -541,7 +549,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
                     ? normalizedUrl
                     : normalizedTitle;
 
-                  navigate(`/provocation/${newUrlSuffix}`, { replace: false });
+                  navigate(`/${path}/${newUrlSuffix}`, { replace: false });
 
                   found = true;
                   break;
@@ -657,6 +665,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
         style={
           {
             "--theme-color": `${article.attributes.color}`,
+            "--alt-color": `${article.attributes.alt_color}`,
           } as React.CSSProperties
         }
       >
@@ -668,7 +677,9 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
             } as React.CSSProperties
           }
         >
-          <div className={styles.title}>{article.attributes.title}</div>
+          <div className={styles.title}>
+            {removeSpecialChars(article.attributes.title)}
+          </div>
           <div
             className={styles.xButton}
             onClick={() => closeArticle(index)}
@@ -683,12 +694,31 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
     );
   };
 
+  console.debug(`alon: articles: alonaiiii`); // ALON REMOVE
+  console.log(articles);
+
   return (
-    <div className={styles.outer}>
+    <div
+      className={`${styles.outer} ${
+        path === "thedayafter" ? styles.dayafter : styles.provocation
+      }`}
+    >
       <div
         className={`${styles.nav} ${
           isNavClicked ? styles.temporaryClosed : ""
         }`}
+        style={
+          {
+            "--active-theme-color": `${
+              articles[isPortrait ? activeArticleIndex ?? -1 : activeIndices[0]]
+                ?.attributes.color
+            }`,
+            "--active-alt-color": `${
+              articles[isPortrait ? activeArticleIndex ?? -1 : activeIndices[0]]
+                ?.attributes.alt_color
+            }`,
+          } as React.CSSProperties
+        }
       >
         {articles.map((article, index) => (
           <div
@@ -705,7 +735,18 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
             onClick={() => toggleAccordion(index)}
             style={
               {
+                "--active-theme-color": `${
+                  articles[
+                    isPortrait ? activeArticleIndex ?? -1 : activeIndices[0]
+                  ]?.attributes.color ?? article.attributes.color
+                }`,
+                "--active-alt-color": `${
+                  articles[
+                    isPortrait ? activeArticleIndex ?? -1 : activeIndices[0]
+                  ]?.attributes.alt_color ?? article.attributes.alt_color
+                }`,
                 "--theme-color": `${article.attributes.color}`,
+                "--alt-color": `${article.attributes.alt_color}`,
               } as React.CSSProperties
             }
           >
@@ -728,6 +769,28 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms }) => {
             )}
           </div>
         ))}
+        <div
+          className={`${styles.navItem} ${styles.bottomNav}`}
+          style={
+            {
+              "--active-theme-color": `${
+                articles[
+                  isPortrait ? activeArticleIndex ?? -1 : activeIndices[0]
+                ]?.attributes.color ?? "purple"
+              }`,
+              "--active-alt-color": `${
+                articles[
+                  isPortrait ? activeArticleIndex ?? -1 : activeIndices[0]
+                ]?.attributes.alt_color ?? "yellow"
+              }`,
+              "--theme-color": `red`,
+              "--alt-color": `green`,
+            } as React.CSSProperties
+          }
+        >
+          <div className={styles.issueName}>קוץ</div>
+          <div className={styles.issueDetails}>06 היום שאחרי</div>
+        </div>
       </div>
       <div
         className={`${styles.articles} ${

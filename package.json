@@ -1,0 +1,14 @@
+{
+    "name": "kotz-root",
+    "private": true,
+    "version": "0.1.0",
+    "description": "Root package for running frontend and backend",
+    "scripts": {
+        "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
+        "start:frontend": "cd frontend && npm start",
+        "start:backend": "cd backend && npm run develop"
+    },
+    "devDependencies": {
+        "concurrently": "^7.6.0"
+    }
+}

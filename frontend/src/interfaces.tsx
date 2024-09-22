@@ -18,9 +18,13 @@ export interface ArticleAttribute {
   author_img: any;
   url_title: string;
   color: string;
+  alt_color: string;
   cases: any;
   ticker_text: string;
   tag_icon: any;
+  icon: any;
+  video_url: any;
+  body_img: any;
 }
 
 export interface Article {
@@ -53,6 +57,9 @@ export interface ContentBlockChild {
   bold?: boolean;
   italic?: boolean;
   underline?: boolean;
+  strikethrough?: boolean;
+  code?: boolean;
+  url?:string;
 }
 
 export interface ImageBlock {

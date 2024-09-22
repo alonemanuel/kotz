@@ -13,13 +13,9 @@ import starIcon from "./images/sandbox/starVector.svg";
 import kotzCorner from "./images/kotz_provocation.svg";
 import { useNavigate } from "react-router-dom";
 
-const ProvocationPage: React.FC = () => {
+const DayafterPage: React.FC = () => {
   const [articlesStrapi, setArticlesStrapi] = useState([]);
   const [termsStrapi, setTermsStrapi] = useState([]);
-
-  console.debug(`alon: stules: ${styles}`); // ALON REMOVE
-  console.log(styles);
-  console.debug(`alon: clasdfasdf ${styles.provocationLayout}`); // ALON REMOVE
 
   const [isHamburgerClicked, setIsHamburgerClicked] = useState(false);
 
@@ -42,11 +38,11 @@ const ProvocationPage: React.FC = () => {
 
   useEffect(() => {
     const fetchArticles = fetch(
-      `${C.API_BASE_URL}${C.PROVOCATION_ITEMS_ENDPOINT}?sort[0]=order:asc&populate=deep`
+      `${C.API_BASE_URL}${C.DAYAFTER_ITEMS_ENDPOINT}?sort[0]=order:asc&populate=deep`
     ).then((response: any) => response.json());
 
     const fetchTerms = fetch(
-      `${C.API_BASE_URL}${C.PROVOCATION_TERMS_ENDPOINT}?${C.API_POPULATE_DEEP}`
+      `${C.API_BASE_URL}${C.DAYAFTER_TERMS_ENDPOINT}?${C.API_POPULATE_DEEP}`
     ).then((response: any) => response.json());
 
     Promise.all([fetchArticles, fetchTerms])
@@ -65,18 +61,20 @@ const ProvocationPage: React.FC = () => {
     const normalizedTitle = article.attributes.url_title
       ?.toLowerCase()
       .replace(/[^א-ת0-9a-z]+/g, "-");
-    navigate(`/provocation/${normalizedTitle}`, { replace: false });
+    navigate(`/thedayafter/${normalizedTitle}`, { replace: false });
   };
 
   return (
     <OpenArticleProvider>
-      <Layout className={layoutStyles.provocationLayout}>
+      <Layout
+        className={`${layoutStyles.provocationLayout} ${layoutStyles.dayafterLayout}`}
+      >
         <div
-          className={`${styles.provocationPage} ${
+          className={`${styles.provocationPage} ${styles.dayafter} ${
             isHamburgerClicked ? sidebarStyles.hamburgerClicked : ""
           }`}
         >
-          <Sidebar articles={articlesStrapi} terms={termsStrapi} path={'provocation'} />
+          <Sidebar articles={articlesStrapi} terms={termsStrapi} path='thedayafter' />
           <div className={styles.bottomBar}>
             <div className={styles.hamburger} onClick={() => hamburgerClick()}>
               <div className={styles.burgerWrapper}>
@@ -88,8 +86,8 @@ const ProvocationPage: React.FC = () => {
             <div className={styles.details}>
               <hgroup>
                 <h3 onClick={() => navigate("/")}>קוץ</h3>
-                <h1 onClick={() => navigate("/")}>02</h1>
-                <h2>פרובוקציה</h2>
+                <h1 onClick={() => navigate("/")}>05</h1>
+                <h2>היום שאחרי</h2>
               </hgroup>
             </div>
             <div className={styles.ticker}>
@@ -158,4 +156,4 @@ const ProvocationPage: React.FC = () => {
   );
 };
 
-export default ProvocationPage;
+export default DayafterPage;

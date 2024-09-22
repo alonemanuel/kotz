@@ -6,6 +6,13 @@
   flex: 1;
 }
 
+.dayafter.outer {
+}
+
+.dayafter.outer > .homepageImages {
+  display: none;
+}
+
 .outer > .homepageImages {
   position: absolute;
   left: 0;
@@ -33,6 +40,42 @@
   left: var(--left);
 }
 
+.dayafter.outer > .nav {
+  font-family: var(--ff-dayafter);
+}
+
+.dayafter.outer > .nav .navItem.bottomNav {
+  font-size: 36px;
+}
+
+.dayafter.outer > .nav .navItem.bottomNav .issueName {
+  font-size: 28px;
+  color: white;
+  font-family: "DavidKotz";
+  font-feature-settings: "ss01" 1;
+  margin-inline-end: 12px;
+}
+
+.dayafter.outer > .nav .navItem.bottomNav .issueDetails {
+  font-family: var(--ff-david-vc);
+  font-weight: 700;
+  font-size: 24px;
+}
+
+/* 
+.dayafter.outer > .nav::after {
+  content: "hello!";
+  width: 100%;
+  height: 30px;
+  color: var(--active-theme-color);
+  
+} */
+
+.dayafter.outer > .nav {
+  gap: 0;
+  padding: 0;
+}
+
 .outer > .nav {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   height: 100%;
@@ -47,6 +90,10 @@
   overflow: hidden; /* Add this line */
 }
 
+.dayafter.outer > .nav .navItem {
+  font-size: 100px;
+}
+  
 .outer > .nav .navItem {
   background-color: var(--color-theme-background);
   cursor: pointer;
@@ -75,6 +122,10 @@
   align-items: center;
 }
 
+.dayafter.outer > .nav .navItem > .navTag {
+  display: none;
+}
+
 .outer > .nav .navItem > .navTag {
   opacity: 0;
   scale: 0.5;
@@ -95,8 +146,28 @@
   right: 16px;
 }
 
+.dayafter.outer > .nav .navItem:hover {
+  color: var(--active-theme-color);
+}
+  
 .outer > .nav .navItem:hover {
   color: var(--theme-color);
+}
+
+.dayafter.outer > .nav .navItem {
+  color: var(--theme-color);
+  background-color: var(--alt-color);
+
+  color: var(--active-theme-color);
+  background-color: var(--active-alt-color);
+}
+
+.dayafter.outer > .nav .navItem.activeNavItem {
+  color: var(--alt-color);
+  background-color: var(--theme-color);
+
+  color: var(--active-alt-color);
+  background-color: var(--active-theme-color);
 }
 
 .outer > .nav .navItem:hover.activeNavItem {
@@ -120,6 +191,11 @@
   animation: navAnimation 3s ease-in infinite; /* Add animation */
 }
 
+.dayafter.outer > .articles {
+  padding: 0;
+  gap: 0;
+}
+  
 .outer > .articles {
   display: flex;
   flex-direction: row-reverse;
@@ -162,6 +238,10 @@
   display: unset;
 }
 
+.dayafter.outer > .articles > .articleOuter .topBar .xButton {
+  display: none;
+}
+  
 .outer > .articles > .articleOuter.popout > .topBar > .xButton {
   display: flex;
 }
@@ -170,6 +250,10 @@
   display: none;
 }
 
+.dayafter.outer > .articles > .articleOuter > .topBar {
+  outline: none;
+}
+  
 .outer > .articles > .articleOuter > .topBar {
   position: sticky;
   top: 0;
@@ -182,6 +266,11 @@
   flex-shrink: 0;
 }
 
+.dayafter.outer > .articles > .articleOuter > .topBar .title {
+  font-family: var(--ff-david-vc);
+  font-weight: 700;
+}
+  
 .outer > .articles > .articleOuter > .topBar .title {
   padding-inline: 10px;
   flex: 1;
@@ -236,6 +325,11 @@
   height: 100%;
   overflow: auto;
   padding-block-end: 8em;
+}
+
+.dayafter.outer > .articles > .articleOuter > article {
+  padding: 0;
+  margin-top: -40px;
 }
 
 .outer > .articles .articleIsNotOpen ~ .toTop {
@@ -315,6 +409,11 @@
     --sidebar-max-width: 10vw;
   }
 
+  .dayafter.outer .nav {
+    padding-block-end: 0;
+    outline: none;
+  }
+    
   .outer .nav {
     position: fixed !important;
     z-index: 1 !important;

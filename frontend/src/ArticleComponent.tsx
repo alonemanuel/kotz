@@ -11,11 +11,16 @@ import StandardContent from "./StandardContent";
 import InterviewContent from "./InterviewContent";
 import CasesContent from "./CasesContent";
 import PopoutContent from "./PopoutContent";
+import VideoContent from "./VideoContent";
 
 interface ArticleComponentProps {
   article: Article;
   terms: any;
   styles: any;
+}
+
+export function removeSpecialChars(x: any) {
+  return x.replace(/[_;'׳˂~*&^]/g, " ");
 }
 
 const ArticleComponent: React.FC<ArticleComponentProps> = ({
@@ -47,6 +52,8 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
     case "popout":
       classType = styles.popout;
       break;
+    case "video":
+      classType = styles.video;
   }
 
   const [wrappedTitle, setWrappedTitle] = useState("");
@@ -80,15 +87,25 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
 
   return (
     <article className={classType}>
+      <div className={styles.bodyImageWrapper}>
+        <img src={attr.body_img?.data?.attributes.url} />
+      </div>
       <header>
         <hgroup>
-          {attr.title && <h1 className={styles.title}>{attr.title}</h1>}
+          {attr.title && (
+            <h1 className={styles.title}>{removeSpecialChars(attr.title)}</h1>
+          )}
           {attr.author && <h3>{attr.author}</h3>}
+          {attr.tag_icon && (
+            <div className={styles.leadImg}>
+              <img src={attr.tag_icon?.data?.attributes.url} />
+            </div>
+          )}
           {attr.subtitle && <h2>{attr.subtitle}</h2>}
         </hgroup>
-        {attr.lead && <div className={styles.lead}>{attr.lead}</div>}
       </header>
       <hr />
+      {attr.lead && <div className={styles.lead}>{attr.lead}</div>}
       {(() => {
         if (attr.body) {
           switch (attr.type) {
@@ -128,33 +145,38 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
                   cover={attr?.poll?.cover}
                 />
               );
+            case "video":
+              console.debug(`alon: here?`); // ALON REMOVE
+              return <VideoContent body={attr?.body} videoUrl={attr?.author} />;
           }
         }
       })()}
-      {attr.long_author_about && attr.type !== "popout" && (
-        <footer>
-          <hr />
-          <main>
-            {attr.author_img && (
-              <div className={styles.imageContainer}>
-                <img
-                  src={attr.author_img?.data?.attributes.url}
-                  alt={attr.author}
-                />
-              </div>
-            )}
-            <div className={styles.textBody}>
-              {attr.author && <h1>{attr.author}</h1>}
-              {attr.long_author_about && (
-                <JsonBlocksContent
-                  content={attr.long_author_about}
-                  styles={styles}
-                />
+      {attr.long_author_about &&
+        attr.author_img?.data &&
+        attr.type !== "popout" && (
+          <footer>
+            <hr />
+            <main>
+              {attr.author_img && (
+                <div className={styles.imageContainer}>
+                  <img
+                    src={attr.author_img?.data?.attributes.url}
+                    alt={attr.author}
+                  />
+                </div>
               )}
-            </div>
-          </main>
-        </footer>
-      )}
+              <div className={styles.textBody}>
+                {attr.author && <h1>{attr.author}</h1>}
+                {attr.long_author_about && (
+                  <JsonBlocksContent
+                    content={attr.long_author_about}
+                    styles={styles}
+                  />
+                )}
+              </div>
+            </main>
+          </footer>
+        )}
     </article>
   );
 };

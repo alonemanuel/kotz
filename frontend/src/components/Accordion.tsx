@@ -17,6 +17,7 @@ interface AccordionProps {
   // articles: Item[];
   articles: Article[];
   terms: Term[];
+  path: string;
 }
 
 function debounce(func: any, wait: number) {
@@ -79,7 +80,7 @@ function useResizeObservers(refs: any, dependency: number | null) {
 
   return dimensions;
 }
-const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
+const Accordion: React.FC<AccordionProps> = ({ articles, terms, path }) => {
   // Add touch class
   document.documentElement.classList.toggle(
     styles.touch,
@@ -177,9 +178,9 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
       );
 
       const urlSuffix = normalizedUrl ? normalizedUrl : normalizedTitle;
-      navigate(`/censorship/${urlSuffix}`, { replace: false });
+      navigate(`/${path}/${urlSuffix}`, { replace: false });
     } else {
-      navigate(`/censorship`, { replace: false });
+      navigate(`/${path}`, { replace: false });
     }
 
     // If the accordion is being opened, scroll it into view
@@ -237,7 +238,7 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
     <div
       className={`${styles.accordionContainer} ${
         isOpen ? styles.isOpen : styles.isNotOpen
-      }`}
+      } ${path === "borders" ? styles.borders : styles.censorship}`}
     >
       {articles.map((article, index) => {
         const attr = article.attributes;
@@ -278,8 +279,8 @@ const Accordion: React.FC<AccordionProps> = ({ articles, terms }) => {
                 <div
                   className={styles.bgContent}
                   style={
-                    attr.outside_img_vertical.data &&
-                    attr.outside_img_horizontal.data &&
+                    attr.outside_img_vertical?.data &&
+                    attr.outside_img_horizontal?.data &&
                     ({
                       "--outside-img-horizontal-url": `url(${attr.outside_img_horizontal?.data?.attributes.url})`,
                       "--outside-img-vertical-url": `url(${attr.outside_img_vertical?.data?.attributes.url})`,
