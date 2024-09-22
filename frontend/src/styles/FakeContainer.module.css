@@ -84,6 +84,7 @@
   font-family: var(--ff-narkis-yair);
   font-size: clamp(14px, min(2.2vh, 2.2vw), 18px);
   line-height: 0.9;
+  padding-bottom: 0.1em;
   /* text-wrap: balance; */
   overflow: hidden;
 }
