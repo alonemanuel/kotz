@@ -753,6 +753,10 @@
   margin: 2em auto;
   width: 100%;
 }
+
+.censorshipPage .poll hr {
+  display: none;
+}
 .censorshipPage + .h1Spacer {
   height: 0;
 }
