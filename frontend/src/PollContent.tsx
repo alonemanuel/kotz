@@ -7,7 +7,9 @@ const PollContent: React.FC<{ content?: any; cover?: any }> = ({
   cover,
 }) => {
   const { isOpen, setOpen } = useOpenArticle();
-
+console.debug(`alon: paronku`); // ALON REMOVE
+console.debug(`alon: content:`); // ALON REMOVE
+console.log(content);
   const pollRef = useRef<HTMLDivElement>(null);
 
   const [wrappedQuestion, setWrappedQuestion] = useState("");

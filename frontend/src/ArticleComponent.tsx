@@ -44,6 +44,7 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
       classType = styles.cases;
       break;
     case "poll":
+      console.debug(`alon: frink`); // ALON REMOVE
       classType = styles.poll;
       break;
     case "debate":
@@ -139,6 +140,7 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
                 />
               );
             case "poll":
+              console.debug(`alon: popo`); // ALON REMOVE
               return (
                 <PollContent
                   content={attr?.poll?.data?.attributes}
