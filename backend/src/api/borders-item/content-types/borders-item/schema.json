@@ -42,7 +42,8 @@
       "type": "enumeration",
       "enum": [
         "standard",
-        "interview"
+        "interview",
+        "poll"
       ],
       "default": "standard"
     },
@@ -72,6 +73,11 @@
       "type": "component",
       "repeatable": true,
       "component": "shared.song"
+    },
+    "poll": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::poll.poll"
     }
   }
 }

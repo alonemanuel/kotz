@@ -852,13 +852,18 @@ export interface ApiBordersItemBordersItem extends Schema.CollectionType {
     author_about: Attribute.Text;
     author_img: Attribute.Media<'images'>;
     order: Attribute.Integer;
-    type: Attribute.Enumeration<['standard', 'interview']> &
+    type: Attribute.Enumeration<['standard', 'interview', 'poll']> &
       Attribute.DefaultTo<'standard'>;
     url_title: Attribute.String;
     long_author_about: Attribute.Blocks;
     outside_img_vertical: Attribute.Media<'images'>;
     outside_img_horizontal: Attribute.Media<'images'>;
     song: Attribute.Component<'shared.song', true>;
+    poll: Attribute.Relation<
+      'api::borders-item.borders-item',
+      'oneToOne',
+      'api::poll.poll'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
