@@ -621,6 +621,10 @@
   color: #26bd6b;
 }
 
+.borders.censorshipPage main > p {
+  font-family: var(--ff-borders-david);
+}
+
 .borders.censorshipPage main > p b {
   padding-block: 0.02em 0.1em;
   border: 2px solid black;
