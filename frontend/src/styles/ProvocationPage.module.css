@@ -1,10 +1,4 @@
 /* ProvocationPage.module.css */
-
-.provocationLayout {
-  display: none;
-}
-
-/* ProvocationPage.module.css */
 .provocationPage {
   width: 100vw;
   width: 100dvw;
@@ -12,6 +6,10 @@
   height: 100%;
   display: flex;
   flex-flow: column nowrap;
+}
+
+.dayafter.provocationPage > .bottomBar {
+  display: none;
 }
 
 .provocationPage > .bottomBar {
@@ -673,10 +671,33 @@
   display: block;
 }
 
+.dayafter.provocationPage article header {
+  background-color: var(--theme-color);
+  padding: 24px;
+  color: white;
+}
+
+.dayafter.provocationPage article main {
+  padding: 48px;
+  color: var(--theme-color);
+}
+
+.provocationPage article .leadImg {
+  display: none;
+}
+
+.dayafter.provocationPage article .leadImg {
+  display: flex;
+}
+
 .provocationPage article header {
   display: flex;
   flex-flow: column nowrap;
   gap: 4em;
+}
+
+.dayafter.provocationPage article header hgroup {
+  gap: 0.5em;
 }
 
 .provocationPage article header hgroup {
@@ -684,6 +705,21 @@
   flex-flow: column nowrap;
   max-width: 99%;
   gap: 1em;
+}
+
+.dayafter.provocationPage article header hgroup h1 {
+  font-family: var(--ff-frankg);
+  color: white;
+  text-decoration: none;
+  text-shadow: none;
+  padding-top: 20px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.dayafter.provocationPage article header hgroup h1 {
+  font-size: 64px !important;
+  padding-inline-start: 0;
 }
 
 .provocationPage article header hgroup h1 {
@@ -710,6 +746,12 @@
   line-height: 1.7rem;
 
   max-width: 450px;
+}
+
+.dayafter.provocationPage article header hgroup h3 {
+  background-color: var(--alt-color);
+  font-family: var(--ff-david-vc);
+  color: var(--theme-color);
 }
 
 .provocationPage article header hgroup h3 {
@@ -866,6 +908,12 @@ h3 + .provocationPage main > p {
   text-indent: 0 !important;
 }
 
+.dayafter.provocationPage main > p b {
+  background-color: var(--alt-color);
+  padding-block: 0.2em 0.1em;
+  padding-inline: 0.2em;
+}
+
 .provocationPage main > p b {
   color: var(--theme-color);
 }
@@ -880,6 +928,14 @@ h3 + .provocationPage main > p {
   font-size: 1.4rem;
 }
 
+.dayafter.provocationPage main > h3 {
+  font-family: var(--ff-dayafter);
+  font-size: 90px;
+  line-height: 0.8;
+  font-weight: 400;
+  margin-block: 80px;
+}
+  
 .provocationPage main > h3 {
   font: var(--font-kotz-500);
   font-weight: 600;
@@ -1051,6 +1107,11 @@ h3 + .provocationPage main > p {
     font-size: clamp(2em, 13vw, 5em) !important;
   }
 
+  .dayafter.provocationPage article > main {
+    max-width: 80ch;
+    /* padding-inline: 8px !important; */
+  }
+
   .provocationPage article > main {
     max-width: 60ch;
     /* padding-inline: 8px !important; */
@@ -1087,10 +1148,6 @@ h3 + .provocationPage main > p {
 /* NEW CSS */
 /* NEW CSS */
 /* NEW CSS */
-
-.provocationLayout {
-  display: none;
-}
 
 /* ProvocationPage.module.css */
 .provocationPage {

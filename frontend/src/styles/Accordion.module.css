@@ -99,6 +99,13 @@
   transition: all 0.1s ease-out;
 }
 
+.borders.accordionContainer {
+  --color-theme-background: #fff9d7;
+  --color-theme-foreground: black;
+  --color-green: #FF5C16;
+
+}
+
 .accordionContainer > .toTop {
   position: absolute;
   z-index: 3;

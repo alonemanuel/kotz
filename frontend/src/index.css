@@ -4,13 +4,19 @@
   --font-running: 18px/25px var(--typeface-serif);
   /* --font-item-h1: 18px/25px var(--typeface-serif); */
 
-  --ff-david-vc: "DavidVC";
+  --ff-david-vc: "DavidVC", "NarkisYair";
+  --ff-discordia: "Discordia";
   --ff-kotz-text: "KotzText";
   --ff-kotz-display: "KotzDisplay";
   --ff-narkis-yair: "NarkisYair";
   --ff-hadassa: "Hadassa";
   --ff-greta: "Greta";
   --ff-leon: "Leon";
+  --ff-haim: "Haim";
+  --ff-haim-cond: "HaimCondensed";
+  --ff-futura: "Futura";
+  --ff-frankg: "FrankG";
+  --ff-dayafter: "Dayafter";
 
   --fs-xl: clamp(3.5rem, 12vw + 1rem, 12rem);
   --fs-800: 9rem;

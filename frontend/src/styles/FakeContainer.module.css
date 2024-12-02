@@ -4,6 +4,23 @@
   height: 100%;
 }
 
+.accordionContainer {
+  display: flex;
+  flex-flow: row wrap;
+  font-size: clamp(0px, min(9vw, 12vh), 100px);
+}
+
+.accordionContainer::after {
+  content: "";
+  background-color: #9ebde9;
+  flex-grow: 1;
+}
+
+.accordionContainer .titleWord:nth-last-child(1),
+.accordionContainer .titleWord:nth-last-child(2) {
+  flex-grow: 0;
+}
+
 .fakeContainer.isOpen {
 }
 
@@ -16,6 +33,86 @@
   /* height: 10vh; */
 }
 
+.titleWord {
+  background-color: var(--theme-color);
+  display: flex;
+  flex-flow: row nowrap;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+
+  /* font-size: 3vw; */
+  /* line-height: 1; */
+  padding: 0 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: start;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.titleWord:nth-last-child(1),
+.titleWord:nth-last-child(2),
+.titleWord:nth-last-child(3),
+.titleWord:nth-last-child(4),
+.titleWord:nth-last-child(5),
+.titleWord:nth-last-child(6),
+.titleWord:nth-last-child(7) {
+  flex-grow: 0;
+  padding-inline: 20px;
+}
+
+.titleWord.title.englishWord {
+  font-size: 0.7em;
+  padding-bottom: 0;
+}
+
+.accordionContainer .title {
+  font-family: var(--ff-haim-cond), var(--ff-futura);
+  /* font-size: clamp(0px, min(7vw, 12vh), 100px); */
+  font-weight: 400;
+  /* line-height: 0.4;
+  padding: 0.1em; */
+  letter-spacing: -1.2px;
+  padding-bottom: 0.1em;
+  line-height: 0.7;
+}
+
+.accordionContainer .subtitle {
+  font-family: var(--ff-narkis-yair);
+  font-size: clamp(14px, min(2.2vh, 2.2vw), 18px);
+  line-height: 0.9;
+  padding-bottom: 0.1em;
+  /* text-wrap: balance; */
+  overflow: hidden;
+}
+
+.accordionContainer .innerSubtitle {
+  max-width: 32ch;
+  max-width: var(--max-chars) !important;
+}
+
+@media (max-aspect-ratio: 1), (orientation: portrait) {
+  .accordionContainer .innerSubtitle {
+    max-width: 23ch;
+  }
+}
+
+.accordionContainer .titleIcon {
+  /* height: 100%; */
+  width: 8vw;
+  max-width: 150px;
+  min-width: 65px;
+  flex-grow: 0;
+}
+
+.accordionContainer .titleIcon img {
+  flex-grow: 0;
+  max-height: 60px;
+}
+
 .bodyContainer {
   /* height: 100%; */
   flex-grow: 1;
@@ -26,7 +123,7 @@
 }
 
 .accordionContainer {
-  background-color: green;
+  background-color: #9ebde9;
   /* overflow: hidden; */
   /* flex-grow: ; */
 }
@@ -68,6 +165,7 @@
 
 .topBarIcons {
   display: none;
+  overflow: hidden;
 }
 
 .topBarIcons {
@@ -76,20 +174,26 @@
   height: 100%;
   align-items: center;
   justify-content: center;
-  flex-grow: 1
-  ;
+  flex-grow: 1;
 }
 
 .topBarIcons .topBarIcon {
   display: flex;
   flex-flow: row nowrap;
-  flex-grow: 1;
-  padding: 0.8em;
+  padding: 0.1em;
   background-color: var(--theme-color);
   height: 100%;
   cursor: pointer;
   align-items: center;
   justify-content: center;
+  aspect-ratio: 1;
+}
+
+.topBarIcons .topBarIcon.active {
+  flex-grow: 1;
+  /* flex-shrink: 0; */
+  aspect-ratio: unset;
+  align-items: normal;
 }
 
 .topBarIcons .topBarIcon.active .textContent {
@@ -98,22 +202,42 @@
 
 .topBarIcons .topBarIcon.active .textContent {
   display: flex;
+  padding-inline: 0.4em;
+  flex-grow: 1;
+  /* flex-shrink: 0; */
+}
+
+@media (max-width: 1400px) {
+  .topBarIcons .topBarIcon.active .textContent {
+    display: none;
+  }
 }
 
 .topBarIcons .topBarIcon.active .textContent h2 {
   display: flex;
   font-family: var(--ff-narkis-yair);
   line-height: 0.9em;
+  margin-inline-end: 0.5em;
+  align-items: center;
 }
 
 .topBarIcons .topBarIcon .articleIconWrapper {
   display: flex;
   flex-flow: row nowrap;
-  flex-grow: 1;
+  /* flex-grow: 1; */
 }
 
 .topBarIcons .topBarIcon .articleIconWrapper .articleIcon {
   flex-grow: 1;
+  max-height: 60px;
+}
+
+.topBarIcons .topBarIcon.active .articleIconWrapper {
+  max-height: 100%;
+}
+
+.topBarIcons .topBarIcon.active .articleIconWrapper .articleIcon {
+  flex-grow: 0;
 }
 
 .topBarIcons .topBarIcon .textContent h1,
@@ -126,6 +250,7 @@
   display: flex;
   background-color: purple;
   flex-grow: 1;
+  overflow: hidden;
 }
 
 .topBar .nameCorner {
@@ -135,12 +260,12 @@
   color: #f79ba6;
   position: relative;
   cursor: pointer;
+  flex-shrink: 0;
 }
-  
+
 .topBar .backArrow {
   display: none;
   height: 100%;
-
 }
 
 .topBar .backArrow img {
@@ -159,13 +284,12 @@
   right: 0;
   margin: auto;
   padding: 8px;
-
 }
 
 .isOpen .topBar .issueName {
   visibility: hidden;
 }
-  
+
 .topBar .issueName {
   height: 100%;
   cursor: pointer;
@@ -181,28 +305,59 @@
   line-height: 1.2;
 }
 
-.topBar .issueName h1 {
+.topBar .issueName h1,
+.accordionContainer .issueName h1 {
   font-family: var(--ff-david-vc);
   font-weight: 700;
+  font-size: 24px;
 }
 
-.topBar .issueName h1 .dash {
+.topBar .issueName h1 .dash,
+.accordionContainer .issueName h1 .dash {
   font-family: var(--ff-narkis-yair);
   font-size: 0.8em;
   font-weight: 700;
 }
 
-.topBar .issueName h2 {
+.topBar .issueName h2,
+.accordionContainer .issueName h2 {
   font-family: var(--ff-narkis-yair);
   font-weight: 400;
-  font-size: 0.6em;
+  font-size: 0.4em;
 }
 
-.topBar .kotzIcon {
+.topBar .kotzIcon,
+.accordionContainer .kotzIcon {
   width: auto;
   height: 100%;
   padding: 12px;
   cursor: pointer;
+  display: flex;
+  flex-shrink: 0;
+  background-color: #E45D59;
+}
+
+.accordionContainer .issueName {
+  flex-flow: column nowrap;
+  align-items: start;
+  background-color: black;
+  color: #f79ba6;
+  justify-content: center;
+  padding-inline: 24px;
+}
+
+.accordionContainer .issueName h1 {
+  font-size: 36px;
+}
+
+.accordionContainer .kotzIcon {
+  height: auto;
+  padding: 2px 32px;
+}
+
+.accordionContainer .kotzIcon img {
+  flex-grow: 1;
+  min-width: 60px;
 }
 
 .topBar .kotzIcon img {
@@ -262,10 +417,13 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: start;
-  justify-content: center;
+  justify-content: start;
   flex-shrink: 0;
   z-index: 2;
   flex-grow: 1;
+  min-height: 100%;
+  /* max-height: 100%; */
+  /* overflow: hidden; */
 }
 
 .panel section.articleWrapper aside {
@@ -304,13 +462,6 @@
   color: unset;
   text-decoration: underline 2px;
   text-underline-offset: 3px;
-}
-
-.accordionContainer {
-  display: flex;
-  flex-flow: column nowrap;
-  flex-grow: 1;
-  transition: all 0.1s ease-out;
 }
 
 .accordionContainer > .toTop {
@@ -393,29 +544,8 @@
   padding: 0.4em;
 }
 
-.accordionContainer .accordion .active .textContent > hr {
-  border: none;
-  border-top: 2px dotted var(--color-green);
-  border-bottom: none;
-  margin: 1em auto;
-  width: 100%;
-}
 .accordionContainer .accordion .active .textContent > hr + .h1Spacer {
   height: 0;
-}
-
-.accordionContainer .accordion .textContent h1 {
-  font-family: var(--ff-haim-cond), var(--ff-futura);
-  font-size: 9vw;
-  font-weight: 400;
-}
-
-.accordionContainer .accordion .textContent h2 {
-  font-family: var(--ff-narkis-yair);
-  font-size: var(--fs-400);
-  line-height: 1;
-  max-width: 20ch;
-  overflow: hidden;
 }
 
 .accordionContainer .accordion .textContent h3 {
@@ -425,12 +555,33 @@
   line-height: 1.1;
   display: none;
 }
+.accordionContainer .accordion {
+  display: none;
+}
 
 /* Portrait */
 @media (max-aspect-ratio: 1), (orientation: portrait) {
+  .topBar {
+    display: none;
+  }
+
+  .isOpen .topBar {
+    display: flex;
+  }
+
+  .accordionContainer {
+    font-size: clamp(0px, 7vh, 100px);
+  }
+
   .accordionContainer .accordion {
     overflow: auto;
   }
+
+  .accordionContainer .issueName,
+  .accordionContainer .kotzIcon {
+    /* display: none; */
+  }
+
   .accordionContainer.active .accordion {
     color: var(--color-theme-foreground);
     position: absolute;
@@ -439,6 +590,35 @@
     height: 2.5em;
     overflow: visible;
   }
+
+  .accordionContainer.isOpen {
+    flex-flow: column nowrap;
+  }
+
+  .accordionContainer.isOpen .accordion {
+    display: flex;
+    padding: 8px;
+    overflow: hidden;
+  }
+
+  .accordionContainer.isOpen .titleWord {
+    display: none;
+  }
+
+  .accordionContainer.isOpen::after {
+    display: none;
+  }
+
+  .accordionContainer.isOpen .articleIconWrapper {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .accordionContainer.isOpen .articleIconWrapper .articleIcon {
+    flex-grow: 0;
+    height: 100%;
+  }
+
   .accordionContainer.articleIsOpen:not(.active) .accordion {
     display: none;
   }
@@ -463,7 +643,18 @@
 /* Landscape */
 @media (min-aspect-ratio: 1), (orientation: landscape) {
   .accordionContainer {
-    flex-direction: column !important;
+    font-size: clamp(0px, min(12vh, 7vw), 100px);
+  }
+
+  .topBar {
+    display: none;
+  }
+
+  .isOpen .topBar {
+    display: flex;
+  }
+
+  .accordionContainer {
     display: flex;
     width: 100%;
     height: 100%;
@@ -482,6 +673,7 @@
   }
 
   .accordionContainer .accordion .textContent h1 {
+    line-height: 0.7;
     font-size: 4em;
   }
 
@@ -549,12 +741,12 @@
   }
 
   .isOpen .topBar {
-    height: 10vh;
+    height: 7vh;
     max-height: 70px;
   }
 
   .isOpen .topBar .kotzIcon {
-    padding: 8px ;
+    padding: 8px;
   }
 
   .isOpen .topBar .issueName {
@@ -633,5 +825,527 @@
   .touch .accordionContainer > .accordion > .bgContainer > .bgSpacer {
     width: 100%;
     height: 80%;
+  }
+}
+
+@media (min-width: 600px) {
+  .accordionContainer {
+    font-size: 64px;
+  }
+}
+
+@media (min-width: 600px) and (min-height: 700px) {
+  .accordionContainer {
+    font-size: 68px;
+  }
+}
+
+@media (min-width: 800px) {
+  .accordionContainer {
+    font-size: 72px;
+  }
+}
+
+@media (min-width: 900px) and (min-height: 700px) {
+  .accordionContainer {
+    font-size: 96px;
+  }
+}
+
+@media (min-width: 1400px) and (min-height: 700px) {
+  .accordionContainer {
+    font-size: 110px;
+  }
+}
+
+@media (max-width: 300px) and (max-height: 450px) {
+  .accordionContainer {
+    font-size: 32px;
+  }
+
+  .accordionContainer .subtitle {
+    font-size: 11px;
+    display: none;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 16px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 12px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    min-width: 35px;
+    max-width: 35px;
+  }
+}
+
+@media (min-width: 600px) and (max-height: 600px) {
+  .accordionContainer {
+    font-size: 36px;
+  }
+
+  .accordionContainer .subtitle {
+    font-size: 12px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 20px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 16px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    min-width: 16px;
+  }
+}
+
+@media (min-width: 600px) and (max-height: 400px) {
+  .accordionContainer {
+    font-size: 26px;
+  }
+
+  .accordionContainer .subtitle {
+    font-size: 12px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 20px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 16px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    min-width: 16px;
+  }
+}
+
+@media (min-width: 800px) and (max-height: 1500px) {
+  .accordionContainer {
+    font-size: 64px;
+  }
+
+  .accordionContainer .subtitle {
+    font-size: 18px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 28px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 18px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    min-width: 64px;
+  }
+}
+
+@media (min-width: 1200px) and (max-height: 1500px) {
+  .accordionContainer {
+    font-size: 96px;
+  }
+
+  .accordionContainer .subtitle {
+    font-size: 18px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 28px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 18px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    min-width: 64px;
+  }
+}
+
+/* NEW */
+
+@media (min-width: 0px) and (max-width: 300px) and (min-height: 0px) and (max-height: 500px) {
+  .accordionContainer {
+    font-size: 18px;
+  }
+
+  .accordionContainer .subtitle {
+    display: none;
+  }
+
+  .accordionContainer .issueName {
+    padding: 4px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 14px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 12px;
+  }
+
+  .accordionContainer .kotzIcon {
+    padding: 4px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    width: 20px;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 300px) and (min-height: 500px) and (max-height: 700px) {
+  .accordionContainer {
+    font-size: 20px;
+  }
+
+  .accordionContainer .subtitle {
+    display: none;
+  }
+
+  .accordionContainer .issueName {
+    padding: 4px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 14px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 12px;
+  }
+
+  .accordionContainer .kotzIcon {
+    padding: 4px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    width: 20px;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 300px) and (min-height: 700px) and (max-height: 3000px) {
+  .accordionContainer {
+    font-size: 24px;
+  }
+
+  .accordionContainer .subtitle {
+    display: none;
+  }
+
+  .accordionContainer .issueName {
+    padding: 4px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 14px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 12px;
+  }
+
+  .accordionContainer .kotzIcon {
+    padding: 4px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    width: 20px;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 600px) and (min-height: 0px) and (max-height: 500px) {
+  .accordionContainer {
+    font-size: 22px;
+  }
+
+  .accordionContainer .subtitle {
+    display: none;
+  }
+
+  .accordionContainer .issueName {
+    padding: 4px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 14px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 12px;
+  }
+
+  .accordionContainer .kotzIcon {
+    padding: 4px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    width: 22px;
+    max-width: 22px;
+    min-width: 22px;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 600px) and (min-height: 500px) and (max-height: 1000px) {
+  .accordionContainer {
+    font-size: 38px;
+  }
+
+  .accordionContainer .subtitle {
+    display: none;
+  }
+
+  .accordionContainer .issueName {
+    padding: 4px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 14px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 12px;
+  }
+
+  .accordionContainer .kotzIcon {
+    padding: 4px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    width: 38px;
+    max-width: 38px;
+    min-width: 38px;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 600px) and (min-height: 1000px) and (max-height: 5000px) {
+  .accordionContainer {
+    font-size: 38px;
+  }
+
+  .accordionContainer .subtitle {
+    display: none;
+  }
+
+  .accordionContainer .issueName {
+    padding: 4px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 14px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 12px;
+  }
+
+  .accordionContainer .kotzIcon {
+    padding: 4px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    width: 38px;
+    max-width: 38px;
+    min-width: 38px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1000px) and (min-height: 0px) and (max-height: 500px) {
+  .accordionContainer {
+    font-size: 42px;
+  }
+
+  .accordionContainer .subtitle {
+    display: none;
+  }
+
+  .accordionContainer .issueName {
+    padding: 4px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 18px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 14px;
+  }
+
+  .accordionContainer .kotzIcon {
+    padding: 4px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    width: 36px;
+    max-width: 36px;
+    min-width: 36px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1000px) and (min-height: 500px) and (max-height: 1000px) {
+  .accordionContainer {
+    font-size: 48px;
+  }
+
+  .accordionContainer .subtitle {
+    display: none;
+  }
+
+  .accordionContainer .issueName {
+    padding: 4px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 18px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 14px;
+  }
+
+  .accordionContainer .kotzIcon {
+    padding: 4px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    width: 42px;
+    max-width: 42px;
+    min-width: 42px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1000px) and (min-height: 1000px) and (max-height: 5000px) {
+  .accordionContainer {
+    font-size: 48px;
+  }
+
+  .accordionContainer .subtitle {
+    display: none;
+  }
+
+  .accordionContainer .issueName {
+    padding: 4px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 18px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 14px;
+  }
+
+  .accordionContainer .kotzIcon {
+    padding: 4px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    width: 42px;
+    max-width: 42px;
+    min-width: 42px;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1500px) and (min-height: 0px) and (max-height: 500px) {
+  .accordionContainer {
+    font-size: 48px;
+  }
+
+  .accordionContainer .subtitle {
+    display: none;
+  }
+
+  .accordionContainer .issueName {
+    padding: 4px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 24px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 18px;
+  }
+
+  .accordionContainer .kotzIcon {
+    padding: 4px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    width: 46px;
+    max-width: 46px;
+    min-width: 46px;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1500px) and (min-height: 500px) and (max-height: 800px) {
+  .accordionContainer {
+    font-size: 68px;
+  }
+
+  .accordionContainer .subtitle {
+    display: none;
+  }
+
+  .accordionContainer .issueName {
+    padding: 4px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 24px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 18px;
+  }
+
+  .accordionContainer .kotzIcon {
+    padding: 4px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    width: 46px;
+    max-width: 46px;
+    min-width: 46px;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1500px) and (min-height: 800px) and (max-height: 5000px) {
+  .accordionContainer {
+    font-size: 68px;
+  }
+
+  .accordionContainer .subtitle {
+    /* display: none; */
+  }
+
+  .accordionContainer .issueName {
+    padding: 4px;
+  }
+
+  .accordionContainer .issueName h1 {
+    font-size: 24px;
+  }
+
+  .accordionContainer .issueName h2 {
+    font-size: 18px;
+  }
+
+  .accordionContainer .kotzIcon {
+    padding: 4px;
+  }
+
+  .accordionContainer .kotzIcon img {
+    width: 46px;
+    max-width: 46px;
+    min-width: 46px;
   }
 }
