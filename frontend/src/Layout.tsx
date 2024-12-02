@@ -61,7 +61,13 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
             <h1 onClick={() => navigate("/")}>
               {className === styles.bordersLayout ? "04" : "01"}
             </h1>
-            <h2>{className === styles.bordersLayout ? "גבולות" : "צנזורה"}</h2>
+            <h2
+              onClick={() =>
+                className === styles.bordersLayout && navigate("/borders")
+              }
+            >
+              {className === styles.bordersLayout ? "גבולות" : "צנזורה"}
+            </h2>
           </hgroup>
           <button className={styles.changeTheme} onClick={toggleTheme}>
             <div
