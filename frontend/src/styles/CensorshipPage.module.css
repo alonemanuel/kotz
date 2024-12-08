@@ -160,6 +160,7 @@
 
 .borders.censorshipPage .songs section .song p {
   line-height: 1.3;
+  font-weight: 700;
 }
 .censorshipPage .songs section .song p + p {
   margin-block-start: 0.2em;
