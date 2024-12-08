@@ -119,6 +119,13 @@
 }
 
 @font-face {
+  font-family: "BordersDavid";
+  src: url("./borders_david/VC_david-Medium.woff2")
+    format("woff2");
+  font-weight: 500;
+}
+
+@font-face {
   font-family: "Alpha Bravo";
   src: url("./shira_saar/Shira_Saar_text-Medium_Green-SVG.woff2")
     format("woff2");
