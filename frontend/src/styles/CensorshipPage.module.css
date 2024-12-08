@@ -711,6 +711,10 @@
   text-indent: 0;
 }
 
+.borders.censorshipPage main .bodyImage + p {
+  text-indent: 0;
+}
+
 .borders.censorshipPage main .interview p::before {
   content: none !important;
 }
