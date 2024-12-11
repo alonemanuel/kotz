@@ -393,6 +393,14 @@
   position: relative;
   min-width: 20vw;
 }
+
+.borders.censorshipPage article .polls > h1 {
+  font-family: var(--ff-discordia);
+  font-style: normal;
+  /* font-weight: 400; */
+  font-feature-settings: normal;
+}
+  
 .censorshipPage article .polls > h1 {
   font-family: var(--ff-kotz-display);
   font-weight: 600;
