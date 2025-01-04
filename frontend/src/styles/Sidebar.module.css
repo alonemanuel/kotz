@@ -42,6 +42,7 @@
 
 .dayafter.outer > .nav {
   font-family: var(--ff-dayafter);
+  overflow: auto;
 }
 
 .dayafter.outer > .nav .navItem.bottomNav {
