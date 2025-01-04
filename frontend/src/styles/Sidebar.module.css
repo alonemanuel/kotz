@@ -47,6 +47,8 @@
 
 .dayafter.outer > .nav .navItem.bottomNav {
   font-size: 36px;
+  position: sticky !important;
+  bottom: 0;
 }
 
 .dayafter.outer > .nav .navItem.bottomNav .issueName {
