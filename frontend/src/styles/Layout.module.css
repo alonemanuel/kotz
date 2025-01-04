@@ -20,6 +20,10 @@
   display: none;
 }
 
+.layout.dayafterLayout > .kotzIcon {
+  display: unset !important;
+}
+
 .layout.provocationLayout > .layoutNav {
   display: none;
 }
