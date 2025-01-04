@@ -789,7 +789,7 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms, path }) => {
           }
         >
           <div className={styles.issueName}>קוץ</div>
-          <div className={styles.issueDetails}>06 היום שאחרי</div>
+          <div className={styles.issueDetails}>05 היום שאחרי</div>
         </div>
       </div>
       <div
