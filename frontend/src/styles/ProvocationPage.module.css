@@ -715,11 +715,10 @@
   padding-top: 20px;
   padding-bottom: 0;
   margin-bottom: 0;
-}
-
-.dayafter.provocationPage article header hgroup h1 {
-  font-size: 64px !important;
+  font-weight: 400;  font-size: 100px;
+  font-size: 100px !important;
   padding-inline-start: 0;
+  line-height: 0.7;
 }
 
 .provocationPage article header hgroup h1 {
