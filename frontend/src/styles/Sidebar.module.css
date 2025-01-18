@@ -158,23 +158,16 @@
 }
 
 .dayafter.outer > .nav .navItem {
-  color: var(--theme-color);
-  background-color: var(--alt-color);
-
   color: var(--active-theme-color);
   background-color: var(--active-alt-color);
 }
 
 .dayafter.outer > .nav .navItem.activeNavItem {
-  color: var(--alt-color);
-  background-color: var(--theme-color);
-
-  color: var(--active-alt-color);
-  background-color: var(--active-theme-color);
+  color: transparent;
 }
 
 .outer > .nav .navItem:hover.activeNavItem {
-  color: unset;
+  color: transparent;
 }
 
 .outer > .nav .navItem.activeNavItem {
@@ -623,9 +616,6 @@
       &:hover {
         color: var(--theme-color);
 
-        &.activeNavItem {
-          color: unset;
-        }
       }
 
       &.activeNavItem {
