@@ -906,7 +906,7 @@ export interface ApiDayafterItemDayafterItem extends Schema.CollectionType {
       Attribute.CustomField<'plugin::color-picker.color'>;
     long_author_about: Attribute.Blocks;
     url_title: Attribute.String;
-    type: Attribute.Enumeration<['standard', 'interview']>;
+    type: Attribute.Enumeration<['standard', 'interview', 'video']>;
     tag_icon: Attribute.Media<'images'>;
     ticker_text: Attribute.String;
     alt_color: Attribute.String &
