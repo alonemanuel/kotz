@@ -776,15 +776,16 @@ const Sidebar: React.FC<SidebarProps> = ({ articles, terms, path }) => {
               "--active-theme-color": `${
                 articles[
                   isPortrait ? activeArticleIndex ?? -1 : activeIndices[0]
-                ]?.attributes.color ?? "purple"
+                ]?.attributes.color ?? "#AE80FF"
               }`,
               "--active-alt-color": `${
                 articles[
                   isPortrait ? activeArticleIndex ?? -1 : activeIndices[0]
-                ]?.attributes.alt_color ?? "yellow"
+                ]?.attributes.alt_color ?? "#1A0052"
               }`,
-              "--theme-color": `red`,
-              "--alt-color": `green`,
+              "--theme-color": `#AE80FF`,
+              "--alt-color": `#1A0052`,
+
             } as React.CSSProperties
           }
         >
