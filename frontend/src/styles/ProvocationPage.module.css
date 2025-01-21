@@ -709,7 +709,7 @@
 
 .dayafter.provocationPage article header hgroup h1 {
   font-family: var(--ff-dayafter);
-  color: white;
+  color: var(--alt-color);
   text-decoration: none;
   text-shadow: none;
   padding-top: 20px;
