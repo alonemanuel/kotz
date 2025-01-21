@@ -2445,7 +2445,8 @@
                 "type": "string",
                 "enum": [
                   "standard",
-                  "interview"
+                  "interview",
+                  "video"
                 ]
               },
               "tag_icon": {
@@ -3170,7 +3171,8 @@
             "type": "string",
             "enum": [
               "standard",
-              "interview"
+              "interview",
+              "video"
             ]
           },
           "tag_icon": {
