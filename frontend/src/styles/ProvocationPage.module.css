@@ -596,6 +596,11 @@
   text-align: end;
 }
 
+.dayafter.provocationPage article.video header h3 {
+  display: none;
+}
+
+
 .provocationPage article.popout header > hgroup > h3 {
   display: none;
 }
