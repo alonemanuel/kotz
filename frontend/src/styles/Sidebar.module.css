@@ -425,6 +425,11 @@
     --touch-max-width: var(--sidebar-max-width);
   }
 
+  
+.dayafter.outer > .nav .navItem.bottomNav {
+  overflow: hidden !important;
+}
+
   .dayafter.outer .nav {
     padding-block-end: 0 !important;
   }
