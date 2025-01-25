@@ -431,7 +431,7 @@
 }
 
   .dayafter.outer .nav {
-    padding-block-end: 0 !important;
+    /* padding-block-end: 0 !important; */
   }
 
   .noTouch .nav.temporaryClosed {

@@ -9,7 +9,7 @@
 }
 
 .dayafter.provocationPage > .bottomBar {
-  display: none;
+  /* display: none; */
 }
 
 .provocationPage > .bottomBar {
@@ -22,7 +22,7 @@
 }
 
 .noTouch .provocationPage > .bottomBar > .hamburger {
-  display: none;
+  /* display: none; */
 }
 
 .provocationPage > .bottomBar > .hamburger {
@@ -113,6 +113,10 @@
 .provocationPage > .bottomBar > .details > hgroup h1:active,
 .provocationPage > .bottomBar > .details > hgroup h3:active {
   scale: 1.2;
+}
+
+.dayafter.provocationPage > .bottomBar > .kotzContainer {
+  display: none;
 }
 
 .provocationPage > .bottomBar > .kotzContainer {
