@@ -425,6 +425,10 @@
     --touch-max-width: var(--sidebar-max-width);
   }
 
+  .dayafter.outer .nav {
+    padding-block-end: 0 !important;
+  }
+
   .noTouch .nav.temporaryClosed {
     max-width: var(--sidebar-max-width) !important;
   }
