@@ -1018,6 +1018,10 @@ h3 + .provocationPage main > p {
 
 /* Landscape */
 @media (min-aspect-ratio: 1), (orientation: landscape) {
+  .dayafter.provocationPage > .bottomBar {
+    display: none;
+  }
+  
   .provocationPage > .bottomBar > .hamburger {
     display: none;
   }
