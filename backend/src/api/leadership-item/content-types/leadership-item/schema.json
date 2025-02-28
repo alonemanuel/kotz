@@ -1,0 +1,106 @@
+{
+  "kind": "collectionType",
+  "collectionName": "leadership_items",
+  "info": {
+    "singularName": "leadership-item",
+    "pluralName": "leadership-items",
+    "displayName": "Leadership Item"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "body": {
+      "type": "blocks"
+    },
+    "lead": {
+      "type": "text"
+    },
+    "author_about": {
+      "type": "text"
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    },
+    "long_author_about": {
+      "type": "blocks"
+    },
+    "url_title": {
+      "type": "string"
+    },
+    "color": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "standard",
+        "interview",
+        "video"
+      ]
+    },
+    "author_img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "body_img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "outside_img_vertical": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "outside_img_horizontal": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
