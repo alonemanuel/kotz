@@ -1171,6 +1171,7 @@ export interface ApiLeadershipItemLeadershipItem extends Schema.CollectionType {
     singularName: 'leadership-item';
     pluralName: 'leadership-items';
     displayName: 'Leadership Item';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1196,6 +1197,11 @@ export interface ApiLeadershipItemLeadershipItem extends Schema.CollectionType {
     >;
     outside_img_horizontal: Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
+    >;
+    terms: Attribute.Relation<
+      'api::leadership-item.leadership-item',
+      'oneToMany',
+      'api::leadership-term.leadership-term'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
