@@ -37,7 +37,7 @@ const App: React.FC = () => {
         <Route path="/fake/:urlSuffix" element={<FakePage />} />
         <Route path="/borders/:urlSuffix" element={<BordersPage />} />
         <Route path="/thedayafter/:urlSuffix" element={<DayafterPage />} />
-        <Route path="/leadersip/:urlSuffix" element={<LeadershipPage />} />;
+        <Route path="/leadership/:urlSuffix" element={<LeadershipPage />} />;
       </Routes>
     </>
   );

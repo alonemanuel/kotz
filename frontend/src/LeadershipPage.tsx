@@ -59,7 +59,7 @@ const LeadershipPage: React.FC = () => {
     <OpenArticleProvider>
       <Layout className={`${layoutStyles.leadershipLayout} ${layoutStyles.fakeLayout}`}>
         <div className={`${styles.fakePage} ${isOpen ? styles.isOpen : ''}` }>
-          <FakeContainer articles={articlesStrapi} terms={termsStrapi} />
+          <FakeContainer articles={articlesStrapi} terms={termsStrapi} path="leadership" />
         </div>
       </Layout>
     </OpenArticleProvider>

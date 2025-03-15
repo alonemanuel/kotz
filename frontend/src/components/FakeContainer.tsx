@@ -20,6 +20,7 @@ interface AccordionProps {
   // articles: Item[];
   articles: Article[];
   terms: Term[];
+  path: string;
 }
 
 function debounce(func: any, wait: number) {
@@ -82,7 +83,7 @@ function useResizeObservers(refs: any, dependency: number | null) {
 
   return dimensions;
 }
-const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
+const FakeContainer: React.FC<AccordionProps> = ({ articles, terms ,path}) => {
   const [randomIndices, setRandomIndices] = useState<number[]>([]);
 
   useEffect(() => {
@@ -190,9 +191,9 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
       );
 
       const urlSuffix = normalizedUrl ? normalizedUrl : normalizedTitle;
-      navigate(`/fake/${urlSuffix}`, { replace: false });
+      navigate(`/${path}/${urlSuffix}`, { replace: false });
     } else {
-      navigate(`/fake`, { replace: false });
+      navigate(`/${path}`, { replace: false });
     }
 
     // If the accordion is being opened, scroll it into view
@@ -276,7 +277,7 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                     "--theme-color": `${
                       article.attributes.color
                         ? article.attributes.color
-                        : "black"
+                        : "pink"
                     }`,
                   } as React.CSSProperties
                 }
@@ -337,7 +338,7 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                       "--theme-color": `${
                         article.attributes.color
                           ? article.attributes.color
-                          : "black"
+                          : "pink"
                       }`,
                     } as React.CSSProperties
                   }
@@ -385,7 +386,7 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                                               "--theme-color": `${
                                                 article.attributes.color
                                                   ? article.attributes.color
-                                                  : "black"
+                                                  : "pink"
                                               }`,
                                             } as React.CSSProperties
                                           }
@@ -415,7 +416,7 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                                             "--theme-color": `${
                                               article.attributes.color
                                                 ? article.attributes.color
-                                                : "black"
+                                                : "pink"
                                             }`,
                                           } as React.CSSProperties
                                         }
@@ -439,7 +440,7 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                               "--theme-color": `${
                                 article.attributes.color
                                   ? article.attributes.color
-                                  : "black"
+                                  : "pink"
                               }`,
                               "--max-chars": `${Math.ceil(
                                 attr.subtitle.length / 2.8
@@ -478,7 +479,7 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                     "--theme-color": `${
                       article.attributes.color
                         ? article.attributes.color
-                        : "black"
+                        : "pink"
                     }`,
                   } as React.CSSProperties
                 }

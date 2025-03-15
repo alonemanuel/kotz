@@ -59,7 +59,7 @@ const FakePage: React.FC = () => {
     <OpenArticleProvider>
       <Layout className={layoutStyles.fakeLayout}>
         <div className={`${styles.fakePage} ${isOpen ? styles.isOpen : ''}` }>
-          <FakeContainer articles={articlesStrapi} terms={termsStrapi} />
+          <FakeContainer articles={articlesStrapi} terms={termsStrapi} path="fake" />
         </div>
       </Layout>
     </OpenArticleProvider>
