@@ -1189,7 +1189,8 @@ export interface ApiLeadershipItemLeadershipItem extends Schema.CollectionType {
     color: Attribute.String &
       Attribute.CustomField<'plugin::color-picker.color'>;
     icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    type: Attribute.Enumeration<['standard', 'interview', 'video']>;
+    type: Attribute.Enumeration<['standard', 'interview', 'video']> &
+      Attribute.DefaultTo<'standard'>;
     author_img: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     body_img: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     outside_img_vertical: Attribute.Media<

@@ -62,7 +62,8 @@
         "standard",
         "interview",
         "video"
-      ]
+      ],
+      "default": "standard"
     },
     "author_img": {
       "type": "media",
