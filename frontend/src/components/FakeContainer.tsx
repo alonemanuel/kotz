@@ -83,14 +83,22 @@ function useResizeObservers(refs: any, dependency: number | null) {
 
   return dimensions;
 }
-const FakeContainer: React.FC<AccordionProps> = ({ articles, terms ,path}) => {
+const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
   const [randomIndices, setRandomIndices] = useState<number[]>([]);
 
   useEffect(() => {
-    const indices = articles.map((article) => {
-      const words = article.attributes.title.split(" ");
-      return Math.floor(Math.random() * (words.length + 1));
-    });
+    let indices;
+    if (path === "leadership") {
+      indices = articles.map((article) => {
+        const words = article.attributes.title.split(" ");
+        return words.length - 1;
+      });
+    } else {
+      indices = articles.map((article) => {
+        const words = article.attributes.title.split(" ");
+        return Math.floor(Math.random() * (words.length + 1));
+      });
+    }
     setRandomIndices(indices);
   }, [articles]);
 
@@ -377,6 +385,31 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms ,path}) => {
 
                                   return (
                                     <React.Fragment key={i}>
+                                    
+                                      <span
+                                        className={`${styles.titleWord} ${
+                                          styles.title
+                                        } ${
+                                          isEnglishWord
+                                            ? styles.englishWord
+                                            : ""
+                                        }`}
+                                        onClick={() => toggleAccordion(index)}
+                                        style={
+                                          {
+                                            "--theme-color": `${
+                                              article.attributes.color
+                                                ? article.attributes.color
+                                                : "pink"
+                                            }`,
+                                          } as React.CSSProperties
+                                        }
+                                      >
+                                        {word}{" "}
+                                      </span>
+
+
+
                                       {i === randomIndex && (
                                         <span
                                           className={`${styles.titleWord} ${styles.titleIcon}`}
@@ -402,27 +435,6 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms ,path}) => {
                                           ></img>
                                         </span>
                                       )}
-                                      <span
-                                        className={`${styles.titleWord} ${
-                                          styles.title
-                                        } ${
-                                          isEnglishWord
-                                            ? styles.englishWord
-                                            : ""
-                                        }`}
-                                        onClick={() => toggleAccordion(index)}
-                                        style={
-                                          {
-                                            "--theme-color": `${
-                                              article.attributes.color
-                                                ? article.attributes.color
-                                                : "pink"
-                                            }`,
-                                          } as React.CSSProperties
-                                        }
-                                      >
-                                        {word}{" "}
-                                      </span>
                                     </React.Fragment>
                                   );
                                 });
