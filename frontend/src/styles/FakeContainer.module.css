@@ -8,6 +8,8 @@
   background-color: #413025 !important;
   color: #FFF8EE !important;
   font-family: var(--ff-miriam-stencil);
+  flex-grow: 0;
+  padding-inline-end: 0.17em;
 }
 
 .accordionContainer {
@@ -136,6 +138,10 @@
   background-color: #9ebde9;
   /* overflow: hidden; */
   /* flex-grow: ; */
+}
+
+.leadership .accordionContainer {
+  background-color: #413025;
 }
 
 .accordionContainer .accordion {
