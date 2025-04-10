@@ -237,7 +237,7 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms ,path}) => {
     <div
       className={`${styles.fakeContainer} ${
         isOpen ? styles.isOpen : styles.isNotOpen
-      }`}
+      } ${path === "leadership" ? styles.leadership : styles.fake}`}
     >
       <div className={styles.topBar}>
         <div className={styles.nameCorner}>

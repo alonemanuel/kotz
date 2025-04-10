@@ -4,6 +4,12 @@
   height: 100%;
 }
 
+.fakeContainer.leadership .bodyContainer .accordionContainer .titleWord{
+  background-color: #413025 !important;
+  color: #FFF8EE !important;
+  font-family: var(--ff-miriam-stencil);
+}
+
 .accordionContainer {
   display: flex;
   flex-flow: row wrap;
@@ -15,6 +21,10 @@
   background-color: #9ebde9;
   flex-grow: 1;
 }
+.leadership .accordionContainer::after {
+  background-color: #413025;
+}
+
 
 .accordionContainer .titleWord:nth-last-child(1),
 .accordionContainer .titleWord:nth-last-child(2) {

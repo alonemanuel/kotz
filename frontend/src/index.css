@@ -18,7 +18,8 @@
   --ff-frankg: "FrankG";
   --ff-dayafter: "Dayafter";
   --ff-borders-david: "BordersDavid";
-
+  --ff-miriam-stencil: "MiriamStencil";
+  
   --fs-xl: clamp(3.5rem, 12vw + 1rem, 12rem);
   --fs-800: 9rem;
   --fs-700: 3rem;
