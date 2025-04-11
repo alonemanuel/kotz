@@ -274,6 +274,10 @@
   max-height: 100%;
 }
 
+.leadership .topBarIcons .topBarIcon.active .articleIconWrapper {
+  display: none;
+}
+
 .topBarIcons .topBarIcon.active .articleIconWrapper .articleIcon {
   flex-grow: 0;
 }
