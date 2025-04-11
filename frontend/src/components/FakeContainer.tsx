@@ -250,10 +250,15 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
       <div className={styles.topBar}>
         <div className={styles.nameCorner}>
           <div
-            className={styles.backArrow}
-            onClick={() => toggleAccordion(activeIndex ?? 0)}
+          className={styles.backArrow}
+          onClick={() => toggleAccordion(activeIndex ?? 0)}
           >
+          {(path==="leadership") ? 
+          <span>חזור</span>
+            :
+            
             <img src={backArrow} />
+          }
           </div>
           <div className={styles.issueName}>
             <h1>

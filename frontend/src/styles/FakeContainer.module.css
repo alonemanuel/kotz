@@ -4,9 +4,9 @@
   height: 100%;
 }
 
-.fakeContainer.leadership .bodyContainer .accordionContainer .titleWord{
+.fakeContainer.leadership .bodyContainer .accordionContainer .titleWord {
   background-color: #413025 !important;
-  color: #FFF8EE !important;
+  color: #fff8ee !important;
   font-family: var(--ff-miriam-stencil);
   flex-grow: 0;
   padding-inline-end: 0.17em;
@@ -26,7 +26,6 @@
 .leadership .accordionContainer::after {
   background-color: #413025;
 }
-
 
 .accordionContainer .titleWord:nth-last-child(1),
 .accordionContainer .titleWord:nth-last-child(2) {
@@ -231,13 +230,11 @@
   display: none;
 }
 
-
 .leadership .topBarIcons .topBarIcon.active .textContent {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 
 .leadership .topBarIcons .topBarIcon.active .textContent h1 {
   display: flex;
@@ -303,6 +300,13 @@
   position: relative;
   cursor: pointer;
   flex-shrink: 0;
+}
+
+.leadership .topBar .nameCorner {
+  background-color: var(--color-brown);
+  color: var(--color-cream);
+  font-family: var(--ff-narkis-yair);
+  font-weight: 400;
 }
 
 .topBar .backArrow {
@@ -376,7 +380,12 @@
   cursor: pointer;
   display: flex;
   flex-shrink: 0;
-  background-color: #E45D59;
+  background-color: #e45d59;
+}
+
+.leadership .topBar .kotzIcon,
+.leadership .accordionContainer .kotzIcon {
+  background-color: var(--color-brown);
 }
 
 .accordionContainer .issueName {
