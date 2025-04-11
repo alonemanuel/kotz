@@ -243,6 +243,7 @@
 .fakePage.leadershipPage article header hgroup h1 {
   font-family: var(--ff-miriam-stencil), var(--ff-futura);
   color: var(--color-cream);
+  font-weight: 400;
 }
 
 .fakePage article header hgroup h1.title .altGlyph {
