@@ -292,7 +292,13 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
               >
                 {(attr.author || attr.title) && (
                   <div className={styles.textContent}>
-                    {attr.title && <h1>{attr.title}</h1>}
+                    {attr.title && (
+                      <h1>
+                        {path === "leadership"
+                          ? `[ ${attr.author} ]`
+                          : attr.title}
+                      </h1>
+                    )}
                     {attr.subtitle && <h2>{`[ ${attr.subtitle} ]`}</h2>}
                     {attr.author_about && <h3>{attr.author_about}</h3>}
                   </div>
@@ -385,7 +391,6 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
 
                                   return (
                                     <React.Fragment key={i}>
-                                    
                                       <span
                                         className={`${styles.titleWord} ${
                                           styles.title
@@ -407,8 +412,6 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
                                       >
                                         {word}{" "}
                                       </span>
-
-
 
                                       {i === randomIndex && (
                                         <span
