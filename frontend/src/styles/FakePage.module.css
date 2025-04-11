@@ -38,6 +38,10 @@
   max-width: 80ch;
 }
 
+.leadershipPage.fakePage article > main {
+  align-self: flex-end;
+}
+
 /* Mobile */
 
 .imageBar {
