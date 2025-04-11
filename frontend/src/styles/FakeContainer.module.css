@@ -205,6 +205,10 @@
   aspect-ratio: 1;
 }
 
+.leadership .topBarIcons .topBarIcon {
+  background-color: var(--color-brown);
+}
+
 .topBarIcons .topBarIcon.active {
   flex-grow: 1;
   /* flex-shrink: 0; */
@@ -424,6 +428,10 @@
   flex-grow: 1;
 }
 
+.leadership .panel {
+  background-color: var(--color-brown);
+  color: var(--color-cream);
+}
 .panel.active {
   display: flex;
 }

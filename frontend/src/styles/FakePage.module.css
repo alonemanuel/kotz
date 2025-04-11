@@ -204,6 +204,11 @@
   flex-grow: 1;
 }
 
+.fakePage.leadershipPage article {
+  color: var(--color-cream);
+  background-color: var(--color-brown);
+}
+
 .fakePage article header {
   background-color: var(--theme-color);
   display: flex;
@@ -213,6 +218,11 @@
   top: 0;
   color: black;
   z-index: 1;
+}
+
+.leadershipPage.fakePage article header {
+  background-color: var(--color-brown);
+  color: var(--color-cream);
 }
 
 .fakePage article header hgroup {
@@ -230,6 +240,11 @@
   line-height: 0.8em;
   color: black;
 }
+.fakePage.leadershipPage article header hgroup h1 {
+  font-family: var(--ff-miriam-stencil), var(--ff-futura);
+  color: var(--color-cream);
+}
+
 .fakePage article header hgroup h1.title .altGlyph {
   font-feature-settings: "ss01" 1;
 }
@@ -424,7 +439,6 @@
 .fakePage footer {
   font-family: var(--ff-narkis-yair);
   font-size: 1.4rem;
-
 }
 .fakePage footer > main {
   display: flex;
