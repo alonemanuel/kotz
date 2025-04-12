@@ -218,6 +218,7 @@
 
 .leadership .topBarIcons .topBarIcon {
   background-color: var(--color-brown);
+  aspect-ratio: unset;
 }
 
 .topBarIcons .topBarIcon.active {
