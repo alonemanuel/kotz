@@ -250,25 +250,24 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
       <div className={styles.topBar}>
         <div className={styles.nameCorner}>
           <div
-          className={styles.backArrow}
-          onClick={() => toggleAccordion(activeIndex ?? 0)}
+            className={styles.backArrow}
+            onClick={() => toggleAccordion(activeIndex ?? 0)}
           >
-          {(path==="leadership") ? 
-          <span>חזור</span>
-            :
-            
-            <img src={backArrow} />
-          }
+            {path === "leadership" ? (
+              <span>חזור</span>
+            ) : (
+              <img src={backArrow} />
+            )}
           </div>
           <div className={styles.issueName}>
             <h1>
               קוץ <span className={styles.dash}>—</span>
             </h1>
-            <h2>03 פייק</h2>
+            {true ? <h2>מנהיגות 06</h2> : <h2>03 פייק</h2>}
           </div>
         </div>
         <div className={styles.kotzIcon} onClick={() => navigate("/")}>
-          <img src={fakeIcon} />
+          <img src={path === "leadership" ? fakeIcon : fakeIcon} />
         </div>
         <div
           className={`${styles.topBarIcons} ${
@@ -333,7 +332,7 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
             <h1>
               קוץ <span className={styles.dash}>—</span>
             </h1>
-            <h2>03 פייק</h2>
+            {true? <h2>מנהיגות 06</h2>:<h2>03 פייק</h2>}
           </div>
           <div
             className={`${styles.kotzIcon} ${styles.titleWord}`}
