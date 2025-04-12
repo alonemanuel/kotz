@@ -439,6 +439,7 @@
   font-family: var(--ff-narkis-yair);
   color: var(--color-cream);
   font-weight: 400;
+  text-align: start;
 }
 
 .fakePage hr {
