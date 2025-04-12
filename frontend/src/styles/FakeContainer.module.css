@@ -279,6 +279,10 @@
   max-height: 60px;
 }
 
+.leadership .topBarIcons .topBarIcon .articleIconWrapper .articleIcon {
+  max-height: 100px;
+}
+
 .topBarIcons .topBarIcon.active .articleIconWrapper {
   max-height: 100%;
 }
@@ -815,6 +819,11 @@
   .isOpen .topBar {
     height: 7vh;
     max-height: 70px;
+  }
+
+  .isOpen.leadership .topBar {
+    height: 10vh;
+    max-height: 130px;
   }
 
   .isOpen .topBar .kotzIcon {
