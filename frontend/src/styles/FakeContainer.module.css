@@ -18,6 +18,10 @@
   font-size: clamp(0px, min(9vw, 12vh), 100px);
 }
 
+.leadership .accordionContainer {
+  padding-inline-start: 12px;
+}
+
 .accordionContainer::after {
   content: "";
   background-color: #9ebde9;
@@ -93,6 +97,10 @@
   letter-spacing: -1.2px;
   padding-bottom: 0.1em;
   line-height: 0.7;
+}
+
+.leadership .accordionContainer .title {
+  letter-spacing: -3.6px;
 }
 
 .accordionContainer .subtitle {
