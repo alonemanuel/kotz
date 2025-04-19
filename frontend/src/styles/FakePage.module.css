@@ -473,6 +473,10 @@
   margin-right: 0;
 }
 
+.fakePage.leadershipPage footer > main {
+  background-color: transparent;
+}
+
 .fakePage footer > main > .imageContainer {
   flex-shrink: 0;
   margin-inline-end: 1em;
