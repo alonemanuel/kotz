@@ -10,6 +10,12 @@
   font-family: var(--ff-miriam-stencil);
   flex-grow: 0;
   padding-inline-end: 0.17em;
+  max-height: 1em;
+}
+
+
+.fakeContainer.leadership .bodyContainer .accordionContainer .titleWord img {
+  max-height: 100%;
 }
 
 .accordionContainer {
