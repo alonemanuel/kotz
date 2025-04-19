@@ -13,6 +13,7 @@ import { useOpenArticle } from "../OpenArticleContext";
 import userEvent from "@testing-library/user-event";
 import topArrowImg from "../images/other/up-arrow.svg";
 import articleIcon from "../images/sandbox/iconFake.png";
+import leadershipIcon from "../images/leadership-icon.png";
 import fakeIcon from "../images/fake-icon.png";
 import backArrow from "../images/back-arrow.png";
 
@@ -267,7 +268,7 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
           </div>
         </div>
         <div className={styles.kotzIcon} onClick={() => navigate("/")}>
-          <img src={path === "leadership" ? fakeIcon : fakeIcon} />
+          <img src={path === "leadership" ? leadershipIcon : fakeIcon} />
         </div>
         <div
           className={`${styles.topBarIcons} ${
@@ -338,7 +339,8 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
             className={`${styles.kotzIcon} ${styles.titleWord}`}
             onClick={() => navigate("/")}
           >
-            <img src={fakeIcon} />
+                      <img src={path === "leadership" ? leadershipIcon : fakeIcon} />
+
           </div>
           {articles.map((article, index) => {
             const attr = article.attributes;
