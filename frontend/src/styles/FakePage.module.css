@@ -578,3 +578,7 @@
     max-width: 30%;
   }
 }
+
+.fakePage.leadershipPage footer > main > .imageContainer > img {
+  max-width: 101px;
+}
