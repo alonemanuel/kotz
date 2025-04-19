@@ -155,6 +155,11 @@
   background-color: #413025;
 }
 
+
+.leadership .accordionContainer.isNotOpen {
+  overflow-y: auto;
+}
+
 .accordionContainer .accordion {
   overflow: hidden;
   /* flex-grow: ; */
