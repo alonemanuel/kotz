@@ -414,6 +414,7 @@
 .leadership .topBar .kotzIcon,
 .leadership .accordionContainer .kotzIcon {
   background-color: var(--color-brown);
+  align-items: center;
 }
 
 .accordionContainer .issueName {
@@ -441,6 +442,11 @@
 
 .topBar .kotzIcon img {
   height: 100%;
+}
+
+
+.leadership .topBar .kotzIcon img {
+  max-height: 52px;
 }
 
 .accordionContainer.isOpen {

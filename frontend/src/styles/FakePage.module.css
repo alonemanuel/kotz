@@ -594,6 +594,10 @@
     max-width: 60ch;
   }
 
+  .leadershipPage.fakePage article > main {
+    align-self: unset;
+  }
+
   .fakePage footer > main {
     flex-direction: column;
     max-width: 100%;
