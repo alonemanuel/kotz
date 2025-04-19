@@ -359,7 +359,7 @@
 }
 
 
-.leadershipPage.fakePage main.interview p:empty {
+.leadershipPage.fakePage main p:empty {
   height: 1.5em;
 }
 
