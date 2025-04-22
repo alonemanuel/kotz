@@ -140,6 +140,12 @@
   width: 100%;
   z-index: 0;
 }
+
+.fakePage.leadershipPage .terms {
+  background-color: var(--color-cream);
+  color: var(--color-brown);
+}
+
 .fakePage .terms .borderContainer {
   display: flex;
   flex-flow: column nowrap;
@@ -158,6 +164,11 @@
   font-style: normal;
   color: var(--color-black);
   margin: 0;
+}
+
+.fakePage.leadershipPage .terms h1 {
+  color: var(--color-brown);
+  background-color: var(--color-cream);
 }
 
 .fakePage .interview .terms h1::before {
