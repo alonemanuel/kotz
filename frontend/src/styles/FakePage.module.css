@@ -423,6 +423,12 @@
   transition: all 0.2s ease-out;
 }
 
+.fakePage.leadershipPage main > p a {
+    background-color: var(--color-cream);
+    color: var(--color-brown);
+    padding: 0em 0.2em;
+}
+
 .fakePage main > p a:hover {
   filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.5));
 }
