@@ -609,10 +609,16 @@
   }
   .fakePage article > main {
     max-width: 60ch;
+    padding-inline: 8px;
   }
 
   .leadershipPage.fakePage article > main {
     align-self: unset;
+  }
+
+  .leadershipPage.fakePage .lead {
+    text-align: start;
+    padding-inline: 8px;
   }
 
   .fakePage footer > main {
