@@ -369,11 +369,9 @@
   margin-block-end: 0;
 }
 
-
 .leadershipPage.fakePage main p:empty {
   height: 1.5em;
 }
-
 
 .leadershipPage.fakePage main.interview p:empty + p {
   text-indent: 0;
@@ -383,7 +381,10 @@
   text-indent: 0;
 }
 
-
+/* Remove indentation from paragraphs after two consecutive empty paragraphs in leadership pages */
+.leadershipPage.fakePage main p:empty + p:empty + p {
+  text-indent: 0;
+}
 
 .fakePage main.interview h1::before {
   content: "";
@@ -401,7 +402,6 @@
 .leadershipPage.fakePage main.interview h1::before {
   content: none;
 }
-
 
 .fakePage main > p {
   font: var(--font-kotz-500);
@@ -482,7 +482,6 @@
   font-size: 1.6em;
   margin: 2em auto;
 }
-
 
 .fakePage.leadershipPage main > h3 {
   font-family: var(--ff-narkis-yair);
