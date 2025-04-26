@@ -269,6 +269,7 @@
   display: flex;
   color: var(--color-cream);
   font-family: var(--ff-narkis-yair);
+  white-space: nowrap;
 }
 
 @media (max-width: 1400px) {
