@@ -292,6 +292,8 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
                   activeIndex === index ? styles.active : ""
                 } ${isOpen ? styles.articleIsOpen : styles.articleIsNotOpen}`}
                 onClick={() => toggleAccordion(index)}
+                onMouseEnter={path === "leadership" ? () => setHoveredArticleIndex(index) : undefined}
+                onMouseLeave={path === "leadership" ? () => setHoveredArticleIndex(null) : undefined}
                 style={
                   {
                     "--theme-color": `${
@@ -307,7 +309,7 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
                     {attr.title && (
                       <h1>
                         {path === "leadership"
-                          ? `[ ${attr.author} ]`
+                          ? `[ ${attr.author} ]`
                           : attr.title}
                       </h1>
                     )}
@@ -318,9 +320,11 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
                 <div className={styles.articleIconWrapper}>
                   <img
                     src={
-                      article.attributes.icon?.data
-                        ? article.attributes.icon?.data?.attributes.url
-                        : articleIcon
+                      path === "leadership" && hoveredArticleIndex === index && article.attributes.body_img?.data
+                        ? article.attributes.body_img?.data?.attributes.url
+                        : article.attributes.icon?.data
+                          ? article.attributes.icon?.data?.attributes.url
+                          : articleIcon
                     }
                     className={styles.articleIcon}
                   ></img>
@@ -360,6 +364,8 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
                     activeIndex === index ? styles.active : ""
                   } ${isOpen ? styles.articleIsOpen : styles.articleIsNotOpen}`}
                   onClick={() => toggleAccordion(index)}
+                  onMouseEnter={path === "leadership" ? () => setHoveredArticleIndex(index) : undefined}
+                  onMouseLeave={path === "leadership" ? () => setHoveredArticleIndex(null) : undefined}
                   style={
                     {
                       "--theme-color": `${
@@ -373,9 +379,11 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
                   <div className={styles.articleIconWrapper}>
                     <img
                       src={
-                        article.attributes.icon?.data
-                          ? article.attributes.icon?.data?.attributes.url
-                          : articleIcon
+                        path === "leadership" && hoveredArticleIndex === index && article.attributes.body_img?.data
+                          ? article.attributes.body_img?.data?.attributes.url
+                          : article.attributes.icon?.data
+                            ? article.attributes.icon?.data?.attributes.url
+                            : articleIcon
                       }
                       className={styles.articleIcon}
                     ></img>
