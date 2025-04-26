@@ -167,6 +167,10 @@
   background-color: #413025;
 }
 
+.leadership .accordionContainer.isOpen {
+  padding-inline-start: 0;
+}
+
 .leadership .accordionContainer.isNotOpen {
   overflow-y: auto;
 }
