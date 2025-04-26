@@ -86,6 +86,7 @@ function useResizeObservers(refs: any, dependency: number | null) {
 }
 const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
   const [randomIndices, setRandomIndices] = useState<number[]>([]);
+  const [hoveredArticleIndex, setHoveredArticleIndex] = useState<number | null>(null);
 
   useEffect(() => {
     let indices;
@@ -102,6 +103,12 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
     }
     setRandomIndices(indices);
   }, [articles]);
+
+  useEffect(() => {
+    if (hoveredArticleIndex !== null && path === "leadership") {
+      console.log(`Hovering article: ${articles[hoveredArticleIndex].attributes.title}`);
+    }
+  }, [hoveredArticleIndex, articles, path]);
 
   // Add touch class
   document.documentElement.classList.toggle(
@@ -406,6 +413,8 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
                                             : ""
                                         }`}
                                         onClick={() => toggleAccordion(index)}
+                                        onMouseEnter={path === "leadership" ? () => setHoveredArticleIndex(index) : undefined}
+                                        onMouseLeave={path === "leadership" ? () => setHoveredArticleIndex(null) : undefined}
                                         style={
                                           {
                                             "--theme-color": `${
@@ -433,15 +442,27 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
                                             } as React.CSSProperties
                                           }
                                         >
-                                          <img
-                                            src={
-                                              article.attributes.icon?.data
-                                                ? article.attributes.icon?.data
-                                                    ?.attributes.url
-                                                : articleIcon
-                                            }
-                                            className={styles.articleIcon}
-                                          ></img>
+                                          {path === "leadership" ? (
+                                            <img
+                                              src={
+                                                hoveredArticleIndex === index && article.attributes.body_img?.data
+                                                  ? article.attributes.body_img?.data?.attributes.url
+                                                  : article.attributes.icon?.data
+                                                    ? article.attributes.icon?.data?.attributes.url
+                                                    : articleIcon
+                                              }
+                                              className={styles.articleIcon}
+                                            ></img>
+                                          ) : (
+                                            <img
+                                              src={
+                                                article.attributes.icon?.data
+                                                  ? article.attributes.icon?.data?.attributes.url
+                                                  : articleIcon
+                                              }
+                                              className={styles.articleIcon}
+                                            ></img>
+                                          )}
                                         </span>
                                       )}
                                     </React.Fragment>
@@ -456,6 +477,8 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
                         <span
                           className={`${styles.titleWord} ${styles.subtitle}`}
                           onClick={() => toggleAccordion(index)}
+                          onMouseEnter={path === "leadership" ? () => setHoveredArticleIndex(index) : undefined}
+                          onMouseLeave={path === "leadership" ? () => setHoveredArticleIndex(null) : undefined}
                           style={
                             {
                               "--theme-color": `${
