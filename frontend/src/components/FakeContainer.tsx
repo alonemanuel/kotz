@@ -411,6 +411,10 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
                                           isEnglishWord
                                             ? styles.englishWord
                                             : ""
+                                        } ${
+                                          path === "leadership" && hoveredArticleIndex === index 
+                                            ? styles.titleWordHovered 
+                                            : ""
                                         }`}
                                         onClick={() => toggleAccordion(index)}
                                         onMouseEnter={path === "leadership" ? () => setHoveredArticleIndex(index) : undefined}
@@ -475,7 +479,11 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
                       )}
                       {attr.subtitle && (
                         <span
-                          className={`${styles.titleWord} ${styles.subtitle}`}
+                          className={`${styles.titleWord} ${styles.subtitle} ${
+                            path === "leadership" && hoveredArticleIndex === index 
+                              ? styles.titleWordHovered 
+                              : ""
+                          }`}
                           onClick={() => toggleAccordion(index)}
                           onMouseEnter={path === "leadership" ? () => setHoveredArticleIndex(index) : undefined}
                           onMouseLeave={path === "leadership" ? () => setHoveredArticleIndex(null) : undefined}

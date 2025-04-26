@@ -13,6 +13,11 @@
   max-height: 1em;
 }
 
+.fakeContainer.leadership .bodyContainer .accordionContainer .titleWordHovered {
+  font-family: var(--ff-narkis-yair);
+  transition: font-family 0.2s ease;
+}
+
 .fakeContainer.leadership .bodyContainer .accordionContainer .titleWord img {
   max-height: 100%;
 }
