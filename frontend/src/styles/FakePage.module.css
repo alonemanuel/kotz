@@ -10,6 +10,10 @@
   pointer-events: none;
 }
 
+.leadershipPage.fakePage .bodyImageWrapper {
+  display: none;
+}
+
 @media (max-width: 1500px) {
   .bodyImageWrapper {
     display: none;
