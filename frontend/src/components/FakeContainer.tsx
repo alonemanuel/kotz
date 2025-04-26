@@ -421,7 +421,7 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
                                             : ""
                                         } ${
                                           path === "leadership" && hoveredArticleIndex === index 
-                                            ? styles.titleWordHovered 
+                                            ? styles.titleWordOutlined 
                                             : ""
                                         }`}
                                         onClick={() => toggleAccordion(index)}
@@ -489,7 +489,7 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
                         <span
                           className={`${styles.titleWord} ${styles.subtitle} ${
                             path === "leadership" && hoveredArticleIndex === index 
-                              ? styles.titleWordHovered 
+                              ? styles.titleWordOutlined 
                               : ""
                           }`}
                           onClick={() => toggleAccordion(index)}

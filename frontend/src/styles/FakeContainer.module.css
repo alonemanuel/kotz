@@ -13,9 +13,11 @@
   max-height: 1em;
 }
 
-.fakeContainer.leadership .bodyContainer .accordionContainer .titleWordHovered {
-  font-family: var(--ff-narkis-yair);
-  transition: font-family 0.2s ease;
+.fakeContainer.leadership .bodyContainer .accordionContainer .titleWordOutlined {
+  color: transparent !important;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #fff;
+  transition: all 0.1s ease;
 }
 
 .fakeContainer.leadership .bodyContainer .accordionContainer .titleWord img {
