@@ -222,6 +222,7 @@
 .fakePage.leadershipPage article {
   color: var(--color-cream);
   background-color: var(--color-brown);
+  gap: 0.3em;
 }
 
 .fakePage article header {
@@ -297,8 +298,10 @@
 }
 
 .leadershipPage.fakePage .lead {
-  text-align: center;
+  text-align: right;
   padding-top: 0;
+  padding-inline: 8px;
+  letter-spacing: 0.4px;
 }
 
 .fakePage article .bodyImage {
