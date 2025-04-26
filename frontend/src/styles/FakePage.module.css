@@ -441,6 +441,12 @@
   text-indent: var(--typo-indent);
 }
 
+/* Leadership-specific rules to remove indentation after specific elements */
+.leadershipPage.fakePage main .bodyImage + p,
+.leadershipPage.fakePage main h3 + p {
+  text-indent: 0;
+}
+
 .fakePage main > p b {
   font-family: var(--ff-narkis-yair);
   font-size: 1.4rem;
