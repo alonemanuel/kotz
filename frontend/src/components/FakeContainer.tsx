@@ -317,17 +317,26 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
                     {attr.author_about && <h3>{attr.author_about}</h3>}
                   </div>
                 )}
-                <div className={styles.articleIconWrapper}>
-                  <img
-                    src={
-                      path === "leadership" && hoveredArticleIndex === index && article.attributes.body_img?.data
-                        ? article.attributes.body_img?.data?.attributes.url
-                        : article.attributes.icon?.data
-                          ? article.attributes.icon?.data?.attributes.url
-                          : articleIcon
-                    }
-                    className={styles.articleIcon}
-                  ></img>
+                <div className={`${styles.articleIconWrapper} ${path === "leadership" && hoveredArticleIndex === index ? styles.hovered : ""}`}>
+                  {path === "leadership" ? (
+                    <img
+                      src={
+                        (hoveredArticleIndex === index || activeIndex === index) && article.attributes.body_img?.data
+                          ? article.attributes.body_img?.data?.attributes.url
+                          : article.attributes.icon?.data
+                            ? article.attributes.icon?.data?.attributes.url
+                            : articleIcon
+                      }
+                      className={styles.articleIcon}
+                      alt="Article icon"
+                    />
+                  ) : (
+                    <img
+                      src={article.attributes.icon?.data ? article.attributes.icon?.data?.attributes.url : articleIcon}
+                      className={styles.articleIcon}
+                      alt="Article icon"
+                    />
+                  )}
                 </div>
               </div>
             );
@@ -376,19 +385,37 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
                     } as React.CSSProperties
                   }
                 >
-                  <div className={styles.articleIconWrapper}>
-                    <img
-                      src={
-                        path === "leadership" && hoveredArticleIndex === index && article.attributes.body_img?.data
-                          ? article.attributes.body_img?.data?.attributes.url
-                          : article.attributes.icon?.data
-                            ? article.attributes.icon?.data?.attributes.url
-                            : articleIcon
-                      }
-                      className={styles.articleIcon}
-                    ></img>
+                  <div className={`${styles.articleIconWrapper} ${path === "leadership" && hoveredArticleIndex === index ? styles.hovered : ""}`}>
+                    {path === "leadership" ? (
+                      <img
+                        src={
+                          (hoveredArticleIndex === index || activeIndex === index) && article.attributes.body_img?.data
+                            ? article.attributes.body_img?.data?.attributes.url
+                            : article.attributes.icon?.data
+                              ? article.attributes.icon?.data?.attributes.url
+                              : articleIcon
+                        }
+                        className={styles.articleIcon}
+                        alt="Article icon"
+                      />
+                    ) : (
+                      <img
+                        src={article.attributes.icon?.data ? article.attributes.icon?.data?.attributes.url : articleIcon}
+                        className={styles.articleIcon}
+                        alt="Article icon"
+                      />
+                    )}
                   </div>
                 </div>
+
+                {/* Body image for portrait mode */}
+                {/* {path === "leadership" && activeIndex === index && article.attributes.body_img?.data && (
+                  <img 
+                    src={article.attributes.body_img?.data?.attributes.url}
+                    className={styles.bodyImagePortrait}
+                    alt={attr.title || "Article image"}
+                  />
+                )} */}
 
                 <>
                   {(attr.author || attr.title) && (
@@ -457,13 +484,14 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
                                           {path === "leadership" ? (
                                             <img
                                               src={
-                                                hoveredArticleIndex === index && article.attributes.body_img?.data
+                                                (hoveredArticleIndex === index || activeIndex === index) && article.attributes.body_img?.data
                                                   ? article.attributes.body_img?.data?.attributes.url
                                                   : article.attributes.icon?.data
                                                     ? article.attributes.icon?.data?.attributes.url
                                                     : articleIcon
                                               }
                                               className={styles.articleIcon}
+                                              alt="Article icon"
                                             ></img>
                                           ) : (
                                             <img
@@ -473,6 +501,7 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
                                                   : articleIcon
                                               }
                                               className={styles.articleIcon}
+                                              alt="Article icon"
                                             ></img>
                                           )}
                                         </span>
