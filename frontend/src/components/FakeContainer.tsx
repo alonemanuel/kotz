@@ -104,11 +104,6 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
     setRandomIndices(indices);
   }, [articles]);
 
-  useEffect(() => {
-    if (hoveredArticleIndex !== null && path === "leadership") {
-      console.log(`Hovering article: ${articles[hoveredArticleIndex].attributes.title}`);
-    }
-  }, [hoveredArticleIndex, articles, path]);
 
   // Add touch class
   document.documentElement.classList.toggle(
