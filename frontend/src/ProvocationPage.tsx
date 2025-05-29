@@ -87,8 +87,8 @@ const ProvocationPage: React.FC = () => {
             </div>
             <div className={styles.details}>
               <hgroup>
-                <h3 onClick={() => navigate("/")}>קוץ</h3>
-                <h1 onClick={() => navigate("/")}>02</h1>
+                <h3 onClick={() => navigate("https://kotz.org.il/")}>קוץ</h3>
+                <h1 onClick={() => navigate("https://kotz.org.il/")}>02</h1>
                 <h2>פרובוקציה</h2>
               </hgroup>
             </div>
@@ -148,7 +148,7 @@ const ProvocationPage: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className={styles.kotzContainer} onClick={() => navigate("/")}>
+            <div className={styles.kotzContainer} onClick={() => navigate("https://kotz.org.il/")}>
               <img className={`${styles.starIcon}`} src={kotzCorner}></img>
             </div>
           </div>

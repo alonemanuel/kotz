@@ -253,7 +253,7 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
             <h2>03 פייק</h2>
           </div>
         </div>
-        <div className={styles.kotzIcon} onClick={() => navigate("/")}>
+        <div className={styles.kotzIcon} onClick={() => navigate("https://kotz.org.il/")}>
           <img src={fakeIcon} />
         </div>
         <div
@@ -317,7 +317,7 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
           </div>
           <div
             className={`${styles.kotzIcon} ${styles.titleWord}`}
-            onClick={() => navigate("/")}
+            onClick={() => navigate("https://kotz.org.il/")}
           >
             <img src={fakeIcon} />
           </div>

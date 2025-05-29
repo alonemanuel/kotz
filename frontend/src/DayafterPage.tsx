@@ -85,8 +85,8 @@ const DayafterPage: React.FC = () => {
             </div>
             <div className={styles.details}>
               <hgroup>
-                <h3 onClick={() => navigate("/")}>קוץ</h3>
-                <h1 onClick={() => navigate("/")}>05</h1>
+                <h3 onClick={() => navigate("https://kotz.org.il/")}>קוץ</h3>
+                <h1 onClick={() => navigate("https://kotz.org.il/")}>05</h1>
                 <h2>היום שאחרי</h2>
               </hgroup>
             </div>
@@ -146,7 +146,7 @@ const DayafterPage: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className={styles.kotzContainer} onClick={() => navigate("/")}>
+            <div className={styles.kotzContainer} onClick={() => navigate("https://kotz.org.il/")}>
               <img className={`${styles.starIcon}`} src={kotzCorner}></img>
             </div>
           </div>
