@@ -9,7 +9,7 @@
 }
 
 .dayafter.provocationPage > .bottomBar {
-  display: none;
+  /* display: none; */
 }
 
 .provocationPage > .bottomBar {
@@ -22,7 +22,7 @@
 }
 
 .noTouch .provocationPage > .bottomBar > .hamburger {
-  display: none;
+  /* display: none; */
 }
 
 .provocationPage > .bottomBar > .hamburger {
@@ -113,6 +113,10 @@
 .provocationPage > .bottomBar > .details > hgroup h1:active,
 .provocationPage > .bottomBar > .details > hgroup h3:active {
   scale: 1.2;
+}
+
+.dayafter.provocationPage > .bottomBar > .kotzContainer {
+  display: none;
 }
 
 .provocationPage > .bottomBar > .kotzContainer {
@@ -592,6 +596,11 @@
   text-align: end;
 }
 
+.dayafter.provocationPage article.video header h3 {
+  display: none;
+}
+
+
 .provocationPage article.popout header > hgroup > h3 {
   display: none;
 }
@@ -1014,6 +1023,10 @@ h3 + .provocationPage main > p {
 
 /* Landscape */
 @media (min-aspect-ratio: 1), (orientation: landscape) {
+  .dayafter.provocationPage > .bottomBar {
+    display: none;
+  }
+  
   .provocationPage > .bottomBar > .hamburger {
     display: none;
   }

@@ -1165,6 +1165,97 @@ export interface ApiItemArticleItemArticle extends Schema.CollectionType {
   };
 }
 
+export interface ApiLeadershipItemLeadershipItem extends Schema.CollectionType {
+  collectionName: 'leadership_items';
+  info: {
+    singularName: 'leadership-item';
+    pluralName: 'leadership-items';
+    displayName: 'Leadership Item';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    subtitle: Attribute.String;
+    author: Attribute.String;
+    body: Attribute.Blocks;
+    lead: Attribute.Text;
+    author_about: Attribute.Text;
+    order: Attribute.Integer & Attribute.DefaultTo<0>;
+    long_author_about: Attribute.Blocks;
+    url_title: Attribute.String;
+    color: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
+    icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    type: Attribute.Enumeration<['standard', 'interview', 'video']> &
+      Attribute.DefaultTo<'standard'>;
+    author_img: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    body_img: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    outside_img_vertical: Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    outside_img_horizontal: Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    terms: Attribute.Relation<
+      'api::leadership-item.leadership-item',
+      'oneToMany',
+      'api::leadership-term.leadership-term'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::leadership-item.leadership-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::leadership-item.leadership-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLeadershipTermLeadershipTerm extends Schema.CollectionType {
+  collectionName: 'leadership_terms';
+  info: {
+    singularName: 'leadership-term';
+    pluralName: 'leadership-terms';
+    displayName: 'Leadership Term';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    definition: Attribute.Text;
+    order: Attribute.Integer & Attribute.DefaultTo<0>;
+    body: Attribute.Blocks;
+    img: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::leadership-term.leadership-term',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::leadership-term.leadership-term',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPollPoll extends Schema.CollectionType {
   collectionName: 'polls';
   info: {
@@ -1424,6 +1515,8 @@ declare module '@strapi/types' {
       'api::fake-term.fake-term': ApiFakeTermFakeTerm;
       'api::issue.issue': ApiIssueIssue;
       'api::item-article.item-article': ApiItemArticleItemArticle;
+      'api::leadership-item.leadership-item': ApiLeadershipItemLeadershipItem;
+      'api::leadership-term.leadership-term': ApiLeadershipTermLeadershipTerm;
       'api::poll.poll': ApiPollPoll;
       'api::provocation-item.provocation-item': ApiProvocationItemProvocationItem;
       'api::provocation-term.provocation-term': ApiProvocationTermProvocationTerm;

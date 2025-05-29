@@ -18,7 +18,8 @@
   --ff-frankg: "FrankG";
   --ff-dayafter: "Dayafter";
   --ff-borders-david: "BordersDavid";
-
+  --ff-miriam-stencil: "MiriamStencil";
+  
   --fs-xl: clamp(3.5rem, 12vw + 1rem, 12rem);
   --fs-800: 9rem;
   --fs-700: 3rem;
@@ -35,7 +36,9 @@
   --color-black: #2b2b2b;
   --color-green: #27b769;
   --color-dark-green: #43885b;
-
+  --color-brown: #413025;
+  --color-cream: #FFF8EE;
+  
   --typo-indent: 3em;
 
   --ticker-height: 48px;

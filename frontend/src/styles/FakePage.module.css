@@ -10,6 +10,10 @@
   pointer-events: none;
 }
 
+.leadershipPage.fakePage .bodyImageWrapper {
+  display: none;
+}
+
 @media (max-width: 1500px) {
   .bodyImageWrapper {
     display: none;
@@ -36,6 +40,10 @@
 .fakePage article > main {
   padding: 24px;
   max-width: 80ch;
+}
+
+.leadershipPage.fakePage article > main {
+  align-self: flex-end;
 }
 
 /* Mobile */
@@ -136,6 +144,12 @@
   width: 100%;
   z-index: 0;
 }
+
+.fakePage.leadershipPage .terms {
+  background-color: var(--color-cream);
+  color: var(--color-brown);
+}
+
 .fakePage .terms .borderContainer {
   display: flex;
   flex-flow: column nowrap;
@@ -154,6 +168,11 @@
   font-style: normal;
   color: var(--color-black);
   margin: 0;
+}
+
+.fakePage.leadershipPage .terms h1 {
+  color: var(--color-brown);
+  background-color: var(--color-cream);
 }
 
 .fakePage .interview .terms h1::before {
@@ -204,6 +223,12 @@
   flex-grow: 1;
 }
 
+.fakePage.leadershipPage article {
+  color: var(--color-cream);
+  background-color: var(--color-brown);
+  gap: 0.3em;
+}
+
 .fakePage article header {
   background-color: var(--theme-color);
   display: flex;
@@ -213,6 +238,11 @@
   top: 0;
   color: black;
   z-index: 1;
+}
+
+.leadershipPage.fakePage article header {
+  background-color: var(--color-brown);
+  color: var(--color-cream);
 }
 
 .fakePage article header hgroup {
@@ -230,6 +260,12 @@
   line-height: 0.8em;
   color: black;
 }
+.fakePage.leadershipPage article header hgroup h1 {
+  font-family: var(--ff-miriam-stencil), var(--ff-futura);
+  color: var(--color-cream);
+  font-weight: 400;
+}
+
 .fakePage article header hgroup h1.title .altGlyph {
   font-feature-settings: "ss01" 1;
 }
@@ -263,6 +299,13 @@
   padding: 24px;
   line-height: 1.3;
   background-color: transparent;
+}
+
+.leadershipPage.fakePage .lead {
+  text-align: right;
+  padding-top: 0;
+  padding-inline: 8px;
+  letter-spacing: 0.4px;
 }
 
 .fakePage article .bodyImage {
@@ -333,6 +376,23 @@
   margin-block-end: 0;
 }
 
+.leadershipPage.fakePage main p:empty {
+  height: 1.5em;
+}
+
+.leadershipPage.fakePage main.interview p:empty + p {
+  text-indent: 0;
+}
+
+.leadershipPage.fakePage main.interview p:empty + p + p{
+  text-indent: 0;
+}
+
+/* Remove indentation from paragraphs after two consecutive empty paragraphs in leadership pages */
+.leadershipPage.fakePage main p:empty + p:empty + p {
+  text-indent: 0;
+}
+
 .fakePage main.interview h1::before {
   content: "";
   background-image: url(../images/other/paragraph-vector.svg);
@@ -344,6 +404,10 @@
   margin-inline-end: 0.5em;
   float: inline-start;
   background-position: center center;
+}
+
+.leadershipPage.fakePage main.interview h1::before {
+  content: none;
 }
 
 .fakePage main > p {
@@ -366,6 +430,12 @@
   transition: all 0.2s ease-out;
 }
 
+.fakePage.leadershipPage main > p a {
+    background-color: var(--color-cream);
+    color: var(--color-brown);
+    padding: 0em 0.2em;
+}
+
 .fakePage main > p a:hover {
   filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.5));
 }
@@ -376,6 +446,12 @@
 
 .fakePage main > p:not(:first-child) {
   text-indent: var(--typo-indent);
+}
+
+/* Leadership-specific rules to remove indentation after specific elements */
+.leadershipPage.fakePage main .bodyImage + p,
+.leadershipPage.fakePage main h3 + p {
+  text-indent: 0;
 }
 
 .fakePage main > p b {
@@ -414,6 +490,13 @@
   margin: 2em auto;
 }
 
+.fakePage.leadershipPage main > h3 {
+  font-family: var(--ff-narkis-yair);
+  color: var(--color-cream);
+  font-weight: 400;
+  text-align: start;
+}
+
 .fakePage hr {
   display: none;
 }
@@ -424,7 +507,6 @@
 .fakePage footer {
   font-family: var(--ff-narkis-yair);
   font-size: 1.4rem;
-
 }
 .fakePage footer > main {
   display: flex;
@@ -439,6 +521,10 @@
   margin-bottom: 0;
   max-width: fit-content;
   margin-right: 0;
+}
+
+.fakePage.leadershipPage footer > main {
+  background-color: transparent;
 }
 
 .fakePage footer > main > .imageContainer {
@@ -535,6 +621,16 @@
   }
   .fakePage article > main {
     max-width: 60ch;
+    padding-inline: 8px;
+  }
+
+  .leadershipPage.fakePage article > main {
+    align-self: unset;
+  }
+
+  .leadershipPage.fakePage .lead {
+    text-align: start;
+    padding-inline: 8px;
   }
 
   .fakePage footer > main {
@@ -545,4 +641,8 @@
   .fakePage footer > main .imageContainer > img {
     max-width: 30%;
   }
+}
+
+.fakePage.leadershipPage footer > main > .imageContainer > img {
+  max-width: 101px;
 }

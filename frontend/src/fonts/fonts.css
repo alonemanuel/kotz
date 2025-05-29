@@ -221,3 +221,10 @@
   font-weight: 700;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "MiriamStencil";
+  src: url("./miriam_stencil/Stencilz-Miriam.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}

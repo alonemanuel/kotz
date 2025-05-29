@@ -16,7 +16,7 @@ import { useOpenArticle } from "./OpenArticleContext";
 
 const images = [kabarImg, kabarImg, kabarImg, kabarImg, kabarImg, kabarImg];
 
-const FakePage: React.FC = () => {
+const LeadershipPage: React.FC = () => {
   const [articlesStrapi, setArticlesStrapi] = useState([]);
   const [termsStrapi, setTermsStrapi] = useState([]);
   const baseUrl = C.API_BASE_URL;
@@ -30,12 +30,12 @@ const FakePage: React.FC = () => {
 
   useEffect(() => {
     const fetchArticles = fetch(
-      `${C.API_BASE_URL}${C.FAKE_ITEMS_ENDPOINT}?sort[0]=order:asc&populate=deep`
+      `${C.API_BASE_URL}${C.LEADERSHIP_ITEMS_ENDPOINT}?sort[0]=order:asc&populate=deep`
     ).then((response: any) => {
       return response.json();
     });
     const fetchTerms = fetch(
-      `${C.API_BASE_URL}${C.FAKE_TERMS_ENDPOINT}?${C.API_SORT_ASCENDING}&${C.API_POPULATE_DEEP}`
+      `${C.API_BASE_URL}${C.LEADERSHIP_TERMS_ENDPOINT}?${C.API_SORT_ASCENDING}&${C.API_POPULATE_DEEP}`
     ).then((response: any) => {
       return response.json();
     });
@@ -57,13 +57,13 @@ const FakePage: React.FC = () => {
   
   return (
     <OpenArticleProvider>
-      <Layout className={layoutStyles.fakeLayout}>
-        <div className={`${styles.fakePage} ${isOpen ? styles.isOpen : ''}` }>
-          <FakeContainer articles={articlesStrapi} terms={termsStrapi} path="fake" />
+      <Layout className={`${layoutStyles.leadershipLayout} ${layoutStyles.fakeLayout}`}>
+        <div className={`${styles.fakePage} ${styles.leadershipPage} ${isOpen ? styles.isOpen : ''}` }>
+          <FakeContainer articles={articlesStrapi} terms={termsStrapi} path="leadership" />
         </div>
       </Layout>
     </OpenArticleProvider>
   );
 };
 
-export default FakePage;
+export default LeadershipPage;

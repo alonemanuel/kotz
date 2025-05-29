@@ -4,16 +4,43 @@
   height: 100%;
 }
 
+.fakeContainer.leadership .bodyContainer .accordionContainer .titleWord {
+  background-color: #413025 !important;
+  color: #fff8ee !important;
+  font-family: var(--ff-miriam-stencil);
+  flex-grow: 0;
+  padding-inline-end: 0.17em;
+  max-height: 1em;
+}
+
+.fakeContainer.leadership .bodyContainer .accordionContainer .titleWordOutlined {
+  color: transparent !important;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #fff;
+  transition: all 0.1s ease;
+}
+
+.fakeContainer.leadership .bodyContainer .accordionContainer .titleWord img {
+  max-height: 100%;
+}
+
 .accordionContainer {
   display: flex;
   flex-flow: row wrap;
   font-size: clamp(0px, min(9vw, 12vh), 100px);
 }
 
+.leadership .accordionContainer {
+  padding-inline-start: 12px;
+}
+
 .accordionContainer::after {
   content: "";
   background-color: #9ebde9;
   flex-grow: 1;
+}
+.leadership .accordionContainer::after {
+  background-color: #413025;
 }
 
 .accordionContainer .titleWord:nth-last-child(1),
@@ -31,6 +58,10 @@
   align-items: center;
   background-color: #e45d59;
   /* height: 10vh; */
+}
+
+.leadership .topBar {
+  background-color: var(--color-brown);
 }
 
 .titleWord {
@@ -80,6 +111,10 @@
   line-height: 0.7;
 }
 
+.leadership .accordionContainer .title {
+  letter-spacing: 0;
+}
+
 .accordionContainer .subtitle {
   font-family: var(--ff-narkis-yair);
   font-size: clamp(14px, min(2.2vh, 2.2vw), 18px);
@@ -126,6 +161,18 @@
   background-color: #9ebde9;
   /* overflow: hidden; */
   /* flex-grow: ; */
+}
+
+.leadership .accordionContainer {
+  background-color: #413025;
+}
+
+.leadership .accordionContainer.isOpen {
+  padding-inline-start: 0;
+}
+
+.leadership .accordionContainer.isNotOpen {
+  overflow-y: auto;
 }
 
 .accordionContainer .accordion {
@@ -189,6 +236,11 @@
   aspect-ratio: 1;
 }
 
+.leadership .topBarIcons .topBarIcon {
+  background-color: var(--color-brown);
+  aspect-ratio: unset;
+}
+
 .topBarIcons .topBarIcon.active {
   flex-grow: 1;
   /* flex-shrink: 0; */
@@ -205,6 +257,23 @@
   padding-inline: 0.4em;
   flex-grow: 1;
   /* flex-shrink: 0; */
+}
+
+.leadership .topBarIcons .topBarIcon .textContent {
+  display: none;
+}
+
+.leadership .topBarIcons .topBarIcon.active .textContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.leadership .topBarIcons .topBarIcon.active .textContent h1 {
+  display: flex;
+  color: var(--color-cream);
+  font-family: var(--ff-narkis-yair);
+  white-space: nowrap;
 }
 
 @media (max-width: 1400px) {
@@ -232,8 +301,16 @@
   max-height: 60px;
 }
 
+.leadership .topBarIcons .topBarIcon .articleIconWrapper .articleIcon {
+  max-height: 100px;
+}
+
 .topBarIcons .topBarIcon.active .articleIconWrapper {
   max-height: 100%;
+}
+
+.leadership .topBarIcons .topBarIcon.active .articleIconWrapper {
+  display: none;
 }
 
 .topBarIcons .topBarIcon.active .articleIconWrapper .articleIcon {
@@ -261,6 +338,13 @@
   position: relative;
   cursor: pointer;
   flex-shrink: 0;
+}
+
+.leadership .topBar .nameCorner {
+  background-color: var(--color-brown);
+  color: var(--color-cream);
+  font-family: var(--ff-narkis-yair);
+  font-weight: 400;
 }
 
 .topBar .backArrow {
@@ -334,7 +418,13 @@
   cursor: pointer;
   display: flex;
   flex-shrink: 0;
-  background-color: #E45D59;
+  background-color: #e45d59;
+}
+
+.leadership .topBar .kotzIcon,
+.leadership .accordionContainer .kotzIcon {
+  background-color: var(--color-brown);
+  align-items: center;
 }
 
 .accordionContainer .issueName {
@@ -364,6 +454,10 @@
   height: 100%;
 }
 
+.leadership .topBar .kotzIcon img {
+  max-height: 52px;
+}
+
 .accordionContainer.isOpen {
 }
 
@@ -388,6 +482,10 @@
   transition: color 0.1s ease-out;
 }
 
+.leadership .accordion {
+  background-color: var(--color-brown);
+}
+
 .accordion.active {
   top: 0;
   position: sticky;
@@ -408,6 +506,10 @@
   flex-grow: 1;
 }
 
+.leadership .panel {
+  background-color: var(--color-brown);
+  color: var(--color-cream);
+}
 .panel.active {
   display: flex;
 }
@@ -591,6 +693,15 @@
     overflow: visible;
   }
 
+  /* Show body image for active article in leadership page */
+  .leadership .accordionContainer.articleIsOpen .bodyImagePortrait {
+    display: block;
+    margin: 16px auto;
+    max-width: 90%;
+    max-height: 40vh;
+    border-radius: 8px;
+  }
+
   .accordionContainer.isOpen {
     flex-flow: column nowrap;
   }
@@ -619,6 +730,11 @@
     height: 100%;
   }
 
+  .leadership .accordionContainer.isOpen .articleIconWrapper .articleIcon {
+    max-height: 100%;
+    height: auto;
+  }
+  
   .accordionContainer.articleIsOpen:not(.active) .accordion {
     display: none;
   }
@@ -743,6 +859,11 @@
   .isOpen .topBar {
     height: 7vh;
     max-height: 70px;
+  }
+
+  .isOpen.leadership .topBar {
+    height: 10vh;
+    max-height: 130px;
   }
 
   .isOpen .topBar .kotzIcon {
@@ -953,6 +1074,10 @@
     font-size: 96px;
   }
 
+  .leadership .accordionContainer {
+    font-size: 120px;
+  }
+
   .accordionContainer .subtitle {
     font-size: 18px;
   }
@@ -1099,6 +1224,10 @@
     font-size: 38px;
   }
 
+  .leadership .accordionContainer {
+    font-size: 46px;
+  }
+
   .accordionContainer .subtitle {
     display: none;
   }
@@ -1123,6 +1252,12 @@
     width: 38px;
     max-width: 38px;
     min-width: 38px;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 600px) and (min-height: 400px) and (max-height: 700px) {
+  .leadership .accordionContainer {
+    font-size: 34px;
   }
 }
 
@@ -1195,6 +1330,10 @@
     font-size: 48px;
   }
 
+  .leadership .accordionContainer {
+    font-size: 98px;
+  }
+
   .accordionContainer .subtitle {
     display: none;
   }
@@ -1227,6 +1366,10 @@
     font-size: 48px;
   }
 
+  .leadership .accordionContainer {
+    font-size: 98px;
+  }
+
   .accordionContainer .subtitle {
     display: none;
   }
@@ -1251,6 +1394,12 @@
     width: 42px;
     max-width: 42px;
     min-width: 42px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1000px) and (min-height: 1000px) and (max-height: 2000px) {
+  .leadership .accordionContainer {
+    font-size: 82px;
   }
 }
 
@@ -1321,6 +1470,9 @@
 @media (min-width: 1000px) and (max-width: 1500px) and (min-height: 800px) and (max-height: 5000px) {
   .accordionContainer {
     font-size: 68px;
+  }
+  .leadership .accordionContainer {
+    font-size: 86px;
   }
 
   .accordionContainer .subtitle {

@@ -13,6 +13,7 @@ import { useOpenArticle } from "../OpenArticleContext";
 import userEvent from "@testing-library/user-event";
 import topArrowImg from "../images/other/up-arrow.svg";
 import articleIcon from "../images/sandbox/iconFake.png";
+import leadershipIcon from "../images/leadership-icon.png";
 import fakeIcon from "../images/fake-icon.png";
 import backArrow from "../images/back-arrow.png";
 
@@ -20,6 +21,7 @@ interface AccordionProps {
   // articles: Item[];
   articles: Article[];
   terms: Term[];
+  path: string;
 }
 
 function debounce(func: any, wait: number) {
@@ -82,16 +84,26 @@ function useResizeObservers(refs: any, dependency: number | null) {
 
   return dimensions;
 }
-const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
+const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
   const [randomIndices, setRandomIndices] = useState<number[]>([]);
+  const [hoveredArticleIndex, setHoveredArticleIndex] = useState<number | null>(null);
 
   useEffect(() => {
-    const indices = articles.map((article) => {
-      const words = article.attributes.title.split(" ");
-      return Math.floor(Math.random() * (words.length + 1));
-    });
+    let indices;
+    if (path === "leadership") {
+      indices = articles.map((article) => {
+        const words = article.attributes.title.split(" ");
+        return words.length - 1;
+      });
+    } else {
+      indices = articles.map((article) => {
+        const words = article.attributes.title.split(" ");
+        return Math.floor(Math.random() * (words.length + 1));
+      });
+    }
     setRandomIndices(indices);
   }, [articles]);
+
 
   // Add touch class
   document.documentElement.classList.toggle(
@@ -190,9 +202,9 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
       );
 
       const urlSuffix = normalizedUrl ? normalizedUrl : normalizedTitle;
-      navigate(`/fake/${urlSuffix}`, { replace: false });
+      navigate(`/${path}/${urlSuffix}`, { replace: false });
     } else {
-      navigate(`/fake`, { replace: false });
+      navigate(`/${path}`, { replace: false });
     }
 
     // If the accordion is being opened, scroll it into view
@@ -236,7 +248,7 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
     <div
       className={`${styles.fakeContainer} ${
         isOpen ? styles.isOpen : styles.isNotOpen
-      }`}
+      } ${path === "leadership" ? styles.leadership : styles.fake}`}
     >
       <div className={styles.topBar}>
         <div className={styles.nameCorner}>
@@ -244,17 +256,21 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
             className={styles.backArrow}
             onClick={() => toggleAccordion(activeIndex ?? 0)}
           >
-            <img src={backArrow} />
+            {path === "leadership" ? (
+              <span>חזור</span>
+            ) : (
+              <img src={backArrow} />
+            )}
           </div>
           <div className={styles.issueName}>
             <h1>
               קוץ <span className={styles.dash}>—</span>
             </h1>
-            <h2>03 פייק</h2>
+            {true ? <h2>מנהיגות 06</h2> : <h2>03 פייק</h2>}
           </div>
         </div>
         <div className={styles.kotzIcon} onClick={() => navigate("https://kotz.org.il/")}>
-          <img src={fakeIcon} />
+          <img src={path === "leadership" ? leadershipIcon : fakeIcon} />
         </div>
         <div
           className={`${styles.topBarIcons} ${
@@ -271,32 +287,51 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                   activeIndex === index ? styles.active : ""
                 } ${isOpen ? styles.articleIsOpen : styles.articleIsNotOpen}`}
                 onClick={() => toggleAccordion(index)}
+                onMouseEnter={path === "leadership" ? () => setHoveredArticleIndex(index) : undefined}
+                onMouseLeave={path === "leadership" ? () => setHoveredArticleIndex(null) : undefined}
                 style={
                   {
                     "--theme-color": `${
                       article.attributes.color
                         ? article.attributes.color
-                        : "black"
+                        : "pink"
                     }`,
                   } as React.CSSProperties
                 }
               >
                 {(attr.author || attr.title) && (
                   <div className={styles.textContent}>
-                    {attr.title && <h1>{attr.title}</h1>}
+                    {attr.title && (
+                      <h1>
+                        {path === "leadership"
+                          ? `[ ${attr.author} ]`
+                          : attr.title}
+                      </h1>
+                    )}
                     {attr.subtitle && <h2>{`[ ${attr.subtitle} ]`}</h2>}
                     {attr.author_about && <h3>{attr.author_about}</h3>}
                   </div>
                 )}
-                <div className={styles.articleIconWrapper}>
-                  <img
-                    src={
-                      article.attributes.icon?.data
-                        ? article.attributes.icon?.data?.attributes.url
-                        : articleIcon
-                    }
-                    className={styles.articleIcon}
-                  ></img>
+                <div className={`${styles.articleIconWrapper} ${path === "leadership" && hoveredArticleIndex === index ? styles.hovered : ""}`}>
+                  {path === "leadership" ? (
+                    <img
+                      src={
+                        (hoveredArticleIndex === index || activeIndex === index) && article.attributes.body_img?.data
+                          ? article.attributes.body_img?.data?.attributes.url
+                          : article.attributes.icon?.data
+                            ? article.attributes.icon?.data?.attributes.url
+                            : articleIcon
+                      }
+                      className={styles.articleIcon}
+                      alt="Article icon"
+                    />
+                  ) : (
+                    <img
+                      src={article.attributes.icon?.data ? article.attributes.icon?.data?.attributes.url : articleIcon}
+                      className={styles.articleIcon}
+                      alt="Article icon"
+                    />
+                  )}
                 </div>
               </div>
             );
@@ -313,13 +348,14 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
             <h1>
               קוץ <span className={styles.dash}>—</span>
             </h1>
-            <h2>03 פייק</h2>
+            {true? <h2>מנהיגות 06</h2>:<h2>03 פייק</h2>}
           </div>
           <div
             className={`${styles.kotzIcon} ${styles.titleWord}`}
             onClick={() => navigate("https://kotz.org.il/")}
           >
-            <img src={fakeIcon} />
+                      <img src={path === "leadership" ? leadershipIcon : fakeIcon} />
+
           </div>
           {articles.map((article, index) => {
             const attr = article.attributes;
@@ -332,27 +368,49 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                     activeIndex === index ? styles.active : ""
                   } ${isOpen ? styles.articleIsOpen : styles.articleIsNotOpen}`}
                   onClick={() => toggleAccordion(index)}
+                  onMouseEnter={path === "leadership" ? () => setHoveredArticleIndex(index) : undefined}
+                  onMouseLeave={path === "leadership" ? () => setHoveredArticleIndex(null) : undefined}
                   style={
                     {
                       "--theme-color": `${
                         article.attributes.color
                           ? article.attributes.color
-                          : "black"
+                          : "pink"
                       }`,
                     } as React.CSSProperties
                   }
                 >
-                  <div className={styles.articleIconWrapper}>
-                    <img
-                      src={
-                        article.attributes.icon?.data
-                          ? article.attributes.icon?.data?.attributes.url
-                          : articleIcon
-                      }
-                      className={styles.articleIcon}
-                    ></img>
+                  <div className={`${styles.articleIconWrapper} ${path === "leadership" && hoveredArticleIndex === index ? styles.hovered : ""}`}>
+                    {path === "leadership" ? (
+                      <img
+                        src={
+                          (hoveredArticleIndex === index || activeIndex === index) && article.attributes.body_img?.data
+                            ? article.attributes.body_img?.data?.attributes.url
+                            : article.attributes.icon?.data
+                              ? article.attributes.icon?.data?.attributes.url
+                              : articleIcon
+                        }
+                        className={styles.articleIcon}
+                        alt="Article icon"
+                      />
+                    ) : (
+                      <img
+                        src={article.attributes.icon?.data ? article.attributes.icon?.data?.attributes.url : articleIcon}
+                        className={styles.articleIcon}
+                        alt="Article icon"
+                      />
+                    )}
                   </div>
                 </div>
+
+                {/* Body image for portrait mode */}
+                {/* {path === "leadership" && activeIndex === index && article.attributes.body_img?.data && (
+                  <img 
+                    src={article.attributes.body_img?.data?.attributes.url}
+                    className={styles.bodyImagePortrait}
+                    alt={attr.title || "Article image"}
+                  />
+                )} */}
 
                 <>
                   {(attr.author || attr.title) && (
@@ -376,6 +434,34 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
 
                                   return (
                                     <React.Fragment key={i}>
+                                      <span
+                                        className={`${styles.titleWord} ${
+                                          styles.title
+                                        } ${
+                                          isEnglishWord
+                                            ? styles.englishWord
+                                            : ""
+                                        } ${
+                                          path === "leadership" && hoveredArticleIndex === index 
+                                            ? styles.titleWordOutlined 
+                                            : ""
+                                        }`}
+                                        onClick={() => toggleAccordion(index)}
+                                        onMouseEnter={path === "leadership" ? () => setHoveredArticleIndex(index) : undefined}
+                                        onMouseLeave={path === "leadership" ? () => setHoveredArticleIndex(null) : undefined}
+                                        style={
+                                          {
+                                            "--theme-color": `${
+                                              article.attributes.color
+                                                ? article.attributes.color
+                                                : "pink"
+                                            }`,
+                                          } as React.CSSProperties
+                                        }
+                                      >
+                                        {word}{" "}
+                                      </span>
+
                                       {i === randomIndex && (
                                         <span
                                           className={`${styles.titleWord} ${styles.titleIcon}`}
@@ -385,43 +471,36 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                                               "--theme-color": `${
                                                 article.attributes.color
                                                   ? article.attributes.color
-                                                  : "black"
+                                                  : "pink"
                                               }`,
                                             } as React.CSSProperties
                                           }
                                         >
-                                          <img
-                                            src={
-                                              article.attributes.icon?.data
-                                                ? article.attributes.icon?.data
-                                                    ?.attributes.url
-                                                : articleIcon
-                                            }
-                                            className={styles.articleIcon}
-                                          ></img>
+                                          {path === "leadership" ? (
+                                            <img
+                                              src={
+                                                (hoveredArticleIndex === index || activeIndex === index) && article.attributes.body_img?.data
+                                                  ? article.attributes.body_img?.data?.attributes.url
+                                                  : article.attributes.icon?.data
+                                                    ? article.attributes.icon?.data?.attributes.url
+                                                    : articleIcon
+                                              }
+                                              className={styles.articleIcon}
+                                              alt="Article icon"
+                                            ></img>
+                                          ) : (
+                                            <img
+                                              src={
+                                                article.attributes.icon?.data
+                                                  ? article.attributes.icon?.data?.attributes.url
+                                                  : articleIcon
+                                              }
+                                              className={styles.articleIcon}
+                                              alt="Article icon"
+                                            ></img>
+                                          )}
                                         </span>
                                       )}
-                                      <span
-                                        className={`${styles.titleWord} ${
-                                          styles.title
-                                        } ${
-                                          isEnglishWord
-                                            ? styles.englishWord
-                                            : ""
-                                        }`}
-                                        onClick={() => toggleAccordion(index)}
-                                        style={
-                                          {
-                                            "--theme-color": `${
-                                              article.attributes.color
-                                                ? article.attributes.color
-                                                : "black"
-                                            }`,
-                                          } as React.CSSProperties
-                                        }
-                                      >
-                                        {word}{" "}
-                                      </span>
                                     </React.Fragment>
                                   );
                                 });
@@ -432,14 +511,20 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                       )}
                       {attr.subtitle && (
                         <span
-                          className={`${styles.titleWord} ${styles.subtitle}`}
+                          className={`${styles.titleWord} ${styles.subtitle} ${
+                            path === "leadership" && hoveredArticleIndex === index 
+                              ? styles.titleWordOutlined 
+                              : ""
+                          }`}
                           onClick={() => toggleAccordion(index)}
+                          onMouseEnter={path === "leadership" ? () => setHoveredArticleIndex(index) : undefined}
+                          onMouseLeave={path === "leadership" ? () => setHoveredArticleIndex(null) : undefined}
                           style={
                             {
                               "--theme-color": `${
                                 article.attributes.color
                                   ? article.attributes.color
-                                  : "black"
+                                  : "pink"
                               }`,
                               "--max-chars": `${Math.ceil(
                                 attr.subtitle.length / 2.8
@@ -478,7 +563,7 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms }) => {
                     "--theme-color": `${
                       article.attributes.color
                         ? article.attributes.color
-                        : "black"
+                        : "pink"
                     }`,
                   } as React.CSSProperties
                 }
