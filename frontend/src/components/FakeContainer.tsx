@@ -269,7 +269,7 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
             {true ? <h2>מנהיגות 06</h2> : <h2>03 פייק</h2>}
           </div>
         </div>
-        <div className={styles.kotzIcon} onClick={() => navigate("https://kotz.org.il/")}>
+        <div className={styles.kotzIcon} onClick={() => window.location.assign("https://kotz.org.il/")}>
           <img src={path === "leadership" ? leadershipIcon : fakeIcon} />
         </div>
         <div
@@ -352,7 +352,7 @@ const FakeContainer: React.FC<AccordionProps> = ({ articles, terms, path }) => {
           </div>
           <div
             className={`${styles.kotzIcon} ${styles.titleWord}`}
-            onClick={() => navigate("https://kotz.org.il/")}
+            onClick={() => window.location.assign("https://kotz.org.il/")}
           >
                       <img src={path === "leadership" ? leadershipIcon : fakeIcon} />
 

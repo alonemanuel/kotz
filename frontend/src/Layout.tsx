@@ -22,7 +22,7 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
 
   const navigate = useNavigate();
   const handleKotzClick = () => {
-    navigate("https://kotz.org.il/");
+    window.location.assign("https://kotz.org.il/");
   };
 
   const { isOpen, closeArticle } = useOpenArticle();
@@ -57,8 +57,8 @@ const Layout: React.FC<LayoutProps> = ({ children, className }) => {
       {
         <nav className={`${styles.layoutNav} ${className}`}>
           <hgroup>
-            <h3 onClick={() => navigate("https://kotz.org.il/")}>קוץ</h3>
-            <h1 onClick={() => navigate("https://kotz.org.il/")}>
+            <h3 onClick={() => window.location.assign("https://kotz.org.il/")}>קוץ</h3>
+            <h1 onClick={() => window.location.assign("https://kotz.org.il/")}>
               {className === styles.bordersLayout ? "04" : "01"}
             </h1>
             <h2
